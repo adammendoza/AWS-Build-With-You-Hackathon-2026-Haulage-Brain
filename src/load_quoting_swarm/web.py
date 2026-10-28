@@ -1,8 +1,12 @@
 from __future__ import annotations
 
 import argparse
+import base64
+import binascii
 import json
 import mimetypes
+import os
+import secrets
 import webbrowser
 from datetime import datetime
 from http import HTTPStatus
@@ -21,6 +25,23 @@ ASSET_DIR = Path(__file__).with_name("web_assets")
 ASSET_NAMES = (
     "index.html", "app.css", "app.js", "atmosphere.js", "easter-eggs.js", "haunted-road.jpg"
 )
+
+
+def _basic_auth_valid(
+    authorization: str | None, username: str, password: str
+) -> bool:
+    if not authorization or not authorization.startswith("Basic "):
+        return False
+    try:
+        decoded = base64.b64decode(
+            authorization.removeprefix("Basic ").strip(), validate=True
+        ).decode("utf-8")
+        supplied_username, supplied_password = decoded.split(":", 1)
+    except (ValueError, UnicodeDecodeError, binascii.Error):
+        return False
+    username_matches = secrets.compare_digest(supplied_username, username)
+    password_matches = secrets.compare_digest(supplied_password, password)
+    return username_matches and password_matches
 
 
 def _pickup_at(load: dict[str, Any]) -> datetime:
@@ -131,9 +152,32 @@ class LoadboardState:
             )
 
 
-def make_handler(state: LoadboardState, runs: AnalysisRunManager | None = None):
+def make_handler(
+    state: LoadboardState,
+    runs: AnalysisRunManager | None = None,
+    *,
+    auth_username: str | None = None,
+    auth_password: str | None = None,
+):
     class Handler(BaseHTTPRequestHandler):
         server_version = "HaulageBrain/0.1"
+
+        def _authorized(self) -> bool:
+            if auth_username is None and auth_password is None:
+                return True
+            if not auth_username or not auth_password or not _basic_auth_valid(
+                self.headers.get("Authorization"), auth_username, auth_password
+            ):
+                self.send_response(HTTPStatus.UNAUTHORIZED)
+                self.send_header(
+                    "WWW-Authenticate",
+                    'Basic realm="Haulage Brain Demo", charset="UTF-8"',
+                )
+                self.send_header("Content-Length", "0")
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                return False
+            return True
 
         def _json(self, value: Any, status: HTTPStatus = HTTPStatus.OK) -> None:
             payload = json.dumps(value, ensure_ascii=False).encode("utf-8")
@@ -168,6 +212,8 @@ def make_handler(state: LoadboardState, runs: AnalysisRunManager | None = None):
             self.wfile.write(payload)
 
         def do_GET(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler API
+            if not self._authorized():
+                return
             path = urlparse(self.path).path
             try:
                 if path in {"/api/loads", "/api/loads.json"}:
@@ -191,6 +237,8 @@ def make_handler(state: LoadboardState, runs: AnalysisRunManager | None = None):
                 self._json({"error": str(exc)}, HTTPStatus.INTERNAL_SERVER_ERROR)
 
         def do_POST(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler API
+            if not self._authorized():
+                return
             path = urlparse(self.path).path
             if path not in {"/api/decision", "/api/runs"}:
                 self.send_error(HTTPStatus.NOT_FOUND)
@@ -244,10 +292,23 @@ def main() -> int:
         raise SystemExit(f"load fixture not found: {args.loads}")
     state = LoadboardState(args.loads, args.ledger)
     runs = AnalysisRunManager(args.loads, args.fleet)
-    server = ThreadingHTTPServer((args.host, args.port), make_handler(state, runs))
+    auth_username = os.getenv("DEMO_USERNAME")
+    auth_password = os.getenv("DEMO_PASSWORD")
+    if bool(auth_username) != bool(auth_password):
+        raise SystemExit("DEMO_USERNAME and DEMO_PASSWORD must be configured together")
+    server = ThreadingHTTPServer(
+        (args.host, args.port),
+        make_handler(
+            state,
+            runs,
+            auth_username=auth_username,
+            auth_password=auth_password,
+        ),
+    )
     url = f"http://{args.host}:{args.port}"
     print(f"Haulage Brain UI: {url}")
     print(f"Fixture: {args.loads} · Ledger: {args.ledger}")
+    print(f"Authentication: {'enabled' if auth_username else 'disabled'}")
     if args.open_browser:
         webbrowser.open(url)
     try:

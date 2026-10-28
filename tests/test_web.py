@@ -1,13 +1,26 @@
+import base64
 import json
 from pathlib import Path
 
 import pytest
 
 from load_quoting_swarm.ledger import LedgerError
-from load_quoting_swarm.web import LoadboardState
+from load_quoting_swarm.web import LoadboardState, _basic_auth_valid
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _basic_header(username: str, password: str) -> str:
+    token = base64.b64encode(f"{username}:{password}".encode()).decode()
+    return f"Basic {token}"
+
+
+def test_basic_auth_accepts_only_matching_credentials() -> None:
+    assert _basic_auth_valid(_basic_header("demo", "secret"), "demo", "secret")
+    assert not _basic_auth_valid(_basic_header("demo", "wrong"), "demo", "secret")
+    assert not _basic_auth_valid("Basic not-base64", "demo", "secret")
+    assert not _basic_auth_valid(None, "demo", "secret")
 
 
 def test_updated_fixture_and_summary(tmp_path: Path) -> None:
