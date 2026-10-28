@@ -82,6 +82,10 @@ class LoadboardState:
             if item.get("rate_per_mile") is not None
         ]
         return {
+            "deployment": {
+                "mode": "server",
+                "decision_store": "append-only booking ledger",
+            },
             "summary": {
                 "loads": len(loads),
                 "available": sum(item.get("status") == "Available" for item in loads),
@@ -125,7 +129,7 @@ class LoadboardState:
 
 def make_handler(state: LoadboardState):
     class Handler(BaseHTTPRequestHandler):
-        server_version = "LoadQuotingSwarm/0.1"
+        server_version = "HaulageBrain/0.1"
 
         def _json(self, value: Any, status: HTTPStatus = HTTPStatus.OK) -> None:
             payload = json.dumps(value, ensure_ascii=False).encode("utf-8")
@@ -160,7 +164,7 @@ def make_handler(state: LoadboardState):
         def do_GET(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler API
             path = urlparse(self.path).path
             try:
-                if path == "/api/loads":
+                if path in {"/api/loads", "/api/loads.json"}:
                     self._json(state.payload())
                 elif path == "/api/raw":
                     self._json(state.raw_loads())
@@ -197,7 +201,7 @@ def make_handler(state: LoadboardState):
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="load-swarm-ui")
+    parser = argparse.ArgumentParser(prog="haulage-brain-ui")
     parser.add_argument("--loads", type=Path, default=Path("data/loads_v2.json"))
     parser.add_argument(
         "--ledger", type=Path, default=Path("var/booking-ledger.jsonl")
@@ -215,7 +219,7 @@ def main() -> int:
     state = LoadboardState(args.loads, args.ledger)
     server = ThreadingHTTPServer((args.host, args.port), make_handler(state))
     url = f"http://{args.host}:{args.port}"
-    print(f"Load-Quoting Swarm UI: {url}")
+    print(f"Haulage Brain UI: {url}")
     print(f"Fixture: {args.loads} · Ledger: {args.ledger}")
     if args.open_browser:
         webbrowser.open(url)

@@ -1,4 +1,5 @@
-const state = { loads: [], summary: {}, filtered: [] };
+const state = { loads: [], summary: {}, filtered: [], deploymentMode: "server" };
+const DECISIONS_KEY = "haulage-brain-demo-decisions";
 const $ = (selector) => document.querySelector(selector);
 const escapeHtml = (value) => String(value ?? "")
   .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
@@ -138,7 +139,24 @@ function toast(message, error = false) {
 async function decide(loadId, decision, button) {
   button.disabled = true;
   try {
-    const response = await fetch("/api/decision", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ load_id: loadId, decision, manager: $("#manager").value }) });
+    if (state.deploymentMode === "static-demo") {
+      const decisions = JSON.parse(localStorage.getItem(DECISIONS_KEY) || "{}");
+      const result = {
+        load_id: loadId,
+        status: decision === "APPROVE" ? "BOOKED" : "PASSED",
+        human_decision: decision,
+        manager: $("#manager").value.trim() || "Fleet Manager",
+        at: new Date().toISOString(),
+      };
+      decisions[`Q-${loadId}`] = result;
+      localStorage.setItem(DECISIONS_KEY, JSON.stringify(decisions));
+      const load = state.loads.find((item) => String(item.load_id) === String(loadId));
+      if (load) load.ledger = result;
+      toast(`${loadId}: ${result.status} by ${result.manager} (browser demo)`);
+      applyFilters();
+      return;
+    }
+    const response = await fetch("api/decision", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ load_id: loadId, decision, manager: $("#manager").value }) });
     const result = await response.json();
     if (!response.ok) throw new Error(result.error || "Decision failed");
     toast(`${loadId}: ${result.status} by ${result.manager}`);
@@ -150,10 +168,16 @@ async function decide(loadId, decision, button) {
 }
 
 async function loadData(initial = true) {
-  const response = await fetch("/api/loads");
+  const response = await fetch("api/loads");
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || "Could not load fixture");
+  state.deploymentMode = data.deployment?.mode || "server";
   state.loads = data.loads;
+  if (state.deploymentMode === "static-demo") {
+    const decisions = JSON.parse(localStorage.getItem(DECISIONS_KEY) || "{}");
+    state.loads.forEach((load) => { load.ledger = decisions[`Q-${load.load_id}`] || null; });
+    $(".environment").textContent = "GitHub Pages demo · decisions stay in this browser";
+  }
   state.summary = data.summary;
   renderSummary();
   if (initial) populateFilters();
@@ -161,8 +185,8 @@ async function loadData(initial = true) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  $("#manager").value = localStorage.getItem("load-swarm-manager") || "Fleet Manager";
-  $("#manager").addEventListener("change", (event) => localStorage.setItem("load-swarm-manager", event.target.value));
+  $("#manager").value = localStorage.getItem("haulage-brain-manager") || "Fleet Manager";
+  $("#manager").addEventListener("change", (event) => localStorage.setItem("haulage-brain-manager", event.target.value));
   ["#search", "#status", "#vehicle", "#sort", "#per-mile"].forEach((selector) => $(selector).addEventListener(selector === "#search" ? "input" : "change", applyFilters));
   $("#loads").addEventListener("click", (event) => {
     const button = event.target.closest("button[data-action]");

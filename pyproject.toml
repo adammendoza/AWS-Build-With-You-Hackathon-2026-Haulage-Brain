@@ -3,9 +3,9 @@ requires = ["setuptools>=75"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "load-quoting-swarm"
+name = "haulage-brain"
 version = "0.1.0"
-description = "Human-gated agent swarm for UK freight load pricing"
+description = "Haulage Brain: human-gated agent swarm for UK freight load pricing"
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
 dependencies = [
@@ -19,6 +19,9 @@ dev = [
 ]
 
 [project.scripts]
+haulage-brain = "load_quoting_swarm.cli:main"
+haulage-brain-ui = "load_quoting_swarm.web:main"
+# Backwards-compatible aliases for the original hackathon prototype.
 load-swarm = "load_quoting_swarm.cli:main"
 load-swarm-ui = "load_quoting_swarm.web:main"
 
@@ -32,6 +35,6 @@ where = ["src"]
 load_quoting_swarm = ["web_assets/*"]
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
+pythonpath = ["src", "."]
 testpaths = ["tests"]
 addopts = "-q"

@@ -17,7 +17,7 @@ from .pipeline import QuotePipeline
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="load-swarm")
+    parser = argparse.ArgumentParser(prog="haulage-brain")
     subcommands = parser.add_subparsers(dest="command", required=True)
 
     ingest = subcommands.add_parser("ingest", help="ingest and route Available loads")

@@ -1,6 +1,6 @@
-# Load-Quoting Swarm
+# Haulage Brain
 
-An Open Haunt agent swarm that evaluates UK freight loads, produces evidence-backed quotes, and keeps the fleet manager in control of every booking decision.
+Haulage Brain is an Open Haunt agent swarm that evaluates UK freight loads, produces evidence-backed quotes, and keeps the fleet manager in control of every booking decision.
 
 ## The problem
 
@@ -184,7 +184,7 @@ pip install -e '.[dev]'
 Start the browser loadboard and open <http://127.0.0.1:8765>:
 
 ```bash
-load-swarm-ui --open
+haulage-brain-ui --open
 ```
 
 The UI loads all 89 simulated records, filters by status and vehicle, shows the supplied PRD quote breakdown, and writes explicit Approve/Pass actions to `var/booking-ledger.jsonl`.
@@ -192,13 +192,13 @@ The UI loads all 89 simulated records, filters by status and vehicle, shows the 
 Verify the first milestone—ingest Available loads and route the first three by vehicle/category:
 
 ```bash
-load-swarm ingest --loads data/loads_v2.json --limit 3 --crewai
+haulage-brain ingest --loads data/loads_v2.json --limit 3 --crewai
 ```
 
 Run the complete offline safety test. Its market data, inference, fleet, and loads are explicitly synthetic and do not count as live partner usage:
 
 ```bash
-load-swarm run \
+haulage-brain run \
   --loads data/loads_v2.json \
   --fleet config/fleet.demo.json \
   --limit 3 \
@@ -209,9 +209,45 @@ load-swarm run \
 Approve one pending quote as the human fleet manager, then inspect the ledger:
 
 ```bash
-load-swarm decide Q-90857138 APPROVE --manager "fleet-manager"
-load-swarm ledger
+haulage-brain decide Q-90857138 APPROVE --manager "fleet-manager"
+haulage-brain ledger
 ```
+
+The original `load-swarm` and `load-swarm-ui` commands remain as compatibility aliases.
+
+## GitHub Pages
+
+Every push to `main` runs `.github/workflows/pages.yml`. The workflow validates all
+89 calculated prices against `data/expected_quotes_v2.json`, builds the loadboard,
+and deploys it to GitHub Pages. The Pages build needs no API keys because it displays
+the checked fixture and deterministic quote results.
+
+GitHub Pages is static hosting, so its Approve/Pass controls are explicitly a browser
+demo and persist only in that browser's local storage. Run the Python server locally
+or deploy it to an application host when decisions must write to the append-only
+booking ledger.
+
+To reproduce the Pages artifact locally:
+
+```bash
+PYTHONPATH=src python scripts/build_pages.py --output _site
+python -m http.server 8000 --directory _site
+```
+
+Then open <http://127.0.0.1:8000>.
+
+## When API keys are required
+
+| Service | Credential/setup | Needed when |
+|---|---|---|
+| You.com | `YDC_API_KEY` | Running `haulage-brain run --live`; it grounds diesel and restriction inputs that change the price. |
+| Parasail | `PARASAIL_API_KEY` and `PARASAIL_MODEL` | Running `haulage-brain run --live`; specialists and the supervisor use it for inference. |
+| One | `ONE_DISCORD_CONNECTION_KEY`, `ONE_DISCORD_CHANNEL_ID`, authenticated One CLI | Adding `--discord` to publish the recommendation to Discord. |
+| CrewAI | No service key in the current local Flow | Ingest/routing and scoped memory run in-process; a key is only needed if CrewAI is later configured to call a hosted model directly. |
+
+Put local credentials in an uncommitted `.env` or export them in the shell. GitHub
+Pages must never receive these keys: any secret shipped to browser JavaScript is
+public. A future hosted backend should receive them through its secret manager.
 
 ## Run with the scored partners
 
@@ -230,7 +266,7 @@ load-swarm ledger
 6. Run all 41 Available loads with bounded concurrency:
 
    ```bash
-   load-swarm run \
+   haulage-brain run \
      --live \
      --loads data/loads_v2.json \
      --fleet config/fleet.local.json \
