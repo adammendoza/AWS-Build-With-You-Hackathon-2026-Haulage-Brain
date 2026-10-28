@@ -168,7 +168,7 @@ async function decide(loadId, decision, button) {
 }
 
 async function loadData(initial = true) {
-  const response = await fetch("api/loads");
+  const response = await fetch(`api/loads?v=${Date.now()}`, { cache: "no-store" });
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || "Could not load fixture");
   state.deploymentMode = data.deployment?.mode || "server";
