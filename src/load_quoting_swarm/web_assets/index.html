@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#261f29" />
     <title>Haulage Brain · Dispatch workspace</title>
-    <link rel="stylesheet" href="app.css?v=6" />
+    <link rel="stylesheet" href="app.css?v=7" />
   </head>
   <body>
     <a class="skip-link" href="#workspace">Skip to loadboard</a>
@@ -42,7 +42,14 @@
         </button>
       </nav>
       <div class="sidebar-note">
-        <span class="small-orbit" aria-hidden="true">☾</span
+        <button
+          type="button"
+          class="small-orbit moon-egg"
+          id="moon-egg"
+          aria-label="Wake the night watch"
+          title="Still awake?"
+        >
+          ☾</button
         ><strong>A little supernatural.<br />Always human-led.</strong>
         <p>Every booking starts with an explicit manager decision.</p>
       </div>
@@ -53,6 +60,9 @@
       </div>
     </aside>
     <div class="app-shell">
+      <div class="haunted-backdrop" aria-hidden="true">
+        <canvas id="page-haunt"></canvas>
+      </div>
       <header class="app-bar">
         <div class="breadcrumb">
           Workspace <span>/</span> <strong id="view-label">Loadboard</strong>
@@ -102,30 +112,31 @@
       </header>
       <main id="workspace">
         <section class="hero halloween-hero" aria-labelledby="hero-title">
-          <canvas id="haunt-fog" class="haunt-fog" aria-hidden="true"></canvas>
-          <svg
-            class="corner-web"
-            viewBox="0 0 200 150"
-            aria-hidden="true"
-            fill="none"
-          >
-            <path
-              d="M200 0 40 12M200 0 60 60M200 0 108 112M200 0 170 150M200 0 200 150M161 3Q163 17 175 16Q173 30 184 34Q181 48 194 50M122 6Q125 34 150 33Q145 59 169 66Q164 92 190 99M82 9Q88 51 126 50Q119 88 154 99Q146 136 184 148"
-              stroke="currentColor"
-              stroke-width=".7"
+          <div class="road-scene" aria-hidden="true">
+            <img
+              id="road-photo"
+              src="haunted-road.jpg"
+              alt=""
+              width="1800"
+              height="1800"
+              fetchpriority="high"
+              draggable="false"
             />
-          </svg>
+            <canvas id="haunt-fog" class="haunt-fog"></canvas>
+            <span class="scene-caption"
+              >THE LAST DELIVERY <span> / </span> HALLOWEEN INTERACTIVE</span
+            >
+            <span class="scene-whisper" id="scene-whisper"
+              >SOMETHING IS OUT THERE.</span
+            >
+          </div>
           <div class="hero-copy">
             <p class="eyebrow edition-eyebrow">
               <span class="edition-star" aria-hidden="true">✳</span> THE OPEN
-              HAUNT <span class="edition-divider">/</span> HALLOWEEN EDITION ’26
+              HAUNT <span class="edition-divider">/</span> DISPATCH AFTER DARK
             </p>
-            <h1 id="hero-title">
-              <span>Freight without</span> <em>the fright.</em>
-            </h1>
-            <p class="intro">
-              Know the route. Check the quote. You make the call.
-            </p>
+            <h1 id="hero-title"><span>The graveyard</span> <em>shift.</em></h1>
+            <p class="intro">Check the route. Check the quote. Get home.</p>
             <div class="hero-actions">
               <button class="button dark" id="review-next">
                 Review next load <span aria-hidden="true">↗</span></button
@@ -152,22 +163,16 @@
               >
             </div>
           </div>
-          <div class="hero-art" aria-hidden="true">
-            <div class="lantern-glow"></div>
-            <img
-              class="lantern-still-life"
-              src="haunt-lantern.png"
-              alt=""
-              width="480"
-              height="320"
-              fetchpriority="high"
-            /><span class="specimen-label"
-              >FIG. 01 <span> / </span> THE NIGHT SHIFT</span
-            >
-          </div>
-          <span class="edition-seal" aria-hidden="true"
-            >BUILT FOR<br /><b>THE OPEN<br />HAUNT</b><br />SF · OCT 28</span
+          <button
+            type="button"
+            class="scene-sweep"
+            id="scene-sweep"
+            aria-label="Sweep a torch through the haunted road"
           >
+            <span class="torch-icon" aria-hidden="true">↗</span
+            ><span id="scene-action-label">Sweep the fog</span
+            ><small id="scene-help">or move your light across the trees</small>
+          </button>
         </section>
         <section class="overview" aria-label="Loadboard summary" id="summary">
           <div class="metric">
@@ -279,12 +284,20 @@
           <span
             ><span class="demo-dot"></span> Sample data. Real decision
             discipline.</span
+          ><button
+            type="button"
+            id="footer-egg"
+            class="footer-egg"
+            title="Or type BOO while you’re outside a text field"
+          >
+            ☾ Still here?</button
           ><span id="storage-label"
             >Manager decisions are saved to the local booking ledger.</span
           >
         </footer>
       </main>
     </div>
+    <canvas id="spider-haunt" aria-hidden="true"></canvas>
     <dialog id="json-dialog">
       <header>
         <div>
@@ -382,7 +395,8 @@
       </div>
     </dialog>
     <div id="toast" role="status" aria-live="polite"></div>
-    <script src="atmosphere.js?v=1" defer></script>
+    <script src="atmosphere.js?v=3" defer></script>
+    <script src="easter-eggs.js?v=1" defer></script>
     <script src="app.js?v=6" defer></script>
   </body>
 </html>

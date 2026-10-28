@@ -4,7 +4,7 @@
 
 **A haunted dispatch desk, in daylight.** Haulage Brain helps a fleet manager understand a route, compare a posted rate with a calculated quote, and make an explicit decision. The interface should feel like a working product within the first ten seconds of a demo.
 
-The Halloween edition uses ivory paper, aubergine ink, burnt-orange accents, an editorial serif masthead, and a realistic pumpkin lantern beside a dispatch radio. The operational queue and inspector retain clear sans-serif type, opaque surfaces, and semantic pricing colors. Seasonal personality belongs around the work; route, quote, and approval remain literal and easy to read.
+The Halloween edition uses ivory paper, aubergine ink, burnt-orange accents, an editorial serif masthead, and a real foggy forest-road photograph with a hand-built torch-and-apparition interaction. There are no generated images in the rendered interface. The operational queue and inspector retain clear sans-serif type, opaque surfaces, and semantic pricing colors. Seasonal personality belongs around the work; route, quote, and approval remain literal and easy to read.
 
 ## Research and interpretation
 
@@ -86,7 +86,7 @@ The existing backend remains the authority for legal state transitions. BOOKED m
 - Local server: reads the fixture and appends explicit decisions to `var/booking-ledger.jsonl`.
 - GitHub Pages: uses the same UI with a conspicuous browser-demo label; decisions persist in that browser’s localStorage only.
 - Source-data dialog exposes the original fixture without enrichment fields.
-- The generated artwork is committed as a local transparent PNG. No runtime image APIs, external fonts, mapping services, or new dependencies are required. `atmosphere.js` and the image are served through the local asset allowlist and copied into the Pages artifact.
+- The credited photograph is committed as a local JPEG. No runtime image APIs, external fonts, mapping services, or new dependencies are required. `atmosphere.js` and the image are served through the local asset allowlist and copied into the Pages artifact.
 
 ## Responsive and accessible behavior
 
@@ -110,19 +110,43 @@ Source: `src/load_quoting_swarm/web_assets/index.html`, `app.css`, and `app.js`.
 
 Before shipping a visual change: inspect the rendered screen, check responsive overflow, exercise filters and selection, verify dialog cancellation and submission states, run quote/ledger tests, and build the static artifact. Test decisions with an isolated ledger, rather than adding QA decisions to the manager’s working ledger.
 
-## Halloween atmosphere and usability contract
+## Halloween interaction: the graveyard shift
 
-- **Light mode stays light.** Warm paper is the reading surface. Aubergine navigation and burnt orange provide the Halloween character; positive pricing remains green and review/reprice retain their existing text labels.
-- **One atmospheric region.** The canvas is clipped to the right side of the masthead, under the artwork. A faint corner web and a small edition seal are static decoration. All decorative surfaces are hidden from assistive technology; the canvas uses `pointer-events: none`.
-- **Realistic, restrained motion.** Layered fractal-noise sprites produce a slow mist, rather than confetti or particles. Pointer movement gently parts the haze and shifts the still life by at most 3.5px horizontally / 2px vertically. There is no click interception, custom cursor, audio, jump scare, or blinking content.
-- **A persistent off switch.** The header’s Atmospheric effects button turns off fog, local glow, and parallax. The preference is saved when browser storage is available. The remaining artwork stays static. Its state reads On, Off, or Still.
-- **Respect attention and hardware.** Motion is disabled for reduced-motion users, coarse pointers, and widths at or below 740px. Mobile and reduced-motion layouts retain a still illustration. Animation pauses when the masthead leaves the viewport, the tab becomes hidden, or any dialog opens. Only one frame loop runs, with at most 24 fog composites per second and a 1.5x pixel-ratio cap.
-- **Progressive enhancement.** A missing canvas context or disabled storage must never prevent the loadboard, filters, manager controls, replay, or decisions from working. A JavaScript-disabled page still shows the static masthead.
+The seasonal scene is a small ghost story embedded in the workspace background. The road photograph, imperfect light, and slow reveal should feel photographic and uncanny. Avoid toy-like 3D props, emoji decoration, visual polish that looks like a generated product render, and random particles.
 
-### Artwork provenance
+### Inspiration and acclaim
 
-Asset: `src/load_quoting_swarm/web_assets/haunt-lantern.png` (1536 × 1024, alpha channel; transparent corners verified). Generated with the built-in imagegen tool on 28 October 2026. The original generated file is preserved separately. The PNG is a decorative studio still life, not evidence of live product activity.
+- [Lusion — Awwwards Site of the Day, 20 May 2019](https://www.awwwards.com/sites/lusion): an awarded reference for direct, real-time interaction. Borrow the principle of a scene responding to a person; the implementation here is original and uses Canvas 2D.
+- [The Sleepers, by Thibaut Foussard, documented on Codrops](https://tympanus.net/codrops/2026/07/10/the-sleepers-creating-an-atmospheric-webgl-experience-with-lightweight-techniques/): a useful technical reference for depth, moving noise, and economical atmospheric effects. This is a technique reference, not a claim that our interface or that project won a hackathon.
 
-Final generation prompt:
+### The actual interaction
 
-> Use case: photorealistic-natural, website decorative hero cutout. Create a single exquisitely detailed studio still life for a premium Halloween freight-dispatch dashboard in LIGHT MODE. A small weathered burnt-orange carved jack-o-lantern with subtle, intelligent narrow eyes and a warm candle glow sits on a low worn timber cargo crate. Beside it a small vintage dark charcoal handheld dispatch radio, coiled cable, a folded unmarked paper route sheet; a couple of dry autumn leaves. Believable photographic materials, real pumpkin ridges, brushed aged metal, realistic translucent smoky haze curling very gently behind the pumpkin, soft directional late-afternoon light and deep aubergine shadows. Quiet uncanny cinematic editorial product photography; sophisticated, tactile, restrained, not cartoon, not emoji, not gore, no text or writing anywhere, no logos, no spooky typography. Three quarter view, eye-level slightly above. Compact horizontal composition, the objects fill the center-right, all objects fully visible with generous empty margins. True transparent background, transparent outside the physical objects and subtle local grounding shadow; no white rectangular background, no dark background, no scenery. Designed to look good as a 320px-wide cutout on ivory parchment. Output a landscape transparent PNG.
+- The hero contains a real monochrome forest-road photograph with two depths of irregular mist. Moving a pointer over the trees carries a soft pool of light and a diffuse light shaft through the fog. A short clearing trail fills back in as the pointer moves away. A distant, indistinct cloaked silhouette appears only as the beam approaches it.
+- **Sweep the fog** performs an approximately three-second torch sweep, ending at the apparition. **Look again** repeats the scan. This is a decorative scene, with no API calls and no connection to load recommendations or approval.
+- On touch screens, narrow viewports, and reduced-motion settings, the button reveals/resets a still scene immediately. It never forces a moving sequence.
+- The same photograph appears very faintly in the outer workspace background. Data panels remain opaque. All canvas decoration has `pointer-events: none`; interactions belong to the explicit scene button, moon, footer clue, and a keyboard Easter egg. The default pointer and all freight controls retain their normal behavior.
+- **Atmospheric effects** remains a persistent On / Off / Still control. Turning it off stops both renderers, disables the sweep and Easter-egg buttons, and removes the photographic wash around the workspace. Easter eggs never override this preference. The static hero photograph remains visible.
+- The header renderer pauses when the hero leaves the viewport. The separate page-wide renderer works at every scroll position, wakes only for pointer movement, scrolling, or deliberate summons, and sleeps after its short activity window. Both pause for hidden tabs and dialogs. Each owns one loop capped at 24 frames per second; pixel ratio is capped at 1.5x for the header and 1.25x for page-wide effects. No sound, flashing, strobing, sudden full-screen changes, scroll hijacking, or click interception.
+- Missing canvas support or blocked storage must not affect the loadboard. A missing canvas disables the decorative scan. Browser-demo and synthetic-data labels stay visible at narrow breakpoints.
+
+### Photograph and license
+
+Asset: `src/load_quoting_swarm/web_assets/haunted-road.jpg`, 1800 × 1800, approximately 578 KiB. **A road through a foggy forest with tall trees**, by **JOHN TOWNER**, published 2 August 2016, photographed on a Sony ILCE-7M2.
+
+- [Original photo and photographer credit](https://unsplash.com/photos/a-road-through-a-foggy-forest-with-tall-trees-d7y2-B0_TRU)
+- [Unsplash License](https://unsplash.com/license): permits downloading and using the photo, including in commercial projects. It is included here as a local project asset, not fetched from a third-party service at runtime.
+- Display treatment: CSS monochrome and contrast, responsive crop, plus original procedural fog, light, and silhouette overlays. The photograph itself is preserved as downloaded.
+- All scene imagery is photographic. The silhouette, fog, light shaft, and short clearing trail are original procedural overlays.
+
+Atmosphere lifecycle checks: `node --test tests/atmosphere.test.cjs`. These verify a single owned animation loop, pause/resume boundaries, an explicit reveal, static touch/reduced-motion behavior, persistence, and unavailable browser capabilities without calling providers.
+
+### Page-wide Easter eggs
+
+`easter-eggs.js` adds small discoveries throughout the workspace:
+
+- Pointer-controlled light moves through the photographic background around opaque work surfaces. A distant figure peeks around the loadboard’s outer edge when the light approaches it.
+- Scrolling leaves a few fading boot prints in the outside gutter. They never cross rows, values, or buttons.
+- Hovering the brand can wake a spider that descends into empty navigation space. Its thread and legs remain outside the navigation items and sidebar copy.
+- The sidebar moon and **Still here?** footer clue deliberately wake the visitors. Typing **BOO** outside editable fields is an additional shortcut. Modified key chords, text fields, contenteditable regions, and open dialogs are excluded.
+- With reduced motion, touch, or narrow screens, explicit summons render a still composition. There is no automatic chase or moving drop on these devices.
+- The background canvas is below the main content; the spider’s foreground canvas draws only in measured navigation whitespace. Both ignore pointer events. Light mode, native scrolling, search, manager entry, and approval flow stay operational.

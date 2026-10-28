@@ -105,9 +105,9 @@ def test_theme_assets_are_served_locally_and_in_pages(tmp_path: Path) -> None:
                 body = response.read()
                 assert response.status == 200
                 assert body == (output / path).read_bytes()
-                if path.endswith(".png"):
-                    assert response.headers["Content-Type"] == "image/png"
-                    assert body.startswith(b"\x89PNG\r\n\x1a\n")
+                if path.endswith(".jpg"):
+                    assert response.headers["Content-Type"] == "image/jpeg"
+                    assert body.startswith(b"\xff\xd8\xff")
     finally:
         server.shutdown()
         server.server_close()

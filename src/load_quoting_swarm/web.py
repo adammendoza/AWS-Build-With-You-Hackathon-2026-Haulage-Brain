@@ -19,7 +19,7 @@ from .pricing import quote
 
 ASSET_DIR = Path(__file__).with_name("web_assets")
 ASSET_NAMES = (
-    "index.html", "app.css", "app.js", "atmosphere.js", "haunt-lantern.png"
+    "index.html", "app.css", "app.js", "atmosphere.js", "easter-eggs.js", "haunted-road.jpg"
 )
 
 
