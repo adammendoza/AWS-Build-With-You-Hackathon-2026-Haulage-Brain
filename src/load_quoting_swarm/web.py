@@ -3,6 +3,9 @@ from __future__ import annotations
 import argparse
 import base64
 import binascii
+import hashlib
+import hmac
+import html
 import json
 import mimetypes
 import os
@@ -14,7 +17,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from threading import Lock
 from typing import Any
-from urllib.parse import urlparse
+from http.cookies import CookieError, SimpleCookie
+from urllib.parse import parse_qs, urlparse
 
 from .analysis_runs import AnalysisRunManager
 from .ledger import BookingLedger, LedgerError
@@ -23,8 +27,14 @@ from .pricing import quote
 
 ASSET_DIR = Path(__file__).with_name("web_assets")
 ASSET_NAMES = (
-    "index.html", "app.css", "app.js", "atmosphere.js", "easter-eggs.js", "haunted-road.jpg"
+    "index.html",
+    "app.css",
+    "app.js",
+    "atmosphere.js",
+    "easter-eggs.js",
+    "haunted-road.jpg",
 )
+SESSION_COOKIE = "haulage_brain_session"
 
 
 def _basic_auth_valid(
@@ -42,6 +52,38 @@ def _basic_auth_valid(
     username_matches = secrets.compare_digest(supplied_username, username)
     password_matches = secrets.compare_digest(supplied_password, password)
     return username_matches and password_matches
+
+
+def _session_token(username: str, password: str) -> str:
+    message = f"haulage-brain-demo-session-v1:{username}".encode("utf-8")
+    return hmac.new(password.encode("utf-8"), message, hashlib.sha256).hexdigest()
+
+
+def _session_cookie_valid(
+    cookie_header: str | None, username: str, password: str
+) -> bool:
+    if not cookie_header:
+        return False
+    try:
+        cookies = SimpleCookie()
+        cookies.load(cookie_header)
+        supplied = cookies[SESSION_COOKIE].value
+    except (CookieError, KeyError):
+        return False
+    return secrets.compare_digest(supplied, _session_token(username, password))
+
+
+def _resolve_parameter(name: str) -> None:
+    parameter_name = os.getenv(f"{name}_PARAMETER")
+    if os.getenv(name) or not parameter_name:
+        return
+    import boto3
+
+    response = boto3.client("ssm").get_parameter(
+        Name=parameter_name,
+        WithDecryption=True,
+    )
+    os.environ[name] = response["Parameter"]["Value"]
 
 
 def _pickup_at(load: dict[str, Any]) -> datetime:
@@ -162,22 +204,96 @@ def make_handler(
     class Handler(BaseHTTPRequestHandler):
         server_version = "HaulageBrain/0.1"
 
-        def _authorized(self) -> bool:
+        def _has_valid_auth(self) -> bool:
             if auth_username is None and auth_password is None:
                 return True
-            if not auth_username or not auth_password or not _basic_auth_valid(
-                self.headers.get("Authorization"), auth_username, auth_password
-            ):
-                self.send_response(HTTPStatus.UNAUTHORIZED)
-                self.send_header(
-                    "WWW-Authenticate",
-                    'Basic realm="Haulage Brain Demo", charset="UTF-8"',
-                )
-                self.send_header("Content-Length", "0")
-                self.send_header("Cache-Control", "no-store")
-                self.end_headers()
+            if not auth_username or not auth_password:
                 return False
-            return True
+            return _basic_auth_valid(
+                self.headers.get("Authorization"), auth_username, auth_password
+            ) or _session_cookie_valid(
+                self.headers.get("Cookie"), auth_username, auth_password
+            )
+
+        def _require_auth(self, path: str) -> bool:
+            if self._has_valid_auth():
+                return True
+            if path.startswith("/api/"):
+                self._json(
+                    {"error": "authentication required"}, HTTPStatus.UNAUTHORIZED
+                )
+            else:
+                self._redirect("/login")
+            return False
+
+        def _redirect(self, location: str, *, cookie: str | None = None) -> None:
+            self.send_response(HTTPStatus.SEE_OTHER)
+            self.send_header("Location", location)
+            if cookie:
+                self.send_header("Set-Cookie", cookie)
+            self.send_header("Content-Length", "0")
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+
+        def _login_page(self, *, invalid: bool = False) -> None:
+            error = (
+                '<p class="error" role="alert">Incorrect username or password.</p>'
+                if invalid
+                else ""
+            )
+            username = html.escape(auth_username or "", quote=True)
+            payload = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · Haulage Brain</title>
+  <style>
+    :root {{ color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, sans-serif; }}
+    * {{ box-sizing: border-box; }}
+    body {{ min-height: 100vh; margin: 0; display: grid; place-items: center; background: #11130f; color: #f4f6ef; }}
+    main {{ width: min(92vw, 420px); padding: 34px; border: 1px solid #45543a; border-radius: 16px; background: #1b1e18; box-shadow: 0 24px 70px #0008; }}
+    .eyebrow {{ color: #8dc65e; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }}
+    h1 {{ margin: 8px 0; font-size: 30px; }}
+    .intro {{ margin: 0 0 24px; color: #b8bdb3; line-height: 1.5; }}
+    label {{ display: block; margin: 16px 0 7px; color: #d9ddd4; font-weight: 700; }}
+    input {{ width: 100%; padding: 13px 14px; border: 1px solid #4a5045; border-radius: 9px; background: #10120e; color: white; font: inherit; }}
+    input:focus {{ outline: 2px solid #78b84a; border-color: transparent; }}
+    button {{ width: 100%; margin-top: 22px; padding: 13px; border: 0; border-radius: 9px; background: #70ad45; color: #0d1408; font: inherit; font-weight: 900; cursor: pointer; }}
+    button:hover {{ background: #84c455; }}
+    .error {{ padding: 10px 12px; border-radius: 8px; background: #481f1f; color: #ffbcbc; }}
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Fleet operations demo</div>
+    <h1>Haulage Brain</h1>
+    <p class="intro">Sign in to review loads, run the agent swarm, and approve quotes.</p>
+    {error}
+    <form method="post" action="/login">
+      <label for="username">Username</label>
+      <input id="username" name="username" value="{username}" autocomplete="username" required autofocus>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+      <button type="submit">Sign in</button>
+    </form>
+  </main>
+</body>
+</html>""".encode("utf-8")
+            self.send_response(
+                HTTPStatus.UNAUTHORIZED if invalid else HTTPStatus.OK
+            )
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("X-Content-Type-Options", "nosniff")
+            self.send_header(
+                "Content-Security-Policy",
+                "default-src 'none'; style-src 'unsafe-inline'; "
+                "form-action 'self'; base-uri 'none'; frame-ancestors 'none'",
+            )
+            self.end_headers()
+            self.wfile.write(payload)
 
         def _json(self, value: Any, status: HTTPStatus = HTTPStatus.OK) -> None:
             payload = json.dumps(value, ensure_ascii=False).encode("utf-8")
@@ -212,9 +328,27 @@ def make_handler(
             self.wfile.write(payload)
 
         def do_GET(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler API
-            if not self._authorized():
-                return
             path = urlparse(self.path).path
+            if path == "/health":
+                self._json({"status": "ok"})
+                return
+            if path == "/login":
+                if self._has_valid_auth():
+                    self._redirect("/")
+                else:
+                    self._login_page()
+                return
+            if path == "/logout":
+                self._redirect(
+                    "/login",
+                    cookie=(
+                        f"{SESSION_COOKIE}=; Path=/; Secure; HttpOnly; "
+                        "SameSite=Strict; Max-Age=0"
+                    ),
+                )
+                return
+            if not self._require_auth(path):
+                return
             try:
                 if path in {"/api/loads", "/api/loads.json"}:
                     self._json(state.payload())
@@ -237,9 +371,36 @@ def make_handler(
                 self._json({"error": str(exc)}, HTTPStatus.INTERNAL_SERVER_ERROR)
 
         def do_POST(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler API
-            if not self._authorized():
-                return
             path = urlparse(self.path).path
+            if path == "/login":
+                length = int(self.headers.get("Content-Length", "0"))
+                if length > 4_096:
+                    self.send_error(HTTPStatus.REQUEST_ENTITY_TOO_LARGE)
+                    return
+                form = parse_qs(
+                    self.rfile.read(length).decode("utf-8", errors="replace")
+                )
+                username = (form.get("username") or [""])[0]
+                password = (form.get("password") or [""])[0]
+                if (
+                    auth_username
+                    and auth_password
+                    and secrets.compare_digest(username, auth_username)
+                    and secrets.compare_digest(password, auth_password)
+                ):
+                    token = _session_token(auth_username, auth_password)
+                    self._redirect(
+                        "/",
+                        cookie=(
+                            f"{SESSION_COOKIE}={token}; Path=/; Secure; HttpOnly; "
+                            "SameSite=Strict; Max-Age=28800"
+                        ),
+                    )
+                else:
+                    self._login_page(invalid=True)
+                return
+            if not self._require_auth(path):
+                return
             if path not in {"/api/decision", "/api/runs"}:
                 self.send_error(HTTPStatus.NOT_FOUND)
                 return
@@ -287,6 +448,8 @@ def main() -> int:
     from dotenv import find_dotenv, load_dotenv
 
     load_dotenv(find_dotenv(usecwd=True))
+    for secret_name in ("YDC_API_KEY", "PARASAIL_API_KEY", "DEMO_PASSWORD"):
+        _resolve_parameter(secret_name)
     args = build_parser().parse_args()
     if not args.loads.exists():
         raise SystemExit(f"load fixture not found: {args.loads}")
