@@ -103,7 +103,7 @@ class LoadboardState:
     def decide(self, body: dict[str, Any]) -> dict[str, Any]:
         load_id = str(body.get("load_id") or "")
         decision = str(body.get("decision") or "").upper()
-        manager = str(body.get("manager") or "Fleet Manager").strip()
+        manager = str(body.get("manager") or "").strip() or "Fleet Manager"
         load = next(
             (item for item in self.raw_loads() if str(item.get("load_id")) == load_id),
             None,

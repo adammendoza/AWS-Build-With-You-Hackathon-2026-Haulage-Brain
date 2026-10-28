@@ -53,3 +53,17 @@ def test_ui_rejects_decision_for_non_available_load(tmp_path: Path) -> None:
         state.decide(
             {"load_id": loads[0]["load_id"], "decision": "APPROVE", "manager": "Adam"}
         )
+
+
+@pytest.mark.parametrize("manager", ["", "   ", None])
+def test_ui_blank_manager_uses_default(tmp_path: Path, manager: str | None) -> None:
+    state = LoadboardState(
+        ROOT / "data/loads_v2.json", tmp_path / "booking-ledger.jsonl"
+    )
+    load = state.raw_loads()[0]
+
+    event = state.decide(
+        {"load_id": load["load_id"], "decision": "APPROVE", "manager": manager}
+    )
+
+    assert event["manager"] == "Fleet Manager"
