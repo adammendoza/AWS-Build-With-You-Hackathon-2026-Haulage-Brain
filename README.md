@@ -350,7 +350,7 @@ tests/                        Pricing, routing, ULEZ, parallelism, and approval 
 
 ```bash
 pytest
-node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs
+node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs tests/easter-eggs.test.cjs
 ```
 
 The JavaScript UI checks use Node.js 20+ and cover manager name saving, reloads, decision attribution, and unavailable browser storage.
