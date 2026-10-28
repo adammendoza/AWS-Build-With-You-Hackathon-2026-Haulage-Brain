@@ -14,7 +14,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from load_quoting_swarm.web import ASSET_DIR, LoadboardState  # noqa: E402
+from load_quoting_swarm.web import ASSET_DIR, ASSET_NAMES, LoadboardState  # noqa: E402
 
 
 EXPECTED_FIELDS = (
@@ -77,7 +77,7 @@ def build(output: Path) -> None:
     }
 
     (output / "api").mkdir(parents=True, exist_ok=True)
-    for name in ("index.html", "app.css", "app.js"):
+    for name in ASSET_NAMES:
         shutil.copy2(ASSET_DIR / name, output / name)
     (output / "api" / "loads").write_text(
         json.dumps(payload, ensure_ascii=False, separators=(",", ":")),

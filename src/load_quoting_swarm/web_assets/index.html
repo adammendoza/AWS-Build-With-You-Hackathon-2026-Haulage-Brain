@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#191e1b" />
+    <meta name="theme-color" content="#261f29" />
     <title>Haulage Brain · Dispatch workspace</title>
-    <link rel="stylesheet" href="app.css?v=5" />
+    <link rel="stylesheet" href="app.css?v=7" />
   </head>
   <body>
     <a class="skip-link" href="#workspace">Skip to loadboard</a>
@@ -15,7 +15,7 @@
         ><span class="brand-mark" aria-hidden="true">h<span>↗</span></span
         ><span
           >haulage<span class="brand-light">brain</span
-          ><small>THE DISPATCH WORKSPACE</small></span
+          ><small>THE AFTER-HOURS DISPATCH DESK</small></span
         ></a
       >
       <div class="workspace-label">WORKSPACE <span>UK / GBP</span></div>
@@ -42,44 +42,136 @@
         </button>
       </nav>
       <div class="sidebar-note">
-        <span class="small-orbit" aria-hidden="true">✳</span
-        ><strong>Intelligence assists.<br />You make the call.</strong>
+        <button
+          type="button"
+          class="small-orbit moon-egg"
+          id="moon-egg"
+          aria-label="Wake the night watch"
+          title="Still awake?"
+        >
+          ☾</button
+        ><strong>A little supernatural.<br />Always human-led.</strong>
         <p>Every booking starts with an explicit manager decision.</p>
       </div>
       <div class="sidebar-footer">
         <span class="demo-dot"></span> SIMULATED WORKSPACE<small
-          >Open Haunt · SF 2026</small
+          >Open Haunt · Halloween ’26</small
         >
       </div>
     </aside>
     <div class="app-shell">
+      <div class="haunted-backdrop" aria-hidden="true">
+        <canvas id="page-haunt"></canvas>
+      </div>
       <header class="app-bar">
         <div class="breadcrumb">
           Workspace <span>/</span> <strong id="view-label">Loadboard</strong>
         </div>
         <div class="header-right">
+          <button
+            class="atmosphere-toggle"
+            id="atmosphere-toggle"
+            type="button"
+            aria-label="Atmospheric effects"
+            aria-pressed="false"
+            title="Toggle decorative fog; your workspace stays the same"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              width="16"
+              height="16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 15V8a6 6 0 0 1 12 0v7l-3-1-3 2-3-2-3 1Z"
+                stroke="currentColor"
+                stroke-width="1.2"
+              />
+              <circle cx="8" cy="8" r=".8" fill="currentColor" />
+              <circle cx="12" cy="8" r=".8" fill="currentColor" />
+            </svg>
+            <span class="atmosphere-label">Atmosphere</span
+            ><span id="atmosphere-state">Off</span>
+          </button>
           <span class="environment">Synthetic UK loads</span
-          ><span class="avatar" aria-hidden="true">FM</span
-          ><div class="manager-field">
+          ><span class="avatar" aria-hidden="true">FM</span>
+          <div class="manager-field">
             <label class="sr-only" for="manager">Manager name</label>
-            <input id="manager" placeholder="Fleet Manager" aria-describedby="manager-status" autocomplete="name" />
-            <span id="manager-status" role="status">Used for Approve / Pass</span>
+            <input
+              id="manager"
+              placeholder="Fleet Manager"
+              aria-describedby="manager-status"
+              autocomplete="name"
+            />
+            <span id="manager-status" role="status"
+              >Used for Approve / Pass</span
+            >
           </div>
         </div>
       </header>
       <main id="workspace">
-        <section class="hero">
-          <div>
-            <p class="eyebrow">
-              <span></span> FREIGHT INTELLIGENCE, HUMAN CONTROL
-            </p>
-            <h1>A better call. Every load.</h1>
-            <p class="intro">
-              Find the right work. Understand the numbers. Move with confidence.
-            </p>
+        <section class="hero halloween-hero" aria-labelledby="hero-title">
+          <div class="road-scene" aria-hidden="true">
+            <img
+              id="road-photo"
+              src="haunted-road.jpg"
+              alt=""
+              width="1800"
+              height="1800"
+              fetchpriority="high"
+              draggable="false"
+            />
+            <canvas id="haunt-fog" class="haunt-fog"></canvas>
+            <span class="scene-caption"
+              >THE LAST DELIVERY <span> / </span> HALLOWEEN INTERACTIVE</span
+            >
+            <span class="scene-whisper" id="scene-whisper"
+              >SOMETHING IS OUT THERE.</span
+            >
           </div>
-          <button class="button dark" id="review-next">
-            Review next load <span aria-hidden="true">↗</span>
+          <div class="hero-copy">
+            <p class="eyebrow edition-eyebrow">
+              <span class="edition-star" aria-hidden="true">✳</span> THE OPEN
+              HAUNT <span class="edition-divider">/</span> DISPATCH AFTER DARK
+            </p>
+            <h1 id="hero-title"><span>The graveyard</span> <em>shift.</em></h1>
+            <p class="intro">Check the route. Check the quote. Get home.</p>
+            <div class="hero-actions">
+              <button class="button dark" id="review-next">
+                Review next load <span aria-hidden="true">↗</span></button
+              ><span class="human-note"
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m10 2 6 3v5c0 4-6 7-6 7s-6-3-6-7V5l6-3Z"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  />
+                  <path
+                    d="m7 9 2 2 4-4"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  />
+                </svg>
+                Human approval. Every time.</span
+              >
+            </div>
+          </div>
+          <button
+            type="button"
+            class="scene-sweep"
+            id="scene-sweep"
+            aria-label="Sweep a torch through the haunted road"
+          >
+            <span class="torch-icon" aria-hidden="true">↗</span
+            ><span id="scene-action-label">Sweep the fog</span
+            ><small id="scene-help">or move your light across the trees</small>
           </button>
         </section>
         <section class="overview" aria-label="Loadboard summary" id="summary">
@@ -192,12 +284,20 @@
           <span
             ><span class="demo-dot"></span> Sample data. Real decision
             discipline.</span
+          ><button
+            type="button"
+            id="footer-egg"
+            class="footer-egg"
+            title="Or type BOO while you’re outside a text field"
+          >
+            ☾ Still here?</button
           ><span id="storage-label"
             >Manager decisions are saved to the local booking ledger.</span
           >
         </footer>
       </main>
     </div>
+    <canvas id="spider-haunt" aria-hidden="true"></canvas>
     <dialog id="json-dialog">
       <header>
         <div>
@@ -295,6 +395,8 @@
       </div>
     </dialog>
     <div id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=5" defer></script>
+    <script src="atmosphere.js?v=3" defer></script>
+    <script src="easter-eggs.js?v=1" defer></script>
+    <script src="app.js?v=6" defer></script>
   </body>
 </html>

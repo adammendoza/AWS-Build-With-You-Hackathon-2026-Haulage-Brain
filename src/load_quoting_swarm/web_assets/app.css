@@ -1,17 +1,18 @@
 :root {
-  --canvas: #f6f7f2;
+  --canvas: #faf7f1;
   --paper: #fff;
-  --ink: #202820;
-  --muted: #6a736b;
-  --line: #e2e6dd;
-  --dark: #191e1b;
-  --lime: #dcf795;
+  --ink: #302630;
+  --muted: #756d68;
+  --line: #e7dfd6;
+  --dark: #261f29;
+  --lime: #efb48c;
   --green: #316b43;
   --green-tint: #eff6e9;
   --amber: #8c5a19;
   --amber-tint: #fbf1df;
   --red: #a44137;
   --red-tint: #fcf0ed;
+  --pumpkin: #ad4e27;
   --radius: 12px;
   font-family:
     Inter,
@@ -61,7 +62,7 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 summary:focus-visible {
-  outline: 3px solid #56883c;
+  outline: 3px solid #a85630;
   outline-offset: 3px;
 }
 button,
@@ -139,7 +140,7 @@ h3 {
   font-size: 7px;
   letter-spacing: 1.7px;
   display: block;
-  color: #a6b3a5;
+  color: #bda5b1;
   margin-top: 8px;
 }
 .brand-mark {
@@ -164,7 +165,7 @@ h3 {
 .workspace-label {
   font-size: 9px;
   letter-spacing: 1.5px;
-  color: #9aa799;
+  color: #b9a8b3;
   display: flex;
   justify-content: space-between;
   margin: 48px 10px 13px;
@@ -172,7 +173,7 @@ h3 {
 .workspace-label span {
   font-size: 9px;
   letter-spacing: 0.4px;
-  color: #bac5b7;
+  color: #cbb5bf;
 }
 .nav-item {
   width: 100%;
@@ -180,7 +181,7 @@ h3 {
   align-items: center;
   gap: 11px;
   padding: 11px 12px;
-  color: #b6c1b3;
+  color: #c7b9c6;
   background: transparent;
   border-radius: 7px;
   margin-bottom: 7px;
@@ -195,20 +196,20 @@ h3 {
   margin-left: auto;
   font-size: 10px;
   font-weight: 500;
-  background: #343e34;
+  background: #513a40;
   padding: 1px 6px;
   border-radius: 4px;
 }
 .nav-item.active {
-  background: #2c372b;
+  background: #3d2b32;
   color: var(--lime);
 }
 .nav-item:hover {
-  background: #30392f;
+  background: #3e303d;
 }
 .sidebar-note {
   margin-top: auto;
-  border-top: 1px solid #353e34;
+  border-top: 1px solid #483944;
   padding: 25px 10px 30px;
 }
 .small-orbit {
@@ -224,21 +225,21 @@ h3 {
 }
 .sidebar-note p {
   font-size: 11px;
-  color: #a0ad9b;
+  color: #b8a5ae;
   line-height: 1.8;
   margin-top: 10px;
 }
 .sidebar-footer {
   padding: 18px 10px 0;
-  border-top: 1px solid #353e34;
-  color: #b8c4b1;
+  border-top: 1px solid #483944;
+  color: #ceb5ba;
   font-size: 8px;
   letter-spacing: 1px;
 }
 .sidebar-footer small {
   display: block;
   margin: 8px 0 0 12px;
-  color: #9aa695;
+  color: #b99eac;
   font-size: 10px;
   letter-spacing: 0;
 }
@@ -281,10 +282,10 @@ h3 {
   gap: 10px;
 }
 .environment {
-  border: 1px solid #dce2d2;
+  border: 1px solid #e8d9ca;
   padding: 4px 9px;
   border-radius: 5px;
-  color: #627050;
+  color: #816d5f;
   font-size: 10px;
   margin-right: 15px;
 }
@@ -294,7 +295,7 @@ h3 {
   width: 29px;
   height: 29px;
   border-radius: 50%;
-  background: #e5e9dc;
+  background: #eee2d7;
   font-size: 10px;
   font-weight: 650;
 }
@@ -381,7 +382,7 @@ h1 {
   color: var(--muted);
 }
 .button.quiet:hover {
-  background: #edf1e6;
+  background: #f5ebe1;
 }
 .overview {
   display: grid;
@@ -502,7 +503,7 @@ h1 {
 .board-heading h2 span {
   font-size: 10px;
   vertical-align: middle;
-  background: #eff2e9;
+  background: #f5eee6;
   border: 1px solid #e3e7da;
   border-radius: 4px;
   padding: 2px 7px;
@@ -548,11 +549,11 @@ h1 {
 }
 .filter-tab span {
   font-size: 9px;
-  background: #f0f2ed;
+  background: #f4eee8;
   border-radius: 4px;
   margin-left: 5px;
   padding: 2px 5px;
-  color: #738066;
+  color: #8a7465;
 }
 .controls {
   display: grid;
@@ -593,7 +594,7 @@ h1 {
   top: 9px;
   padding: 0 4px;
   color: #8b9383;
-  background: #f6f7f3;
+  background: #faf7f1;
   border: 1px solid var(--line);
   border-radius: 3px;
   font-size: 9px;
@@ -611,7 +612,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding: 11px 22px;
-  background: #fafbf7;
+  background: #fcfaf6;
   border-bottom: 1px solid var(--line);
   font-size: 10px;
   color: var(--muted);
@@ -646,11 +647,11 @@ h1 {
   position: relative;
 }
 .load-row:hover {
-  background: #f8faf3;
+  background: #fcf7ef;
 }
 .load-row.selected {
-  background: #f1f6e8;
-  border-left-color: #698843;
+  background: #fff3e6;
+  border-left-color: #b9582b;
 }
 .row-meta,
 .row-main,
@@ -711,7 +712,7 @@ h1 {
 }
 .route-arrow {
   font-size: 12px;
-  color: #91a17d;
+  color: #ae8a71;
   margin: 0 6px;
 }
 .row-main strong {
@@ -747,7 +748,7 @@ h1 {
   color: #c3cabb;
 }
 .inspector {
-  background: #fdfefb;
+  background: #fffdfa;
   min-width: 0;
   padding: 22px 25px;
   align-self: start;
@@ -781,7 +782,7 @@ h1 {
   left: 4px;
   top: 10px;
   bottom: 12px;
-  background: #dce4d1;
+  background: #e1d2c2;
 }
 .route-stop {
   display: flex;
@@ -789,17 +790,17 @@ h1 {
   align-items: start;
 }
 .stop-dot {
-  border: 1px solid #8da06e;
+  border: 1px solid #bc9a7e;
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #fdfefb;
+  background: #fffdfa;
   margin-top: 5px;
   position: relative;
   flex-shrink: 0;
 }
 .route-stop:last-child .stop-dot {
-  background: #6e8750;
+  background: #9a6b4c;
 }
 .stop-copy {
   min-width: 0;
@@ -831,12 +832,12 @@ h1 {
   margin: 0 0 19px;
 }
 .fact {
-  background: #f1f3eb;
-  border: 1px solid #e7ebdf;
+  background: #f4f0e9;
+  border: 1px solid #e7dfd6;
   padding: 4px 7px;
   border-radius: 4px;
   font-size: 9px;
-  color: #626f58;
+  color: #756b60;
 }
 .fact.warning {
   color: var(--amber);
@@ -1505,11 +1506,11 @@ dialog pre {
   width: 100%;
   margin: 5px 0 14px;
   border: 1px solid var(--line);
-  background: #eef3e5;
+  background: #f6efe6;
   color: var(--green);
 }
 .analysis-launch:hover {
-  background: #e3ecd6;
+  background: #f0e3d2;
 }
 .analysis-dialog {
   --panel: #fff;
@@ -1775,5 +1776,517 @@ dialog pre {
   }
   .analysis-dialog header > div {
     flex-wrap: wrap;
+  }
+}
+
+/* The graveyard shift: real photography, light through fog, a quiet apparition. */
+.app-shell {
+  position: relative;
+  isolation: isolate;
+}
+.haunted-backdrop {
+  position: fixed;
+  inset: 0 0 0 224px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(#faf7f1ed, #faf7f1f5 65%),
+    url("haunted-road.jpg") center 66% / cover;
+}
+.atmosphere-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  min-height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  background: var(--canvas);
+  font-size: 10px;
+  white-space: nowrap;
+}
+.atmosphere-toggle:hover {
+  background: #f2e8de;
+}
+.atmosphere-toggle[aria-pressed="true"] svg {
+  color: var(--pumpkin);
+}
+#atmosphere-state {
+  color: var(--pumpkin);
+  font-size: 9px;
+  border-left: 1px solid var(--line);
+  padding-left: 6px;
+  min-width: 20px;
+}
+.halloween-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 265px;
+  padding: 13px 0 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #d2c5b8;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero-copy {
+  position: relative;
+  z-index: 3;
+  max-width: 51%;
+  pointer-events: none;
+}
+.hero-copy .button {
+  pointer-events: auto;
+}
+.edition-eyebrow {
+  color: #855336;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.edition-eyebrow .edition-star {
+  display: inline;
+  background: none;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  margin: 0 7px 0 0;
+  font-size: 12px;
+}
+.edition-eyebrow .edition-divider {
+  display: inline;
+  background: none;
+  width: auto;
+  height: auto;
+  margin: 0 6px;
+  color: #bb9c88;
+}
+.halloween-hero h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 4.3vw, 65px);
+  font-weight: 400;
+  letter-spacing: -2.7px;
+  line-height: 0.94;
+  text-shadow: 0 1px 0 #fff;
+}
+.halloween-hero h1 > span {
+  display: block;
+}
+.halloween-hero h1 em {
+  color: #8a3925;
+  font-weight: 400;
+}
+.halloween-hero .intro {
+  font-size: 12px;
+  margin-top: 13px;
+  color: #675e58;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 17px;
+}
+.hero-actions .button.dark {
+  height: 40px;
+  min-height: 40px;
+  padding: 6px 13px;
+  background: #773a27;
+  color: #fffaf2;
+  border: 1px solid #66301f;
+  box-shadow: 0 2px 3px #44241022;
+  font-size: 11px;
+}
+.hero-actions .button.dark:hover {
+  background: #57281b;
+}
+.human-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  color: #766b61;
+}
+.road-scene {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 34%;
+  right: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 26%,
+    #000 98%,
+    transparent
+  );
+}
+.road-scene img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 86%;
+  filter: grayscale(0.88) brightness(0.95) contrast(1.06);
+  user-select: none;
+}
+.haunt-fog {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.road-scene:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, #faf7f1a0, transparent 40%),
+    linear-gradient(0deg, #faf7f120, transparent 25%);
+  pointer-events: none;
+}
+.scene-caption {
+  position: absolute;
+  top: 15px;
+  right: 19px;
+  z-index: 3;
+  color: #e8e7df;
+  background: #161c1a90;
+  padding: 6px 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 7px;
+  letter-spacing: 1.5px;
+}
+.scene-caption span {
+  color: #bfa58d;
+  margin: 0 7px;
+}
+.scene-whisper {
+  position: absolute;
+  z-index: 3;
+  bottom: 102px;
+  right: 24px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 8px;
+  letter-spacing: 1.9px;
+  color: #e0dfd1;
+  opacity: 0.8;
+  text-shadow: 0 1px 3px #000;
+}
+.scene-sweep {
+  position: absolute;
+  z-index: 5;
+  bottom: 22px;
+  right: 22px;
+  padding: 8px 12px;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 0 6px;
+  align-items: center;
+  text-align: left;
+  color: #f1eada;
+  background: #202a25d9;
+  border: 1px solid #a6aa9988;
+  border-radius: 3px;
+  min-height: 43px;
+  font-size: 11px;
+  font-weight: 500;
+  box-shadow: 0 1px 8px #0003;
+}
+.scene-sweep small {
+  grid-column: 2;
+  color: #bbbfb0;
+  font-size: 8px;
+  font-weight: 400;
+  margin-top: 2px;
+}
+.scene-sweep:hover {
+  background: #263b30ee;
+  border-color: #e1cfab;
+}
+.scene-sweep:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+.torch-icon {
+  font-size: 24px;
+  color: #e6c59c;
+  font-weight: 400;
+}
+html[data-atmosphere="off"] .haunt-fog {
+  visibility: hidden;
+}
+html[data-atmosphere="off"] .haunted-backdrop {
+  background: var(--canvas);
+}
+.insight-banner {
+  background: #f4eee5;
+  border-color: #e4d5c4;
+}
+.insight-icon {
+  color: #8a512b;
+}
+.insight-banner .eyebrow {
+  color: #806a58;
+}
+.insight-banner small {
+  color: #7b7065;
+}
+.filter-tab.active:after {
+  background: var(--pumpkin);
+}
+.actions .approve {
+  color: #fff8ee;
+}
+.actions .approve:hover {
+  background: #493247;
+}
+@media (min-width: 1550px) {
+  .halloween-hero {
+    min-height: 280px;
+  }
+}
+@media (max-width: 1150px) {
+  .human-note {
+    display: none;
+  }
+  .hero-copy {
+    max-width: 57%;
+  }
+  .halloween-hero h1 {
+    font-size: 53px;
+  }
+  .atmosphere-toggle {
+    padding: 4px 6px;
+  }
+  .atmosphere-label {
+    display: none;
+  }
+  .haunted-backdrop {
+    left: 186px;
+  }
+  .scene-caption {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+}
+@media (max-width: 950px) {
+  .haunted-backdrop {
+    left: 68px;
+  }
+  .app-bar {
+    position: relative;
+  }
+  .environment {
+    display: inline-block;
+    position: absolute;
+    right: 18px;
+    bottom: -19px;
+    z-index: 4;
+    background: var(--canvas);
+    font-size: 8px;
+    line-height: 1.3;
+    padding: 2px 6px;
+  }
+}
+@media (max-width: 740px) {
+  .haunted-backdrop {
+    left: 0;
+    opacity: 0.45;
+  }
+  .sidebar {
+    position: relative;
+  }
+  .halloween-hero {
+    min-height: 340px;
+    padding: 15px 0 110px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+  .hero-copy {
+    max-width: 100%;
+  }
+  .halloween-hero h1 {
+    font-size: 46px;
+    letter-spacing: -1.8px;
+  }
+  .edition-eyebrow {
+    font-size: 7px;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+  }
+  .halloween-hero .intro {
+    font-size: 11px;
+    max-width: 230px;
+  }
+  .hero-actions {
+    margin-top: 15px;
+  }
+  .hero-actions .button.dark {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+  .road-scene {
+    left: 0;
+    top: 30px;
+    mask-image:
+      linear-gradient(0deg, #000, #000 45%, transparent 83%),
+      linear-gradient(90deg, transparent, #000);
+    mask-composite: intersect;
+  }
+  .road-scene img {
+    object-position: 50% 82%;
+  }
+  .road-scene:after {
+    background: linear-gradient(
+      0deg,
+      transparent,
+      #faf7f1b0 55%,
+      var(--canvas) 90%
+    );
+  }
+  .scene-caption {
+    display: none;
+  }
+  .scene-whisper {
+    bottom: 98px;
+    right: 12px;
+    font-size: 7px;
+  }
+  .scene-sweep {
+    bottom: 18px;
+    right: 12px;
+    min-height: 42px;
+    font-size: 10px;
+  }
+  .scene-sweep small {
+    font-size: 7px;
+  }
+  .app-bar {
+    gap: 8px;
+  }
+  .atmosphere-toggle {
+    border: 0;
+    padding: 4px;
+    gap: 3px;
+  }
+  #atmosphere-state {
+    border: 0;
+    padding: 0;
+    font-size: 8px;
+  }
+  .header-right {
+    gap: 8px;
+    min-width: 0;
+  }
+  .manager-field {
+    max-width: 145px;
+  }
+}
+@media (max-width: 360px) {
+  .halloween-hero h1 {
+    font-size: 43px;
+  }
+  .edition-eyebrow {
+    font-size: 6px;
+    letter-spacing: 0.5px;
+  }
+  .breadcrumb {
+    font-size: 9px;
+  }
+  .header-right {
+    gap: 3px;
+  }
+  .atmosphere-toggle svg {
+    width: 13px;
+  }
+  .manager-field {
+    max-width: 125px;
+  }
+}
+/* Small visitors live in the margins. Opaque work surfaces stay above this layer. */
+.haunted-backdrop {
+  overflow: hidden;
+  z-index: 0;
+}
+.app-shell > main {
+  position: relative;
+  z-index: 1;
+}
+.app-shell > .app-bar {
+  position: relative;
+  z-index: 3;
+}
+.haunted-backdrop:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    240px circle at var(--watch-x, 80%) var(--watch-y, 50%),
+    #faf7f130,
+    #faf7f18c 60%,
+    #faf7f1dd
+  );
+}
+#page-haunt {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+#spider-haunt {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 31;
+  pointer-events: none;
+}
+.moon-egg {
+  border: 0;
+  background: transparent;
+  min-height: 36px;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+.moon-egg:hover {
+  color: #fff0cf;
+}
+.footer-egg {
+  min-height: 28px;
+  padding: 3px 7px;
+  border: 0;
+  background: transparent;
+  color: #92715c;
+  font-size: 9px;
+  cursor: pointer;
+}
+.footer-egg:hover {
+  color: #713e25;
+  background: #f2e4d4;
+  border-radius: 4px;
+}
+html[data-atmosphere="off"] .haunted-backdrop:after {
+  display: none;
+}
+@media (max-width: 950px) {
+  #spider-haunt {
+    display: none;
   }
 }
