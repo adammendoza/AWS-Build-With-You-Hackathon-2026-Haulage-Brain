@@ -350,9 +350,12 @@ tests/                        Pricing, routing, ULEZ, parallelism, and approval 
 
 ```bash
 pytest
+node --test tests/test_web_ui.mjs
 ```
 
-The suite covers the 89-load fixture, status filtering, vehicle/category routing, the supplied pricing formula, live-price sensitivity, ULEZ repricing, parallel execution, UI decisions, and the human approval invariant.
+The JavaScript UI checks use Node.js 20+ and cover manager name saving, reloads, decision attribution, and unavailable browser storage.
+
+The Python suite covers the 89-load fixture, status filtering, vehicle/category routing, the supplied pricing formula, live-price sensitivity, ULEZ repricing, parallel execution, UI decisions, and the human approval invariant.
 
 ## Status and honesty boundary
 

@@ -16,6 +16,8 @@ const analysisUI = {
   tools: null,
   specialists: 0,
 };
+const MANAGER_KEY = "haulage-brain-manager";
+const DEFAULT_MANAGER = "Fleet Manager";
 const DECISIONS_KEY = "haulage-brain-demo-decisions";
 const $ = (selector) => document.querySelector(selector);
 const escapeHtml = (value) =>
@@ -96,13 +98,31 @@ function storedObject(key) {
     return {};
   }
 }
-function remember(key, value) {
+function managerName() {
+  return $("#manager").value.trim() || DEFAULT_MANAGER;
+}
+
+function restoreManager() {
   try {
-    localStorage.setItem(key, value);
+    $("#manager").value = localStorage.getItem(MANAGER_KEY)?.trim() || "";
   } catch {
-    /* Server decisions still work when browser storage is unavailable. */
+    $("#manager").value = "";
+    $("#manager-status").textContent = "Name stays in this tab";
   }
 }
+
+function saveManager(normalize = false) {
+  const name = $("#manager").value.trim();
+  if (normalize) $("#manager").value = name;
+  try {
+    localStorage.setItem(MANAGER_KEY, name);
+    $("#manager-status").textContent = name ? "Name saved" : "Used for Approve / Pass";
+  } catch {
+    $("#manager-status").textContent = "Name stays in this tab";
+  }
+  return managerName();
+}
+
 function routeTitle(load) {
   return `${titleCase(load.from_?.town)} <span class="route-arrow" aria-hidden="true">→</span><span class="sr-only"> to </span>${titleCase(load.to?.town)}`;
 }
@@ -176,7 +196,7 @@ function renderInspector() {
     (load.load_notes || []).map(escapeHtml).join(" · ") ||
     "No special instructions supplied.";
   const actions = decided?.status
-    ? `<div class="ledger-result ${signalClass(decided.status)}"><strong>${escapeHtml(signalName(decided.status))} by ${escapeHtml(decided.manager)}</strong><small>${escapeHtml(dateTime(decided.at))} · ${state.deploymentMode === "static-demo" ? "Saved in this browser" : "Recorded in the prototype ledger"}</small></div>`
+    ? `<div class="ledger-result ${signalClass(decided.status)}"><strong>${escapeHtml(signalName(decided.status))} by ${escapeHtml(decided.manager || DEFAULT_MANAGER)}</strong><small>${escapeHtml(dateTime(decided.at))} · ${state.deploymentMode === "static-demo" ? "Saved in this browser" : "Recorded in the prototype ledger"}</small></div>`
     : load.status === "Available"
       ? `<p>Manager approval records this load as booked in the prototype ledger.</p><div class="actions"><button class="approve" data-action="APPROVE" data-id="${escapeHtml(load.load_id)}">Approve load <span aria-hidden="true">↗</span></button><button class="pass" data-action="PASS" data-id="${escapeHtml(load.load_id)}">Pass on load</button></div>`
       : `<p>This ${escapeHtml(load.status.toLowerCase())} load is not available for a new decision.</p>`;
@@ -553,7 +573,7 @@ function openDecision(loadId, decision) {
   $("#decision-title").textContent =
     decision === "APPROVE" ? "Approve this load?" : "Pass on this load?";
   $("#decision-content").innerHTML =
-    `<strong>${routeTitle(load)}</strong><p>#${escapeHtml(loadId)} · Posted rate ${money(load.agreed_rate_gbp)}<br>Formula quote ${money(load.quote_analysis.total)}<br>Manager: ${escapeHtml($("#manager").value.trim() || "Fleet Manager")}</p><p class="confirmation-note">${decision === "APPROVE" ? "This records BOOKED in the prototype ledger. It does not book with a broker or send a binding quote." : "This records PASSED in the prototype ledger."} ${state.deploymentMode === "static-demo" ? "This demo saves decisions only in this browser." : "Your decision is appended to the local ledger."}</p>`;
+    `<strong>${routeTitle(load)}</strong><p>#${escapeHtml(loadId)} · Posted rate ${money(load.agreed_rate_gbp)}<br>Formula quote ${money(load.quote_analysis.total)}<br>Manager: ${escapeHtml(managerName())}</p><p class="confirmation-note">${decision === "APPROVE" ? "This records BOOKED in the prototype ledger. It does not book with a broker or send a binding quote." : "This records PASSED in the prototype ledger."} ${state.deploymentMode === "static-demo" ? "This demo saves decisions only in this browser." : "Your decision is appended to the local ledger."}</p>`;
   $("#confirm-decision").textContent =
     decision === "APPROVE" ? "Confirm approval" : "Confirm pass";
   $("#decision-dialog").showModal();
@@ -565,6 +585,7 @@ async function decide() {
   $("#confirm-decision").disabled = true;
   $("#confirm-decision").textContent = "Saving decision…";
   try {
+    const manager = saveManager(true);
     let result;
     if (state.deploymentMode === "static-demo") {
       const decisions = storedObject(DECISIONS_KEY);
@@ -576,7 +597,7 @@ async function decide() {
         load_id: loadId,
         status: decision === "APPROVE" ? "BOOKED" : "PASSED",
         human_decision: decision,
-        manager: $("#manager").value.trim() || "Fleet Manager",
+        manager,
         at: new Date().toISOString(),
       };
       decisions[`Q-${loadId}`] = result;
@@ -588,7 +609,7 @@ async function decide() {
         body: JSON.stringify({
           load_id: loadId,
           decision,
-          manager: $("#manager").value,
+          manager,
         }),
       });
       result = await response.json();
@@ -648,15 +669,16 @@ async function loadData() {
   applyFilters();
 }
 document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    $("#manager").value =
-      localStorage.getItem("haulage-brain-manager") || "Fleet Manager";
-  } catch {
-    /* Use the visible default. */
-  }
-  $("#manager").addEventListener("change", (event) =>
-    remember("haulage-brain-manager", event.target.value),
-  );
+  restoreManager();
+  $("#manager").addEventListener("input", () => saveManager());
+  $("#manager").addEventListener("change", () => saveManager(true));
+  $("#manager").addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      saveManager(true);
+      event.target.blur();
+    }
+  });
   ["#search", "#status", "#vehicle", "#sort", "#per-mile"].forEach((selector) =>
     $(selector).addEventListener(
       selector === "#search" ? "input" : "change",

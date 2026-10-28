@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#191e1b" />
     <title>Haulage Brain · Dispatch workspace</title>
-    <link rel="stylesheet" href="app.css?v=4" />
+    <link rel="stylesheet" href="app.css?v=5" />
   </head>
   <body>
     <a class="skip-link" href="#workspace">Skip to loadboard</a>
@@ -60,13 +60,11 @@
         <div class="header-right">
           <span class="environment">Synthetic UK loads</span
           ><span class="avatar" aria-hidden="true">FM</span
-          ><label class="manager-field"
-            ><span class="sr-only">Manager name</span
-            ><input
-              id="manager"
-              value="Fleet Manager"
-              aria-label="Manager name"
-          /></label>
+          ><div class="manager-field">
+            <label class="sr-only" for="manager">Manager name</label>
+            <input id="manager" placeholder="Fleet Manager" aria-describedby="manager-status" autocomplete="name" />
+            <span id="manager-status" role="status">Used for Approve / Pass</span>
+          </div>
         </div>
       </header>
       <main id="workspace">
@@ -297,6 +295,6 @@
       </div>
     </dialog>
     <div id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=4" defer></script>
+    <script src="app.js?v=5" defer></script>
   </body>
 </html>
