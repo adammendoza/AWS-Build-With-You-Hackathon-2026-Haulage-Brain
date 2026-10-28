@@ -1,11 +1,12 @@
 import base64
 import json
+import os
 from pathlib import Path
 
 import pytest
 
 from load_quoting_swarm.ledger import LedgerError
-from load_quoting_swarm.web import LoadboardState, _basic_auth_valid
+from load_quoting_swarm.web import LoadboardState, _basic_auth_valid, _resolve_parameter
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -21,6 +22,17 @@ def test_basic_auth_accepts_only_matching_credentials() -> None:
     assert not _basic_auth_valid(_basic_header("demo", "wrong"), "demo", "secret")
     assert not _basic_auth_valid("Basic not-base64", "demo", "secret")
     assert not _basic_auth_valid(None, "demo", "secret")
+
+
+def test_parameter_resolution_skips_aws_when_secret_already_set(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("YDC_API_KEY", "already-loaded")
+    monkeypatch.setenv("YDC_API_KEY_PARAMETER", "/haulage-brain/YDC_API_KEY")
+
+    _resolve_parameter("YDC_API_KEY")
+
+    assert os.environ["YDC_API_KEY"] == "already-loaded"
 
 
 def test_updated_fixture_and_summary(tmp_path: Path) -> None:

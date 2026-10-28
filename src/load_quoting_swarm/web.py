@@ -41,6 +41,19 @@ def _basic_auth_valid(
     return username_matches and password_matches
 
 
+def _resolve_parameter(name: str) -> None:
+    parameter_name = os.getenv(f"{name}_PARAMETER")
+    if os.getenv(name) or not parameter_name:
+        return
+    import boto3
+
+    response = boto3.client("ssm").get_parameter(
+        Name=parameter_name,
+        WithDecryption=True,
+    )
+    os.environ[name] = response["Parameter"]["Value"]
+
+
 def _pickup_at(load: dict[str, Any]) -> datetime:
     pickup = load.get("pickup") or {}
     value = pickup.get("time") or pickup.get("start")
@@ -207,9 +220,12 @@ def make_handler(
             self.wfile.write(payload)
 
         def do_GET(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler API
+            path = urlparse(self.path).path
+            if path == "/health":
+                self._json({"status": "ok"})
+                return
             if not self._authorized():
                 return
-            path = urlparse(self.path).path
             try:
                 if path in {"/api/loads", "/api/loads.json"}:
                     self._json(state.payload())
@@ -282,6 +298,8 @@ def main() -> int:
     from dotenv import find_dotenv, load_dotenv
 
     load_dotenv(find_dotenv(usecwd=True))
+    for secret_name in ("YDC_API_KEY", "PARASAIL_API_KEY", "DEMO_PASSWORD"):
+        _resolve_parameter(secret_name)
     args = build_parser().parse_args()
     if not args.loads.exists():
         raise SystemExit(f"load fixture not found: {args.loads}")
