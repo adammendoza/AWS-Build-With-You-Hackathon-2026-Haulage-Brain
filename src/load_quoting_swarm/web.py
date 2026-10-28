@@ -448,7 +448,12 @@ def main() -> int:
     from dotenv import find_dotenv, load_dotenv
 
     load_dotenv(find_dotenv(usecwd=True))
-    for secret_name in ("YDC_API_KEY", "PARASAIL_API_KEY", "DEMO_PASSWORD"):
+    for secret_name in (
+        "YDC_API_KEY",
+        "PARASAIL_API_KEY",
+        "DEMO_PASSWORD",
+        "DISCORD_WEBHOOK_URL",
+    ):
         _resolve_parameter(secret_name)
     args = build_parser().parse_args()
     if not args.loads.exists():
