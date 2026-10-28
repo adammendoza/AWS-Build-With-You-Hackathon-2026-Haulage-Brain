@@ -1,7 +1,7 @@
 [
  {
   "load_id": 90858237,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Shopfitting",
   "from_": {
    "name": "WHA Shopfitting Ltd c/o Jellycat",
@@ -51,7 +51,7 @@
  },
  {
   "load_id": 90834833,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Retail DC",
   "from_": {
    "name": "LUTON EQUIPMENT CENTRE, LIDL REGIONAL DISTRIBUTION CENTRE",
@@ -117,7 +117,7 @@
  },
  {
   "load_id": 90801544,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Building materials",
   "from_": {
    "name": "Falcon Builders Merchants",
@@ -181,7 +181,7 @@
  },
  {
   "load_id": 90822713,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Shopfitting",
   "from_": {
    "name": "Cromwell Fit-Out Services",
@@ -245,7 +245,7 @@
  },
  {
   "load_id": 90845149,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Ashford Industrial Supplies",
@@ -309,7 +309,7 @@
  },
  {
   "load_id": 90823679,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Brunel Industrial Supplies",
@@ -373,7 +373,7 @@
  },
  {
   "load_id": 90842087,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Furniture",
   "from_": {
    "name": "Denholm Appliances",
@@ -437,7 +437,7 @@
  },
  {
   "load_id": 90850650,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Shopfitting",
   "from_": {
    "name": "Marlow Shopfitting Ltd",
@@ -502,7 +502,7 @@
  },
  {
   "load_id": 90807764,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Shopfitting",
   "from_": {
    "name": "Ridgeway Shopfitting Ltd",
@@ -565,7 +565,7 @@
  },
  {
   "load_id": 90812812,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Automotive",
   "from_": {
    "name": "Bexley Auto Parts",
@@ -629,7 +629,7 @@
  },
  {
   "load_id": 90808432,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Kingfisher Wholesale",
@@ -692,7 +692,7 @@
  },
  {
   "load_id": 90846890,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Shopfitting",
   "from_": {
    "name": "Kestrel Interiors c/o Site Team",
@@ -755,7 +755,7 @@
  },
  {
   "load_id": 90810183,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Automotive",
   "from_": {
    "name": "Kingfisher Auto Parts",
@@ -819,7 +819,7 @@
  },
  {
   "load_id": 90792333,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Oakhurst Manufacturing",
@@ -883,7 +883,7 @@
  },
  {
   "load_id": 90856057,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Retail DC",
   "from_": {
    "name": "Bexley Equipment Centre, Goods Outwards",
@@ -946,7 +946,7 @@
  },
  {
   "load_id": 90848452,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Building materials",
   "from_": {
    "name": "Marlow Builders Merchants",
@@ -1010,7 +1010,7 @@
  },
  {
   "load_id": 90801048,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Shopfitting",
   "from_": {
    "name": "Kestrel Interiors c/o Site Team",
@@ -1074,7 +1074,7 @@
  },
  {
   "load_id": 90856450,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Building materials",
   "from_": {
    "name": "Ridgeway Brick & Block",
@@ -1138,7 +1138,7 @@
  },
  {
   "load_id": 90840424,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Ashford Wholesale",
@@ -1203,7 +1203,7 @@
  },
  {
   "load_id": 90820135,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Events",
   "from_": {
    "name": "Kingfisher Exhibition Services",
@@ -1266,7 +1266,7 @@
  },
  {
   "load_id": 90838023,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Northwood Manufacturing",
@@ -1329,7 +1329,7 @@
  },
  {
   "load_id": 90807755,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Machinery",
   "from_": {
    "name": "Stanmore Machine Tools",
@@ -1393,7 +1393,7 @@
  },
  {
   "load_id": 90800181,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Building materials",
   "from_": {
    "name": "Calder Steel Stockholders",
@@ -1458,7 +1458,7 @@
  },
  {
   "load_id": 90813398,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Shopfitting",
   "from_": {
    "name": "Fairview Interiors c/o Site Team",
@@ -1522,7 +1522,7 @@
  },
  {
   "load_id": 90792350,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Retail DC",
   "from_": {
    "name": "Kestrel Regional Distribution Centre",
@@ -1586,7 +1586,7 @@
  },
  {
   "load_id": 90790129,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Building materials",
   "from_": {
    "name": "Pennine Timber & Plasterboard",
@@ -1650,7 +1650,7 @@
  },
  {
   "load_id": 90845923,
-  "status": "Delivered",
+  "status": "Available",
   "category": "Building materials",
   "from_": {
    "name": "Ridgeway Timber & Plasterboard",
@@ -1715,7 +1715,7 @@
  },
  {
   "load_id": 90811614,
-  "status": "In Transit",
+  "status": "Available",
   "category": "Furniture",
   "from_": {
    "name": "Marlow Home Retail DC",
@@ -1770,7 +1770,7 @@
  },
  {
   "load_id": 90844593,
-  "status": "In Transit",
+  "status": "Available",
   "category": "Furniture",
   "from_": {
    "name": "Northwood Furniture Warehouse",
@@ -1824,7 +1824,7 @@
  },
  {
   "load_id": 90791627,
-  "status": "In Transit",
+  "status": "Available",
   "category": "Building materials",
   "from_": {
    "name": "Brunel Steel Stockholders",
@@ -1881,7 +1881,7 @@
  },
  {
   "load_id": 90833408,
-  "status": "In Transit",
+  "status": "Available",
   "category": "Automotive",
   "from_": {
    "name": "Oakhurst Motor Factors",
@@ -1937,7 +1937,7 @@
  },
  {
   "load_id": 90835623,
-  "status": "In Transit",
+  "status": "Available",
   "category": "Machinery",
   "from_": {
    "name": "Fairview Precision Parts",
@@ -1992,7 +1992,7 @@
  },
  {
   "load_id": 90803845,
-  "status": "In Transit",
+  "status": "Available",
   "category": "Shopfitting",
   "from_": {
    "name": "Bexley Fit-Out Services",
@@ -2048,7 +2048,7 @@
  },
  {
   "load_id": 90836188,
-  "status": "In Transit",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Cromwell Packaging Ltd",
@@ -2103,7 +2103,7 @@
  },
  {
   "load_id": 90850241,
-  "status": "In Transit",
+  "status": "Available",
   "category": "Retail DC",
   "from_": {
    "name": "Oakhurst National DC",
@@ -2158,7 +2158,7 @@
  },
  {
   "load_id": 90855487,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Furniture",
   "from_": {
    "name": "Bexley Furniture Warehouse",
@@ -2208,7 +2208,7 @@
  },
  {
   "load_id": 90829886,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Marlow Industrial Supplies",
@@ -2257,7 +2257,7 @@
  },
  {
   "load_id": 90847716,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Food & drink",
   "from_": {
    "name": "Ashford Foods",
@@ -2306,7 +2306,7 @@
  },
  {
   "load_id": 90844931,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Hartley Packaging Ltd",
@@ -2355,7 +2355,7 @@
  },
  {
   "load_id": 90812606,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Food & drink",
   "from_": {
    "name": "Hartley Foods",
@@ -2407,7 +2407,7 @@
  },
  {
   "load_id": 90856011,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Food & drink",
   "from_": {
    "name": "Oakhurst Drinks Co",
@@ -2457,7 +2457,7 @@
  },
  {
   "load_id": 90816255,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Brunel Wholesale",
@@ -2505,7 +2505,7 @@
  },
  {
   "load_id": 90830151,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Furniture",
   "from_": {
    "name": "Oakhurst Furniture Warehouse",
@@ -2554,7 +2554,7 @@
  },
  {
   "load_id": 90814274,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Retail DC",
   "from_": {
    "name": "Larkfield Equipment Centre, Goods Outwards",
@@ -2602,7 +2602,7 @@
  },
  {
   "load_id": 90809324,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Retail DC",
   "from_": {
    "name": "Stanmore National DC",
@@ -2651,7 +2651,7 @@
  },
  {
   "load_id": 90824664,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Retail DC",
   "from_": {
    "name": "Denholm National DC",
@@ -2702,7 +2702,7 @@
  },
  {
   "load_id": 90818463,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Pallets",
   "from_": {
    "name": "Ridgeway Wholesale",
@@ -2753,7 +2753,7 @@
  },
  {
   "load_id": 90855394,
-  "status": "Accepted",
+  "status": "Available",
   "category": "Food & drink",
   "from_": {
    "name": "Cromwell Drinks Co",

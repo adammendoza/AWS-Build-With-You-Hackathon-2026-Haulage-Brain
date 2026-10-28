@@ -39,12 +39,13 @@ def test_filters_non_available_statuses() -> None:
 def test_ingests_updated_nested_uk_fixture() -> None:
     loads = load_freight_loads(ROOT / "data/loads_v2.json")
     selected = available_loads(loads)
+    known = next(load for load in selected if load.load_id == "90857138")
 
     assert len(loads) == 89
-    assert len(selected) == 41
-    assert selected[0].origin_postcode == "PL6 2WS"
-    assert selected[0].journey_minutes_est == 259
-    assert selected[0].delivery_is_estimated is True
+    assert len(selected) == 89
+    assert known.origin_postcode == "PL6 2WS"
+    assert known.journey_minutes_est == 259
+    assert known.delivery_is_estimated is True
 
 
 def test_fleet_example_refuses_placeholder_economics() -> None:

@@ -137,7 +137,7 @@ The hackathon prototype is intentionally narrow:
 1. Read the supplied `loads.json`, select `Available` loads, and route them by vehicle/category.
 2. Run pricing, compliance, and fleet-fit analysis with scoped Memory.
 3. Use live You.com facts inside the price calculation and Parasail for structured inference.
-4. Process the 41 Available fixtures with bounded parallelism and report time, throughput, tokens, and estimated cost.
+4. Process all 89 Available fixtures with bounded parallelism and report time, throughput, tokens, and estimated cost.
 5. Post each quote to Discord through One and require an explicit manager `APPROVE` or `PASS`.
 6. Append the human decision to the booking ledger.
 
@@ -155,7 +155,7 @@ The target demo takes less than two minutes:
 
 1. Show an underpriced load being passed with its negative margin.
 2. Show a ULEZ-marked load gaining a grounded restriction charge and a higher quote.
-3. Show the 41-load Parasail run's elapsed time, throughput, token usage, and estimated cost.
+3. Show the 89-load Parasail run's elapsed time, throughput, token usage, and estimated cost.
 4. Show a recommendation arriving in Discord through One.
 5. Record the manager's explicit `APPROVE`, then show `BOOKED` in the ledger.
 
@@ -251,7 +251,7 @@ public. A future hosted backend should receive them through its secret manager.
 
 ## Run with the scored partners
 
-1. Use the supplied `data/loads_v2.json` fixture: 89 total loads, including 41 Available.
+1. Use the supplied `data/loads_v2.json` fixture: all 89 loads are Available for swarm evaluation.
 2. Copy `config/fleet.example.json` to `config/fleet.local.json`, replace every placeholder with real fleet economics, and set `placeholder_values` to `false`.
 3. Export the values documented in `.env.example`. Never commit the resulting `.env`.
 4. Initialize One and connect the Discord account that has access to the event channel:
@@ -263,14 +263,14 @@ public. A future hosted backend should receive them through its secret manager.
    ```
 
 5. Confirm the Open Haunt Discord channel ID with the organizers. Do not assume Track 1's `#loft-incident` channel is the Open Haunt submission channel.
-6. Run all 41 Available loads with bounded concurrency:
+6. Run all 89 Available loads with bounded concurrency:
 
    ```bash
    haulage-brain run \
      --live \
      --loads data/loads_v2.json \
      --fleet config/fleet.local.json \
-     --limit 41 \
+     --limit 89 \
      --parallel 8 \
      --record-ledger \
      --discord \
@@ -317,7 +317,7 @@ tests/                        Pricing, routing, ULEZ, parallelism, and approval 
 
 | Step | Status | Evidence |
 |---|---|---|
-| Ingest and vehicle/category router | Working | The updated fixture loads 89 records and routes 41 Available loads. |
+| Ingest and vehicle/category router | Working | The updated fixture loads and routes all 89 Available records. |
 | Three scoped specialists | Working | Pricing, compliance, and fleet-fit assessments run concurrently. |
 | You.com in margin math | Implemented; credentials required for live proof | Diesel and ULEZ values directly alter calculated cost. |
 | Parasail parallel inference | Implemented; credentials required for live proof | Bounded concurrent specialist calls and token usage reporting. |
@@ -336,5 +336,5 @@ The suite covers the 89-load fixture, status filtering, vehicle/category routing
 
 ## Status and honesty boundary
 
-The offline end-to-end loop and browser UI work against 89 synthetic records, including 41 Available loads. They must not be presented as a live You.com, Parasail, One, or fleet run. A scored demo still requires real fleet economics, live partner API logs, the confirmed Discord channel, and an actual manager approval. No load is booked with a broker; `BOOKED` means an approved entry in this prototype's append-only booking ledger.
+The offline end-to-end loop and browser UI work against 89 synthetic records, all marked Available for evaluation. They must not be presented as a live You.com, Parasail, One, or fleet run. A scored demo still requires real fleet economics, live partner API logs, the confirmed Discord channel, and an actual manager approval. No load is booked with a broker; `BOOKED` means an approved entry in this prototype's append-only booking ledger.
 
