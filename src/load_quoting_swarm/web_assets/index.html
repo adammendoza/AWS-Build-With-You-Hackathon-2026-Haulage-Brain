@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#191e1b" />
+    <meta name="theme-color" content="#261f29" />
     <title>Haulage Brain · Dispatch workspace</title>
-    <link rel="stylesheet" href="app.css?v=5" />
+    <link rel="stylesheet" href="app.css?v=6" />
   </head>
   <body>
     <a class="skip-link" href="#workspace">Skip to loadboard</a>
@@ -15,7 +15,7 @@
         ><span class="brand-mark" aria-hidden="true">h<span>↗</span></span
         ><span
           >haulage<span class="brand-light">brain</span
-          ><small>THE DISPATCH WORKSPACE</small></span
+          ><small>THE AFTER-HOURS DISPATCH DESK</small></span
         ></a
       >
       <div class="workspace-label">WORKSPACE <span>UK / GBP</span></div>
@@ -42,13 +42,13 @@
         </button>
       </nav>
       <div class="sidebar-note">
-        <span class="small-orbit" aria-hidden="true">✳</span
-        ><strong>Intelligence assists.<br />You make the call.</strong>
+        <span class="small-orbit" aria-hidden="true">☾</span
+        ><strong>A little supernatural.<br />Always human-led.</strong>
         <p>Every booking starts with an explicit manager decision.</p>
       </div>
       <div class="sidebar-footer">
         <span class="demo-dot"></span> SIMULATED WORKSPACE<small
-          >Open Haunt · SF 2026</small
+          >Open Haunt · Halloween ’26</small
         >
       </div>
     </aside>
@@ -58,29 +58,116 @@
           Workspace <span>/</span> <strong id="view-label">Loadboard</strong>
         </div>
         <div class="header-right">
+          <button
+            class="atmosphere-toggle"
+            id="atmosphere-toggle"
+            type="button"
+            aria-label="Atmospheric effects"
+            aria-pressed="false"
+            title="Toggle decorative fog; your workspace stays the same"
+          >
+            <svg
+              viewBox="0 0 20 20"
+              width="16"
+              height="16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 15V8a6 6 0 0 1 12 0v7l-3-1-3 2-3-2-3 1Z"
+                stroke="currentColor"
+                stroke-width="1.2"
+              />
+              <circle cx="8" cy="8" r=".8" fill="currentColor" />
+              <circle cx="12" cy="8" r=".8" fill="currentColor" />
+            </svg>
+            <span class="atmosphere-label">Atmosphere</span
+            ><span id="atmosphere-state">Off</span>
+          </button>
           <span class="environment">Synthetic UK loads</span
-          ><span class="avatar" aria-hidden="true">FM</span
-          ><div class="manager-field">
+          ><span class="avatar" aria-hidden="true">FM</span>
+          <div class="manager-field">
             <label class="sr-only" for="manager">Manager name</label>
-            <input id="manager" placeholder="Fleet Manager" aria-describedby="manager-status" autocomplete="name" />
-            <span id="manager-status" role="status">Used for Approve / Pass</span>
+            <input
+              id="manager"
+              placeholder="Fleet Manager"
+              aria-describedby="manager-status"
+              autocomplete="name"
+            />
+            <span id="manager-status" role="status"
+              >Used for Approve / Pass</span
+            >
           </div>
         </div>
       </header>
       <main id="workspace">
-        <section class="hero">
-          <div>
-            <p class="eyebrow">
-              <span></span> FREIGHT INTELLIGENCE, HUMAN CONTROL
+        <section class="hero halloween-hero" aria-labelledby="hero-title">
+          <canvas id="haunt-fog" class="haunt-fog" aria-hidden="true"></canvas>
+          <svg
+            class="corner-web"
+            viewBox="0 0 200 150"
+            aria-hidden="true"
+            fill="none"
+          >
+            <path
+              d="M200 0 40 12M200 0 60 60M200 0 108 112M200 0 170 150M200 0 200 150M161 3Q163 17 175 16Q173 30 184 34Q181 48 194 50M122 6Q125 34 150 33Q145 59 169 66Q164 92 190 99M82 9Q88 51 126 50Q119 88 154 99Q146 136 184 148"
+              stroke="currentColor"
+              stroke-width=".7"
+            />
+          </svg>
+          <div class="hero-copy">
+            <p class="eyebrow edition-eyebrow">
+              <span class="edition-star" aria-hidden="true">✳</span> THE OPEN
+              HAUNT <span class="edition-divider">/</span> HALLOWEEN EDITION ’26
             </p>
-            <h1>A better call. Every load.</h1>
+            <h1 id="hero-title">
+              <span>Freight without</span> <em>the fright.</em>
+            </h1>
             <p class="intro">
-              Find the right work. Understand the numbers. Move with confidence.
+              Know the route. Check the quote. You make the call.
             </p>
+            <div class="hero-actions">
+              <button class="button dark" id="review-next">
+                Review next load <span aria-hidden="true">↗</span></button
+              ><span class="human-note"
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="m10 2 6 3v5c0 4-6 7-6 7s-6-3-6-7V5l6-3Z"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  />
+                  <path
+                    d="m7 9 2 2 4-4"
+                    stroke="currentColor"
+                    stroke-width="1.2"
+                  />
+                </svg>
+                Human approval. Every time.</span
+              >
+            </div>
           </div>
-          <button class="button dark" id="review-next">
-            Review next load <span aria-hidden="true">↗</span>
-          </button>
+          <div class="hero-art" aria-hidden="true">
+            <div class="lantern-glow"></div>
+            <img
+              class="lantern-still-life"
+              src="haunt-lantern.png"
+              alt=""
+              width="480"
+              height="320"
+              fetchpriority="high"
+            /><span class="specimen-label"
+              >FIG. 01 <span> / </span> THE NIGHT SHIFT</span
+            >
+          </div>
+          <span class="edition-seal" aria-hidden="true"
+            >BUILT FOR<br /><b>THE OPEN<br />HAUNT</b><br />SF · OCT 28</span
+          >
         </section>
         <section class="overview" aria-label="Loadboard summary" id="summary">
           <div class="metric">
@@ -295,6 +382,7 @@
       </div>
     </dialog>
     <div id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=5" defer></script>
+    <script src="atmosphere.js?v=1" defer></script>
+    <script src="app.js?v=6" defer></script>
   </body>
 </html>

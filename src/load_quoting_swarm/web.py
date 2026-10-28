@@ -18,6 +18,9 @@ from .pricing import quote
 
 
 ASSET_DIR = Path(__file__).with_name("web_assets")
+ASSET_NAMES = (
+    "index.html", "app.css", "app.js", "atmosphere.js", "haunt-lantern.png"
+)
 
 
 def _pickup_at(load: dict[str, Any]) -> datetime:
@@ -143,7 +146,7 @@ def make_handler(state: LoadboardState, runs: AnalysisRunManager | None = None):
             self.wfile.write(payload)
 
         def _asset(self, name: str) -> None:
-            safe_name = name if name in {"index.html", "app.css", "app.js"} else ""
+            safe_name = name if name in ASSET_NAMES else ""
             path = ASSET_DIR / safe_name
             if not safe_name or not path.exists():
                 self.send_error(HTTPStatus.NOT_FOUND)
@@ -151,7 +154,9 @@ def make_handler(state: LoadboardState, runs: AnalysisRunManager | None = None):
             payload = path.read_bytes()
             content_type = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
             self.send_response(HTTPStatus.OK)
-            self.send_header("Content-Type", f"{content_type}; charset=utf-8")
+            if content_type.startswith("text/") or content_type == "application/javascript":
+                content_type += "; charset=utf-8"
+            self.send_header("Content-Type", content_type)
             self.send_header("Content-Length", str(len(payload)))
             self.send_header("X-Content-Type-Options", "nosniff")
             self.send_header(
@@ -176,7 +181,7 @@ def make_handler(state: LoadboardState, runs: AnalysisRunManager | None = None):
                     self._json(runs.get(run_id))
                 elif path in {"/", "/index.html"}:
                     self._asset("index.html")
-                elif path in {"/app.css", "/app.js"}:
+                elif path.removeprefix("/") in ASSET_NAMES:
                     self._asset(path.lstrip("/"))
                 else:
                     self.send_error(HTTPStatus.NOT_FOUND)

@@ -67,3 +67,48 @@ def test_ui_blank_manager_uses_default(tmp_path: Path, manager: str | None) -> N
     )
 
     assert event["manager"] == "Fleet Manager"
+
+
+def test_theme_assets_are_served_locally_and_in_pages(tmp_path: Path) -> None:
+    """An HTML-referenced asset must work in both deployments, including binary MIME."""
+    from html.parser import HTMLParser
+    from http.server import ThreadingHTTPServer
+    from threading import Thread
+    from urllib.request import urlopen
+
+    from load_quoting_swarm.web import make_handler
+    from scripts.build_pages import build
+
+    class AssetReferences(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.paths = []
+
+        def handle_starttag(self, tag, attrs):
+            attributes = dict(attrs)
+            if tag in {"script", "img", "link"}:
+                path = attributes.get("src") or attributes.get("href")
+                if path:
+                    self.paths.append(path.split("?")[0])
+
+    output = tmp_path / "pages"
+    build(output)
+    references = AssetReferences()
+    references.feed((output / "index.html").read_text())
+    state = LoadboardState(ROOT / "data/loads_v2.json", tmp_path / "ledger.jsonl")
+    server = ThreadingHTTPServer(("127.0.0.1", 0), make_handler(state))
+    worker = Thread(target=server.serve_forever, daemon=True)
+    worker.start()
+    try:
+        for path in references.paths:
+            with urlopen(f"http://127.0.0.1:{server.server_port}/{path}") as response:
+                body = response.read()
+                assert response.status == 200
+                assert body == (output / path).read_bytes()
+                if path.endswith(".png"):
+                    assert response.headers["Content-Type"] == "image/png"
+                    assert body.startswith(b"\x89PNG\r\n\x1a\n")
+    finally:
+        server.shutdown()
+        server.server_close()
+        worker.join(timeout=2)

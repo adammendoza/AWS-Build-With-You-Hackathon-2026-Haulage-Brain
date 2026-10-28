@@ -2,13 +2,13 @@
 
 ## Direction
 
-**A calm dispatch desk with a decisive edge.** Haulage Brain helps a fleet manager understand a route, compare a posted rate with a calculated quote, and make an explicit decision. The interface should feel like a working product within the first ten seconds of a demo.
+**A haunted dispatch desk, in daylight.** Haulage Brain helps a fleet manager understand a route, compare a posted rate with a calculated quote, and make an explicit decision. The interface should feel like a working product within the first ten seconds of a demo.
 
-The signature is a warm off-white canvas, an ink-green navigation rail, lime brand accents, precise type, and an inspectable two-column queue. Give the route and its economics the strongest visual hierarchy. Use restrained structure rather than decorative AI graphics.
+The Halloween edition uses ivory paper, aubergine ink, burnt-orange accents, an editorial serif masthead, and a realistic pumpkin lantern beside a dispatch radio. The operational queue and inspector retain clear sans-serif type, opaque surfaces, and semantic pricing colors. Seasonal personality belongs around the work; route, quote, and approval remain literal and easy to read.
 
 ## Research and interpretation
 
-Research reviewed on 28 October 2026. These references informed the design; they do not prove that any particular color palette causes a hackathon win.
+Research reviewed on 28 October 2026. The [official Halloween hackathon page](https://youdotcom-oss.github.io/halloween-hack-2026/) pairs orange with deep violet and makes operability a priority. Its Open Haunt category lets teams define their own problem. Our treatment borrows that seasonal palette and sense of atmosphere without turning freight controls into a Halloween game. The page was inspected in the browser because direct web extraction was unavailable. These references informed the design; they do not prove that any particular color palette causes a hackathon win.
 
 - [You.com’s official winner directory](https://github.com/youdotcom-oss/awesome-you#2026-bay-area-edition) identifies BOM Guardian, TruthPanel, Career Mission Control, and Covenant Sentinel as winners at the July 2026 AWS Builder Loft event in San Francisco. Their product descriptions emphasize concrete verdicts, evidence, and useful actions. **Our interpretation:** put the decision and its basis on the same screen.
 - [You.com’s published judging criteria](https://you.com/resources/the-winners-of-the-you-com-agentic-hackathon-2025) include user experience and presentation/documentation alongside technical implementation, innovation, and impact. **Application:** a clear demo narrative, working controls, understandable states, and reproducible setup matter alongside visual polish.
@@ -30,13 +30,14 @@ The top pricing summary is computed from the complete fixture. It stays stable a
 
 | Token      | Value     | Purpose                                  |
 | ---------- | --------- | ---------------------------------------- |
-| Canvas     | `#f6f7f2` | Main workspace                           |
+| Canvas     | `#faf7f1` | Main workspace                           |
 | Paper      | `#ffffff` | Queue, metrics, quote card               |
-| Ink        | `#202820` | Primary text                             |
-| Muted      | `#6a736b` | Supporting text                          |
-| Line       | `#e2e6dd` | Quiet structure                          |
-| Dark       | `#191e1b` | Sidebar and primary actions              |
-| Lime       | `#dcf795` | Brand mark and primary-action text       |
+| Ink        | `#302630` | Primary text                             |
+| Muted      | `#756d68` | Supporting text                          |
+| Line       | `#e7dfd6` | Quiet structure                          |
+| Dark       | `#261f29` | Sidebar and primary actions              |
+| Lantern    | `#efb48c` | Brand and navigation accents             |
+| Pumpkin    | `#ad4e27` | Masthead and review-next action          |
 | Green      | `#316b43` | At/above formula quote; approved outcome |
 | Green tint | `#eff6e9` | Positive context                         |
 | Amber      | `#8c5a19` | Reprice and unknown information          |
@@ -44,12 +45,12 @@ The top pricing summary is computed from the complete fixture. It stays stable a
 | Red        | `#a44137` | Below-quote gap and passed outcome       |
 | Red tint   | `#fcf0ed` | Negative context                         |
 
-Use color with a written status. Avoid gradients, noisy background patterns, glowing borders, and full-screen green success states. The small pricing strip represents the actual distribution of formula signals; it is not a live activity graphic.
+Use color with a written status. Reserve gradients and translucent glow for the decorative masthead. Keep every data panel opaque; do not place fog, grain, webs, glow, or moving objects over controls or financial values. Avoid strobing, surprise animations, and full-screen effects. The small pricing strip represents the actual distribution of formula signals; it is not a live activity graphic.
 
 ### Type and spacing
 
-- System sans stack with Inter if already installed; no remote font dependency.
-- Display heading: approximately 44px desktop / 32px mobile, medium weight, tight tracking.
+- System sans stack with Inter if already installed for operational text; Georgia for the seasonal masthead only. No remote font dependency.
+- Masthead: approximately 52px desktop / 42–46px mobile, Georgia roman and italic. Operational headings retain the existing sans-serif hierarchy.
 - Route names: 14–17px in the queue, 21–23px in the inspector.
 - Financial values: 30–36px in key summaries; tabular numerals.
 - Supporting desktop metadata: 9–12px; important decisions retain clear button labels.
@@ -85,7 +86,7 @@ The existing backend remains the authority for legal state transitions. BOOKED m
 - Local server: reads the fixture and appends explicit decisions to `var/booking-ledger.jsonl`.
 - GitHub Pages: uses the same UI with a conspicuous browser-demo label; decisions persist in that browser’s localStorage only.
 - Source-data dialog exposes the original fixture without enrichment fields.
-- No external fonts, image APIs, mapping services, or new runtime dependencies are required by the redesign.
+- The generated artwork is committed as a local transparent PNG. No runtime image APIs, external fonts, mapping services, or new dependencies are required. `atmosphere.js` and the image are served through the local asset allowlist and copied into the Pages artifact.
 
 ## Responsive and accessible behavior
 
@@ -105,6 +106,23 @@ The loadboard summary uses deterministic fixture quotes. Live You.com grounding,
 
 ## Implementation and verification
 
-Source: `src/load_quoting_swarm/web_assets/index.html`, `app.css`, and `app.js`. Design tokens live in CSS `:root`; data and interaction state stay in the existing dependency-free JavaScript client. Both local serving and the Pages builder consume these files.
+Source: `src/load_quoting_swarm/web_assets/index.html`, `app.css`, and `app.js`. Design tokens live in CSS `:root`; data and interaction state stay in the existing dependency-free JavaScript client. `atmosphere.js` owns only decorative state and never reads freight data or calls a provider. Both local serving and the Pages builder consume these files.
 
 Before shipping a visual change: inspect the rendered screen, check responsive overflow, exercise filters and selection, verify dialog cancellation and submission states, run quote/ledger tests, and build the static artifact. Test decisions with an isolated ledger, rather than adding QA decisions to the manager’s working ledger.
+
+## Halloween atmosphere and usability contract
+
+- **Light mode stays light.** Warm paper is the reading surface. Aubergine navigation and burnt orange provide the Halloween character; positive pricing remains green and review/reprice retain their existing text labels.
+- **One atmospheric region.** The canvas is clipped to the right side of the masthead, under the artwork. A faint corner web and a small edition seal are static decoration. All decorative surfaces are hidden from assistive technology; the canvas uses `pointer-events: none`.
+- **Realistic, restrained motion.** Layered fractal-noise sprites produce a slow mist, rather than confetti or particles. Pointer movement gently parts the haze and shifts the still life by at most 3.5px horizontally / 2px vertically. There is no click interception, custom cursor, audio, jump scare, or blinking content.
+- **A persistent off switch.** The header’s Atmospheric effects button turns off fog, local glow, and parallax. The preference is saved when browser storage is available. The remaining artwork stays static. Its state reads On, Off, or Still.
+- **Respect attention and hardware.** Motion is disabled for reduced-motion users, coarse pointers, and widths at or below 740px. Mobile and reduced-motion layouts retain a still illustration. Animation pauses when the masthead leaves the viewport, the tab becomes hidden, or any dialog opens. Only one frame loop runs, with at most 24 fog composites per second and a 1.5x pixel-ratio cap.
+- **Progressive enhancement.** A missing canvas context or disabled storage must never prevent the loadboard, filters, manager controls, replay, or decisions from working. A JavaScript-disabled page still shows the static masthead.
+
+### Artwork provenance
+
+Asset: `src/load_quoting_swarm/web_assets/haunt-lantern.png` (1536 × 1024, alpha channel; transparent corners verified). Generated with the built-in imagegen tool on 28 October 2026. The original generated file is preserved separately. The PNG is a decorative studio still life, not evidence of live product activity.
+
+Final generation prompt:
+
+> Use case: photorealistic-natural, website decorative hero cutout. Create a single exquisitely detailed studio still life for a premium Halloween freight-dispatch dashboard in LIGHT MODE. A small weathered burnt-orange carved jack-o-lantern with subtle, intelligent narrow eyes and a warm candle glow sits on a low worn timber cargo crate. Beside it a small vintage dark charcoal handheld dispatch radio, coiled cable, a folded unmarked paper route sheet; a couple of dry autumn leaves. Believable photographic materials, real pumpkin ridges, brushed aged metal, realistic translucent smoky haze curling very gently behind the pumpkin, soft directional late-afternoon light and deep aubergine shadows. Quiet uncanny cinematic editorial product photography; sophisticated, tactile, restrained, not cartoon, not emoji, not gore, no text or writing anywhere, no logos, no spooky typography. Three quarter view, eye-level slightly above. Compact horizontal composition, the objects fill the center-right, all objects fully visible with generous empty margins. True transparent background, transparent outside the physical objects and subtle local grounding shadow; no white rectangular background, no dark background, no scenery. Designed to look good as a 320px-wide cutout on ivory parchment. Output a landscape transparent PNG.
