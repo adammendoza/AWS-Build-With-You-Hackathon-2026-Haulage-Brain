@@ -1,0 +1,511 @@
+{
+  "run_id": "5a94592d404f4376b872d3016caa4505",
+  "load_id": "90857138",
+  "mode": "recorded-live",
+  "status": "COMPLETED",
+  "started_at": "2026-10-28T20:45:20.688803+00:00",
+  "events": [
+    {
+      "sequence": 1,
+      "type": "run.started",
+      "at": "2026-10-28T20:45:20.688886+00:00",
+      "elapsed_ms": 0,
+      "data": {
+        "load_id": "90857138",
+        "fleet_notice": "Synthetic demo fleet economics",
+        "human_gate": "Nothing books without manager approval"
+      }
+    },
+    {
+      "sequence": 2,
+      "type": "crewai.ingest.completed",
+      "at": "2026-10-28T20:45:20.704324+00:00",
+      "elapsed_ms": 16,
+      "data": {
+        "source_count": 89,
+        "selected_count": 1,
+        "load_ids": [
+          "90857138"
+        ]
+      }
+    },
+    {
+      "sequence": 3,
+      "type": "crewai.route.completed",
+      "at": "2026-10-28T20:45:20.706893+00:00",
+      "elapsed_ms": 18,
+      "data": {
+        "route_counts": {
+          "luton,_tail_lift:furniture": 1
+        }
+      }
+    },
+    {
+      "sequence": 4,
+      "type": "you.grounding.started",
+      "at": "2026-10-28T20:45:20.710854+00:00",
+      "elapsed_ms": 22,
+      "data": {
+        "load_id": "90857138",
+        "research": [
+          "latest UK diesel price",
+          "route restrictions and ULEZ charges"
+        ]
+      }
+    },
+    {
+      "sequence": 5,
+      "type": "you.grounding.completed",
+      "at": "2026-10-28T20:45:21.389332+00:00",
+      "elapsed_ms": 701,
+      "data": {
+        "diesel_price_ppl": 199.22,
+        "restriction_summary": "https://www.plymouthherald.co.uk/news/plymouth-news/major-plymouth-traffic-order-new-10965048 ‌\n\n‌\n\nSkip to main content # Major Plymouth traffic order as new restrictions confirmed\n## Changes are being brought in on a number of routes\nPlymouth City Council has made a traffic regulation order to add and amend parking restrictions on 35 streets across the city. The order, dated 6 May 2026 under the Road Traffic Regulation Act 1984 following consultation with the police, forms part of the council’",
+        "ulez_charge_gbp": 0,
+        "retrieved_at": "2026-10-28T20:45:21.389262+00:00",
+        "citations": [
+          {
+            "title": "UK Fuel Prices Fall Slightly: Petrol 174.07p, Diesel 199.22p - News and Statistics - IndexBox",
+            "url": "https://www.indexbox.io/blog/uk-pump-prices-edge-lower-in-latest-week/",
+            "snippet": "UK petrol fell 0.50p to 174.07p per litre and diesel eased 0.11p to 199.22p in the week commencing 26 October 2026, though prices remain far above year-earlier levels."
+          },
+          {
+            "title": "UK Fuel Price Index — Weekly Average Petrol & Diesel Prices",
+            "url": "https://www.petrolprices.co.uk/fuel-price-index.php",
+            "snippet": "UK Fuel Price Index: current weekly average petrol and diesel prices, historical trends, and downloadable data. Updated weekly from UK Government statistics.\n\nCurrent UK average: Unleaded 174.6p/litre, Diesel 199.3p/litre. Updated 19/10/2026."
+          },
+          {
+            "title": "UK Fuel Price Charts & Trends",
+            "url": "https://www.petrolprices.co.uk/fuel-prices.php",
+            "snippet": "# UK Fuel Price Trends\n## UK Average Fuel Prices (Latest Weekly Update)\n\nBased on UK Government weekly fuel price statistics.\n\nDiesel\n\n199.2p per litre\n\n-0.11p vs last week\n\nUpdated: 26/10/2026 · Source: UK Government\n\nWeekly UK average prices · Not live forecourt prices"
+          },
+          {
+            "title": "UK petrol and diesel prices: every week since 2003",
+            "url": "https://carbonrecycling.co.uk/tools/uk-petrol-diesel-prices",
+            "snippet": "# UK petrol and diesel prices: every week since 2003\nIn short\n\nIn the week of 19 October 2026, UK drivers paid on average 199.33p a litre for diesel and 174.57p for unleaded petrol, against 142.81p and 134.69p a year earlier. The chart below has every weekly government price since 9 June 2003, and the calculator turns any week's price into the cost and carbon of your driving."
+          },
+          {
+            "title": "UK Fuel Prices CSV & JSON: Petrol and Diesel",
+            "url": "https://utilhub.co.uk/resources/uk-fuel-prices/",
+            "snippet": "# UK weekly fuel prices.\nDiesel average**197.58p/L**Up 2.05p versus the prior week\n\nPence per litre. National averages, not local forecourt quotes. Source: DESNZ weekly road fuel prices."
+          },
+          {
+            "title": "UK Fuel Prices — Petrol 174.57p, Diesel 199.33p",
+            "url": "https://www.freeplatecheck.co.uk/stats/fuel-prices",
+            "snippet": "## Understanding UK Fuel Price Trends\n### Worried about rising fuel costs?\nWith petrol at 174.57p and diesel at 199.33p per litre, running costs matter more than ever."
+          },
+          {
+            "title": "Diesel Prices UK: Weekly Tracker, Chart and Duty Breakdown",
+            "url": "https://www.contracttransportservices.co.uk/tools/diesel-prices-uk/",
+            "snippet": "# Diesel Prices UK\nOfficial average UK diesel and petrol pump prices from DESNZ weekly data, refreshed automatically. See the two year trend, week on week and year on year changes, the duty and VAT inside every litre, and what this week's price means in pence per mile."
+          },
+          {
+            "title": "UK Diesel Price Today: 200.0p/Litre",
+            "url": "https://fuelmarble.com/fuel-prices",
+            "snippet": "UK diesel averages 200.0p/litre today (week ending 12/10/2026), from GOV.UK data. See the live figure, the trend, and how fleets cut that cost 7–15%.\n\nAverage UK petrol and diesel pump prices from GOV.UK (DESNZ) data. Updated weekly."
+          },
+          {
+            "title": "Major Plymouth traffic order as new restrictions confirmed",
+            "url": "https://www.plymouthherald.co.uk/news/plymouth-news/major-plymouth-traffic-order-new-10965048",
+            "snippet": "Changes are being brought in on a number of routes"
+          },
+          {
+            "title": "Plymouth City - Temporary Restriction Of Traffic For Gas ...",
+            "url": "https://publicnoticeportal.uk/notice/traffic-and-roads/6a147c8b54ed9ab75f69c48e",
+            "snippet": "Traffic & Roads Notice near PL4 6AY to read, save and share"
+          }
+        ],
+        "source": "you.com",
+        "elapsed_seconds": 0.678
+      }
+    },
+    {
+      "sequence": 6,
+      "type": "tools.assessment.completed",
+      "at": "2026-10-28T20:45:21.389663+00:00",
+      "elapsed_ms": 701,
+      "data": {
+        "load_id": "90857138",
+        "diesel_price_ppl": 199.22,
+        "fuel_cost_gbp": 83.87,
+        "estimated_total_cost_gbp": 274.95,
+        "target_quote_gbp": 343.69,
+        "offered_rate_gbp": 265,
+        "offered_margin_pct": -3.76,
+        "baseline_diesel_price_ppl": 145,
+        "baseline_target_quote_gbp": 315.16,
+        "live_quote_delta_gbp": 28.53,
+        "compliance_flags": [
+          "weight_not_supplied_requires_confirmation",
+          "delivery_window_not_supplied"
+        ],
+        "fleet_fit": {
+          "feasible": true,
+          "selected_vehicle_id": "DEMO-LUTON-01",
+          "matching_vehicle_ids": [
+            "DEMO-LUTON-01"
+          ],
+          "flags": [
+            "deadhead_distance_requires_review"
+          ],
+          "summary": ""
+        }
+      }
+    },
+    {
+      "sequence": 7,
+      "type": "parasail.specialist.started",
+      "at": "2026-10-28T20:45:21.389928+00:00",
+      "elapsed_ms": 701,
+      "data": {
+        "role": "pricing",
+        "model": "parasail-minimax-m31-flash"
+      }
+    },
+    {
+      "sequence": 8,
+      "type": "parasail.specialist.started",
+      "at": "2026-10-28T20:45:21.389988+00:00",
+      "elapsed_ms": 701,
+      "data": {
+        "role": "compliance",
+        "model": "parasail-minimax-m31-flash"
+      }
+    },
+    {
+      "sequence": 9,
+      "type": "parasail.specialist.started",
+      "at": "2026-10-28T20:45:21.390736+00:00",
+      "elapsed_ms": 702,
+      "data": {
+        "role": "fleet-fit",
+        "model": "parasail-minimax-m31-flash"
+      }
+    },
+    {
+      "sequence": 10,
+      "type": "parasail.specialist.completed",
+      "at": "2026-10-28T20:45:21.823255+00:00",
+      "elapsed_ms": 1134,
+      "data": {
+        "role": "fleet-fit",
+        "model": "parasail-minimax-m31-flash",
+        "elapsed_seconds": 0.433,
+        "summary": "",
+        "risk_flags": [],
+        "confidence": null
+      }
+    },
+    {
+      "sequence": 11,
+      "type": "parasail.specialist.completed",
+      "at": "2026-10-28T20:45:21.827479+00:00",
+      "elapsed_ms": 1139,
+      "data": {
+        "role": "pricing",
+        "model": "parasail-minimax-m31-flash",
+        "elapsed_seconds": 0.438,
+        "summary": "",
+        "risk_flags": [],
+        "confidence": null
+      }
+    },
+    {
+      "sequence": 12,
+      "type": "parasail.specialist.completed",
+      "at": "2026-10-28T20:45:25.053444+00:00",
+      "elapsed_ms": 4365,
+      "data": {
+        "role": "compliance",
+        "model": "parasail-minimax-m31-flash",
+        "elapsed_seconds": 3.663,
+        "summary": "Load 90857138: Furniture, Plymouth PL6 2WS to Birmingham B9 7FP, 213 miles, Luton with tail lift, offered rate £265, pickup 2026-10-29 11:15, delivery 15:34 (estimated, 'ASAP'). Journey estimate 259 minutes (4.32h) plus 60 minutes loading gives 5.95 minimum trip hours, which fits inside the 11:15-15:34 window with no slack for the 0-minute expected waiting. Fuel context: UK diesel averaging ~199.22p/litre (week commencing 26/10/2026), so a 213-mile Luton run is fuel-cost sensitive at the offered rate. No ULEZ charge applies and none is required. Plymouth City Council traffic regulation order (dated 6 May 2026) adds/amends parking restrictions on 35 streets including Saltash Road, St Levan Road, Tavistock Road, Kings Tamerton Road and Elburton Road, which are on or near the PL6 2WS pickup area and could affect kerbside access and loading time. Two material gaps remain: gross load weight is not supplied, so payload compliance for the Luton/tail-lift combination cannot be confirmed, and no customer delivery window beyond the estimated 'ASAP' time has been provided.",
+        "risk_flags": [
+          {
+            "code": "weight_not_supplied_requires_confirmation",
+            "severity": "high",
+            "detail": "weight_kg is null. Payload capacity of the Luton with tail lift cannot be verified against the furniture load, so vehicle suitability and any tail-lift rating limit remain unconfirmed. Must be obtained from the customer before acceptance."
+          },
+          {
+            "code": "delivery_window_not_supplied",
+            "severity": "medium",
+            "detail": "Delivery time 15:34 is flagged as estimated and labelled 'ASAP'. There is no confirmed customer window, so the 4.32h estimated journey plus 60 minutes loading leaves effectively no contingency against the 15:34 target and any delay risks a failed delivery slot."
+          },
+          {
+            "code": "plymouth_traffic_restrictions_pickup_area",
+            "severity": "medium",
+            "detail": "Plymouth City Council traffic regulation order dated 6 May 2026 adds/amends parking restrictions on 35 streets, including Saltash Road, St Levan Road, Tavistock Road, Kings Tamerton Road and Elburton Road, which serve the PL6 2WS pickup area. Kerbside parking and loading restrictions may reduce available standing time or require a different collection point, adding to the 60-minute loading allowance."
+          },
+          {
+            "code": "rate_margin_tight_against_fuel",
+            "severity": "medium",
+            "detail": "£265 for 213 miles with a Luton and tail lift equates to roughly £1.24 per mile. With UK diesel at 199.22p/litre (week commencing 26/10/2026) and a Luton typically around 30-35 mpg, fuel alone is likely to consume a substantial share of the rate, leaving limited margin for driver time, wear and the tail-lift vehicle's higher operating cost. Margin should be checked before acceptance."
+          },
+          {
+            "code": "tail_lift_vehicle_cost_and_manoeuvrability",
+            "severity": "low",
+            "detail": "Route key is luton,_tail_lift. Tail-lift Lutons carry higher fixed costs and have restricted urban manoeuvrability, which is relevant for a city-centre Birmingham delivery at B9 7FP. Confirm the tail lift is required and that the rate reflects it."
+          },
+          {
+            "code": "delivery_instructions_customer_contact_required",
+            "severity": "low",
+            "detail": "Notes require calling the customer before delivery and specify blanket wrap with no tipping. These are additional handling requirements that need to be reflected in loading time and confirmed with the customer, particularly given the estimated delivery time."
+          },
+          {
+            "code": "payment_terms_30_days_eom",
+            "severity": "low",
+            "detail": "Payment terms are 30 Days (End Of Month), which extends cash flow beyond the delivery date. Confirm this is acceptable for the operator before acceptance."
+          }
+        ],
+        "confidence": 0.72
+      }
+    },
+    {
+      "sequence": 13,
+      "type": "parasail.supervisor.started",
+      "at": "2026-10-28T20:45:25.053622+00:00",
+      "elapsed_ms": 4365,
+      "data": {
+        "model": "parasail-minimax-m31-flash"
+      }
+    },
+    {
+      "sequence": 14,
+      "type": "parasail.supervisor.completed",
+      "at": "2026-10-28T20:45:27.076692+00:00",
+      "elapsed_ms": 6388,
+      "data": {
+        "model": "parasail-minimax-m31-flash",
+        "elapsed_seconds": 2.023,
+        "recommendation": "REVIEW",
+        "rationale": "The load is operationally feasible (Luton with tail lift, DEMO-LUTON-01, 213 miles, 5.95h minimum trip hours inside the 11:15-15:34 window, no ULEZ), but three issues block clean approval. First, pricing: the offered £265 is below the £274.95 break-even and the £298.86 minimum viable rate, giving a -3.76% margin (-£9.95) with the risk flag 'offered_rate_below_fleet_minimum_margin'; the target quote is £343.69. Second, gross load weight is not supplied, so payload and tail-lift rating compliance for a furniture load cannot be confirmed (high severity). Third, the 15:34 delivery is an estimated 'ASAP' time with no customer window, leaving effectively zero slack against the 4.32h journey plus 60 minutes loading, compounded by the Plymouth traffic regulation order (6 May 2026) affecting kerbside access near PL6 2WS and by the requirement to call the customer before delivery with blanket wrap and no tipping. Payment terms of 30 days EOM add cash-flow pressure. Recommend a human gate: obtain weight and a confirmed delivery window, confirm the tail lift is required, and re-quote at or above the minimum viable rate (target £343.69) before acceptance. Note also the deadhead distance flag on fleet fit, which needs review. This is not a booking.",
+        "confidence": 0.86
+      }
+    },
+    {
+      "sequence": 15,
+      "type": "safety.gate.completed",
+      "at": "2026-10-28T20:45:27.076729+00:00",
+      "elapsed_ms": 6388,
+      "data": {
+        "load_id": "90857138",
+        "model_recommendation": "REVIEW",
+        "deterministic_eligible": false,
+        "final_recommendation": "PASS",
+        "confidence": 0.86,
+        "rationale": "The load is operationally feasible (Luton with tail lift, DEMO-LUTON-01, 213 miles, 5.95h minimum trip hours inside the 11:15-15:34 window, no ULEZ), but three issues block clean approval. First, pricing: the offered £265 is below the £274.95 break-even and the £298.86 minimum viable rate, giving a -3.76% margin (-£9.95) with the risk flag 'offered_rate_below_fleet_minimum_margin'; the target quote is £343.69. Second, gross load weight is not supplied, so payload and tail-lift rating compliance for a furniture load cannot be confirmed (high severity). Third, the 15:34 delivery is an estimated 'ASAP' time with no customer window, leaving effectively zero slack against the 4.32h journey plus 60 minutes loading, compounded by the Plymouth traffic regulation order (6 May 2026) affecting kerbside access near PL6 2WS and by the requirement to call the customer before delivery with blanket wrap and no tipping. Payment terms of 30 days EOM add cash-flow pressure. Recommend a human gate: obtain weight and a confirmed delivery window, confirm the tail lift is required, and re-quote at or above the minimum viable rate (target £343.69) before acceptance. Note also the deadhead distance flag on fleet fit, which needs review. This is not a booking."
+      }
+    },
+    {
+      "sequence": 16,
+      "type": "one.approval.pending",
+      "at": "2026-10-28T20:45:27.082930+00:00",
+      "elapsed_ms": 6394,
+      "data": {
+        "quote_id": "Q-90857138",
+        "message": "Ready to publish through One; human approval remains required."
+      }
+    },
+    {
+      "sequence": 17,
+      "type": "run.completed",
+      "at": "2026-10-28T20:45:27.082950+00:00",
+      "elapsed_ms": 6394,
+      "data": {
+        "elapsed_seconds": 6.367,
+        "recommendation": "PASS",
+        "proposed_quote_gbp": 343.69,
+        "inference_usage": {
+          "prompt_tokens": 7722,
+          "completion_tokens": 1272,
+          "requests": 4,
+          "estimated_cost_usd": 0,
+          "pricing_usd_per_million": {
+            "input": 0,
+            "output": 0
+          }
+        }
+      }
+    }
+  ],
+  "result": {
+    "decision": {
+      "quote_id": "Q-90857138",
+      "load_id": "90857138",
+      "recommendation": "PASS",
+      "proposed_quote_gbp": 343.69,
+      "confidence": 0.86,
+      "rationale": "The load is operationally feasible (Luton with tail lift, DEMO-LUTON-01, 213 miles, 5.95h minimum trip hours inside the 11:15-15:34 window, no ULEZ), but three issues block clean approval. First, pricing: the offered £265 is below the £274.95 break-even and the £298.86 minimum viable rate, giving a -3.76% margin (-£9.95) with the risk flag 'offered_rate_below_fleet_minimum_margin'; the target quote is £343.69. Second, gross load weight is not supplied, so payload and tail-lift rating compliance for a furniture load cannot be confirmed (high severity). Third, the 15:34 delivery is an estimated 'ASAP' time with no customer window, leaving effectively zero slack against the 4.32h journey plus 60 minutes loading, compounded by the Plymouth traffic regulation order (6 May 2026) affecting kerbside access near PL6 2WS and by the requirement to call the customer before delivery with blanket wrap and no tipping. Payment terms of 30 days EOM add cash-flow pressure. Recommend a human gate: obtain weight and a confirmed delivery window, confirm the tail lift is required, and re-quote at or above the minimum viable rate (target £343.69) before acceptance. Note also the deadhead distance flag on fleet fit, which needs review. This is not a booking.",
+      "pricing": {
+        "fuel_litres": 42.1,
+        "fuel_cost_gbp": 83.87,
+        "fixed_vehicle_cost_gbp": 80.94,
+        "driver_hours": 5.95,
+        "driver_cost_gbp": 110.14,
+        "restriction_cost_gbp": 0,
+        "estimated_total_cost_gbp": 274.95,
+        "offered_rate_gbp": 265,
+        "offered_profit_gbp": -9.95,
+        "offered_margin_pct": -3.76,
+        "break_even_rate_gbp": 274.95,
+        "target_quote_gbp": 343.69,
+        "minimum_viable_rate_gbp": 298.86,
+        "formula_quote_gbp": 250,
+        "formula_base_gbp": 180,
+        "formula_fuel_surcharge_gbp": 70,
+        "formula_city_surcharge_gbp": 0,
+        "formula_status": "ok",
+        "summary": "",
+        "risk_flags": [
+          "offered_rate_below_fleet_minimum_margin"
+        ]
+      },
+      "compliance": {
+        "feasible": true,
+        "payload_ok": null,
+        "schedule_ok": true,
+        "ulez_applies": false,
+        "ulez_charge_required": false,
+        "service_hours": 4.32,
+        "minimum_trip_hours": 5.95,
+        "flags": [
+          "weight_not_supplied_requires_confirmation",
+          "delivery_window_not_supplied"
+        ],
+        "summary": "Load 90857138: Furniture, Plymouth PL6 2WS to Birmingham B9 7FP, 213 miles, Luton with tail lift, offered rate £265, pickup 2026-10-29 11:15, delivery 15:34 (estimated, 'ASAP'). Journey estimate 259 minutes (4.32h) plus 60 minutes loading gives 5.95 minimum trip hours, which fits inside the 11:15-15:34 window with no slack for the 0-minute expected waiting. Fuel context: UK diesel averaging ~199.22p/litre (week commencing 26/10/2026), so a 213-mile Luton run is fuel-cost sensitive at the offered rate. No ULEZ charge applies and none is required. Plymouth City Council traffic regulation order (dated 6 May 2026) adds/amends parking restrictions on 35 streets including Saltash Road, St Levan Road, Tavistock Road, Kings Tamerton Road and Elburton Road, which are on or near the PL6 2WS pickup area and could affect kerbside access and loading time. Two material gaps remain: gross load weight is not supplied, so payload compliance for the Luton/tail-lift combination cannot be confirmed, and no customer delivery window beyond the estimated 'ASAP' time has been provided."
+      },
+      "fleet_fit": {
+        "feasible": true,
+        "selected_vehicle_id": "DEMO-LUTON-01",
+        "matching_vehicle_ids": [
+          "DEMO-LUTON-01"
+        ],
+        "flags": [
+          "deadhead_distance_requires_review"
+        ],
+        "summary": ""
+      },
+      "market_inputs": {
+        "diesel_price_ppl": 199.22,
+        "restriction_summary": "https://www.plymouthherald.co.uk/news/plymouth-news/major-plymouth-traffic-order-new-10965048 ‌\n\n‌\n\nSkip to main content # Major Plymouth traffic order as new restrictions confirmed\n## Changes are being brought in on a number of routes\nPlymouth City Council has made a traffic regulation order to add and amend parking restrictions on 35 streets across the city. The order, dated 6 May 2026 under the Road Traffic Regulation Act 1984 following consultation with the police, forms part of the council’",
+        "ulez_charge_gbp": 0,
+        "retrieved_at": "2026-10-28T20:45:21.389262+00:00",
+        "citations": [
+          {
+            "title": "UK Fuel Prices Fall Slightly: Petrol 174.07p, Diesel 199.22p - News and Statistics - IndexBox",
+            "url": "https://www.indexbox.io/blog/uk-pump-prices-edge-lower-in-latest-week/",
+            "snippet": "UK petrol fell 0.50p to 174.07p per litre and diesel eased 0.11p to 199.22p in the week commencing 26 October 2026, though prices remain far above year-earlier levels."
+          },
+          {
+            "title": "UK Fuel Price Index — Weekly Average Petrol & Diesel Prices",
+            "url": "https://www.petrolprices.co.uk/fuel-price-index.php",
+            "snippet": "UK Fuel Price Index: current weekly average petrol and diesel prices, historical trends, and downloadable data. Updated weekly from UK Government statistics.\n\nCurrent UK average: Unleaded 174.6p/litre, Diesel 199.3p/litre. Updated 19/10/2026."
+          },
+          {
+            "title": "UK Fuel Price Charts & Trends",
+            "url": "https://www.petrolprices.co.uk/fuel-prices.php",
+            "snippet": "# UK Fuel Price Trends\n## UK Average Fuel Prices (Latest Weekly Update)\n\nBased on UK Government weekly fuel price statistics.\n\nDiesel\n\n199.2p per litre\n\n-0.11p vs last week\n\nUpdated: 26/10/2026 · Source: UK Government\n\nWeekly UK average prices · Not live forecourt prices"
+          },
+          {
+            "title": "UK petrol and diesel prices: every week since 2003",
+            "url": "https://carbonrecycling.co.uk/tools/uk-petrol-diesel-prices",
+            "snippet": "# UK petrol and diesel prices: every week since 2003\nIn short\n\nIn the week of 19 October 2026, UK drivers paid on average 199.33p a litre for diesel and 174.57p for unleaded petrol, against 142.81p and 134.69p a year earlier. The chart below has every weekly government price since 9 June 2003, and the calculator turns any week's price into the cost and carbon of your driving."
+          },
+          {
+            "title": "UK Fuel Prices CSV & JSON: Petrol and Diesel",
+            "url": "https://utilhub.co.uk/resources/uk-fuel-prices/",
+            "snippet": "# UK weekly fuel prices.\nDiesel average**197.58p/L**Up 2.05p versus the prior week\n\nPence per litre. National averages, not local forecourt quotes. Source: DESNZ weekly road fuel prices."
+          },
+          {
+            "title": "UK Fuel Prices — Petrol 174.57p, Diesel 199.33p",
+            "url": "https://www.freeplatecheck.co.uk/stats/fuel-prices",
+            "snippet": "## Understanding UK Fuel Price Trends\n### Worried about rising fuel costs?\nWith petrol at 174.57p and diesel at 199.33p per litre, running costs matter more than ever."
+          },
+          {
+            "title": "Diesel Prices UK: Weekly Tracker, Chart and Duty Breakdown",
+            "url": "https://www.contracttransportservices.co.uk/tools/diesel-prices-uk/",
+            "snippet": "# Diesel Prices UK\nOfficial average UK diesel and petrol pump prices from DESNZ weekly data, refreshed automatically. See the two year trend, week on week and year on year changes, the duty and VAT inside every litre, and what this week's price means in pence per mile."
+          },
+          {
+            "title": "UK Diesel Price Today: 200.0p/Litre",
+            "url": "https://fuelmarble.com/fuel-prices",
+            "snippet": "UK diesel averages 200.0p/litre today (week ending 12/10/2026), from GOV.UK data. See the live figure, the trend, and how fleets cut that cost 7–15%.\n\nAverage UK petrol and diesel pump prices from GOV.UK (DESNZ) data. Updated weekly."
+          },
+          {
+            "title": "Major Plymouth traffic order as new restrictions confirmed",
+            "url": "https://www.plymouthherald.co.uk/news/plymouth-news/major-plymouth-traffic-order-new-10965048",
+            "snippet": "Changes are being brought in on a number of routes"
+          },
+          {
+            "title": "Plymouth City - Temporary Restriction Of Traffic For Gas ...",
+            "url": "https://publicnoticeportal.uk/notice/traffic-and-roads/6a147c8b54ed9ab75f69c48e",
+            "snippet": "Traffic & Roads Notice near PL4 6AY to read, save and share"
+          }
+        ],
+        "source": "you.com"
+      },
+      "specialist_notes": {
+        "pricing": {},
+        "compliance": {
+          "summary": "Load 90857138: Furniture, Plymouth PL6 2WS to Birmingham B9 7FP, 213 miles, Luton with tail lift, offered rate £265, pickup 2026-10-29 11:15, delivery 15:34 (estimated, 'ASAP'). Journey estimate 259 minutes (4.32h) plus 60 minutes loading gives 5.95 minimum trip hours, which fits inside the 11:15-15:34 window with no slack for the 0-minute expected waiting. Fuel context: UK diesel averaging ~199.22p/litre (week commencing 26/10/2026), so a 213-mile Luton run is fuel-cost sensitive at the offered rate. No ULEZ charge applies and none is required. Plymouth City Council traffic regulation order (dated 6 May 2026) adds/amends parking restrictions on 35 streets including Saltash Road, St Levan Road, Tavistock Road, Kings Tamerton Road and Elburton Road, which are on or near the PL6 2WS pickup area and could affect kerbside access and loading time. Two material gaps remain: gross load weight is not supplied, so payload compliance for the Luton/tail-lift combination cannot be confirmed, and no customer delivery window beyond the estimated 'ASAP' time has been provided.",
+          "risk_flags": [
+            {
+              "code": "weight_not_supplied_requires_confirmation",
+              "severity": "high",
+              "detail": "weight_kg is null. Payload capacity of the Luton with tail lift cannot be verified against the furniture load, so vehicle suitability and any tail-lift rating limit remain unconfirmed. Must be obtained from the customer before acceptance."
+            },
+            {
+              "code": "delivery_window_not_supplied",
+              "severity": "medium",
+              "detail": "Delivery time 15:34 is flagged as estimated and labelled 'ASAP'. There is no confirmed customer window, so the 4.32h estimated journey plus 60 minutes loading leaves effectively no contingency against the 15:34 target and any delay risks a failed delivery slot."
+            },
+            {
+              "code": "plymouth_traffic_restrictions_pickup_area",
+              "severity": "medium",
+              "detail": "Plymouth City Council traffic regulation order dated 6 May 2026 adds/amends parking restrictions on 35 streets, including Saltash Road, St Levan Road, Tavistock Road, Kings Tamerton Road and Elburton Road, which serve the PL6 2WS pickup area. Kerbside parking and loading restrictions may reduce available standing time or require a different collection point, adding to the 60-minute loading allowance."
+            },
+            {
+              "code": "rate_margin_tight_against_fuel",
+              "severity": "medium",
+              "detail": "£265 for 213 miles with a Luton and tail lift equates to roughly £1.24 per mile. With UK diesel at 199.22p/litre (week commencing 26/10/2026) and a Luton typically around 30-35 mpg, fuel alone is likely to consume a substantial share of the rate, leaving limited margin for driver time, wear and the tail-lift vehicle's higher operating cost. Margin should be checked before acceptance."
+            },
+            {
+              "code": "tail_lift_vehicle_cost_and_manoeuvrability",
+              "severity": "low",
+              "detail": "Route key is luton,_tail_lift. Tail-lift Lutons carry higher fixed costs and have restricted urban manoeuvrability, which is relevant for a city-centre Birmingham delivery at B9 7FP. Confirm the tail lift is required and that the rate reflects it."
+            },
+            {
+              "code": "delivery_instructions_customer_contact_required",
+              "severity": "low",
+              "detail": "Notes require calling the customer before delivery and specify blanket wrap with no tipping. These are additional handling requirements that need to be reflected in loading time and confirmed with the customer, particularly given the estimated delivery time."
+            },
+            {
+              "code": "payment_terms_30_days_eom",
+              "severity": "low",
+              "detail": "Payment terms are 30 Days (End Of Month), which extends cash flow beyond the delivery date. Confirm this is acceptable for the operator before acceptance."
+            }
+          ],
+          "confidence": 0.72
+        },
+        "fleet_fit": {}
+      },
+      "approval_status": "PENDING"
+    },
+    "elapsed_seconds": 6.367,
+    "route_counts": {
+      "luton,_tail_lift:furniture": 1
+    },
+    "inference_usage": {
+      "prompt_tokens": 7722,
+      "completion_tokens": 1272,
+      "requests": 4,
+      "estimated_cost_usd": 0,
+      "pricing_usd_per_million": {
+        "input": 0,
+        "output": 0
+      }
+    }
+  },
+  "error": null,
+  "notice": "Sanitized replay of real CrewAI, You.com, and Parasail calls. No booking or Discord message was sent."
+}

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
     <title>Haulage Brain</title>
-    <link rel="stylesheet" href="app.css?v=2">
+    <link rel="stylesheet" href="app.css?v=3">
   </head>
   <body>
     <header class="app-bar">
@@ -66,7 +66,45 @@
       <header><h2>Raw fixture JSON</h2><button id="close-dialog" aria-label="Close">×</button></header>
       <pre id="json-content"></pre>
     </dialog>
+    <dialog id="analysis-dialog" class="analysis-dialog">
+      <header>
+        <div>
+          <span class="run-mode" id="run-mode">LIVE</span>
+          <h2 id="analysis-title">Agent analysis</h2>
+        </div>
+        <button id="close-analysis" aria-label="Close">×</button>
+      </header>
+      <div class="analysis-body">
+        <p class="analysis-notice" id="analysis-notice">Starting a human-gated analysis. Nothing will be booked.</p>
+        <div class="pipeline-flow" aria-label="Agent analysis pipeline">
+          <div class="pipeline-stage" data-stage="crewai"><span>1</span><strong>CrewAI</strong><small>Ingest + route</small></div>
+          <i>→</i>
+          <div class="pipeline-stage" data-stage="you"><span>2</span><strong>You.com</strong><small>Live grounding</small></div>
+          <i>→</i>
+          <div class="pipeline-stage" data-stage="tools"><span>3</span><strong>Quote tools</strong><small>Deterministic math</small></div>
+          <i>→</i>
+          <div class="pipeline-stage" data-stage="parasail"><span>4</span><strong>Parasail</strong><small>3 specialists + supervisor</small></div>
+          <i>→</i>
+          <div class="pipeline-stage" data-stage="decision"><span>5</span><strong>Safety gate</strong><small>Final recommendation</small></div>
+          <i>→</i>
+          <div class="pipeline-stage" data-stage="one"><span>6</span><strong>One</strong><small>Human approval</small></div>
+        </div>
+        <div class="analysis-grid">
+          <section>
+            <h3>API impact</h3>
+            <div class="impact-panel" id="analysis-impact">
+              <p>Waiting for live market evidence…</p>
+            </div>
+            <div class="run-metrics" id="run-metrics"></div>
+          </section>
+          <section>
+            <h3>Live trace</h3>
+            <ol class="event-stream" id="analysis-events" aria-live="polite"></ol>
+          </section>
+        </div>
+      </div>
+    </dialog>
     <div id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=2" defer></script>
+    <script src="app.js?v=3" defer></script>
   </body>
 </html>

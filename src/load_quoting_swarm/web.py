@@ -12,6 +12,9 @@ from threading import Lock
 from typing import Any
 from urllib.parse import urlparse
 
+from dotenv import find_dotenv, load_dotenv
+
+from .analysis_runs import AnalysisRunManager
 from .ledger import BookingLedger, LedgerError
 from .pricing import quote
 
@@ -127,7 +130,7 @@ class LoadboardState:
             )
 
 
-def make_handler(state: LoadboardState):
+def make_handler(state: LoadboardState, runs: AnalysisRunManager | None = None):
     class Handler(BaseHTTPRequestHandler):
         server_version = "HaulageBrain/0.1"
 
@@ -170,17 +173,23 @@ def make_handler(state: LoadboardState):
                     self._json(state.raw_loads())
                 elif path == "/api/ledger":
                     self._json(state.ledger.state())
+                elif path.startswith("/api/runs/") and runs is not None:
+                    run_id = path.removeprefix("/api/runs/")
+                    self._json(runs.get(run_id))
                 elif path in {"/", "/index.html"}:
                     self._asset("index.html")
                 elif path in {"/app.css", "/app.js"}:
                     self._asset(path.lstrip("/"))
                 else:
                     self.send_error(HTTPStatus.NOT_FOUND)
+            except KeyError:
+                self._json({"error": "analysis run not found"}, HTTPStatus.NOT_FOUND)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
                 self._json({"error": str(exc)}, HTTPStatus.INTERNAL_SERVER_ERROR)
 
         def do_POST(self) -> None:  # noqa: N802 - BaseHTTPRequestHandler API
-            if urlparse(self.path).path != "/api/decision":
+            path = urlparse(self.path).path
+            if path not in {"/api/decision", "/api/runs"}:
                 self.send_error(HTTPStatus.NOT_FOUND)
                 return
             try:
@@ -190,7 +199,17 @@ def make_handler(state: LoadboardState):
                 body = json.loads(self.rfile.read(length) or b"{}")
                 if not isinstance(body, dict):
                     raise ValueError("request body must be a JSON object")
-                self._json(state.decide(body), HTTPStatus.CREATED)
+                if path == "/api/runs":
+                    if runs is None:
+                        raise ValueError("live analysis is not configured")
+                    load_id = str(body.get("load_id") or "").strip()
+                    if not load_id:
+                        raise ValueError("load_id is required")
+                    self._json(runs.start(load_id), HTTPStatus.ACCEPTED)
+                else:
+                    self._json(state.decide(body), HTTPStatus.CREATED)
+            except RuntimeError as exc:
+                self._json({"error": str(exc)}, HTTPStatus.TOO_MANY_REQUESTS)
             except (LedgerError, ValueError, json.JSONDecodeError) as exc:
                 self._json({"error": str(exc)}, HTTPStatus.BAD_REQUEST)
 
@@ -206,6 +225,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--ledger", type=Path, default=Path("var/booking-ledger.jsonl")
     )
+    parser.add_argument("--fleet", type=Path, default=Path("config/fleet.demo.json"))
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--open", action="store_true", dest="open_browser")
@@ -213,11 +233,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> int:
+    load_dotenv(find_dotenv(usecwd=True))
     args = build_parser().parse_args()
     if not args.loads.exists():
         raise SystemExit(f"load fixture not found: {args.loads}")
     state = LoadboardState(args.loads, args.ledger)
-    server = ThreadingHTTPServer((args.host, args.port), make_handler(state))
+    runs = AnalysisRunManager(args.loads, args.fleet)
+    server = ThreadingHTTPServer((args.host, args.port), make_handler(state, runs))
     url = f"http://{args.host}:{args.port}"
     print(f"Haulage Brain UI: {url}")
     print(f"Fixture: {args.loads} · Ledger: {args.ledger}")

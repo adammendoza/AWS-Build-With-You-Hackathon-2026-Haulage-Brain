@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, Callable
 
 from .ingest import available_loads, load_freight_loads
 from .models import FreightLoad
@@ -9,6 +9,9 @@ from .routing import route_loads
 
 if TYPE_CHECKING:
     from .pipeline import QuotePipeline
+
+
+EventSink = Callable[[str, dict[str, Any]], None]
 
 try:
     from crewai.flow.flow import Flow, listen, router, start
@@ -104,23 +107,39 @@ if Flow is not None:
             loads_path: str | Path,
             pipeline: "QuotePipeline",
             limit: int | None = 3,
+            load_ids: set[str] | None = None,
+            event_sink: EventSink | None = None,
         ):
             super().__init__()
             self.loads_path = str(loads_path)
             self.pipeline = pipeline
             self.limit = limit
+            self.load_ids = load_ids
+            self.event_sink = event_sink
             self._selected = []
             self.result: dict[str, Any] | None = None
 
         @start()
         def ingest(self) -> dict[str, Any]:
             all_loads = load_freight_loads(self.loads_path)
-            self._selected = available_loads(all_loads, limit=self.limit)
+            candidates = available_loads(all_loads, limit=None)
+            if self.load_ids is not None:
+                candidates = [item for item in candidates if item.load_id in self.load_ids]
+            self._selected = candidates[: self.limit] if self.limit is not None else candidates
             self.state["source_count"] = len(all_loads)
             self.state["available_count"] = len(
                 [item for item in all_loads if item.is_available]
             )
             self.state["selected_count"] = len(self._selected)
+            if self.event_sink:
+                self.event_sink(
+                    "crewai.ingest.completed",
+                    {
+                        "source_count": len(all_loads),
+                        "selected_count": len(self._selected),
+                        "load_ids": [item.load_id for item in self._selected],
+                    },
+                )
             return {"selected_count": len(self._selected)}
 
         @router(ingest)
@@ -129,6 +148,11 @@ if Flow is not None:
             self.state["route_counts"] = {
                 key: len(items) for key, items in groups.items()
             }
+            if self.event_sink:
+                self.event_sink(
+                    "crewai.route.completed",
+                    {"route_counts": dict(self.state["route_counts"])},
+                )
             return "analyze_available" if self._selected else "nothing_to_analyze"
 
         @listen("analyze_available")
@@ -155,17 +179,38 @@ else:
             loads_path: str | Path,
             pipeline: "QuotePipeline",
             limit: int | None = 3,
+            load_ids: set[str] | None = None,
+            event_sink: EventSink | None = None,
         ):
             self.loads_path = loads_path
             self.pipeline = pipeline
             self.limit = limit
+            self.load_ids = load_ids
+            self.event_sink = event_sink
             self.result: dict[str, Any] | None = None
 
         async def kickoff_async(self) -> dict[str, Any]:
-            selected = available_loads(
-                load_freight_loads(self.loads_path), limit=self.limit
-            )
+            all_loads = load_freight_loads(self.loads_path)
+            selected = available_loads(all_loads, limit=None)
+            if self.load_ids is not None:
+                selected = [item for item in selected if item.load_id in self.load_ids]
+            if self.limit is not None:
+                selected = selected[: self.limit]
+            if self.event_sink:
+                self.event_sink(
+                    "crewai.ingest.completed",
+                    {
+                        "source_count": len(all_loads),
+                        "selected_count": len(selected),
+                        "load_ids": [item.load_id for item in selected],
+                    },
+                )
             groups = route_loads(selected)
+            if self.event_sink:
+                self.event_sink(
+                    "crewai.route.completed",
+                    {"route_counts": {key: len(items) for key, items in groups.items()}},
+                )
             self.result = await self.pipeline.quote_many(selected)
             self.result["route_counts"] = {
                 key: len(items) for key, items in groups.items()
@@ -178,8 +223,16 @@ async def run_quote_flow(
     pipeline: "QuotePipeline",
     *,
     limit: int | None,
+    load_ids: set[str] | None = None,
+    event_sink: EventSink | None = None,
 ) -> dict[str, Any]:
-    flow = LoadQuoteFlow(loads_path, pipeline, limit=limit)
+    flow = LoadQuoteFlow(
+        loads_path,
+        pipeline,
+        limit=limit,
+        load_ids=load_ids,
+        event_sink=event_sink,
+    )
     await flow.kickoff_async()
     if flow.result is None:
         raise RuntimeError("load quote Flow completed without a result")

@@ -1,9 +1,10 @@
+import asyncio
 from pathlib import Path
 
 import pytest
 
 from load_quoting_swarm.config import load_fleet_config
-from load_quoting_swarm.flow import ingest_and_route
+from load_quoting_swarm.flow import ingest_and_route, run_quote_flow
 from load_quoting_swarm.ingest import available_loads, load_freight_loads
 from load_quoting_swarm.models import InputError
 from load_quoting_swarm.models import FreightLoad
@@ -46,6 +47,34 @@ def test_ingests_updated_nested_uk_fixture() -> None:
     assert known.origin_postcode == "PL6 2WS"
     assert known.journey_minutes_est == 259
     assert known.delivery_is_estimated is True
+
+
+def test_quote_flow_can_target_one_selected_load() -> None:
+    events = []
+
+    class Pipeline:
+        async def quote_many(self, loads):
+            return {
+                "fixture_count": len(loads),
+                "decisions": [{"load_id": item.load_id} for item in loads],
+                "inference_usage": {},
+            }
+
+    result = asyncio.run(
+        run_quote_flow(
+            ROOT / "data/loads_v2.json",
+            Pipeline(),
+            limit=None,
+            load_ids={"90857138"},
+            event_sink=lambda event_type, data: events.append((event_type, data)),
+        )
+    )
+
+    assert [item["load_id"] for item in result["decisions"]] == ["90857138"]
+    assert [event[0] for event in events] == [
+        "crewai.ingest.completed",
+        "crewai.route.completed",
+    ]
 
 
 def test_fleet_example_refuses_placeholder_economics() -> None:

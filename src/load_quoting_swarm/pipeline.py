@@ -3,7 +3,7 @@ from __future__ import annotations
 import asyncio
 import time
 from dataclasses import replace
-from typing import Any
+from typing import Any, Callable
 
 from .grounding import GroundingClient
 from .inference import InferenceClient
@@ -21,14 +21,20 @@ class QuotePipeline:
         inference: InferenceClient,
         memory: ScopedMemory,
         max_parallel_loads: int = 8,
+        event_sink: Callable[[str, dict[str, Any]], None] | None = None,
     ):
         self.fleet = fleet
         self.grounding = grounding
         self.inference = inference
         self.memory = memory
         self._semaphore = asyncio.Semaphore(max(1, max_parallel_loads))
+        self.event_sink = event_sink
         self.last_decisions: list[QuoteDecision] = []
         self._seed_specialist_memory()
+
+    def _emit(self, event_type: str, data: dict[str, Any]) -> None:
+        if self.event_sink:
+            self.event_sink(event_type, data)
 
     def _seed_specialist_memory(self) -> None:
         for profile in self.fleet.vehicle_profiles.values():
@@ -70,6 +76,32 @@ class QuotePipeline:
             market = await market_task
             pricing = price_load(load, self.fleet, market)
             compliance = check_compliance(load, self.fleet, market)
+            baseline_market = replace(
+                market,
+                diesel_price_ppl=145.0,
+                ulez_charge_gbp=12.5 if load.ulez_flagged else 0.0,
+                source="synthetic-baseline",
+            )
+            baseline_pricing = price_load(load, self.fleet, baseline_market)
+            self._emit(
+                "tools.assessment.completed",
+                {
+                    "load_id": load.load_id,
+                    "diesel_price_ppl": market.diesel_price_ppl,
+                    "fuel_cost_gbp": pricing.fuel_cost_gbp,
+                    "estimated_total_cost_gbp": pricing.estimated_total_cost_gbp,
+                    "target_quote_gbp": pricing.target_quote_gbp,
+                    "offered_rate_gbp": pricing.offered_rate_gbp,
+                    "offered_margin_pct": pricing.offered_margin_pct,
+                    "baseline_diesel_price_ppl": 145.0,
+                    "baseline_target_quote_gbp": baseline_pricing.target_quote_gbp,
+                    "live_quote_delta_gbp": round(
+                        pricing.target_quote_gbp - baseline_pricing.target_quote_gbp, 2
+                    ),
+                    "compliance_flags": list(compliance.flags),
+                    "fleet_fit": fleet_fit.to_dict(),
+                },
+            )
 
             base_context = {
                 "load": load.to_dict(),
@@ -161,6 +193,17 @@ class QuotePipeline:
                 rationale,
                 scope="/supervisor",
                 metadata={"load_id": load.load_id, "recommendation": recommendation},
+            )
+            self._emit(
+                "safety.gate.completed",
+                {
+                    "load_id": load.load_id,
+                    "model_recommendation": requested,
+                    "deterministic_eligible": deterministic_eligible,
+                    "final_recommendation": recommendation,
+                    "confidence": confidence,
+                    "rationale": rationale,
+                },
             )
             return QuoteDecision(
                 quote_id=f"Q-{load.load_id}",

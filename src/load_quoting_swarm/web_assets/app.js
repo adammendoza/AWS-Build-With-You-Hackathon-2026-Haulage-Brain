@@ -1,5 +1,6 @@
-const state = { loads: [], summary: {}, filtered: [], deploymentMode: "server" };
+const state = { loads: [], summary: {}, filtered: [], deploymentMode: "server", recordedRunLoadId: null };
 const DECISIONS_KEY = "haulage-brain-demo-decisions";
+const analysisUI = { seen: 0, pollTimer: null, replayTimers: [], market: null, tools: null, specialists: 0 };
 const $ = (selector) => document.querySelector(selector);
 const escapeHtml = (value) => String(value ?? "")
   .replaceAll("&", "&amp;").replaceAll("<", "&lt;")
@@ -61,9 +62,15 @@ function quotePanel(load) {
   const decided = load.ledger?.status;
   const differenceClass = q.difference_gbp >= 0 ? "positive" : "negative";
   const recommendation = q.recommendation === "REPRICE" ? "REPRICE" : q.recommendation;
-  const actions = decided
+  const isStatic = state.deploymentMode === "static-demo";
+  const canReplay = String(load.load_id) === String(state.recordedRunLoadId);
+  const analysisDisabled = isStatic && !canReplay;
+  const analysisLabel = isStatic ? (canReplay ? "Replay API run" : "Live backend required") : "Watch live APIs";
+  const analysisButton = `<button class="watch-analysis" data-analyze="${escapeHtml(load.load_id)}" ${analysisDisabled ? "disabled" : ""} title="${analysisDisabled ? `Recorded replay is available on load ${escapeHtml(state.recordedRunLoadId || "not captured")}` : "Show CrewAI, You.com and Parasail working on this load"}">${analysisLabel}</button>`;
+  const decisionControls = decided
     ? `<div class="ledger-result"><span class="label">Manager decision</span><br><strong>${escapeHtml(decided)}</strong></div>`
-    : `<div class="actions"><button class="approve" data-action="APPROVE" data-id="${escapeHtml(load.load_id)}">Approve</button><button class="pass" data-action="PASS" data-id="${escapeHtml(load.load_id)}">Pass</button></div>`;
+    : `<button class="approve" data-action="APPROVE" data-id="${escapeHtml(load.load_id)}">Approve</button><button class="pass" data-action="PASS" data-id="${escapeHtml(load.load_id)}">Pass</button>`;
+  const actions = `<div class="actions">${analysisButton}${decisionControls}</div>`;
   return `<div class="quote-panel">
     <div>
       <div class="quote-values">
@@ -136,6 +143,160 @@ function toast(message, error = false) {
   setTimeout(() => { element.className = ""; }, 3200);
 }
 
+function safeUrl(value) {
+  try {
+    const url = new URL(value);
+    return ["http:", "https:"].includes(url.protocol) ? escapeHtml(url.href) : "#";
+  } catch (_) {
+    return "#";
+  }
+}
+
+function resetAnalysis(loadId, recorded = false) {
+  if (analysisUI.pollTimer) clearTimeout(analysisUI.pollTimer);
+  analysisUI.replayTimers.forEach(clearTimeout);
+  Object.assign(analysisUI, { seen: 0, pollTimer: null, replayTimers: [], market: null, tools: null, specialists: 0 });
+  document.querySelectorAll(".pipeline-stage").forEach((item) => item.classList.remove("active", "done", "failed"));
+  $("#analysis-events").innerHTML = "";
+  $("#analysis-impact").innerHTML = "<p>Waiting for live market evidence…</p>";
+  $("#run-metrics").innerHTML = "";
+  $("#analysis-title").textContent = `${recorded ? "Recorded API run" : "Live API analysis"} · Load ${loadId}`;
+  $("#analysis-notice").textContent = recorded
+    ? "Verified live run replay. Timestamps and API outputs were captured from the local backend; nothing will be booked."
+    : "Running real provider calls with synthetic demo fleet economics. Nothing will be booked or sent to Discord.";
+  $("#run-mode").textContent = recorded ? "RECORDED LIVE" : "LIVE";
+  $("#run-mode").className = recorded ? "run-mode recorded" : "run-mode";
+}
+
+function setStage(name, status) {
+  const stage = document.querySelector(`.pipeline-stage[data-stage="${name}"]`);
+  if (!stage) return;
+  stage.classList.remove("active", "done", "failed");
+  stage.classList.add(status);
+}
+
+function updateStage(event) {
+  const type = event.type;
+  if (type === "run.started" || type === "crewai.ingest.completed") setStage("crewai", "active");
+  if (type === "crewai.route.completed") setStage("crewai", "done");
+  if (type === "you.grounding.started") setStage("you", "active");
+  if (type === "you.grounding.completed") setStage("you", "done");
+  if (type === "tools.assessment.completed") setStage("tools", "done");
+  if (type.startsWith("parasail.")) setStage("parasail", type === "parasail.supervisor.completed" ? "done" : "active");
+  if (type === "safety.gate.completed") setStage("decision", "done");
+  if (type === "one.approval.pending") setStage("one", "active");
+  if (type === "run.failed") {
+    const active = document.querySelector(".pipeline-stage.active");
+    if (active) { active.classList.remove("active"); active.classList.add("failed"); }
+  }
+}
+
+function eventPresentation(event) {
+  const d = event.data || {};
+  const role = escapeHtml(String(d.role || "").replace("fleet-fit", "fleet fit"));
+  switch (event.type) {
+    case "run.started": return ["Analysis started", escapeHtml(d.fleet_notice), ""];
+    case "crewai.ingest.completed": return ["CrewAI ingested load", `${d.selected_count} selected from ${d.source_count} fixture records`, "done"];
+    case "crewai.route.completed": return ["CrewAI routed load", escapeHtml(Object.keys(d.route_counts || {}).join(", ")), "done"];
+    case "you.grounding.started": return ["You.com research started", (d.research || []).map(escapeHtml).join(" · "), ""];
+    case "you.grounding.completed": {
+      const citation = (d.citations || [])[0];
+      const source = citation ? `<a href="${safeUrl(citation.url)}" target="_blank" rel="noreferrer">${escapeHtml(citation.title)}</a>` : "No citation";
+      return ["You.com grounded market facts", `<strong>${Number(d.diesel_price_ppl).toFixed(2)}p/L diesel</strong> · ${d.citations?.length || 0} citations · ${source}`, "done"];
+    }
+    case "tools.assessment.completed": return ["Deterministic quote calculated", `<strong>${money(d.target_quote_gbp)}</strong> target · ${Number(d.offered_margin_pct).toFixed(1)}% offered margin · live-data effect ${signedMoney(d.live_quote_delta_gbp)}`, "done"];
+    case "parasail.specialist.started": return [`Parasail ${role} specialist`, `${escapeHtml(d.model)} is analyzing scoped evidence…`, ""];
+    case "parasail.specialist.completed": return [`Parasail ${role} completed`, `${Number(d.elapsed_seconds).toFixed(1)}s · ${escapeHtml(String(d.summary || "").slice(0, 260))}`, "done"];
+    case "parasail.supervisor.started": return ["Parasail supervisor", `${escapeHtml(d.model)} is reconciling the specialists…`, ""];
+    case "parasail.supervisor.completed": return ["Parasail supervisor completed", `<strong>${escapeHtml(d.recommendation)}</strong> · ${Number(d.elapsed_seconds).toFixed(1)}s · ${escapeHtml(String(d.rationale || "").slice(0, 220))}`, "done"];
+    case "safety.gate.completed": return ["Safety gate applied", `Model: ${escapeHtml(d.model_recommendation)} · deterministic eligible: ${d.deterministic_eligible ? "yes" : "no"} · final: <strong>${escapeHtml(d.final_recommendation)}</strong>`, "done"];
+    case "one.approval.pending": return ["One / Discord handoff", escapeHtml(d.message), ""];
+    case "run.completed": return ["Analysis complete", `${Number(d.elapsed_seconds).toFixed(1)}s · ${d.inference_usage?.requests || 0} Parasail calls · recommendation <strong>${escapeHtml(d.recommendation)}</strong>`, "done"];
+    case "run.failed": return ["Analysis failed", escapeHtml(d.error), "failed"];
+    default: return [escapeHtml(event.type), "", ""];
+  }
+}
+
+function renderImpact() {
+  const market = analysisUI.market;
+  const tools = analysisUI.tools;
+  if (!market && !tools) return;
+  const citations = market?.citations || [];
+  const citationList = citations.slice(0, 3).map((item) => `<li><a href="${safeUrl(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.title)}</a></li>`).join("");
+  $("#analysis-impact").innerHTML = `${market ? `<div class="impact-price"><span>You.com diesel input</span><strong>${Number(market.diesel_price_ppl).toFixed(2)}p/L</strong></div>` : ""}
+    ${tools ? `<div class="impact-price"><span>145p demo baseline quote</span><strong>${money(tools.baseline_target_quote_gbp)}</strong></div>
+      <div class="impact-price"><span>Live grounded quote</span><strong>${money(tools.target_quote_gbp)}</strong></div>
+      <div class="impact-price delta"><span>You.com price impact</span><strong>${signedMoney(tools.live_quote_delta_gbp)}</strong></div>
+      <div class="impact-price"><span>Posted rate / margin</span><strong>${money(tools.offered_rate_gbp)} · ${Number(tools.offered_margin_pct).toFixed(1)}%</strong></div>` : ""}
+    ${citationList ? `<ul class="impact-citations">${citationList}</ul>` : ""}`;
+}
+
+function renderMetrics(data) {
+  const usage = data.inference_usage || {};
+  const tokens = Number(usage.prompt_tokens || 0) + Number(usage.completion_tokens || 0);
+  $("#run-metrics").innerHTML = `<div><span>Elapsed</span><strong>${Number(data.elapsed_seconds || 0).toFixed(1)}s</strong></div><div><span>Parasail calls</span><strong>${usage.requests || 0}</strong></div><div><span>Tokens</span><strong>${tokens.toLocaleString("en-GB")}</strong></div>`;
+}
+
+function renderTraceEvent(event) {
+  updateStage(event);
+  if (event.type === "you.grounding.completed") analysisUI.market = event.data;
+  if (event.type === "tools.assessment.completed") analysisUI.tools = event.data;
+  if (event.type === "parasail.specialist.completed") analysisUI.specialists += 1;
+  if (event.type === "run.completed") renderMetrics(event.data || {});
+  renderImpact();
+  const [label, detail, className] = eventPresentation(event);
+  const elapsed = `${(Number(event.elapsed_ms || 0) / 1000).toFixed(1)}s`;
+  $("#analysis-events").insertAdjacentHTML("beforeend", `<li class="event-item ${className}"><div class="event-label"><span>${label}</span><time>+${elapsed}</time></div>${detail ? `<div class="event-detail">${detail}</div>` : ""}</li>`);
+  $("#analysis-events").scrollTop = $("#analysis-events").scrollHeight;
+}
+
+async function pollAnalysis(runId) {
+  try {
+    const response = await fetch(`api/runs/${encodeURIComponent(runId)}?v=${Date.now()}`, { cache: "no-store" });
+    const run = await response.json();
+    if (!response.ok) throw new Error(run.error || "Could not read analysis run");
+    run.events.slice(analysisUI.seen).forEach(renderTraceEvent);
+    analysisUI.seen = run.events.length;
+    if (run.status === "RUNNING") {
+      analysisUI.pollTimer = setTimeout(() => pollAnalysis(runId), 450);
+    } else if (run.status === "FAILED") {
+      toast(run.error || "Live analysis failed", true);
+    }
+  } catch (error) {
+    toast(error.message, true);
+  }
+}
+
+function replayAnalysis(run) {
+  const events = run.events || [];
+  events.forEach((item, index) => {
+    const timer = setTimeout(() => renderTraceEvent(item), 180 + index * 320);
+    analysisUI.replayTimers.push(timer);
+  });
+}
+
+async function analyzeLoad(loadId) {
+  const recorded = state.deploymentMode === "static-demo";
+  resetAnalysis(loadId, recorded);
+  $("#analysis-dialog").showModal();
+  try {
+    if (recorded) {
+      const response = await fetch(`api/demo-run?v=${Date.now()}`, { cache: "no-store" });
+      const run = await response.json();
+      if (!response.ok) throw new Error(run.error || "Recorded run is unavailable");
+      replayAnalysis(run);
+      return;
+    }
+    const response = await fetch("api/runs", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ load_id: loadId }) });
+    const run = await response.json();
+    if (!response.ok) throw new Error(run.error || "Could not start live analysis");
+    pollAnalysis(run.run_id);
+  } catch (error) {
+    renderTraceEvent({ type: "run.failed", elapsed_ms: 0, data: { error: error.message } });
+    toast(error.message, true);
+  }
+}
+
 async function decide(loadId, decision, button) {
   button.disabled = true;
   try {
@@ -172,6 +333,7 @@ async function loadData(initial = true) {
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || "Could not load fixture");
   state.deploymentMode = data.deployment?.mode || "server";
+  state.recordedRunLoadId = data.deployment?.recorded_run_load_id || null;
   state.loads = data.loads;
   if (state.deploymentMode === "static-demo") {
     const decisions = JSON.parse(localStorage.getItem(DECISIONS_KEY) || "{}");
@@ -189,10 +351,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   $("#manager").addEventListener("change", (event) => localStorage.setItem("haulage-brain-manager", event.target.value));
   ["#search", "#status", "#vehicle", "#sort", "#per-mile"].forEach((selector) => $(selector).addEventListener(selector === "#search" ? "input" : "change", applyFilters));
   $("#loads").addEventListener("click", (event) => {
+    const analysisButton = event.target.closest("button[data-analyze]");
+    if (analysisButton) {
+      analyzeLoad(analysisButton.dataset.analyze);
+      return;
+    }
     const button = event.target.closest("button[data-action]");
     if (button) decide(button.dataset.id, button.dataset.action, button);
   });
   $("#raw-json").addEventListener("click", () => { $("#json-content").textContent = JSON.stringify(state.loads.map(({ quote_analysis, ledger, ...load }) => load), null, 2); $("#json-dialog").showModal(); });
   $("#close-dialog").addEventListener("click", () => $("#json-dialog").close());
+  $("#close-analysis").addEventListener("click", () => {
+    if (analysisUI.pollTimer) clearTimeout(analysisUI.pollTimer);
+    analysisUI.replayTimers.forEach(clearTimeout);
+    $("#analysis-dialog").close();
+  });
   try { await loadData(); } catch (error) { $("#loads").innerHTML = `<div class="empty">${escapeHtml(error.message)}</div>`; toast(error.message, true); }
 });

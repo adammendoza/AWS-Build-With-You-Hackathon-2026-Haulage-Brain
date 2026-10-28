@@ -62,13 +62,18 @@ def validate_quotes(
 def build(output: Path) -> None:
     loads_path = ROOT / "data" / "loads_v2.json"
     expected_path = ROOT / "data" / "expected_quotes_v2.json"
+    demo_run_path = ROOT / "data" / "demo_run.json"
     state = LoadboardState(loads_path, output / ".unused-ledger.jsonl")
     payload = state.payload()
     expected = json.loads(expected_path.read_text(encoding="utf-8"))
+    demo_run = json.loads(demo_run_path.read_text(encoding="utf-8"))
     validate_quotes(payload, expected)
+    if demo_run.get("status") != "COMPLETED" or not demo_run.get("load_id"):
+        raise SystemExit("recorded API run must be completed and identify its load")
     payload["deployment"] = {
         "mode": "static-demo",
         "decision_store": "browser localStorage only",
+        "recorded_run_load_id": str(demo_run["load_id"]),
     }
 
     (output / "api").mkdir(parents=True, exist_ok=True)
@@ -78,6 +83,7 @@ def build(output: Path) -> None:
         json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
+    shutil.copy2(demo_run_path, output / "api" / "demo-run")
     (output / ".nojekyll").touch()
     print(
         f"Built Haulage Brain Pages site with {len(payload['loads'])} validated loads "

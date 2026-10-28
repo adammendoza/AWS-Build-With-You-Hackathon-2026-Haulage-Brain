@@ -236,6 +236,26 @@ python -m http.server 8000 --directory _site
 
 Then open <http://127.0.0.1:8000>.
 
+### Visual API trace
+
+Each Available load has a **Watch live APIs** action when the Python backend is
+running. It starts a non-booking analysis for that load and visualizes real events:
+
+1. CrewAI ingest and vehicle/category routing.
+2. You.com diesel and restriction grounding with citations.
+3. Deterministic quote math, including the difference from a 145p/L demo baseline.
+4. Three parallel Parasail specialists and the Parasail supervisor.
+5. The deterministic safety gate and pending One/Discord human handoff.
+
+The trace shows real timing, model name, token usage, citations, and quote impact.
+It uses the explicitly synthetic `config/fleet.demo.json` economics unless a real
+fleet file is passed with `haulage-brain-ui --fleet config/fleet.local.json`.
+Nothing is booked or posted to Discord by this visualization.
+
+GitHub Pages cannot safely hold provider keys, so it offers one clearly labelled
+**Recorded live** replay on load `90857138`. Other loads require the local backend
+for live analysis. The sanitized replay is stored in `data/demo_run.json`.
+
 ## When API keys are required
 
 | Service | Credential/setup | Needed when |
