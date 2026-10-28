@@ -6,7 +6,14 @@ from pathlib import Path
 import pytest
 
 from load_quoting_swarm.ledger import LedgerError
-from load_quoting_swarm.web import LoadboardState, _basic_auth_valid, _resolve_parameter
+from load_quoting_swarm.web import (
+    SESSION_COOKIE,
+    LoadboardState,
+    _basic_auth_valid,
+    _resolve_parameter,
+    _session_cookie_valid,
+    _session_token,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,6 +29,19 @@ def test_basic_auth_accepts_only_matching_credentials() -> None:
     assert not _basic_auth_valid(_basic_header("demo", "wrong"), "demo", "secret")
     assert not _basic_auth_valid("Basic not-base64", "demo", "secret")
     assert not _basic_auth_valid(None, "demo", "secret")
+
+
+def test_session_cookie_accepts_only_signed_value() -> None:
+    token = _session_token("demo", "secret")
+
+    assert _session_cookie_valid(
+        f"theme=dark; {SESSION_COOKIE}={token}", "demo", "secret"
+    )
+    assert not _session_cookie_valid(
+        f"{SESSION_COOKIE}={token}", "demo", "wrong"
+    )
+    assert not _session_cookie_valid(f"{SESSION_COOKIE}=tampered", "demo", "secret")
+    assert not _session_cookie_valid(None, "demo", "secret")
 
 
 def test_parameter_resolution_skips_aws_when_secret_already_set(
