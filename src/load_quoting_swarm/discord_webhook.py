@@ -53,7 +53,15 @@ class DiscordWebhookPublisher:
         request = Request(
             self.webhook_url,
             data=payload,
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "User-Agent": (
+                    "DiscordBot "
+                    "(https://github.com/adammendoza/"
+                    "AWS-Build-With-You-Hackathon-2026-Haulage-Brain, 0.1.0)"
+                ),
+            },
             method="POST",
         )
         try:

@@ -52,6 +52,7 @@ def test_webhook_publishes_quote_without_mentions(monkeypatch) -> None:
     assert "https://haulage.example/?load=123" in body["content"]
     assert body["allowed_mentions"] == {"parse": []}
     assert captured["timeout"] == 15
+    assert captured["request"].get_header("User-agent").startswith("DiscordBot ")
 
 
 def test_webhook_rejects_non_discord_url() -> None:
