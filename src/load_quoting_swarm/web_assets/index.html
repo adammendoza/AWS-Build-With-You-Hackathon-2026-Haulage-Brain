@@ -1,93 +1,281 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="color-scheme" content="dark">
-    <title>Haulage Brain</title>
-    <link rel="stylesheet" href="app.css?v=3">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#191e1b" />
+    <title>Haulage Brain · Dispatch workspace</title>
+    <link rel="stylesheet" href="app.css?v=4" />
   </head>
   <body>
-    <header class="app-bar">
-      <div class="brand-mark" aria-hidden="true">⌂</div>
-      <div class="brand">Haulage Brain</div>
-      <span class="environment">Open Haunt · simulated UK loadboard</span>
-      <label class="manager-field">
-        <span>Manager</span>
-        <input id="manager" value="Fleet Manager" aria-label="Manager name">
-      </label>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div>
-          <p class="eyebrow">Human-gated freight intelligence</p>
-          <h1>Loadboard</h1>
-          <p class="intro"><strong>Simulated feed.</strong> The agents research and price each load. Nothing books until a fleet manager approves it.</p>
-        </div>
-        <dl class="summary" id="summary" aria-label="Loadboard summary">
-          <div><dt>Loads</dt><dd>—</dd></div>
-          <div><dt>Available</dt><dd>—</dd></div>
-          <div><dt>Avg rate</dt><dd>—</dd></div>
-          <div><dt>Avg £/mile</dt><dd>—</dd></div>
-        </dl>
-      </section>
-
-      <section class="controls" aria-label="Load filters">
-        <label class="search-field">
-          <span aria-hidden="true">⌕</span>
-          <input id="search" type="search" placeholder="Search town, company, load ID, notes">
-        </label>
-        <select id="status" aria-label="Filter by status">
-          <option value="">All statuses</option>
-        </select>
-        <select id="vehicle" aria-label="Filter by vehicle">
-          <option value="">All vehicles</option>
-        </select>
-        <select id="sort" aria-label="Sort loads">
-          <option value="pickup">Pickup soonest</option>
-          <option value="rate-desc">Rate: high to low</option>
-          <option value="rate-asc">Rate: low to high</option>
-          <option value="distance">Distance</option>
-        </select>
-        <label class="check-field"><input id="per-mile" type="checkbox"> Show £/mile</label>
-        <button class="secondary" id="raw-json">Raw JSON</button>
-      </section>
-
-      <div class="result-line">
-        <span id="result-count">Loading loads…</span>
-        <span class="legend"><i class="live-dot"></i> PRD pricing tool active</span>
+    <a class="skip-link" href="#workspace">Skip to loadboard</a>
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <a class="brand" href="./" aria-label="Haulage Brain home"
+        ><span class="brand-mark" aria-hidden="true">h<span>↗</span></span
+        ><span
+          >haulage<span class="brand-light">brain</span
+          ><small>THE DISPATCH WORKSPACE</small></span
+        ></a
+      >
+      <div class="workspace-label">WORKSPACE <span>UK / GBP</span></div>
+      <nav>
+        <button
+          class="nav-item active"
+          data-view="queue"
+          aria-label="Loadboard"
+          title="Loadboard"
+          aria-pressed="true"
+        >
+          <span aria-hidden="true">▦</span><span>Loadboard</span
+          ><b id="nav-total">—</b>
+        </button>
+        <button
+          class="nav-item"
+          data-view="decisions"
+          aria-label="Decision ledger"
+          title="Decision ledger"
+          aria-pressed="false"
+        >
+          <span aria-hidden="true">✓</span><span>Decision ledger</span
+          ><b id="nav-decisions">0</b>
+        </button>
+      </nav>
+      <div class="sidebar-note">
+        <span class="small-orbit" aria-hidden="true">✳</span
+        ><strong>Intelligence assists.<br />You make the call.</strong>
+        <p>Every booking starts with an explicit manager decision.</p>
       </div>
-
-      <section id="loads" class="load-list" aria-live="polite"></section>
-    </main>
-
+      <div class="sidebar-footer">
+        <span class="demo-dot"></span> SIMULATED WORKSPACE<small
+          >Open Haunt · SF 2026</small
+        >
+      </div>
+    </aside>
+    <div class="app-shell">
+      <header class="app-bar">
+        <div class="breadcrumb">
+          Workspace <span>/</span> <strong id="view-label">Loadboard</strong>
+        </div>
+        <div class="header-right">
+          <span class="environment">Synthetic UK loads</span
+          ><span class="avatar" aria-hidden="true">FM</span
+          ><label class="manager-field"
+            ><span class="sr-only">Manager name</span
+            ><input
+              id="manager"
+              value="Fleet Manager"
+              aria-label="Manager name"
+          /></label>
+        </div>
+      </header>
+      <main id="workspace">
+        <section class="hero">
+          <div>
+            <p class="eyebrow">
+              <span></span> FREIGHT INTELLIGENCE, HUMAN CONTROL
+            </p>
+            <h1>A better call. Every load.</h1>
+            <p class="intro">
+              Find the right work. Understand the numbers. Move with confidence.
+            </p>
+          </div>
+          <button class="button dark" id="review-next">
+            Review next load <span aria-hidden="true">↗</span>
+          </button>
+        </section>
+        <section class="overview" aria-label="Loadboard summary" id="summary">
+          <div class="metric">
+            <span>Loading workspace…</span><strong>—</strong>
+          </div>
+        </section>
+        <section class="insight-banner" aria-label="Pricing overview">
+          <div class="insight-icon" aria-hidden="true">✳</div>
+          <div>
+            <p class="eyebrow">THE PRICING PICTURE</p>
+            <p id="insight-text">Calculating the fixture’s quote signals…</p>
+            <small
+              >Deterministic formula · simulated loads · live research runs
+              separately</small
+            >
+          </div>
+          <div
+            class="signal-strip"
+            aria-label="Pricing signal distribution"
+            id="signal-strip"
+          ></div>
+        </section>
+        <section class="board" aria-label="Dispatch decisions">
+          <div class="board-heading">
+            <div>
+              <h2 id="board-title">
+                Your decision queue <span id="queue-total">—</span>
+              </h2>
+              <p id="board-caption">A clear view of the work ahead.</p>
+            </div>
+            <button class="button quiet" id="raw-json">
+              <span aria-hidden="true">{ }</span> View source data
+            </button>
+          </div>
+          <div
+            class="filter-tabs"
+            role="group"
+            aria-label="Filter by pricing signal"
+          >
+            <button
+              class="filter-tab active"
+              data-signal="all"
+              aria-pressed="true"
+            >
+              All loads <span id="count-all">—</span></button
+            ><button
+              class="filter-tab"
+              data-signal="APPROVE"
+              aria-pressed="false"
+            >
+              Above quote <span id="count-approve">—</span></button
+            ><button
+              class="filter-tab"
+              data-signal="REPRICE"
+              aria-pressed="false"
+            >
+              Reprice <span id="count-reprice">—</span></button
+            ><button
+              class="filter-tab"
+              data-signal="REVIEW"
+              aria-pressed="false"
+            >
+              Needs review <span id="count-review">—</span>
+            </button>
+          </div>
+          <div class="controls">
+            <label class="search-field"
+              ><span aria-hidden="true">⌕</span
+              ><input
+                id="search"
+                type="search"
+                placeholder="Search routes, companies, load IDs…"
+                aria-label="Search loads"
+              /><kbd>/</kbd></label
+            ><select id="vehicle" aria-label="Filter by vehicle">
+              <option value="">All vehicles</option></select
+            ><select id="status" aria-label="Filter by status">
+              <option value="">All statuses</option></select
+            ><select id="sort" aria-label="Sort loads">
+              <option value="pickup">Pickup soonest</option>
+              <option value="gap">Largest quote gap</option>
+              <option value="rate-desc">Highest rate</option>
+              <option value="rate-asc">Lowest rate</option>
+              <option value="distance">Shortest distance</option>
+            </select>
+          </div>
+          <div class="split-view">
+            <section class="queue" aria-label="Load queue">
+              <div class="queue-heading">
+                <span id="result-count" role="status">Loading loads…</span
+                ><label class="check-field"
+                  ><input id="per-mile" type="checkbox" /> £ / mile</label
+                >
+              </div>
+              <div id="loads" class="load-list">
+                <div class="loading-state">Preparing your loadboard…</div>
+              </div>
+            </section>
+            <section
+              id="inspector"
+              class="inspector"
+              aria-label="Selected load details"
+            >
+              <div class="empty">Select a load to inspect its quote.</div>
+            </section>
+          </div>
+        </section>
+        <footer class="workspace-footer">
+          <span
+            ><span class="demo-dot"></span> Sample data. Real decision
+            discipline.</span
+          ><span id="storage-label"
+            >Manager decisions are saved to the local booking ledger.</span
+          >
+        </footer>
+      </main>
+    </div>
     <dialog id="json-dialog">
-      <header><h2>Raw fixture JSON</h2><button id="close-dialog" aria-label="Close">×</button></header>
+      <header>
+        <div>
+          <p class="eyebrow">TRANSPARENT BY DESIGN</p>
+          <h2>Source fixture</h2>
+        </div>
+        <button
+          id="close-dialog"
+          class="icon-button"
+          aria-label="Close source data"
+        >
+          ×
+        </button>
+      </header>
       <pre id="json-content"></pre>
     </dialog>
-    <dialog id="analysis-dialog" class="analysis-dialog">
+    <dialog id="decision-dialog" aria-labelledby="decision-title">
+      <header>
+        <h2 id="decision-title">Confirm manager decision</h2>
+        <button
+          id="cancel-decision"
+          class="icon-button"
+          aria-label="Cancel decision"
+        >
+          ×
+        </button>
+      </header>
+      <div id="decision-content"></div>
+      <div class="dialog-actions">
+        <button id="back-decision" class="button quiet">Go back</button
+        ><button id="confirm-decision" class="button dark">Confirm</button>
+      </div>
+    </dialog>
+    <dialog
+      id="analysis-dialog"
+      class="analysis-dialog"
+      aria-labelledby="analysis-title"
+    >
       <header>
         <div>
           <span class="run-mode" id="run-mode">LIVE</span>
           <h2 id="analysis-title">Agent analysis</h2>
         </div>
-        <button id="close-analysis" aria-label="Close">×</button>
+        <button id="close-analysis" aria-label="Close API analysis">×</button>
       </header>
       <div class="analysis-body">
-        <p class="analysis-notice" id="analysis-notice">Starting a human-gated analysis. Nothing will be booked.</p>
+        <p class="analysis-notice" id="analysis-notice">
+          Starting a human-gated analysis. Nothing will be booked.
+        </p>
         <div class="pipeline-flow" aria-label="Agent analysis pipeline">
-          <div class="pipeline-stage" data-stage="crewai"><span>1</span><strong>CrewAI</strong><small>Ingest + route</small></div>
+          <div class="pipeline-stage" data-stage="crewai">
+            <span>1</span><strong>CrewAI</strong><small>Ingest + route</small>
+          </div>
           <i>→</i>
-          <div class="pipeline-stage" data-stage="you"><span>2</span><strong>You.com</strong><small>Live grounding</small></div>
+          <div class="pipeline-stage" data-stage="you">
+            <span>2</span><strong>You.com</strong><small>Live grounding</small>
+          </div>
           <i>→</i>
-          <div class="pipeline-stage" data-stage="tools"><span>3</span><strong>Quote tools</strong><small>Deterministic math</small></div>
+          <div class="pipeline-stage" data-stage="tools">
+            <span>3</span><strong>Quote tools</strong
+            ><small>Deterministic math</small>
+          </div>
           <i>→</i>
-          <div class="pipeline-stage" data-stage="parasail"><span>4</span><strong>Parasail</strong><small>3 specialists + supervisor</small></div>
+          <div class="pipeline-stage" data-stage="parasail">
+            <span>4</span><strong>Parasail</strong
+            ><small>3 specialists + supervisor</small>
+          </div>
           <i>→</i>
-          <div class="pipeline-stage" data-stage="decision"><span>5</span><strong>Safety gate</strong><small>Final recommendation</small></div>
+          <div class="pipeline-stage" data-stage="decision">
+            <span>5</span><strong>Safety gate</strong
+            ><small>Final recommendation</small>
+          </div>
           <i>→</i>
-          <div class="pipeline-stage" data-stage="one"><span>6</span><strong>One</strong><small>Human approval</small></div>
+          <div class="pipeline-stage" data-stage="one">
+            <span>6</span><strong>One</strong><small>Human approval</small>
+          </div>
         </div>
         <div class="analysis-grid">
           <section>
@@ -99,12 +287,16 @@
           </section>
           <section>
             <h3>Live trace</h3>
-            <ol class="event-stream" id="analysis-events" aria-live="polite"></ol>
+            <ol
+              class="event-stream"
+              id="analysis-events"
+              aria-live="polite"
+            ></ol>
           </section>
         </div>
       </div>
     </dialog>
     <div id="toast" role="status" aria-live="polite"></div>
-    <script src="app.js?v=3" defer></script>
+    <script src="app.js?v=4" defer></script>
   </body>
 </html>
