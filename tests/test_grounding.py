@@ -30,6 +30,34 @@ def test_refuses_to_invent_missing_diesel_price() -> None:
         _extract_diesel_price({"results": [{"snippet": "No numeric value here"}]})
 
 
+def test_prefers_newest_dated_diesel_result() -> None:
+    payload = {
+        "results": {
+            "web": [
+                {
+                    "url": "https://example.test/older",
+                    "contents": {
+                        "highlights": [
+                            "Diesel 199.3p per litre, updated 19 October 2026."
+                        ]
+                    },
+                },
+                {
+                    "url": "https://example.test/newer",
+                    "contents": {
+                        "highlights": [
+                            "Diesel was 199.22 pence per litre in the week commencing "
+                            "26 October 2026."
+                        ]
+                    },
+                },
+            ]
+        }
+    }
+
+    assert _extract_diesel_price(payload) == 199.22
+
+
 def test_extracts_restriction_charge() -> None:
     assert _extract_gbp_charge({"snippet": "The daily charge is £12.50."}) == 12.5
 

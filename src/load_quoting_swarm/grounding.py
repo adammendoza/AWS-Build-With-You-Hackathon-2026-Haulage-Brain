@@ -4,7 +4,7 @@ import asyncio
 import json
 import os
 import re
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from typing import Any, Protocol
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -38,7 +38,23 @@ def _extract_citations(value: Any) -> list[Citation]:
         if isinstance(item, dict):
             url = item.get("url") or item.get("link")
             if isinstance(url, str) and url.startswith("http"):
-                snippet = item.get("snippet") or item.get("description") or ""
+                highlights = (item.get("contents") or {}).get("highlights") or []
+                diesel_highlight = next(
+                    (
+                        text
+                        for text in highlights
+                        if isinstance(text, str)
+                        and "diesel" in text.casefold()
+                        and ("litre" in text.casefold() or "p/" in text.casefold())
+                    ),
+                    "",
+                )
+                snippet = (
+                    diesel_highlight
+                    or item.get("snippet")
+                    or item.get("description")
+                    or ""
+                )
                 if isinstance(snippet, list):
                     snippet = " ".join(str(part) for part in snippet)
                 citations.append(
@@ -61,7 +77,7 @@ def _extract_citations(value: Any) -> list[Citation]:
     return list(unique.values())
 
 
-def _extract_diesel_price(payload: Any) -> float:
+def _diesel_price_in_text(value: Any) -> float | None:
     patterns = (
         re.compile(
             r"diesel.{0,80}?(\d{2,3}(?:\.\d+)?)\s*(?:p|pence)\s*(?:per\s+litre|/\s*litre|a\s+litre)",
@@ -72,15 +88,71 @@ def _extract_diesel_price(payload: Any) -> float:
             re.IGNORECASE,
         ),
     )
-    joined = "\n".join(_strings(payload))
+    joined = "\n".join(_strings(value))
     for pattern in patterns:
         for match in pattern.finditer(joined):
             value = float(match.group(1))
             if 50 <= value <= 300:
                 return value
+    return None
+
+
+def _dates_in_text(value: Any) -> list[date]:
+    text = "\n".join(_strings(value))
+    found: list[date] = []
+    month_pattern = re.compile(
+        r"\b(\d{1,2})\s+(January|February|March|April|May|June|July|August|"
+        r"September|October|November|December)\s+(20\d{2})\b",
+        re.IGNORECASE,
+    )
+    for match in month_pattern.finditer(text):
+        try:
+            found.append(
+                datetime.strptime(" ".join(match.groups()), "%d %B %Y").date()
+            )
+        except ValueError:
+            continue
+    for match in re.finditer(r"\b(20\d{2})-(\d{2})-(\d{2})", text):
+        try:
+            found.append(date(*(int(part) for part in match.groups())))
+        except ValueError:
+            continue
+    return [item for item in found if item <= datetime.now(timezone.utc).date()]
+
+
+def _extract_diesel_candidate(payload: Any) -> tuple[float, str | None]:
+    results = payload.get("results", {}) if isinstance(payload, dict) else {}
+    web = results.get("web", []) if isinstance(results, dict) else []
+    candidates: list[tuple[date, int, float, str | None]] = []
+    if isinstance(web, list):
+        for position, item in enumerate(web):
+            if not isinstance(item, dict):
+                continue
+            price = _diesel_price_in_text(item)
+            if price is None:
+                continue
+            dates = _dates_in_text(item)
+            candidates.append(
+                (
+                    max(dates, default=date.min),
+                    -position,
+                    price,
+                    str(item.get("url")) if item.get("url") else None,
+                )
+            )
+    if candidates:
+        _, _, price, url = max(candidates, key=lambda item: (item[0], item[1]))
+        return price, url
+    fallback = _diesel_price_in_text(payload)
+    if fallback is not None:
+        return fallback, None
     raise GroundingError(
         "You.com results did not contain a parseable UK diesel pence-per-litre value"
     )
+
+
+def _extract_diesel_price(payload: Any) -> float:
+    return _extract_diesel_candidate(payload)[0]
 
 
 def _extract_gbp_charge(payload: Any, *, default: float = 0.0) -> float:
@@ -138,9 +210,14 @@ class YouSearchGrounding:
             if self._diesel is None:
                 payload = await asyncio.to_thread(
                     self._search,
-                    "current average UK diesel price pence per litre latest RAC fuel watch",
+                    "latest official UK weekly average diesel pump price pence per litre "
+                    "DESNZ current week",
                 )
-                self._diesel = (_extract_diesel_price(payload), _extract_citations(payload))
+                price, source_url = _extract_diesel_candidate(payload)
+                citations = _extract_citations(payload)
+                if source_url:
+                    citations.sort(key=lambda item: item.url != source_url)
+                self._diesel = (price, citations)
             return self._diesel
 
     async def market_inputs(self, load: FreightLoad) -> MarketInputs:
