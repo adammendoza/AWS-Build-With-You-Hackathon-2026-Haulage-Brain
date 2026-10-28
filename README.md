@@ -137,7 +137,7 @@ The hackathon prototype is intentionally narrow:
 1. Read the supplied `loads.json`, select `Available` loads, and route them by vehicle/category.
 2. Run pricing, compliance, and fleet-fit analysis with scoped Memory.
 3. Use live You.com facts inside the price calculation and Parasail for structured inference.
-4. Process the 32 Available fixtures with bounded parallelism and report time, throughput, tokens, and estimated cost.
+4. Process the 41 Available fixtures with bounded parallelism and report time, throughput, tokens, and estimated cost.
 5. Post each quote to Discord through One and require an explicit manager `APPROVE` or `PASS`.
 6. Append the human decision to the booking ledger.
 
@@ -155,7 +155,7 @@ The target demo takes less than two minutes:
 
 1. Show an underpriced load being passed with its negative margin.
 2. Show a ULEZ-marked load gaining a grounded restriction charge and a higher quote.
-3. Show the 32-load Parasail run's elapsed time, throughput, token usage, and estimated cost.
+3. Show the 41-load Parasail run's elapsed time, throughput, token usage, and estimated cost.
 4. Show a recommendation arriving in Discord through One.
 5. Record the manager's explicit `APPROVE`, then show `BOOKED` in the ledger.
 
@@ -166,7 +166,7 @@ The key proof is not that agents can discuss a load. It is that a load can trave
 - A new user can run the demo from documented setup steps.
 - The same input produces a valid, schema-conforming decision packet.
 - Current facts include source URLs and retrieval timestamps.
-- Missing critical data raises a clear input or grounding error and never produces a quote.
+- Missing critical route or price data stops evaluation; optional missing weight or delivery windows are preserved as visible compliance warnings.
 - A quote cannot transition from `PENDING` without a human action.
 - Discord failures do not silently approve or lose a decision.
 - The repository contains no credentials or private fleet data.
@@ -181,17 +181,25 @@ source .venv/bin/activate
 pip install -e '.[dev]'
 ```
 
+Start the browser loadboard and open <http://127.0.0.1:8765>:
+
+```bash
+load-swarm-ui --open
+```
+
+The UI loads all 89 simulated records, filters by status and vehicle, shows the supplied PRD quote breakdown, and writes explicit Approve/Pass actions to `var/booking-ledger.jsonl`.
+
 Verify the first milestone—ingest Available loads and route the first three by vehicle/category:
 
 ```bash
-load-swarm ingest --loads data/loads.demo.json --limit 3 --crewai
+load-swarm ingest --loads data/loads_v2.json --limit 3 --crewai
 ```
 
 Run the complete offline safety test. Its market data, inference, fleet, and loads are explicitly synthetic and do not count as live partner usage:
 
 ```bash
 load-swarm run \
-  --loads data/loads.demo.json \
+  --loads data/loads_v2.json \
   --fleet config/fleet.demo.json \
   --limit 3 \
   --parallel 3 \
@@ -201,13 +209,13 @@ load-swarm run \
 Approve one pending quote as the human fleet manager, then inspect the ledger:
 
 ```bash
-load-swarm decide Q-UK-DEMO-002 APPROVE --manager "fleet-manager"
+load-swarm decide Q-90857138 APPROVE --manager "fleet-manager"
 load-swarm ledger
 ```
 
 ## Run with the scored partners
 
-1. Export the supplied artifact's `loads.json` into `data/loads.json`. That path is gitignored because the event fixture is supplied separately.
+1. Use the supplied `data/loads_v2.json` fixture: 89 total loads, including 41 Available.
 2. Copy `config/fleet.example.json` to `config/fleet.local.json`, replace every placeholder with real fleet economics, and set `placeholder_values` to `false`.
 3. Export the values documented in `.env.example`. Never commit the resulting `.env`.
 4. Initialize One and connect the Discord account that has access to the event channel:
@@ -219,18 +227,18 @@ load-swarm ledger
    ```
 
 5. Confirm the Open Haunt Discord channel ID with the organizers. Do not assume Track 1's `#loft-incident` channel is the Open Haunt submission channel.
-6. Run all 32 Available loads with bounded concurrency:
+6. Run all 41 Available loads with bounded concurrency:
 
    ```bash
    load-swarm run \
      --live \
-     --loads data/loads.json \
+     --loads data/loads_v2.json \
      --fleet config/fleet.local.json \
-     --limit 32 \
+     --limit 41 \
      --parallel 8 \
      --record-ledger \
      --discord \
-     --output var/run-32.json
+     --output var/run-41.json
    ```
 
 `--live` fails closed if You.com or Parasail credentials are absent. The One publisher resolves the Discord send action and its documentation at runtime; no action ID or platform credential is committed.
@@ -248,11 +256,13 @@ quote       = total cost / (1 - target margin)
 
 For a non-compliant vehicle on a ULEZ-marked load, the grounded current charge is also added to cost. Tests prove that changing the diesel input changes fuel cost, margin, and proposed quote.
 
+The supplied DispatchIQ PRD formula is also deterministic: journey time always rounds up to 30 minutes, distance selects a fixed fuel tier, both endpoints must be London for the city surcharge, and journeys beyond 450 miles require human review. The final swarm target is the higher of that formula quote and the fleet-cost target, so neither the partner grounding nor the fleet economics can be bypassed.
+
 ## Repository map
 
 ```text
 config/                       Fleet economics and vehicle availability
-data/                         Synthetic fixture; real event export is gitignored
+data/                         Updated 89-load simulated UK fixture
 src/load_quoting_swarm/
   flow.py                     CrewAI ingest/router and swarm Flow
   grounding.py                You.com search and fail-closed fact extraction
@@ -262,6 +272,8 @@ src/load_quoting_swarm/
   pipeline.py                 Concurrent specialist and supervisor loop
   one_discord.py              One discover-then-execute Discord publisher
   ledger.py                   Append-only human approval and booking ledger
+  pricing.py                  Supplied deterministic PRD quote formula
+  web.py + web_assets/        Local interactive loadboard and decision API
 tests/                        Pricing, routing, ULEZ, parallelism, and approval gates
 ```
 
@@ -269,14 +281,14 @@ tests/                        Pricing, routing, ULEZ, parallelism, and approval 
 
 | Step | Status | Evidence |
 |---|---|---|
-| Ingest and vehicle/category router | Working | Three Available fixtures route through the Flow. |
+| Ingest and vehicle/category router | Working | The updated fixture loads 89 records and routes 41 Available loads. |
 | Three scoped specialists | Working | Pricing, compliance, and fleet-fit assessments run concurrently. |
 | You.com in margin math | Implemented; credentials required for live proof | Diesel and ULEZ values directly alter calculated cost. |
 | Parasail parallel inference | Implemented; credentials required for live proof | Bounded concurrent specialist calls and token usage reporting. |
 | One to Discord | Implemented; channel and connection required | Action is discovered at runtime before execution. |
 | Human approval ledger | Working | Only `APPROVE` transitions `PENDING` to `BOOKED`; duplicate decisions fail. |
 | One-tap Discord callback | Open | Requires confirmation of the event channel and supported inbound interaction path. |
-| Loadboard/ledger UI | Out of scope until the live loop is proven | CLI ledger view is available. |
+| Loadboard/ledger UI | Working | Search, filters, PRD quote breakdown, raw JSON, and manager Approve/Pass actions. |
 
 ## Tests
 
@@ -284,9 +296,9 @@ tests/                        Pricing, routing, ULEZ, parallelism, and approval 
 pytest
 ```
 
-The suite covers status filtering, vehicle/category routing, refusal of placeholder fleet economics, live-price sensitivity, ULEZ repricing, three-load parallel execution, and the human approval invariant.
+The suite covers the 89-load fixture, status filtering, vehicle/category routing, the supplied pricing formula, live-price sensitivity, ULEZ repricing, parallel execution, UI decisions, and the human approval invariant.
 
 ## Status and honesty boundary
 
-The offline end-to-end loop is working against synthetic data. It must not be presented as a live You.com, Parasail, One, or fleet run. A scored demo requires the event's 32 Available fixtures, real fleet economics, live API logs, the confirmed Discord channel, and an actual manager approval. No load is booked with a broker; `BOOKED` currently means an approved entry in this prototype's append-only booking ledger.
+The offline end-to-end loop and browser UI work against 89 synthetic records, including 41 Available loads. They must not be presented as a live You.com, Parasail, One, or fleet run. A scored demo still requires real fleet economics, live partner API logs, the confirmed Discord channel, and an actual manager approval. No load is booked with a broker; `BOOKED` means an approved entry in this prototype's append-only booking ledger.
 

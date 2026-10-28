@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Any
 from zoneinfo import ZoneInfo
 
@@ -24,6 +24,18 @@ def _text(value: Any) -> str:
             if value.get(key):
                 return str(value[key]).strip()
     return str(value or "").strip()
+
+
+def _location(value: Any) -> str:
+    if isinstance(value, dict):
+        town = _text(value.get("town") or value.get("city") or value.get("area"))
+        postcode = _text(value.get("postcode"))
+        return ", ".join(part for part in (town, postcode) if part)
+    return _text(value)
+
+
+def _postcode(value: Any) -> str:
+    return _text(value.get("postcode")) if isinstance(value, dict) else ""
 
 
 def _float(value: Any, *, field_name: str, required: bool = True) -> float | None:
@@ -50,7 +62,9 @@ def _datetime(value: Any, *, field_name: str) -> datetime:
     if not value:
         raise InputError(f"missing required datetime field: {field_name}")
     if isinstance(value, dict):
-        value = _first(value, "start", "from", "earliest", "datetime", "value")
+        value = _first(
+            value, "start", "time", "from", "earliest", "datetime", "value"
+        )
         if not value:
             raise InputError(f"{field_name} window has no start value")
     text = str(value).strip().replace("Z", "+00:00")
@@ -92,11 +106,16 @@ class FreightLoad:
     vehicle_type: str
     category: str
     distance_miles: float
-    weight_kg: float
+    weight_kg: float | None
     offered_rate_gbp: float
     payment_terms: str = ""
     loading_minutes: int = 60
     expected_waiting_minutes: int = 0
+    origin_postcode: str = ""
+    destination_postcode: str = ""
+    journey_minutes_est: int | None = None
+    delivery_label: str = ""
+    delivery_is_estimated: bool = False
     notes: tuple[str, ...] = field(default_factory=tuple)
     raw: dict[str, Any] = field(default_factory=dict, compare=False, repr=False)
 
@@ -108,9 +127,17 @@ class FreightLoad:
     def is_available(self) -> bool:
         return self.status.casefold() == "available"
 
+    @property
+    def ulez_flagged(self) -> bool:
+        return bool(self.raw.get("ulez")) or "ulez" in " ".join(
+            self.notes
+        ).casefold()
+
     @classmethod
     def from_raw(cls, raw: dict[str, Any]) -> "FreightLoad":
-        notes_value = _first(raw, "notes", "special_instructions", default=[])
+        notes_value = _first(
+            raw, "notes", "load_notes", "special_instructions", default=[]
+        )
         if isinstance(notes_value, str):
             notes = (notes_value.strip(),) if notes_value.strip() else ()
         elif isinstance(notes_value, list):
@@ -121,8 +148,10 @@ class FreightLoad:
         load_id = _text(_first(raw, "load_id", "id", "reference"))
         if not load_id:
             raise InputError("load is missing load_id/id/reference")
-        origin = _text(_first(raw, "origin", "pickup_location"))
-        destination = _text(_first(raw, "destination", "delivery_location"))
+        origin_value = _first(raw, "origin", "pickup_location", "from_")
+        destination_value = _first(raw, "destination", "delivery_location", "to")
+        origin = _location(origin_value)
+        destination = _location(destination_value)
         vehicle_type = _text(
             _first(
                 raw,
@@ -141,39 +170,58 @@ class FreightLoad:
             if not value:
                 raise InputError(f"load {load_id} is missing {field_name}")
 
+        pickup_value = _first(
+            raw,
+            "pickup_at",
+            "pickupAt",
+            "pickup_window",
+            "pickupWindow",
+            "pickup_datetime",
+            "pickupDateTime",
+            "pickupDate",
+            "pickup",
+        )
+        pickup_at = _datetime(pickup_value, field_name="pickup_at")
+        journey_value = _float(
+            _first(raw, "journey_minutes_est", "journeyMinutesEst"),
+            field_name="journey_minutes_est",
+            required=False,
+        )
+        journey_minutes = int(journey_value) if journey_value is not None else None
+        delivery_value = _first(
+            raw,
+            "delivery_at",
+            "deliveryAt",
+            "delivery_window",
+            "deliveryWindow",
+            "delivery_datetime",
+            "deliveryDateTime",
+            "deliveryDate",
+            "delivery",
+            "deliver",
+        )
+        delivery_is_estimated = False
+        try:
+            delivery_at = _datetime(delivery_value, field_name="delivery_at")
+        except InputError:
+            if journey_minutes is None:
+                raise
+            delivery_at = pickup_at + timedelta(minutes=journey_minutes)
+            delivery_is_estimated = True
+        if isinstance(delivery_value, str):
+            delivery_label = delivery_value
+        elif isinstance(delivery_value, dict):
+            delivery_label = _text(delivery_value.get("type"))
+        else:
+            delivery_label = ""
+
         return cls(
             load_id=load_id,
             status=_text(_first(raw, "status", default="Available")),
             origin=origin,
             destination=destination,
-            pickup_at=_datetime(
-                _first(
-                    raw,
-                    "pickup_at",
-                    "pickupAt",
-                    "pickup_window",
-                    "pickupWindow",
-                    "pickup_datetime",
-                    "pickupDateTime",
-                    "pickupDate",
-                    "pickup",
-                ),
-                field_name="pickup_at",
-            ),
-            delivery_at=_datetime(
-                _first(
-                    raw,
-                    "delivery_at",
-                    "deliveryAt",
-                    "delivery_window",
-                    "deliveryWindow",
-                    "delivery_datetime",
-                    "deliveryDateTime",
-                    "deliveryDate",
-                    "delivery",
-                ),
-                field_name="delivery_at",
-            ),
+            pickup_at=pickup_at,
+            delivery_at=delivery_at,
             vehicle_type=vehicle_type,
             category=_text(
                 _first(raw, "category", "load_category", "loadCategory", default="general")
@@ -184,11 +232,10 @@ class FreightLoad:
                     field_name="distance_miles",
                 )
             ),
-            weight_kg=float(
-                _float(
-                    _first(raw, "weight_kg", "weightKg", "weight"),
-                    field_name="weight_kg",
-                )
+            weight_kg=_float(
+                _first(raw, "weight_kg", "weightKg", "weight"),
+                field_name="weight_kg",
+                required=False,
             ),
             offered_rate_gbp=float(
                 _float(
@@ -201,6 +248,7 @@ class FreightLoad:
                         "rateGbp",
                         "rate",
                         "price",
+                        "agreed_rate_gbp",
                     ),
                     field_name="offered_rate_gbp",
                 )
@@ -227,6 +275,11 @@ class FreightLoad:
                     field_name="expected_waiting_minutes",
                 )
             ),
+            origin_postcode=_postcode(origin_value),
+            destination_postcode=_postcode(destination_value),
+            journey_minutes_est=journey_minutes,
+            delivery_label=delivery_label,
+            delivery_is_estimated=delivery_is_estimated,
             notes=notes,
             raw=dict(raw),
         )
@@ -318,6 +371,11 @@ class PricingAssessment:
     break_even_rate_gbp: float
     target_quote_gbp: float
     minimum_viable_rate_gbp: float
+    formula_quote_gbp: float
+    formula_base_gbp: float
+    formula_fuel_surcharge_gbp: float
+    formula_city_surcharge_gbp: float
+    formula_status: str
     summary: str = ""
     risk_flags: tuple[str, ...] = ()
 
@@ -330,7 +388,7 @@ class PricingAssessment:
 @dataclass(frozen=True)
 class ComplianceAssessment:
     feasible: bool
-    payload_ok: bool
+    payload_ok: bool | None
     schedule_ok: bool
     ulez_applies: bool
     ulez_charge_required: bool

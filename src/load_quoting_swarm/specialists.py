@@ -10,13 +10,27 @@ from .models import (
     MarketInputs,
     PricingAssessment,
 )
+from .pricing import quote as formula_quote
 
 
 IMPERIAL_GALLON_LITRES = 4.54609
 
 
+def _vehicle_family(value: str) -> str:
+    normalized = value.casefold()
+    if "7.5" in normalized:
+        return "7.5t rigid"
+    if "artic" in normalized or "18t" in normalized:
+        return "artic"
+    if any(part in normalized for part in ("luton", "lwb", "medium van")):
+        return "luton van"
+    return normalized
+
+
 def _profile(load: FreightLoad, fleet: FleetConfig):
     profile = fleet.vehicle_profiles.get(load.vehicle_type.casefold())
+    if profile is None:
+        profile = fleet.vehicle_profiles.get(_vehicle_family(load.vehicle_type))
     if profile is None:
         raise ValueError(f"fleet has no cost profile for {load.vehicle_type}")
     return profile
@@ -34,20 +48,30 @@ def price_load(
         + (load.loading_minutes + load.expected_waiting_minutes) / 60
     )
     driver_cost = driver_hours * fleet.driver_cost_per_hour_gbp
-    ulez_applies = "ulez" in " ".join(load.notes).casefold()
+    ulez_applies = load.ulez_flagged
     restriction_cost = (
         market.ulez_charge_gbp if ulez_applies and not profile.ulez_compliant else 0.0
     )
     total = fuel_cost + fixed_cost + driver_cost + restriction_cost
     offered_profit = load.offered_rate_gbp - total
     offered_margin = offered_profit / load.offered_rate_gbp * 100
-    target_quote = total / (1 - fleet.target_margin_pct / 100)
+    cost_target_quote = total / (1 - fleet.target_margin_pct / 100)
     minimum_viable = total / (1 - fleet.minimum_margin_pct / 100)
+    formula = formula_quote(
+        load.distance_miles,
+        load.journey_minutes_est or max(1, round(driver_hours * 60)),
+        load.origin_postcode,
+        load.destination_postcode,
+        load.pickup_at,
+    )
+    target_quote = max(cost_target_quote, float(formula["total"]))
     flags: list[str] = []
     if offered_margin < fleet.minimum_margin_pct:
         flags.append("offered_rate_below_fleet_minimum_margin")
     if restriction_cost:
         flags.append("live_ulez_charge_added")
+    if formula["status"] != "ok":
+        flags.append("pricing_formula_requires_human_review")
     return PricingAssessment(
         fuel_litres=round(fuel_litres, 2),
         fuel_cost_gbp=round(fuel_cost, 2),
@@ -62,6 +86,11 @@ def price_load(
         break_even_rate_gbp=round(total, 2),
         target_quote_gbp=round(target_quote, 2),
         minimum_viable_rate_gbp=round(minimum_viable, 2),
+        formula_quote_gbp=float(formula["total"]),
+        formula_base_gbp=float(formula["base"]),
+        formula_fuel_surcharge_gbp=float(formula["fuel"]),
+        formula_city_surcharge_gbp=float(formula["city"]),
+        formula_status=str(formula["status"]),
         risk_flags=tuple(flags),
     )
 
@@ -71,22 +100,30 @@ def check_compliance(
 ) -> ComplianceAssessment:
     profile = _profile(load, fleet)
     flags: list[str] = []
-    payload_ok = load.weight_kg <= profile.max_payload_kg
-    if not payload_ok:
+    payload_ok = (
+        None if load.weight_kg is None else load.weight_kg <= profile.max_payload_kg
+    )
+    if payload_ok is False:
         flags.append("payload_exceeds_vehicle_profile")
+    elif payload_ok is None:
+        flags.append("weight_not_supplied_requires_confirmation")
 
     service_hours = (load.delivery_at - load.pickup_at).total_seconds() / 3600
     minimum_trip_hours = (
         load.distance_miles / profile.typical_speed_mph
         + (load.loading_minutes + load.expected_waiting_minutes) / 60
     )
-    schedule_ok = service_hours >= minimum_trip_hours
-    if not schedule_ok:
+    schedule_ok = (
+        True if load.delivery_is_estimated else service_hours >= minimum_trip_hours
+    )
+    if load.delivery_is_estimated:
+        flags.append("delivery_window_not_supplied")
+    elif not schedule_ok:
         flags.append("delivery_window_shorter_than_minimum_trip_time")
     if load.expected_waiting_minutes >= 60:
         flags.append("material_waiting_time")
 
-    ulez_applies = "ulez" in " ".join(load.notes).casefold()
+    ulez_applies = load.ulez_flagged
     ulez_charge_required = ulez_applies and not profile.ulez_compliant
     if ulez_charge_required:
         if market.ulez_charge_gbp <= 0:
@@ -95,7 +132,9 @@ def check_compliance(
             flags.append("ulez_charge_required")
 
     return ComplianceAssessment(
-        feasible=payload_ok and schedule_ok and "ulez_charge_missing" not in flags,
+        feasible=payload_ok is not False
+        and schedule_ok
+        and "ulez_charge_missing" not in flags,
         payload_ok=payload_ok,
         schedule_ok=schedule_ok,
         ulez_applies=ulez_applies,
@@ -110,7 +149,7 @@ def check_fleet_fit(load: FreightLoad, fleet: FleetConfig) -> FleetFitAssessment
     matching = [
         vehicle
         for vehicle in fleet.vehicles
-        if vehicle.vehicle_type.casefold() == load.vehicle_type.casefold()
+        if _vehicle_family(vehicle.vehicle_type) == _vehicle_family(load.vehicle_type)
         and vehicle.available_from <= load.pickup_at
         and vehicle.available_until >= load.delivery_at
     ]

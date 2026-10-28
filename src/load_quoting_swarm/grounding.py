@@ -145,7 +145,7 @@ class YouSearchGrounding:
 
     async def market_inputs(self, load: FreightLoad) -> MarketInputs:
         diesel_price, diesel_citations = await self._current_diesel()
-        has_ulez = "ulez" in " ".join(load.notes).casefold()
+        has_ulez = load.ulez_flagged
         if has_ulez:
             query = (
                 "current official London ULEZ daily charge van eligibility and charge "
@@ -179,7 +179,7 @@ class DemoGrounding:
         self.ulez_charge_gbp = ulez_charge_gbp
 
     async def market_inputs(self, load: FreightLoad) -> MarketInputs:
-        has_ulez = "ulez" in " ".join(load.notes).casefold()
+        has_ulez = load.ulez_flagged
         return MarketInputs(
             diesel_price_ppl=self.diesel_price_ppl,
             restriction_summary="Synthetic route facts for offline tests only.",

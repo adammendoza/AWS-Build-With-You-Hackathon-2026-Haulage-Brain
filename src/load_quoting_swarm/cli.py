@@ -21,7 +21,7 @@ def build_parser() -> argparse.ArgumentParser:
     subcommands = parser.add_subparsers(dest="command", required=True)
 
     ingest = subcommands.add_parser("ingest", help="ingest and route Available loads")
-    ingest.add_argument("--loads", type=Path, default=Path("data/loads.demo.json"))
+    ingest.add_argument("--loads", type=Path, default=Path("data/loads_v2.json"))
     ingest.add_argument("--limit", type=int, default=3)
     ingest.add_argument(
         "--crewai",
@@ -30,7 +30,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     run = subcommands.add_parser("run", help="evaluate Available loads")
-    run.add_argument("--loads", type=Path, default=Path("data/loads.demo.json"))
+    run.add_argument("--loads", type=Path, default=Path("data/loads_v2.json"))
     run.add_argument("--fleet", type=Path, default=Path("config/fleet.demo.json"))
     run.add_argument("--limit", type=int, default=3)
     run.add_argument("--parallel", type=int, default=8)

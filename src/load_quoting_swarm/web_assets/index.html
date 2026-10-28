@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Load-Quoting Swarm</title>
+    <link rel="stylesheet" href="/app.css">
+  </head>
+  <body>
+    <header class="app-bar">
+      <div class="brand-mark" aria-hidden="true">⌂</div>
+      <div class="brand">Load-Quoting Swarm</div>
+      <span class="environment">Open Haunt · simulated UK loadboard</span>
+      <label class="manager-field">
+        <span>Manager</span>
+        <input id="manager" value="Fleet Manager" aria-label="Manager name">
+      </label>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Human-gated freight intelligence</p>
+          <h1>Loadboard</h1>
+          <p class="intro"><strong>Simulated feed.</strong> The agents research and price each load. Nothing books until a fleet manager approves it.</p>
+        </div>
+        <dl class="summary" id="summary" aria-label="Loadboard summary">
+          <div><dt>Loads</dt><dd>—</dd></div>
+          <div><dt>Available</dt><dd>—</dd></div>
+          <div><dt>Avg rate</dt><dd>—</dd></div>
+          <div><dt>Avg £/mile</dt><dd>—</dd></div>
+        </dl>
+      </section>
+
+      <section class="controls" aria-label="Load filters">
+        <label class="search-field">
+          <span aria-hidden="true">⌕</span>
+          <input id="search" type="search" placeholder="Search town, company, load ID, notes">
+        </label>
+        <select id="status" aria-label="Filter by status">
+          <option value="">All statuses</option>
+        </select>
+        <select id="vehicle" aria-label="Filter by vehicle">
+          <option value="">All vehicles</option>
+        </select>
+        <select id="sort" aria-label="Sort loads">
+          <option value="pickup">Pickup soonest</option>
+          <option value="rate-desc">Rate: high to low</option>
+          <option value="rate-asc">Rate: low to high</option>
+          <option value="distance">Distance</option>
+        </select>
+        <label class="check-field"><input id="per-mile" type="checkbox"> Show £/mile</label>
+        <button class="secondary" id="raw-json">Raw JSON</button>
+      </section>
+
+      <div class="result-line">
+        <span id="result-count">Loading loads…</span>
+        <span class="legend"><i class="live-dot"></i> PRD pricing tool active</span>
+      </div>
+
+      <section id="loads" class="load-list" aria-live="polite"></section>
+    </main>
+
+    <dialog id="json-dialog">
+      <header><h2>Raw fixture JSON</h2><button id="close-dialog" aria-label="Close">×</button></header>
+      <pre id="json-content"></pre>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

@@ -60,16 +60,31 @@ class BookingLedger:
         return state
 
     def record_quote(self, decision: QuoteDecision) -> None:
-        if decision.quote_id in self.state():
-            raise LedgerError(f"quote already exists: {decision.quote_id}")
+        self.record_quote_summary(
+            quote_id=decision.quote_id,
+            load_id=decision.load_id,
+            recommendation=decision.recommendation,
+            proposed_quote_gbp=decision.proposed_quote_gbp,
+        )
+
+    def record_quote_summary(
+        self,
+        *,
+        quote_id: str,
+        load_id: str,
+        recommendation: str,
+        proposed_quote_gbp: float,
+    ) -> None:
+        if quote_id in self.state():
+            raise LedgerError(f"quote already exists: {quote_id}")
         self._append(
             {
                 "event": "QUOTED",
-                "quote_id": decision.quote_id,
-                "load_id": decision.load_id,
+                "quote_id": quote_id,
+                "load_id": load_id,
                 "status": "PENDING",
-                "recommendation": decision.recommendation,
-                "proposed_quote_gbp": decision.proposed_quote_gbp,
+                "recommendation": recommendation,
+                "proposed_quote_gbp": proposed_quote_gbp,
                 "at": datetime.now(timezone.utc).isoformat(),
             }
         )

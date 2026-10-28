@@ -36,6 +36,17 @@ def test_filters_non_available_statuses() -> None:
     ]
 
 
+def test_ingests_updated_nested_uk_fixture() -> None:
+    loads = load_freight_loads(ROOT / "data/loads_v2.json")
+    selected = available_loads(loads)
+
+    assert len(loads) == 89
+    assert len(selected) == 41
+    assert selected[0].origin_postcode == "PL6 2WS"
+    assert selected[0].journey_minutes_est == 259
+    assert selected[0].delivery_is_estimated is True
+
+
 def test_fleet_example_refuses_placeholder_economics() -> None:
     with pytest.raises(InputError, match="placeholder_values"):
         load_fleet_config(ROOT / "config/fleet.example.json")
@@ -74,17 +85,18 @@ def test_normalizes_likely_camel_case_export_fields() -> None:
     assert load.offered_rate_gbp == 450
 
 
-def test_refuses_load_with_missing_weight() -> None:
-    with pytest.raises(InputError, match="weight_kg"):
-        FreightLoad.from_raw(
-            {
-                "id": "INCOMPLETE-001",
-                "origin": "London",
-                "destination": "Leeds",
-                "pickupAt": "2026-10-29T09:00:00+00:00",
-                "deliveryAt": "2026-10-29T17:00:00+00:00",
-                "vehicleType": "Luton Van",
-                "distanceMiles": 200,
-                "offeredRateGbp": 450,
-            }
-        )
+def test_preserves_unsupplied_weight_for_compliance_review() -> None:
+    load = FreightLoad.from_raw(
+        {
+            "id": "INCOMPLETE-001",
+            "origin": "London",
+            "destination": "Leeds",
+            "pickupAt": "2026-10-29T09:00:00+00:00",
+            "deliveryAt": "2026-10-29T17:00:00+00:00",
+            "vehicleType": "Luton Van",
+            "distanceMiles": 200,
+            "offeredRateGbp": 450,
+        }
+    )
+
+    assert load.weight_kg is None

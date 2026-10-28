@@ -1,0 +1,4889 @@
+[
+ {
+  "load_id": 90858237,
+  "status": "Accepted",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "WHA Shopfitting Ltd c/o Jellycat",
+   "address": "Espresso Harrods, Prada Caf\u00e9 on Hans Street",
+   "town": "LONDON",
+   "area": "Knightsbridge, London",
+   "postcode": "SW1X 7XL"
+  },
+  "to": {
+   "name": "WHA Shopfitting Ltd",
+   "address": "4-10 Cannon Street, Shirley",
+   "town": "SOUTHAMPTON",
+   "area": "Southampton",
+   "postcode": "SO15 5PQ"
+  },
+  "distance_miles": 77.5,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604231113",
+  "booked_by_contact": "Kevin",
+  "agreed_rate_gbp": 125,
+  "rate_per_mile": 1.61,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Site Clearance",
+   "Collect Shop fitting Waste - Allow 1 hr loading"
+  ],
+  "ulez": true,
+  "flag": null,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T08:00"
+  },
+  "deliver": "ASAP",
+  "status_time": "2026-10-28T16:22",
+  "booked_at": "2026-10-28T16:22",
+  "seq": 1,
+  "journey_minutes_est": 94
+ },
+ {
+  "load_id": 90834833,
+  "status": "Delivered",
+  "category": "Retail DC",
+  "from_": {
+   "name": "LUTON EQUIPMENT CENTRE, LIDL REGIONAL DISTRIBUTION CENTRE",
+   "address": "LUTON EQUIPMENT CENTRE, LIDL REGIONAL DISTRIBUTION CENTRE, W, ., LUTON, UK, GBR (BAY 914-915 7 IRON BARS 50KG 2.5M)",
+   "town": "LUTON",
+   "area": "Luton",
+   "postcode": "LU5 5AY"
+  },
+  "to": {
+   "name": "LIDL",
+   "address": "BRIDGE STREET, WITHAM, WITHAM, ESSEX, GBR (CALL CONTACT ON ARRIVAL)",
+   "town": "WITHAM",
+   "area": "Witham",
+   "postcode": "CM8 1BT"
+  },
+  "distance_miles": 71,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "Luton, Curtain Side, Tail Lift",
+  "booked_by_company": "EcoSpeed",
+  "booked_by_gb": "GB 57901",
+  "phone": "+44 1204398639",
+  "booked_by_contact": "Operations",
+  "agreed_rate_gbp": 130,
+  "rate_per_mile": 1.83,
+  "ref": "77402943",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "7 IRON BARS 50KG 2.5M",
+   "DRIVER MUST RETAIN SIGNED CUSTOMER PAPERWORK IF PROVIDED",
+   "DRIVER MUST UPLOAD A CLEAR PHOTO OF GOODS AND ANY SIGNED PAPERWORK ONCE DELIVERED",
+   "HI VIS & SAFETY BOOTS REQUIRED"
+  ],
+  "ulez": false,
+  "flag": null,
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-28T12:45"
+  },
+  "deliver": "ASAP",
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T12:30",
+   "on_site_pickup": "2026-10-28T12:30",
+   "loaded_at": "2026-10-28T13:02",
+   "on_site_delivery": "2026-10-28T14:30",
+   "delivered_on": "2026-10-28T14:45",
+   "received_by": "Andy.B",
+   "left_at": "Goods Inwards",
+   "no_of_items": 1,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 32,
+   "waiting_mins_delivery": 15,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-28T14:45",
+  "booked_at": "2026-10-28T09:10",
+  "seq": 2,
+  "journey_minutes_est": 86
+ },
+ {
+  "load_id": 90801544,
+  "status": "Delivered",
+  "category": "Building materials",
+  "from_": {
+   "name": "Falcon Builders Merchants",
+   "address": "Unit 24, Beacon Trading Estate, Alabaster Avenue",
+   "town": "EDINBURGH",
+   "area": "Edinburgh",
+   "postcode": "EH12 2FL"
+  },
+  "to": {
+   "name": "Ashford Construction Site",
+   "address": "Unit 1, Beacon Trading Estate, Cannon Street",
+   "town": "NORTHAMPTON",
+   "area": "Northampton",
+   "postcode": "NN4 3QX"
+  },
+  "distance_miles": 332.5,
+  "weight_kg": null,
+  "packaging": "Loose",
+  "dims": "120x80x180cm x 6",
+  "vehicle_requested": "Artic 44t Flatbed",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Chloe",
+  "agreed_rate_gbp": 595,
+  "rate_per_mile": 1.79,
+  "ref": null,
+  "payment_terms": "14 Days",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Driver must retain signed customer paperwork if provided"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-27T12:30",
+   "end": "2026-10-27T14:30"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T11:58",
+   "on_site_pickup": "2026-10-27T12:10",
+   "loaded_at": "2026-10-27T13:14",
+   "on_site_delivery": "2026-10-27T23:16",
+   "delivered_on": "2026-10-27T23:51",
+   "received_by": "Goods Inwards",
+   "left_at": "Goods Inwards",
+   "no_of_items": 9,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 64,
+   "waiting_mins_delivery": 35,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-27T23:51",
+  "booked_at": "2026-10-27T09:30",
+  "seq": 3,
+  "journey_minutes_est": 405
+ },
+ {
+  "load_id": 90822713,
+  "status": "Delivered",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "Cromwell Fit-Out Services",
+   "address": "Unit 13, Riverside Trading Estate, Mill Way",
+   "town": "WATFORD",
+   "area": "Watford",
+   "postcode": "WD18 1ER"
+  },
+  "to": {
+   "name": "Hartley Recycling Depot",
+   "address": "Unit 15, Gateway Trading Estate, Cannon Street",
+   "town": "DONCASTER",
+   "area": "Doncaster",
+   "postcode": "DN4 9LL"
+  },
+  "distance_miles": 161.0,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": "120x100x120cm x 4",
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "EcoSpeed",
+  "booked_by_gb": "GB 57901",
+  "phone": "+44 1204 398639",
+  "booked_by_contact": "Tom",
+  "agreed_rate_gbp": 155,
+  "rate_per_mile": 0.96,
+  "ref": "77217942",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": false,
+  "load_notes": [
+   "Driver to help load"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-27T06:45",
+   "end": "2026-10-27T08:45"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T06:19",
+   "on_site_pickup": "2026-10-27T06:23",
+   "loaded_at": "2026-10-27T07:54",
+   "on_site_delivery": "2026-10-27T13:02",
+   "delivered_on": "2026-10-27T13:49",
+   "received_by": "Site Foreman",
+   "left_at": "Site Gate",
+   "no_of_items": 4,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 91,
+   "waiting_mins_delivery": 47,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-27T13:49",
+  "booked_at": "2026-10-27T00:45",
+  "seq": 4,
+  "journey_minutes_est": 196
+ },
+ {
+  "load_id": 90845149,
+  "status": "Delivered",
+  "category": "Pallets",
+  "from_": {
+   "name": "Ashford Industrial Supplies",
+   "address": "Unit 13, Kingsway Trading Estate, Brunel Way",
+   "town": "READING",
+   "area": "Reading",
+   "postcode": "RG2 3EP"
+  },
+  "to": {
+   "name": "Denholm Warehouse",
+   "address": "Unit 34, Northgate Trading Estate, Ironworks Road",
+   "town": "OXFORD",
+   "area": "Oxford",
+   "postcode": "OX4 1XA"
+  },
+  "distance_miles": 29.5,
+  "weight_kg": null,
+  "packaging": "Pallets",
+  "dims": "120x120x180cm x 1",
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Harbourside Logistics",
+  "booked_by_gb": "GB 131590",
+  "phone": "+44 23 80771905",
+  "booked_by_contact": "Jo",
+  "agreed_rate_gbp": 75,
+  "rate_per_mile": 2.54,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Call 30 mins before arrival",
+   "Pallets must be exchanged"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-28T11:30"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T11:00",
+   "on_site_pickup": "2026-10-28T11:06",
+   "loaded_at": "2026-10-28T12:35",
+   "on_site_delivery": "2026-10-28T13:24",
+   "delivered_on": "2026-10-28T13:41",
+   "received_by": "S. Patel",
+   "left_at": "Loading Bay",
+   "no_of_items": 12,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 89,
+   "waiting_mins_delivery": 17,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-28T13:41",
+  "booked_at": "2026-10-27T11:30",
+  "seq": 5,
+  "journey_minutes_est": 36
+ },
+ {
+  "load_id": 90823679,
+  "status": "Delivered",
+  "category": "Pallets",
+  "from_": {
+   "name": "Brunel Industrial Supplies",
+   "address": "Unit 30, Beacon Trading Estate, Ironworks Road",
+   "town": "YORK",
+   "area": "York",
+   "postcode": "YO30 1RY"
+  },
+  "to": {
+   "name": "Fairview Trade Counter",
+   "address": "Unit 25, Castle Trading Estate, Meridian Park",
+   "town": "BRISTOL",
+   "area": "Avonmouth, Bristol",
+   "postcode": "BS11 2DT"
+  },
+  "distance_miles": 223.0,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": "120x80x120cm x 10",
+  "vehicle_requested": "Medium Van up to 3m",
+  "booked_by_company": "Pennine Load Services",
+  "booked_by_gb": "GB 88472",
+  "phone": "+44 1422 337810",
+  "booked_by_contact": "Aisha",
+  "agreed_rate_gbp": 325,
+  "rate_per_mile": 1.46,
+  "ref": "77544697",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Tail lift required",
+   "No weekend deliveries"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-27T06:30"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T06:26",
+   "on_site_pickup": "2026-10-27T06:49",
+   "loaded_at": "2026-10-27T07:09",
+   "on_site_delivery": "2026-10-27T13:16",
+   "delivered_on": "2026-10-27T14:11",
+   "received_by": "Dan",
+   "left_at": "Yard",
+   "no_of_items": 10,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 20,
+   "waiting_mins_delivery": 55,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-27T14:11",
+  "booked_at": "2026-10-26T04:30",
+  "seq": 6,
+  "journey_minutes_est": 271
+ },
+ {
+  "load_id": 90842087,
+  "status": "Delivered",
+  "category": "Furniture",
+  "from_": {
+   "name": "Denholm Appliances",
+   "address": "Unit 17, Kingsway Trading Estate, Canal Road",
+   "town": "STOKE-ON-TRENT",
+   "area": "Stoke-on-Trent",
+   "postcode": "ST4 9FF"
+  },
+  "to": {
+   "name": "Kingfisher Customer Delivery",
+   "address": "Unit 22, Kingsway Trading Estate, Brunel Way",
+   "town": "IPSWICH",
+   "area": "Ipswich",
+   "postcode": "IP3 1JG"
+  },
+  "distance_miles": 188.0,
+  "weight_kg": null,
+  "packaging": "Blanket wrapped",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Aisha",
+  "agreed_rate_gbp": 185,
+  "rate_per_mile": 0.98,
+  "ref": null,
+  "payment_terms": "14 Days",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Inside delivery to ground floor",
+   "Two-man delivery required"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-28T09:30"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T09:18",
+   "on_site_pickup": "2026-10-28T09:31",
+   "loaded_at": "2026-10-28T09:52",
+   "on_site_delivery": "2026-10-28T15:22",
+   "delivered_on": "2026-10-28T16:02",
+   "received_by": "Reception",
+   "left_at": "Reception",
+   "no_of_items": 3,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 21,
+   "waiting_mins_delivery": 40,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-28T16:02",
+  "booked_at": "2026-10-27T23:30",
+  "seq": 7,
+  "journey_minutes_est": 229
+ },
+ {
+  "load_id": 90850650,
+  "status": "Delivered",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "Marlow Shopfitting Ltd",
+   "address": "Unit 31, Northgate Trading Estate, Foundry Lane",
+   "town": "WITHAM",
+   "area": "Witham",
+   "postcode": "CM8 3DY"
+  },
+  "to": {
+   "name": "Bexley Shopfitting Ltd",
+   "address": "Unit 2, Kingsway Trading Estate, Meridian Park",
+   "town": "NEWCASTLE",
+   "area": "Newcastle",
+   "postcode": "NE1 2TS"
+  },
+  "distance_miles": 290.0,
+  "weight_kg": 990,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Tamar Freight Solutions",
+  "booked_by_gb": "GB 99814",
+  "phone": "+44 1752 604433",
+  "booked_by_contact": "Raj",
+  "agreed_rate_gbp": 355,
+  "rate_per_mile": 1.22,
+  "ref": "77539760",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Collect shop fitting waste - allow 1 hr loading",
+   "Call site manager on arrival"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-26T13:30",
+   "end": "2026-10-26T15:30"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-26T13:29",
+   "on_site_pickup": "2026-10-26T13:39",
+   "loaded_at": "2026-10-26T15:11",
+   "on_site_delivery": "2026-10-26T23:50",
+   "delivered_on": "2026-10-27T00:17",
+   "received_by": "J. Wilson",
+   "left_at": "Goods Inwards",
+   "no_of_items": 11,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 92,
+   "waiting_mins_delivery": 27,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-27T00:17",
+  "booked_at": "2026-10-26T02:30",
+  "seq": 8,
+  "journey_minutes_est": 353
+ },
+ {
+  "load_id": 90807764,
+  "status": "Delivered",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "Ridgeway Shopfitting Ltd",
+   "address": "Unit 6, Gateway Trading Estate, Station Approach",
+   "town": "READING",
+   "area": "Reading",
+   "postcode": "RG2 4PP"
+  },
+  "to": {
+   "name": "Thornbury Waste Transfer Station",
+   "address": "Unit 22, Riverside Trading Estate, Meridian Park",
+   "town": "WOLVERHAMPTON",
+   "area": "Wolverhampton",
+   "postcode": "WV10 3AH"
+  },
+  "distance_miles": 113.5,
+  "weight_kg": 780,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Tamar Freight Solutions",
+  "booked_by_gb": "GB 99814",
+  "phone": "+44 1752 604433",
+  "booked_by_contact": "Priya",
+  "agreed_rate_gbp": 100,
+  "rate_per_mile": 0.88,
+  "ref": "77701510",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Call site manager on arrival"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-27T09:15"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T08:46",
+   "on_site_pickup": "2026-10-27T08:40",
+   "loaded_at": "2026-10-27T09:53",
+   "on_site_delivery": "2026-10-27T13:22",
+   "delivered_on": "2026-10-27T13:48",
+   "received_by": "Reception",
+   "left_at": "Loading Bay",
+   "no_of_items": 14,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 73,
+   "waiting_mins_delivery": 26,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-27T13:48",
+  "booked_at": "2026-10-27T01:15",
+  "seq": 9,
+  "journey_minutes_est": 138
+ },
+ {
+  "load_id": 90812812,
+  "status": "Delivered",
+  "category": "Automotive",
+  "from_": {
+   "name": "Bexley Auto Parts",
+   "address": "Unit 35, Riverside Trading Estate, Meridian Park",
+   "town": "READING",
+   "area": "Reading",
+   "postcode": "RG2 1ZB"
+  },
+  "to": {
+   "name": "Ironbridge Dealership Parts",
+   "address": "Unit 15, Kingsway Trading Estate, Meridian Park",
+   "town": "PRESTON",
+   "area": "Preston",
+   "postcode": "PR2 4BL"
+  },
+  "distance_miles": 214.0,
+  "weight_kg": 290,
+  "packaging": "Tyres loose",
+  "dims": "150x120x60cm x 8",
+  "vehicle_requested": "Medium Van up to 3m",
+  "booked_by_company": "EcoSpeed",
+  "booked_by_gb": "GB 57901",
+  "phone": "+44 1204 398639",
+  "booked_by_contact": "Lee",
+  "agreed_rate_gbp": 265,
+  "rate_per_mile": 1.24,
+  "ref": "77983759",
+  "payment_terms": "7 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Signed delivery note needed"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-27T10:15",
+   "end": "2026-10-27T12:15"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T09:50",
+   "on_site_pickup": "2026-10-27T10:08",
+   "loaded_at": "2026-10-27T10:56",
+   "on_site_delivery": "2026-10-27T16:30",
+   "delivered_on": "2026-10-27T16:41",
+   "received_by": "Reception",
+   "left_at": "Trade Counter",
+   "no_of_items": 7,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 48,
+   "waiting_mins_delivery": 11,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-27T16:41",
+  "booked_at": "2026-10-26T14:15",
+  "seq": 10,
+  "journey_minutes_est": 260
+ },
+ {
+  "load_id": 90808432,
+  "status": "Delivered",
+  "category": "Pallets",
+  "from_": {
+   "name": "Kingfisher Wholesale",
+   "address": "Unit 16, Kingsway Trading Estate, Enterprise Drive",
+   "town": "CAMBRIDGE",
+   "area": "Cambridge",
+   "postcode": "CB4 5SD"
+  },
+  "to": {
+   "name": "Hartley Distribution",
+   "address": "Unit 11, Beacon Trading Estate, Bridge Street",
+   "town": "OXFORD",
+   "area": "Oxford",
+   "postcode": "OX4 3BD"
+  },
+  "distance_miles": 81.5,
+  "weight_kg": 610,
+  "packaging": "Boxes",
+  "dims": null,
+  "vehicle_requested": "Medium Van up to 3m",
+  "booked_by_company": "Tamar Freight Solutions",
+  "booked_by_gb": "GB 99814",
+  "phone": "+44 1752 604433",
+  "booked_by_contact": "Gareth",
+  "agreed_rate_gbp": 95,
+  "rate_per_mile": 1.17,
+  "ref": "77619608",
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Tail lift required"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-28T09:15"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T08:57",
+   "on_site_pickup": "2026-10-28T08:53",
+   "loaded_at": "2026-10-28T10:20",
+   "on_site_delivery": "2026-10-28T12:37",
+   "delivered_on": "2026-10-28T13:35",
+   "received_by": "Gareth",
+   "left_at": "Yard",
+   "no_of_items": 13,
+   "delivery_status": "Completed Delivery (Short)",
+   "waiting_mins_pickup": 87,
+   "waiting_mins_delivery": 58,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-28T13:35",
+  "booked_at": "2026-10-27T06:15",
+  "seq": 11,
+  "journey_minutes_est": 99
+ },
+ {
+  "load_id": 90846890,
+  "status": "Delivered",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "Kestrel Interiors c/o Site Team",
+   "address": "Unit 33, Riverside Trading Estate, Dock Road",
+   "town": "READING",
+   "area": "Reading",
+   "postcode": "RG2 4NN"
+  },
+  "to": {
+   "name": "Ridgeway Waste Transfer Station",
+   "address": "Unit 30, Pioneer Trading Estate, Brunel Way",
+   "town": "LUTON",
+   "area": "Luton",
+   "postcode": "LU5 2YB"
+  },
+  "distance_miles": 46.5,
+  "weight_kg": 940,
+  "packaging": "Pallets",
+  "dims": "120x100x60cm x 1",
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Jo",
+  "agreed_rate_gbp": 75,
+  "rate_per_mile": 1.61,
+  "ref": "77017893",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Collect shop fitting waste - allow 1 hr loading"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-27T12:00"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T11:33",
+   "on_site_pickup": "2026-10-27T11:49",
+   "loaded_at": "2026-10-27T12:43",
+   "on_site_delivery": "2026-10-27T13:56",
+   "delivered_on": "2026-10-27T14:39",
+   "received_by": "Site Foreman",
+   "left_at": "Goods Inwards",
+   "no_of_items": 4,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 54,
+   "waiting_mins_delivery": 43,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-27T14:39",
+  "booked_at": "2026-10-26T06:00",
+  "seq": 12,
+  "journey_minutes_est": 57
+ },
+ {
+  "load_id": 90810183,
+  "status": "Delivered",
+  "category": "Automotive",
+  "from_": {
+   "name": "Kingfisher Auto Parts",
+   "address": "Unit 2, Riverside Trading Estate, Ironworks Road",
+   "town": "CAMBRIDGE",
+   "area": "Cambridge",
+   "postcode": "CB4 1XB"
+  },
+  "to": {
+   "name": "Whitcombe Garage Group",
+   "address": "Unit 13, Kingsway Trading Estate, Bridge Street",
+   "town": "HULL",
+   "area": "Hull",
+   "postcode": "HU7 9DR"
+  },
+  "distance_miles": 131.0,
+  "weight_kg": 750,
+  "packaging": "Tyres loose",
+  "dims": "150x120x60cm x 8",
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604 231113",
+  "booked_by_contact": "Nadia",
+  "agreed_rate_gbp": 210,
+  "rate_per_mile": 1.6,
+  "ref": "77023707",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Next day parts, tight window",
+   "Signed delivery note needed"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-28T08:30"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T08:01",
+   "on_site_pickup": "2026-10-28T08:26",
+   "loaded_at": "2026-10-28T09:21",
+   "on_site_delivery": "2026-10-28T12:37",
+   "delivered_on": "2026-10-28T13:34",
+   "received_by": "Andy.B",
+   "left_at": "Yard",
+   "no_of_items": 2,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 55,
+   "waiting_mins_delivery": 57,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-28T13:34",
+  "booked_at": "2026-10-28T02:30",
+  "seq": 13,
+  "journey_minutes_est": 159
+ },
+ {
+  "load_id": 90792333,
+  "status": "Delivered",
+  "category": "Pallets",
+  "from_": {
+   "name": "Oakhurst Manufacturing",
+   "address": "Unit 28, Gateway Trading Estate, Canal Road",
+   "town": "CAMBRIDGE",
+   "area": "Cambridge",
+   "postcode": "CB4 7DE"
+  },
+  "to": {
+   "name": "Pennine Warehouse",
+   "address": "Unit 35, Gateway Trading Estate, Station Approach",
+   "town": "STOKE-ON-TRENT",
+   "area": "Stoke-on-Trent",
+   "postcode": "ST4 3EN"
+  },
+  "distance_miles": 135.5,
+  "weight_kg": 1930,
+  "packaging": "Mixed",
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Emma",
+  "agreed_rate_gbp": 185,
+  "rate_per_mile": 1.37,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "No weekend deliveries",
+   "Call 30 mins before arrival"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-27T08:45"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T08:36",
+   "on_site_pickup": "2026-10-27T08:37",
+   "loaded_at": "2026-10-27T09:16",
+   "on_site_delivery": "2026-10-27T12:56",
+   "delivered_on": "2026-10-27T13:51",
+   "received_by": "Warehouse team",
+   "left_at": "Loading Bay",
+   "no_of_items": 10,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 39,
+   "waiting_mins_delivery": 55,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-27T13:51",
+  "booked_at": "2026-10-26T02:45",
+  "seq": 14,
+  "journey_minutes_est": 165
+ },
+ {
+  "load_id": 90856057,
+  "status": "Delivered",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Bexley Equipment Centre, Goods Outwards",
+   "address": "Unit 27, Meadow Trading Estate, Canal Road",
+   "town": "NEWCASTLE",
+   "area": "Newcastle",
+   "postcode": "NE1 4AG"
+  },
+  "to": {
+   "name": "Cromwell Supermarket, Goods Inwards",
+   "address": "Unit 4, Castle Trading Estate, Mill Way",
+   "town": "WITHAM",
+   "area": "Witham",
+   "postcode": "CM8 2XQ"
+  },
+  "distance_miles": 290.0,
+  "weight_kg": 3800,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "Luton, Curtain Side, Tail Lift",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Sarah",
+  "agreed_rate_gbp": 250,
+  "rate_per_mile": 0.86,
+  "ref": "77196223",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Hi vis & safety boots required"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-28T06:00"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T05:53",
+   "on_site_pickup": "2026-10-28T06:17",
+   "loaded_at": "2026-10-28T06:39",
+   "on_site_delivery": "2026-10-28T15:45",
+   "delivered_on": "2026-10-28T16:20",
+   "received_by": "Goods Inwards",
+   "left_at": "Site Gate",
+   "no_of_items": 13,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 22,
+   "waiting_mins_delivery": 35,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-28T16:20",
+  "booked_at": "2026-10-28T02:00",
+  "seq": 15,
+  "journey_minutes_est": 353
+ },
+ {
+  "load_id": 90848452,
+  "status": "Delivered",
+  "category": "Building materials",
+  "from_": {
+   "name": "Marlow Builders Merchants",
+   "address": "Unit 17, Pioneer Trading Estate, Tannery Lane",
+   "town": "DOVER",
+   "area": "Dover",
+   "postcode": "CT16 4PS"
+  },
+  "to": {
+   "name": "Kingfisher Developments Ltd",
+   "address": "Unit 5, Hartley Trading Estate, Alabaster Avenue",
+   "town": "DAVENTRY",
+   "area": "Daventry",
+   "postcode": "NN11 7YJ"
+  },
+  "distance_miles": 160.5,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": "80x80x90cm x 5",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Harbourside Logistics",
+  "booked_by_gb": "GB 131590",
+  "phone": "+44 23 80771905",
+  "booked_by_contact": "Kevin",
+  "agreed_rate_gbp": 235,
+  "rate_per_mile": 1.46,
+  "ref": "77071700",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "10 PALLETS BRICKS",
+   "Offload by forklift on site"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-27T07:00"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T06:40",
+   "on_site_pickup": "2026-10-27T06:34",
+   "loaded_at": "2026-10-27T07:15",
+   "on_site_delivery": "2026-10-27T12:21",
+   "delivered_on": "2026-10-27T12:55",
+   "received_by": "Andy.B",
+   "left_at": "Loading Bay",
+   "no_of_items": 4,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 41,
+   "waiting_mins_delivery": 34,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-27T12:55",
+  "booked_at": "2026-10-26T05:00",
+  "seq": 16,
+  "journey_minutes_est": 195
+ },
+ {
+  "load_id": 90801048,
+  "status": "Delivered",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "Kestrel Interiors c/o Site Team",
+   "address": "Unit 5, Gateway Trading Estate, Alabaster Avenue",
+   "town": "NORTHAMPTON",
+   "area": "Northampton",
+   "postcode": "NN4 8AQ"
+  },
+  "to": {
+   "name": "Calder Waste Transfer Station",
+   "address": "Unit 31, Pioneer Trading Estate, Station Approach",
+   "town": "CHELMSFORD",
+   "area": "Chelmsford",
+   "postcode": "CM2 5SD"
+  },
+  "distance_miles": 82.5,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "EcoSpeed",
+  "booked_by_gb": "GB 57901",
+  "phone": "+44 1204 398639",
+  "booked_by_contact": "Kevin",
+  "agreed_rate_gbp": 120,
+  "rate_per_mile": 1.45,
+  "ref": "77654713",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Permit to work required on site",
+   "Driver to help load"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-27T09:15"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T08:59",
+   "on_site_pickup": "2026-10-27T09:07",
+   "loaded_at": "2026-10-27T10:24",
+   "on_site_delivery": "2026-10-27T12:32",
+   "delivered_on": "2026-10-27T13:11",
+   "received_by": "Reception",
+   "left_at": "Reception",
+   "no_of_items": 14,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 77,
+   "waiting_mins_delivery": 39,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-27T13:11",
+  "booked_at": "2026-10-26T06:15",
+  "seq": 17,
+  "journey_minutes_est": 100
+ },
+ {
+  "load_id": 90856450,
+  "status": "Delivered",
+  "category": "Building materials",
+  "from_": {
+   "name": "Ridgeway Brick & Block",
+   "address": "Unit 19, Kingsway Trading Estate, Enterprise Drive",
+   "town": "WATFORD",
+   "area": "Watford",
+   "postcode": "WD18 8NX"
+  },
+  "to": {
+   "name": "Marlow Groundworks",
+   "address": "Unit 40, Pioneer Trading Estate, Meridian Park",
+   "town": "EDINBURGH",
+   "area": "Edinburgh",
+   "postcode": "EH12 2JF"
+  },
+  "distance_miles": 387.5,
+  "weight_kg": 16360,
+  "packaging": "Pallets",
+  "dims": "120x100x120cm x 8",
+  "vehicle_requested": "Artic 44t Curtain Side",
+  "booked_by_company": "Kestrel Freight",
+  "booked_by_gb": "GB 102945",
+  "phone": "+44 1442 880361",
+  "booked_by_contact": "Tom",
+  "agreed_rate_gbp": 385,
+  "rate_per_mile": 0.99,
+  "ref": "77421754",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Tail lift required"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "Same day",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-27T12:00",
+   "end": "2026-10-27T14:00"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T11:41",
+   "on_site_pickup": "2026-10-27T11:54",
+   "loaded_at": "2026-10-27T13:04",
+   "on_site_delivery": "2026-10-27T23:17",
+   "delivered_on": "2026-10-27T23:54",
+   "received_by": "Dan",
+   "left_at": "Site Gate",
+   "no_of_items": 8,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 70,
+   "waiting_mins_delivery": 37,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-27T23:54",
+  "booked_at": "2026-10-26T07:00",
+  "seq": 18,
+  "journey_minutes_est": 472
+ },
+ {
+  "load_id": 90840424,
+  "status": "Delivered",
+  "category": "Pallets",
+  "from_": {
+   "name": "Ashford Wholesale",
+   "address": "Unit 1, Hartley Trading Estate, Ironworks Road",
+   "town": "SLOUGH",
+   "area": "Slough",
+   "postcode": "SL1 1EL"
+  },
+  "to": {
+   "name": "Whitcombe Trade Counter",
+   "address": "Unit 8, Northgate Trading Estate, Dock Road",
+   "town": "WATFORD",
+   "area": "Watford",
+   "postcode": "WD18 7QR"
+  },
+  "distance_miles": 16.0,
+  "weight_kg": null,
+  "packaging": "Boxes",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Aisha",
+  "agreed_rate_gbp": 75,
+  "rate_per_mile": 4.69,
+  "ref": "77770312",
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": false,
+  "load_notes": [
+   "Call 30 mins before arrival",
+   "Pallets must be exchanged"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-28T08:00",
+   "end": "2026-10-28T10:00"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T07:51",
+   "on_site_pickup": "2026-10-28T08:00",
+   "loaded_at": "2026-10-28T08:34",
+   "on_site_delivery": "2026-10-28T09:05",
+   "delivered_on": "2026-10-28T09:43",
+   "received_by": "Site Foreman",
+   "left_at": "Yard",
+   "no_of_items": 8,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 34,
+   "waiting_mins_delivery": 38,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-28T09:43",
+  "booked_at": "2026-10-27T23:00",
+  "seq": 19,
+  "journey_minutes_est": 19
+ },
+ {
+  "load_id": 90820135,
+  "status": "Delivered",
+  "category": "Events",
+  "from_": {
+   "name": "Kingfisher Exhibition Services",
+   "address": "Unit 13, Meadow Trading Estate, Tannery Lane",
+   "town": "NORWICH",
+   "area": "Norwich",
+   "postcode": "NR6 2YY"
+  },
+  "to": {
+   "name": "Bexley Arena",
+   "address": "Unit 23, Kingsway Trading Estate, Foundry Lane",
+   "town": "PETERBOROUGH",
+   "area": "Peterborough",
+   "postcode": "PE2 7HJ"
+  },
+  "distance_miles": 79.0,
+  "weight_kg": null,
+  "packaging": "Mixed",
+  "dims": "120x100x180cm x 2",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Clearway Logistics",
+  "booked_by_gb": "GB 127788",
+  "phone": "+44 1908 664120",
+  "booked_by_contact": "Jo",
+  "agreed_rate_gbp": 130,
+  "rate_per_mile": 1.65,
+  "ref": "77037905",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Security pass at gatehouse"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-28T09:45"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T09:12",
+   "on_site_pickup": "2026-10-28T09:36",
+   "loaded_at": "2026-10-28T10:17",
+   "on_site_delivery": "2026-10-28T12:49",
+   "delivered_on": "2026-10-28T13:15",
+   "received_by": "Dan",
+   "left_at": "Yard",
+   "no_of_items": 6,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 41,
+   "waiting_mins_delivery": 26,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-28T13:15",
+  "booked_at": "2026-10-27T15:45",
+  "seq": 20,
+  "journey_minutes_est": 96
+ },
+ {
+  "load_id": 90838023,
+  "status": "Delivered",
+  "category": "Pallets",
+  "from_": {
+   "name": "Northwood Manufacturing",
+   "address": "Unit 19, Castle Trading Estate, Cannon Street",
+   "town": "YORK",
+   "area": "York",
+   "postcode": "YO30 6DY"
+  },
+  "to": {
+   "name": "Kingfisher Warehouse",
+   "address": "Unit 39, Beacon Trading Estate, Bridge Street",
+   "town": "NOTTINGHAM",
+   "area": "Nottingham",
+   "postcode": "NG7 6WL"
+  },
+  "distance_miles": 85.0,
+  "weight_kg": null,
+  "packaging": "Mixed",
+  "dims": null,
+  "vehicle_requested": "Medium Van up to 3m",
+  "booked_by_company": "Clearway Logistics",
+  "booked_by_gb": "GB 127788",
+  "phone": "+44 1908 664120",
+  "booked_by_contact": "Nadia",
+  "agreed_rate_gbp": 115,
+  "rate_per_mile": 1.35,
+  "ref": "77657177",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Collection from yard, gate code on booking"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Same day",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-27T09:00"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T09:00",
+   "on_site_pickup": "2026-10-27T08:56",
+   "loaded_at": "2026-10-27T09:48",
+   "on_site_delivery": "2026-10-27T12:29",
+   "delivered_on": "2026-10-27T12:37",
+   "received_by": "Reception",
+   "left_at": "Reception",
+   "no_of_items": 11,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 52,
+   "waiting_mins_delivery": 8,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-27T12:37",
+  "booked_at": "2026-10-27T04:00",
+  "seq": 21,
+  "journey_minutes_est": 103
+ },
+ {
+  "load_id": 90807755,
+  "status": "Delivered",
+  "category": "Machinery",
+  "from_": {
+   "name": "Stanmore Machine Tools",
+   "address": "Unit 13, Kingsway Trading Estate, Station Approach",
+   "town": "MILTON KEYNES",
+   "area": "Milton Keynes",
+   "postcode": "MK12 4HZ"
+  },
+  "to": {
+   "name": "Kestrel Plant Hire",
+   "address": "Unit 26, Northgate Trading Estate, Victoria Road",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 3LU"
+  },
+  "distance_miles": 38.0,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "Artic 44t Flatbed",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Ian",
+  "agreed_rate_gbp": 85,
+  "rate_per_mile": 2.24,
+  "ref": "77510953",
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Fragile equipment, no double stacking",
+   "Strap and sheet load"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Same day",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-26T07:15"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-26T07:14",
+   "on_site_pickup": "2026-10-26T07:15",
+   "loaded_at": "2026-10-26T07:52",
+   "on_site_delivery": "2026-10-26T09:00",
+   "delivered_on": "2026-10-26T09:30",
+   "received_by": "S. Patel",
+   "left_at": "Reception",
+   "no_of_items": 9,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 37,
+   "waiting_mins_delivery": 30,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-26T09:30",
+  "booked_at": "2026-10-25T17:15",
+  "seq": 22,
+  "journey_minutes_est": 46
+ },
+ {
+  "load_id": 90800181,
+  "status": "Delivered",
+  "category": "Building materials",
+  "from_": {
+   "name": "Calder Steel Stockholders",
+   "address": "Unit 16, Castle Trading Estate, Tannery Lane",
+   "town": "YORK",
+   "area": "York",
+   "postcode": "YO30 6BH"
+  },
+  "to": {
+   "name": "Falcon Groundworks",
+   "address": "Unit 33, Beacon Trading Estate, Mill Way",
+   "town": "FELIXSTOWE",
+   "area": "Felixstowe",
+   "postcode": "IP11 7YB"
+  },
+  "distance_miles": 209.0,
+  "weight_kg": 18080,
+  "packaging": null,
+  "dims": "80x120x180cm x 11",
+  "vehicle_requested": "Artic 44t Curtain Side",
+  "booked_by_company": "Tamar Freight Solutions",
+  "booked_by_gb": "GB 99814",
+  "phone": "+44 1752 604433",
+  "booked_by_contact": "Jo",
+  "agreed_rate_gbp": 310,
+  "rate_per_mile": 1.48,
+  "ref": "77317651",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Site access via gate 2 only",
+   "Offload by forklift on site"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-27T09:45",
+   "end": "2026-10-27T11:45"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T09:33",
+   "on_site_pickup": "2026-10-27T09:51",
+   "loaded_at": "2026-10-27T10:47",
+   "on_site_delivery": "2026-10-27T16:32",
+   "delivered_on": "2026-10-27T16:50",
+   "received_by": "Warehouse team",
+   "left_at": "Goods Inwards",
+   "no_of_items": 3,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 56,
+   "waiting_mins_delivery": 18,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-27T16:50",
+  "booked_at": "2026-10-26T16:45",
+  "seq": 23,
+  "journey_minutes_est": 254
+ },
+ {
+  "load_id": 90813398,
+  "status": "Delivered",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "Fairview Interiors c/o Site Team",
+   "address": "Unit 24, Hartley Trading Estate, Brunel Way",
+   "town": "SWINDON",
+   "area": "Swindon",
+   "postcode": "SN3 4AB"
+  },
+  "to": {
+   "name": "Bexley Shopfitting Ltd",
+   "address": "Unit 28, Riverside Trading Estate, Brunel Way",
+   "town": "COVENTRY",
+   "area": "Coventry",
+   "postcode": "CV6 2LS"
+  },
+  "distance_miles": 73.0,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": "120x80x60cm x 5",
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Ian",
+  "agreed_rate_gbp": 130,
+  "rate_per_mile": 1.78,
+  "ref": "77338233",
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Call site manager on arrival"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-28T14:00",
+   "end": "2026-10-28T16:00"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T13:27",
+   "on_site_pickup": "2026-10-28T13:46",
+   "loaded_at": "2026-10-28T15:04",
+   "on_site_delivery": "2026-10-28T17:04",
+   "delivered_on": "2026-10-28T17:39",
+   "received_by": "Goods Inwards",
+   "left_at": "Reception",
+   "no_of_items": 2,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 78,
+   "waiting_mins_delivery": 35,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-28T17:39",
+  "booked_at": "2026-10-27T22:00",
+  "seq": 24,
+  "journey_minutes_est": 89
+ },
+ {
+  "load_id": 90792350,
+  "status": "Delivered",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Kestrel Regional Distribution Centre",
+   "address": "Unit 14, Beacon Trading Estate, Meridian Park",
+   "town": "PETERBOROUGH",
+   "area": "Peterborough",
+   "postcode": "PE2 2LT"
+  },
+  "to": {
+   "name": "Ridgeway Supermarket, Goods Inwards",
+   "address": "Unit 25, Northgate Trading Estate, Meridian Park",
+   "town": "LUTON",
+   "area": "Luton",
+   "postcode": "LU5 8LY"
+  },
+  "distance_miles": 59.0,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": "120x120x60cm x 6",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Harbourside Logistics",
+  "booked_by_gb": "GB 131590",
+  "phone": "+44 23 80771905",
+  "booked_by_contact": "Chloe",
+  "agreed_rate_gbp": 105,
+  "rate_per_mile": 1.78,
+  "ref": "77455564",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Driver must upload photo of goods once delivered",
+   "Call contact on arrival"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-28T12:45"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T12:44",
+   "on_site_pickup": "2026-10-28T13:07",
+   "loaded_at": "2026-10-28T13:31",
+   "on_site_delivery": "2026-10-28T15:29",
+   "delivered_on": "2026-10-28T15:49",
+   "received_by": "Gareth",
+   "left_at": "Trade Counter",
+   "no_of_items": 7,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 24,
+   "waiting_mins_delivery": 20,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-28T15:49",
+  "booked_at": "2026-10-28T01:45",
+  "seq": 25,
+  "journey_minutes_est": 72
+ },
+ {
+  "load_id": 90790129,
+  "status": "Delivered",
+  "category": "Building materials",
+  "from_": {
+   "name": "Pennine Timber & Plasterboard",
+   "address": "Unit 8, Riverside Trading Estate, Brunel Way",
+   "town": "CHELMSFORD",
+   "area": "Chelmsford",
+   "postcode": "CM2 9AB"
+  },
+  "to": {
+   "name": "Brunel Construction Site",
+   "address": "Unit 20, Kingsway Trading Estate, Victoria Road",
+   "town": "NEWCASTLE",
+   "area": "Newcastle",
+   "postcode": "NE1 1PZ"
+  },
+  "distance_miles": 291.5,
+  "weight_kg": null,
+  "packaging": "Bundles",
+  "dims": null,
+  "vehicle_requested": "Artic 44t Flatbed",
+  "booked_by_company": "Brightline Transport",
+  "booked_by_gb": "GB 140226",
+  "phone": "+44 113 2987744",
+  "booked_by_contact": "Mark",
+  "agreed_rate_gbp": 365,
+  "rate_per_mile": 1.25,
+  "ref": null,
+  "payment_terms": "14 Days",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "9 PACKS PLASTERBOARD",
+   "Driver must upload a clear photo of goods and signed paperwork once delivered"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-27T06:15"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T05:55",
+   "on_site_pickup": "2026-10-27T06:09",
+   "loaded_at": "2026-10-27T07:41",
+   "on_site_delivery": "2026-10-27T16:39",
+   "delivered_on": "2026-10-27T17:17",
+   "received_by": "Warehouse team",
+   "left_at": "Goods Inwards",
+   "no_of_items": 2,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 92,
+   "waiting_mins_delivery": 38,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Operations",
+  "status_time": "2026-10-27T17:17",
+  "booked_at": "2026-10-26T03:15",
+  "seq": 26,
+  "journey_minutes_est": 355
+ },
+ {
+  "load_id": 90845923,
+  "status": "Delivered",
+  "category": "Building materials",
+  "from_": {
+   "name": "Ridgeway Timber & Plasterboard",
+   "address": "Unit 34, Kingsway Trading Estate, Enterprise Drive",
+   "town": "LEICESTER",
+   "area": "Leicester",
+   "postcode": "LE4 9WN"
+  },
+  "to": {
+   "name": "Bexley Construction Site",
+   "address": "Unit 11, Beacon Trading Estate, Canal Road",
+   "town": "BRIGHTON",
+   "area": "Brighton",
+   "postcode": "BN1 9SL"
+  },
+  "distance_miles": 161.0,
+  "weight_kg": 5520,
+  "packaging": null,
+  "dims": "100x120x60cm x 2",
+  "vehicle_requested": "18t Curtain Side, Tail Lift",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Raj",
+  "agreed_rate_gbp": 175,
+  "rate_per_mile": 1.09,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "3 BUNDLES RSJ",
+   "Tail lift required",
+   "Site access via gate 2 only"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "Same day",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-27T14:15"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-27T14:12",
+   "on_site_pickup": "2026-10-27T14:04",
+   "loaded_at": "2026-10-27T14:44",
+   "on_site_delivery": "2026-10-27T20:35",
+   "delivered_on": "2026-10-27T21:09",
+   "received_by": "Warehouse team",
+   "left_at": "Loading Bay",
+   "no_of_items": 6,
+   "delivery_status": "Completed Delivery",
+   "waiting_mins_pickup": 40,
+   "waiting_mins_delivery": 34,
+   "delivery_notes": "Thank you for trusting us with the job, your valuable feedback will help us continue to deliver loads securely and timely."
+  },
+  "completed_by": "Driver App",
+  "status_time": "2026-10-27T21:09",
+  "booked_at": "2026-10-27T01:15",
+  "seq": 27,
+  "journey_minutes_est": 196
+ },
+ {
+  "load_id": 90811614,
+  "status": "In Transit",
+  "category": "Furniture",
+  "from_": {
+   "name": "Marlow Home Retail DC",
+   "address": "Unit 20, Pioneer Trading Estate, Alabaster Avenue",
+   "town": "PRESTON",
+   "area": "Preston",
+   "postcode": "PR2 3DQ"
+  },
+  "to": {
+   "name": "Ashford Showroom",
+   "address": "Unit 40, Kingsway Trading Estate, Victoria Road",
+   "town": "CAMBRIDGE",
+   "area": "Cambridge",
+   "postcode": "CB4 1EP"
+  },
+  "distance_miles": 194.0,
+  "weight_kg": 410,
+  "packaging": "Boxes",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604 231113",
+  "booked_by_contact": "Raj",
+  "agreed_rate_gbp": 280,
+  "rate_per_mile": 1.44,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Blanket wrap, no tipping",
+   "Call customer before delivery"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Same day",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-28T16:49"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T16:39",
+   "on_site_pickup": "2026-10-28T16:49",
+   "loaded_at": "2026-10-28T17:30",
+   "eta_delivery": "2026-10-28T22:56"
+  },
+  "status_time": "2026-10-28T17:30",
+  "booked_at": "2026-10-27T22:49",
+  "seq": 28,
+  "journey_minutes_est": 236
+ },
+ {
+  "load_id": 90844593,
+  "status": "In Transit",
+  "category": "Furniture",
+  "from_": {
+   "name": "Northwood Furniture Warehouse",
+   "address": "Unit 6, Castle Trading Estate, Mill Way",
+   "town": "EXETER",
+   "area": "Exeter",
+   "postcode": "EX2 5QH"
+  },
+  "to": {
+   "name": "Cromwell Customer Delivery",
+   "address": "Unit 34, Pioneer Trading Estate, Tannery Lane",
+   "town": "TILBURY",
+   "area": "Tilbury",
+   "postcode": "RM18 2FB"
+  },
+  "distance_miles": 215.0,
+  "weight_kg": null,
+  "packaging": "Blanket wrapped",
+  "dims": "100x120x120cm x 11",
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Ian",
+  "agreed_rate_gbp": 175,
+  "rate_per_mile": 0.81,
+  "ref": "77999999",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Call customer before delivery"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-28T14:14"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T14:04",
+   "on_site_pickup": "2026-10-28T14:14",
+   "loaded_at": "2026-10-28T15:03",
+   "eta_delivery": "2026-10-28T21:02"
+  },
+  "status_time": "2026-10-28T15:03",
+  "booked_at": "2026-10-27T12:14",
+  "seq": 29,
+  "journey_minutes_est": 262
+ },
+ {
+  "load_id": 90791627,
+  "status": "In Transit",
+  "category": "Building materials",
+  "from_": {
+   "name": "Brunel Steel Stockholders",
+   "address": "Unit 33, Hartley Trading Estate, Bridge Street",
+   "town": "NOTTINGHAM",
+   "area": "Nottingham",
+   "postcode": "NG7 8TG"
+  },
+  "to": {
+   "name": "Calder Developments Ltd",
+   "address": "Unit 11, Castle Trading Estate, Dock Road",
+   "town": "PRESTON",
+   "area": "Preston",
+   "postcode": "PR2 3BH"
+  },
+  "distance_miles": 103.5,
+  "weight_kg": 15980,
+  "packaging": "Loose",
+  "dims": null,
+  "vehicle_requested": "Artic 44t Curtain Side",
+  "booked_by_company": "Harbourside Logistics",
+  "booked_by_gb": "GB 131590",
+  "phone": "+44 23 80771905",
+  "booked_by_contact": "Priya",
+  "agreed_rate_gbp": 170,
+  "rate_per_mile": 1.64,
+  "ref": "77098478",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": false,
+  "load_notes": [
+   "11 BUNDLES RSJ",
+   "Hi vis & safety boots required",
+   "Driver must upload a clear photo of goods and signed paperwork once delivered"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-28T17:12",
+   "end": "2026-10-28T19:12"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T17:02",
+   "on_site_pickup": "2026-10-28T17:12",
+   "loaded_at": "2026-10-28T17:34",
+   "eta_delivery": "2026-10-28T20:47"
+  },
+  "status_time": "2026-10-28T17:34",
+  "booked_at": "2026-10-28T09:12",
+  "seq": 30,
+  "journey_minutes_est": 126
+ },
+ {
+  "load_id": 90833408,
+  "status": "In Transit",
+  "category": "Automotive",
+  "from_": {
+   "name": "Oakhurst Motor Factors",
+   "address": "Unit 9, Northgate Trading Estate, Canal Road",
+   "town": "CROYDON",
+   "area": "Croydon",
+   "postcode": "CR0 5QY"
+  },
+  "to": {
+   "name": "Kestrel Fleet Depot",
+   "address": "Unit 1, Castle Trading Estate, Foundry Lane",
+   "town": "DAVENTRY",
+   "area": "Daventry",
+   "postcode": "NN11 4QD"
+  },
+  "distance_miles": 93.0,
+  "weight_kg": 1300,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Clearway Logistics",
+  "booked_by_gb": "GB 127788",
+  "phone": "+44 1908 664120",
+  "booked_by_contact": "Gareth",
+  "agreed_rate_gbp": 80,
+  "rate_per_mile": 0.86,
+  "ref": null,
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Signed delivery note needed",
+   "Collect from goods out, bay 3"
+  ],
+  "ulez": true,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-28T17:25"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T17:15",
+   "on_site_pickup": "2026-10-28T17:25",
+   "loaded_at": "2026-10-28T17:43",
+   "eta_delivery": "2026-10-28T20:30"
+  },
+  "status_time": "2026-10-28T17:43",
+  "booked_at": "2026-10-28T01:25",
+  "seq": 31,
+  "journey_minutes_est": 113
+ },
+ {
+  "load_id": 90835623,
+  "status": "In Transit",
+  "category": "Machinery",
+  "from_": {
+   "name": "Fairview Precision Parts",
+   "address": "Unit 35, Beacon Trading Estate, Cannon Street",
+   "town": "TILBURY",
+   "area": "Tilbury",
+   "postcode": "RM18 8DB"
+  },
+  "to": {
+   "name": "Larkfield Works",
+   "address": "Unit 33, Beacon Trading Estate, Enterprise Drive",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 9GY"
+  },
+  "distance_miles": 102.5,
+  "weight_kg": 300,
+  "packaging": "Loose",
+  "dims": "100x100x90cm x 3",
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Nadia",
+  "agreed_rate_gbp": 170,
+  "rate_per_mile": 1.66,
+  "ref": "77194990",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Driver must be able to load and secure",
+   "Fragile equipment, no double stacking"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-28T15:53"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T15:43",
+   "on_site_pickup": "2026-10-28T15:53",
+   "loaded_at": "2026-10-28T16:37",
+   "eta_delivery": "2026-10-28T19:38"
+  },
+  "status_time": "2026-10-28T16:37",
+  "booked_at": "2026-10-27T18:53",
+  "seq": 32,
+  "journey_minutes_est": 125
+ },
+ {
+  "load_id": 90803845,
+  "status": "In Transit",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "Bexley Fit-Out Services",
+   "address": "Unit 38, Northgate Trading Estate, Meridian Park",
+   "town": "MANCHESTER",
+   "area": "Trafford Park, Manchester",
+   "postcode": "M17 5RE"
+  },
+  "to": {
+   "name": "Marlow Shopfitting Ltd",
+   "address": "Unit 2, Pioneer Trading Estate, Brunel Way",
+   "town": "IPSWICH",
+   "area": "Ipswich",
+   "postcode": "IP3 6AY"
+  },
+  "distance_miles": 212.5,
+  "weight_kg": 1380,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Clearway Logistics",
+  "booked_by_gb": "GB 127788",
+  "phone": "+44 1908 664120",
+  "booked_by_contact": "Aisha",
+  "agreed_rate_gbp": 155,
+  "rate_per_mile": 0.73,
+  "ref": "77624142",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Driver to help load",
+   "Permit to work required on site"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-28T14:49",
+   "end": "2026-10-28T16:49"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T14:39",
+   "on_site_pickup": "2026-10-28T14:49",
+   "loaded_at": "2026-10-28T15:20",
+   "eta_delivery": "2026-10-28T21:15"
+  },
+  "status_time": "2026-10-28T15:20",
+  "booked_at": "2026-10-27T13:49",
+  "seq": 33,
+  "journey_minutes_est": 259
+ },
+ {
+  "load_id": 90836188,
+  "status": "In Transit",
+  "category": "Pallets",
+  "from_": {
+   "name": "Cromwell Packaging Ltd",
+   "address": "Unit 6, Kingsway Trading Estate, Tannery Lane",
+   "town": "PLYMOUTH",
+   "area": "Plymouth",
+   "postcode": "PL6 7YF"
+  },
+  "to": {
+   "name": "Denholm Trade Counter",
+   "address": "Unit 18, Harbour Trading Estate, Canal Road",
+   "town": "SHEFFIELD",
+   "area": "Sheffield",
+   "postcode": "S9 4RN"
+  },
+  "distance_miles": 289.0,
+  "weight_kg": 750,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "EcoSpeed",
+  "booked_by_gb": "GB 57901",
+  "phone": "+44 1204 398639",
+  "booked_by_contact": "Kevin",
+  "agreed_rate_gbp": 275,
+  "rate_per_mile": 0.95,
+  "ref": "77947423",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Pallets must be exchanged",
+   "Call 30 mins before arrival"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-28T12:53"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T12:43",
+   "on_site_pickup": "2026-10-28T12:53",
+   "loaded_at": "2026-10-28T13:09",
+   "eta_delivery": "2026-10-28T21:30"
+  },
+  "status_time": "2026-10-28T13:09",
+  "booked_at": "2026-10-28T04:53",
+  "seq": 34,
+  "journey_minutes_est": 352
+ },
+ {
+  "load_id": 90850241,
+  "status": "In Transit",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Oakhurst National DC",
+   "address": "Unit 33, Beacon Trading Estate, Cannon Street",
+   "town": "IPSWICH",
+   "area": "Ipswich",
+   "postcode": "IP3 2RA"
+  },
+  "to": {
+   "name": "Pennine Retail Park Unit",
+   "address": "Unit 37, Harbour Trading Estate, Cannon Street",
+   "town": "LIVERPOOL",
+   "area": "Liverpool",
+   "postcode": "L9 3BY"
+  },
+  "distance_miles": 240.0,
+  "weight_kg": 710,
+  "packaging": "Roll cages",
+  "dims": null,
+  "vehicle_requested": "18t Curtain Side, Tail Lift",
+  "booked_by_company": "Pennine Load Services",
+  "booked_by_gb": "GB 88472",
+  "phone": "+44 1422 337810",
+  "booked_by_contact": "Chloe",
+  "agreed_rate_gbp": 345,
+  "rate_per_mile": 1.44,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Hi vis & safety boots required",
+   "Call contact on arrival"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-28T16:07"
+  },
+  "tracking": {
+   "vehicle_will_arrive": "2026-10-28T15:57",
+   "on_site_pickup": "2026-10-28T16:07",
+   "loaded_at": "2026-10-28T17:05",
+   "eta_delivery": "2026-10-29T00:28"
+  },
+  "status_time": "2026-10-28T17:05",
+  "booked_at": "2026-10-28T09:07",
+  "seq": 35,
+  "journey_minutes_est": 292
+ },
+ {
+  "load_id": 90855487,
+  "status": "Accepted",
+  "category": "Furniture",
+  "from_": {
+   "name": "Bexley Furniture Warehouse",
+   "address": "Unit 25, Meadow Trading Estate, Dock Road",
+   "town": "EXETER",
+   "area": "Exeter",
+   "postcode": "EX2 2SG"
+  },
+  "to": {
+   "name": "Ashford Customer Delivery",
+   "address": "Unit 15, Castle Trading Estate, Brunel Way",
+   "town": "WATFORD",
+   "area": "Watford",
+   "postcode": "WD18 4PS"
+  },
+  "distance_miles": 183.5,
+  "weight_kg": 1670,
+  "packaging": "Boxes",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604 231113",
+  "booked_by_contact": "Lee",
+  "agreed_rate_gbp": 250,
+  "rate_per_mile": 1.36,
+  "ref": "77312863",
+  "payment_terms": "7 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Two-man delivery required",
+   "Call customer before delivery"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T11:15",
+   "end": "2026-10-29T13:15"
+  },
+  "booked_at": "2026-10-28T12:11",
+  "status_time": "2026-10-28T12:11",
+  "seq": 36,
+  "journey_minutes_est": 223
+ },
+ {
+  "load_id": 90829886,
+  "status": "Accepted",
+  "category": "Pallets",
+  "from_": {
+   "name": "Marlow Industrial Supplies",
+   "address": "Unit 3, Riverside Trading Estate, Foundry Lane",
+   "town": "SOUTHAMPTON",
+   "area": "Southampton",
+   "postcode": "SO15 6SN"
+  },
+  "to": {
+   "name": "Cromwell Warehouse",
+   "address": "Unit 1, Gateway Trading Estate, Meridian Park",
+   "town": "IPSWICH",
+   "area": "Ipswich",
+   "postcode": "IP3 9TF"
+  },
+  "distance_miles": 166.0,
+  "weight_kg": 1580,
+  "packaging": "Mixed",
+  "dims": "80x80x120cm x 6",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Brightline Transport",
+  "booked_by_gb": "GB 140226",
+  "phone": "+44 113 2987744",
+  "booked_by_contact": "Emma",
+  "agreed_rate_gbp": 240,
+  "rate_per_mile": 1.45,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Tail lift required",
+   "No weekend deliveries"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-30T13:00"
+  },
+  "booked_at": "2026-10-28T12:00",
+  "status_time": "2026-10-28T12:00",
+  "seq": 37,
+  "journey_minutes_est": 202
+ },
+ {
+  "load_id": 90847716,
+  "status": "Accepted",
+  "category": "Food & drink",
+  "from_": {
+   "name": "Ashford Foods",
+   "address": "Unit 3, Meadow Trading Estate, Tannery Lane",
+   "town": "TILBURY",
+   "area": "Tilbury",
+   "postcode": "RM18 3LG"
+  },
+  "to": {
+   "name": "Pennine Cash & Carry",
+   "address": "Unit 7, Meadow Trading Estate, Victoria Road",
+   "town": "WARRINGTON",
+   "area": "Warrington",
+   "postcode": "WA2 9GG"
+  },
+  "distance_miles": 222.5,
+  "weight_kg": null,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Pennine Load Services",
+  "booked_by_gb": "GB 88472",
+  "phone": "+44 1422 337810",
+  "booked_by_contact": "Priya",
+  "agreed_rate_gbp": 205,
+  "rate_per_mile": 0.92,
+  "ref": "77723177",
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Temperature check at pickup"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T09:30",
+   "end": "2026-10-29T11:30"
+  },
+  "booked_at": "2026-10-28T14:57",
+  "status_time": "2026-10-28T14:57",
+  "seq": 38,
+  "journey_minutes_est": 271
+ },
+ {
+  "load_id": 90844931,
+  "status": "Accepted",
+  "category": "Pallets",
+  "from_": {
+   "name": "Hartley Packaging Ltd",
+   "address": "Unit 11, Pioneer Trading Estate, Meridian Park",
+   "town": "LEEDS",
+   "area": "Leeds",
+   "postcode": "LS10 2HX"
+  },
+  "to": {
+   "name": "Whitcombe Trade Counter",
+   "address": "Unit 21, Meadow Trading Estate, Ironworks Road",
+   "town": "OXFORD",
+   "area": "Oxford",
+   "postcode": "OX4 6GH"
+  },
+  "distance_miles": 171.5,
+  "weight_kg": 1600,
+  "packaging": "Boxes",
+  "dims": null,
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604 231113",
+  "booked_by_contact": "Priya",
+  "agreed_rate_gbp": 185,
+  "rate_per_mile": 1.08,
+  "ref": null,
+  "payment_terms": "7 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Tail lift required",
+   "Pallets must be exchanged"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-28T20:30"
+  },
+  "booked_at": "2026-10-28T16:30",
+  "status_time": "2026-10-28T16:30",
+  "seq": 39,
+  "journey_minutes_est": 209
+ },
+ {
+  "load_id": 90812606,
+  "status": "Accepted",
+  "category": "Food & drink",
+  "from_": {
+   "name": "Hartley Foods",
+   "address": "Unit 37, Pioneer Trading Estate, Alabaster Avenue",
+   "town": "BRIGHTON",
+   "area": "Brighton",
+   "postcode": "BN1 8LD"
+  },
+  "to": {
+   "name": "Pennine Wholesale Foods",
+   "address": "Unit 6, Castle Trading Estate, Canal Road",
+   "town": "WARRINGTON",
+   "area": "Warrington",
+   "postcode": "WA2 4AL"
+  },
+  "distance_miles": 250.5,
+  "weight_kg": 2320,
+  "packaging": "Pallets",
+  "dims": "150x100x60cm x 5",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "EcoSpeed",
+  "booked_by_gb": "GB 57901",
+  "phone": "+44 1204 398639",
+  "booked_by_contact": "Emma",
+  "agreed_rate_gbp": 385,
+  "rate_per_mile": 1.54,
+  "ref": "77841669",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Temperature check at pickup",
+   "Ambient only"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-29T04:27"
+  },
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-28T20:00"
+  },
+  "booked_at": "2026-10-28T15:44",
+  "status_time": "2026-10-28T15:44",
+  "seq": 40,
+  "journey_minutes_est": 305
+ },
+ {
+  "load_id": 90856011,
+  "status": "Accepted",
+  "category": "Food & drink",
+  "from_": {
+   "name": "Oakhurst Drinks Co",
+   "address": "Unit 30, Castle Trading Estate, Foundry Lane",
+   "town": "NEWCASTLE",
+   "area": "Newcastle",
+   "postcode": "NE1 9RA"
+  },
+  "to": {
+   "name": "Bexley Cash & Carry",
+   "address": "Unit 5, Pioneer Trading Estate, Cannon Street",
+   "town": "IPSWICH",
+   "area": "Ipswich",
+   "postcode": "IP3 3SY"
+  },
+  "distance_miles": 281.5,
+  "weight_kg": 4780,
+  "packaging": "Cages",
+  "dims": "150x100x90cm x 8",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Tamar Freight Solutions",
+  "booked_by_gb": "GB 99814",
+  "phone": "+44 1752 604433",
+  "booked_by_contact": "Kevin",
+  "agreed_rate_gbp": 475,
+  "rate_per_mile": 1.69,
+  "ref": "77991909",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Delivery within slot, 30 minute window",
+   "Temperature check at pickup"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "Same day",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T16:00",
+   "end": "2026-10-29T18:00"
+  },
+  "booked_at": "2026-10-28T14:41",
+  "status_time": "2026-10-28T14:41",
+  "seq": 41,
+  "journey_minutes_est": 343
+ },
+ {
+  "load_id": 90816255,
+  "status": "Accepted",
+  "category": "Pallets",
+  "from_": {
+   "name": "Brunel Wholesale",
+   "address": "Unit 3, Castle Trading Estate, Foundry Lane",
+   "town": "COVENTRY",
+   "area": "Coventry",
+   "postcode": "CV6 9AJ"
+  },
+  "to": {
+   "name": "Ridgeway Warehouse",
+   "address": "Unit 26, Hartley Trading Estate, Victoria Road",
+   "town": "CAMBRIDGE",
+   "area": "Cambridge",
+   "postcode": "CB4 6DY"
+  },
+  "distance_miles": 85.5,
+  "weight_kg": 730,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604 231113",
+  "booked_by_contact": "Ian",
+  "agreed_rate_gbp": 115,
+  "rate_per_mile": 1.35,
+  "ref": "77608288",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Pallets must be exchanged"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Same day",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-30T16:30"
+  },
+  "booked_at": "2026-10-28T13:47",
+  "status_time": "2026-10-28T13:47",
+  "seq": 42,
+  "journey_minutes_est": 104
+ },
+ {
+  "load_id": 90830151,
+  "status": "Accepted",
+  "category": "Furniture",
+  "from_": {
+   "name": "Oakhurst Furniture Warehouse",
+   "address": "Unit 32, Beacon Trading Estate, Enterprise Drive",
+   "town": "WARRINGTON",
+   "area": "Warrington",
+   "postcode": "WA2 2SH"
+  },
+  "to": {
+   "name": "Thornbury Homes Store",
+   "address": "Unit 1, Northgate Trading Estate, Enterprise Drive",
+   "town": "EXETER",
+   "area": "Exeter",
+   "postcode": "EX2 3SQ"
+  },
+  "distance_miles": 230.5,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604 231113",
+  "booked_by_contact": "Priya",
+  "agreed_rate_gbp": 370,
+  "rate_per_mile": 1.61,
+  "ref": "77695981",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Blanket wrap, no tipping",
+   "Two-man delivery required"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T15:45"
+  },
+  "booked_at": "2026-10-28T17:31",
+  "status_time": "2026-10-28T17:31",
+  "seq": 43,
+  "journey_minutes_est": 281
+ },
+ {
+  "load_id": 90814274,
+  "status": "Accepted",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Larkfield Equipment Centre, Goods Outwards",
+   "address": "Unit 28, Gateway Trading Estate, Dock Road",
+   "town": "LUTON",
+   "area": "Luton",
+   "postcode": "LU5 9NH"
+  },
+  "to": {
+   "name": "Ironbridge Supermarket, Goods Inwards",
+   "address": "Unit 24, Gateway Trading Estate, Alabaster Avenue",
+   "town": "TILBURY",
+   "area": "Tilbury",
+   "postcode": "RM18 4QP"
+  },
+  "distance_miles": 54.0,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": "120x100x60cm x 4",
+  "vehicle_requested": "Luton, Curtain Side, Tail Lift",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Mark",
+  "agreed_rate_gbp": 65,
+  "rate_per_mile": 1.2,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": false,
+  "load_notes": [
+   "Goods inwards closes 20:00"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-30T11:15"
+  },
+  "booked_at": "2026-10-28T17:26",
+  "status_time": "2026-10-28T17:26",
+  "seq": 44,
+  "journey_minutes_est": 66
+ },
+ {
+  "load_id": 90809324,
+  "status": "Accepted",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Stanmore National DC",
+   "address": "Unit 33, Gateway Trading Estate, Canal Road",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 3QW"
+  },
+  "to": {
+   "name": "Cromwell Retail Park Unit",
+   "address": "Unit 18, Gateway Trading Estate, Meridian Park",
+   "town": "PRESTON",
+   "area": "Preston",
+   "postcode": "PR2 3FL"
+  },
+  "distance_miles": 147.5,
+  "weight_kg": null,
+  "packaging": "Roll cages",
+  "dims": null,
+  "vehicle_requested": "18t Curtain Side, Tail Lift",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Lee",
+  "agreed_rate_gbp": 135,
+  "rate_per_mile": 0.92,
+  "ref": "77493860",
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Booked delivery slot, late arrivals refused",
+   "Driver must upload photo of goods once delivered"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-29T14:00"
+  },
+  "booked_at": "2026-10-28T14:55",
+  "status_time": "2026-10-28T14:55",
+  "seq": 45,
+  "journey_minutes_est": 180
+ },
+ {
+  "load_id": 90824664,
+  "status": "Accepted",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Denholm National DC",
+   "address": "Unit 3, Castle Trading Estate, Foundry Lane",
+   "town": "CARLISLE",
+   "area": "Carlisle",
+   "postcode": "CA1 7QJ"
+  },
+  "to": {
+   "name": "Marlow Retail Park Unit",
+   "address": "Unit 36, Kingsway Trading Estate, Foundry Lane",
+   "town": "YORK",
+   "area": "York",
+   "postcode": "YO30 1BW"
+  },
+  "distance_miles": 120.0,
+  "weight_kg": 4610,
+  "packaging": "Cages",
+  "dims": "80x80x60cm x 9",
+  "vehicle_requested": "18t Curtain Side, Tail Lift",
+  "booked_by_company": "Tamar Freight Solutions",
+  "booked_by_gb": "GB 99814",
+  "phone": "+44 1752 604433",
+  "booked_by_contact": "Tom",
+  "agreed_rate_gbp": 185,
+  "rate_per_mile": 1.54,
+  "ref": "77116133",
+  "payment_terms": "7 Days",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Hi vis & safety boots required"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-29T12:46"
+  },
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T07:45"
+  },
+  "booked_at": "2026-10-28T16:26",
+  "status_time": "2026-10-28T16:26",
+  "seq": 46,
+  "journey_minutes_est": 146
+ },
+ {
+  "load_id": 90818463,
+  "status": "Accepted",
+  "category": "Pallets",
+  "from_": {
+   "name": "Ridgeway Wholesale",
+   "address": "Unit 37, Meadow Trading Estate, Victoria Road",
+   "town": "CARLISLE",
+   "area": "Carlisle",
+   "postcode": "CA1 8TT"
+  },
+  "to": {
+   "name": "Marlow Warehouse",
+   "address": "Unit 24, Kingsway Trading Estate, Bridge Street",
+   "town": "MILTON KEYNES",
+   "area": "Milton Keynes",
+   "postcode": "MK12 8SU"
+  },
+  "distance_miles": 263.5,
+  "weight_kg": 180,
+  "packaging": "Mixed",
+  "dims": "120x80x60cm x 1",
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Kevin",
+  "agreed_rate_gbp": 295,
+  "rate_per_mile": 1.12,
+  "ref": null,
+  "payment_terms": "14 Days",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Collection from yard, gate code on booking"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-30T14:20"
+  },
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-30T06:15"
+  },
+  "booked_at": "2026-10-28T16:57",
+  "status_time": "2026-10-28T16:57",
+  "seq": 47,
+  "journey_minutes_est": 321
+ },
+ {
+  "load_id": 90855394,
+  "status": "Accepted",
+  "category": "Food & drink",
+  "from_": {
+   "name": "Cromwell Drinks Co",
+   "address": "Unit 9, Riverside Trading Estate, Brunel Way",
+   "town": "LEEDS",
+   "area": "Leeds",
+   "postcode": "LS10 1QS"
+  },
+  "to": {
+   "name": "Marlow Wholesale Foods",
+   "address": "Unit 5, Riverside Trading Estate, Victoria Road",
+   "town": "BASILDON",
+   "area": "Basildon",
+   "postcode": "SS13 6GD"
+  },
+  "distance_miles": 212.0,
+  "weight_kg": 370,
+  "packaging": "Cages",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Chloe",
+  "agreed_rate_gbp": 325,
+  "rate_per_mile": 1.53,
+  "ref": "77670960",
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Temperature check at pickup"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-29T20:04"
+  },
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T13:00"
+  },
+  "booked_at": "2026-10-28T14:37",
+  "status_time": "2026-10-28T14:37",
+  "seq": 48,
+  "journey_minutes_est": 258
+ },
+ {
+  "load_id": 90857138,
+  "status": "Available",
+  "category": "Furniture",
+  "from_": {
+   "name": "Thornbury Home Retail DC",
+   "address": "Unit 1, Northgate Trading Estate, Bridge Street",
+   "town": "PLYMOUTH",
+   "area": "Plymouth",
+   "postcode": "PL6 2WS"
+  },
+  "to": {
+   "name": "Stanmore Showroom",
+   "address": "Unit 18, Beacon Trading Estate, Wharf Street",
+   "town": "BIRMINGHAM",
+   "area": "Birmingham",
+   "postcode": "B9 7FP"
+  },
+  "distance_miles": 213.0,
+  "weight_kg": null,
+  "packaging": "Loose",
+  "dims": "120x120x150cm x 12",
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Aisha",
+  "agreed_rate_gbp": 265,
+  "rate_per_mile": 1.24,
+  "ref": "77616933",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Call customer before delivery",
+   "Blanket wrap, no tipping"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T11:15"
+  },
+  "posted_at": "2026-10-28T14:53",
+  "status_time": "2026-10-28T14:53",
+  "booked_at": null,
+  "seq": 49,
+  "journey_minutes_est": 259
+ },
+ {
+  "load_id": 90832552,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Bexley National DC",
+   "address": "Unit 10, Pioneer Trading Estate, Ironworks Road",
+   "town": "FELIXSTOWE",
+   "area": "Felixstowe",
+   "postcode": "IP11 4RW"
+  },
+  "to": {
+   "name": "Pennine Store",
+   "address": "Unit 27, Castle Trading Estate, Mill Way",
+   "town": "IPSWICH",
+   "area": "Ipswich",
+   "postcode": "IP3 8GF"
+  },
+  "distance_miles": 13.5,
+  "weight_kg": 2150,
+  "packaging": "Roll cages",
+  "dims": "120x100x120cm x 7",
+  "vehicle_requested": "18t Curtain Side, Tail Lift",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Aisha",
+  "agreed_rate_gbp": 80,
+  "rate_per_mile": 5.93,
+  "ref": null,
+  "payment_terms": "7 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Hi vis & safety boots required",
+   "Call contact on arrival"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Same day",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T13:15"
+  },
+  "posted_at": "2026-10-28T15:55",
+  "status_time": "2026-10-28T15:55",
+  "booked_at": null,
+  "seq": 50,
+  "journey_minutes_est": 16
+ },
+ {
+  "load_id": 90839349,
+  "status": "Available",
+  "category": "Pallets",
+  "from_": {
+   "name": "Fairview Packaging Ltd",
+   "address": "Unit 24, Kingsway Trading Estate, Station Approach",
+   "town": "CHELMSFORD",
+   "area": "Chelmsford",
+   "postcode": "CM2 2QY"
+  },
+  "to": {
+   "name": "Denholm Distribution",
+   "address": "Unit 34, Meadow Trading Estate, Dock Road",
+   "town": "BRISTOL",
+   "area": "Avonmouth, Bristol",
+   "postcode": "BS11 1SF"
+  },
+  "distance_miles": 167.0,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": "120x100x150cm x 10",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Mark",
+  "agreed_rate_gbp": 225,
+  "rate_per_mile": 1.35,
+  "ref": "77123257",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Pallets must be exchanged"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-29T18:53"
+  },
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-29T12:45"
+  },
+  "posted_at": "2026-10-28T14:30",
+  "status_time": "2026-10-28T14:30",
+  "booked_at": null,
+  "seq": 51,
+  "journey_minutes_est": 203
+ },
+ {
+  "load_id": 90840877,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Ashford Steel Stockholders",
+   "address": "Unit 30, Harbour Trading Estate, Meridian Park",
+   "town": "SOUTHAMPTON",
+   "area": "Southampton",
+   "postcode": "SO15 9FR"
+  },
+  "to": {
+   "name": "Redwood Developments Ltd",
+   "address": "Unit 37, Pioneer Trading Estate, Cannon Street",
+   "town": "BIRMINGHAM",
+   "area": "Birmingham",
+   "postcode": "B9 3RH"
+  },
+  "distance_miles": 133.0,
+  "weight_kg": 4990,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "Artic 44t Curtain Side",
+  "booked_by_company": "Harbourside Logistics",
+  "booked_by_gb": "GB 131590",
+  "phone": "+44 23 80771905",
+  "booked_by_contact": "Emma",
+  "agreed_rate_gbp": 210,
+  "rate_per_mile": 1.58,
+  "ref": null,
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Hi vis & safety boots required"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T12:00"
+  },
+  "posted_at": "2026-10-28T13:33",
+  "status_time": "2026-10-28T13:33",
+  "booked_at": null,
+  "seq": 52,
+  "journey_minutes_est": 162
+ },
+ {
+  "load_id": 90810324,
+  "status": "Available",
+  "category": "Pallets",
+  "from_": {
+   "name": "Northwood Industrial Supplies",
+   "address": "Unit 19, Kingsway Trading Estate, Canal Road",
+   "town": "CARDIFF",
+   "area": "Cardiff",
+   "postcode": "CF10 6XQ"
+  },
+  "to": {
+   "name": "Bexley Warehouse",
+   "address": "Unit 6, Kingsway Trading Estate, Canal Road",
+   "town": "YORK",
+   "area": "York",
+   "postcode": "YO30 8QR"
+  },
+  "distance_miles": 235.0,
+  "weight_kg": 2140,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "Medium Van up to 3m",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Sarah",
+  "agreed_rate_gbp": 370,
+  "rate_per_mile": 1.57,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Call 30 mins before arrival",
+   "No weekend deliveries"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-29T15:11"
+  },
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T07:30"
+  },
+  "posted_at": "2026-10-28T17:34",
+  "status_time": "2026-10-28T17:34",
+  "booked_at": null,
+  "seq": 53,
+  "journey_minutes_est": 286
+ },
+ {
+  "load_id": 90795261,
+  "status": "Available",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "Northwood Shopfitting Ltd",
+   "address": "Unit 30, Kingsway Trading Estate, Enterprise Drive",
+   "town": "DARTFORD",
+   "area": "Dartford",
+   "postcode": "DA1 6NP"
+  },
+  "to": {
+   "name": "Hartley Recycling Depot",
+   "address": "Unit 8, Hartley Trading Estate, Brunel Way",
+   "town": "BASILDON",
+   "area": "Basildon",
+   "postcode": "SS13 3LP"
+  },
+  "distance_miles": 16.0,
+  "weight_kg": 930,
+  "packaging": "Mixed",
+  "dims": "120x100x90cm x 11",
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "EcoSpeed",
+  "booked_by_gb": "GB 57901",
+  "phone": "+44 1204 398639",
+  "booked_by_contact": "Ian",
+  "agreed_rate_gbp": 90,
+  "rate_per_mile": 5.62,
+  "ref": "77237376",
+  "payment_terms": "7 Days",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Driver to help load"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T08:30",
+   "end": "2026-10-29T10:30"
+  },
+  "posted_at": "2026-10-28T18:04",
+  "status_time": "2026-10-28T18:04",
+  "booked_at": null,
+  "seq": 54,
+  "journey_minutes_est": 19
+ },
+ {
+  "load_id": 90796072,
+  "status": "Available",
+  "category": "Furniture",
+  "from_": {
+   "name": "Cromwell Furniture Warehouse",
+   "address": "Unit 18, Pioneer Trading Estate, Enterprise Drive",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 3PL"
+  },
+  "to": {
+   "name": "Ironbridge Homes Store",
+   "address": "Unit 1, Harbour Trading Estate, Canal Road",
+   "town": "MANCHESTER",
+   "area": "Trafford Park, Manchester",
+   "postcode": "M17 2BQ"
+  },
+  "distance_miles": 116.5,
+  "weight_kg": null,
+  "packaging": "Blanket wrapped",
+  "dims": "120x100x90cm x 7",
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Gareth",
+  "agreed_rate_gbp": 200,
+  "rate_per_mile": 1.72,
+  "ref": null,
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Inside delivery to ground floor",
+   "Two-man delivery required"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T06:30",
+   "end": "2026-10-29T08:30"
+  },
+  "posted_at": "2026-10-28T17:21",
+  "status_time": "2026-10-28T17:21",
+  "booked_at": null,
+  "seq": 55,
+  "journey_minutes_est": 142
+ },
+ {
+  "load_id": 90832736,
+  "status": "Available",
+  "category": "Pallets",
+  "from_": {
+   "name": "Ashford Wholesale",
+   "address": "Unit 1, Hartley Trading Estate, Mill Way",
+   "town": "DAVENTRY",
+   "area": "Daventry",
+   "postcode": "NN11 5QS"
+  },
+  "to": {
+   "name": "Oakhurst Warehouse",
+   "address": "Unit 29, Castle Trading Estate, Cannon Street",
+   "town": "BIRMINGHAM",
+   "area": "Birmingham",
+   "postcode": "B9 1JJ"
+  },
+  "distance_miles": 41.0,
+  "weight_kg": null,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Brightline Transport",
+  "booked_by_gb": "GB 140226",
+  "phone": "+44 113 2987744",
+  "booked_by_contact": "Gareth",
+  "agreed_rate_gbp": 80,
+  "rate_per_mile": 1.95,
+  "ref": "77910415",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Pallets must be exchanged",
+   "No weekend deliveries"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-30T09:00",
+   "end": "2026-10-30T11:00"
+  },
+  "posted_at": "2026-10-28T17:39",
+  "status_time": "2026-10-28T17:39",
+  "booked_at": null,
+  "seq": 56,
+  "journey_minutes_est": 50
+ },
+ {
+  "load_id": 90856866,
+  "status": "Available",
+  "category": "Automotive",
+  "from_": {
+   "name": "Pennine Auto Parts",
+   "address": "Unit 28, Riverside Trading Estate, Brunel Way",
+   "town": "READING",
+   "area": "Reading",
+   "postcode": "RG2 8NY"
+  },
+  "to": {
+   "name": "Stanmore Garage Group",
+   "address": "Unit 16, Riverside Trading Estate, Brunel Way",
+   "town": "TILBURY",
+   "area": "Tilbury",
+   "postcode": "RM18 9BR"
+  },
+  "distance_miles": 70.0,
+  "weight_kg": 510,
+  "packaging": "Boxes",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Dave",
+  "agreed_rate_gbp": 95,
+  "rate_per_mile": 1.36,
+  "ref": null,
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Collect from goods out, bay 3"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-30T08:45",
+   "end": "2026-10-30T10:45"
+  },
+  "posted_at": "2026-10-28T16:49",
+  "status_time": "2026-10-28T16:49",
+  "booked_at": null,
+  "seq": 57,
+  "journey_minutes_est": 85
+ },
+ {
+  "load_id": 90798552,
+  "status": "Available",
+  "category": "Pallets",
+  "from_": {
+   "name": "Denholm Packaging Ltd",
+   "address": "Unit 5, Hartley Trading Estate, Cannon Street",
+   "town": "DAVENTRY",
+   "area": "Daventry",
+   "postcode": "NN11 1HT"
+  },
+  "to": {
+   "name": "Bexley Trade Counter",
+   "address": "Unit 18, Beacon Trading Estate, Bridge Street",
+   "town": "LEEDS",
+   "area": "Leeds",
+   "postcode": "LS10 4UF"
+  },
+  "distance_miles": 129.5,
+  "weight_kg": 430,
+  "packaging": "Mixed",
+  "dims": null,
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Emma",
+  "agreed_rate_gbp": 110,
+  "rate_per_mile": 0.85,
+  "ref": "77229976",
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Tail lift required"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T16:15"
+  },
+  "posted_at": "2026-10-28T13:33",
+  "status_time": "2026-10-28T13:33",
+  "booked_at": null,
+  "seq": 58,
+  "journey_minutes_est": 158
+ },
+ {
+  "load_id": 90854555,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Northwood Equipment Centre, Goods Outwards",
+   "address": "Unit 8, Beacon Trading Estate, Station Approach",
+   "town": "PORTSMOUTH",
+   "area": "Portsmouth",
+   "postcode": "PO3 1EW"
+  },
+  "to": {
+   "name": "Cromwell Retail Park Unit",
+   "address": "Unit 9, Riverside Trading Estate, Station Approach",
+   "town": "EXETER",
+   "area": "Exeter",
+   "postcode": "EX2 9PD"
+  },
+  "distance_miles": 130.5,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604 231113",
+  "booked_by_contact": "Dave",
+  "agreed_rate_gbp": 175,
+  "rate_per_mile": 1.34,
+  "ref": "77326718",
+  "payment_terms": "7 Days",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Call contact on arrival"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T12:45"
+  },
+  "posted_at": "2026-10-28T14:00",
+  "status_time": "2026-10-28T14:00",
+  "booked_at": null,
+  "seq": 59,
+  "journey_minutes_est": 159
+ },
+ {
+  "load_id": 90857499,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Larkfield Timber & Plasterboard",
+   "address": "Unit 4, Northgate Trading Estate, Victoria Road",
+   "town": "CHELMSFORD",
+   "area": "Chelmsford",
+   "postcode": "CM2 5FW"
+  },
+  "to": {
+   "name": "Fairview Developments Ltd",
+   "address": "Unit 29, Hartley Trading Estate, Victoria Road",
+   "town": "NORTHAMPTON",
+   "area": "Northampton",
+   "postcode": "NN4 1UD"
+  },
+  "distance_miles": 82.5,
+  "weight_kg": 17350,
+  "packaging": "Bundles",
+  "dims": "120x80x150cm x 5",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Jo",
+  "agreed_rate_gbp": 135,
+  "rate_per_mile": 1.64,
+  "ref": "77811850",
+  "payment_terms": "7 Days",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Offload by forklift on site"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T11:00"
+  },
+  "posted_at": "2026-10-28T17:46",
+  "status_time": "2026-10-28T17:46",
+  "booked_at": null,
+  "seq": 60,
+  "journey_minutes_est": 100
+ },
+ {
+  "load_id": 90846647,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Cromwell Builders Merchants",
+   "address": "Unit 2, Castle Trading Estate, Brunel Way",
+   "town": "SWINDON",
+   "area": "Swindon",
+   "postcode": "SN3 7QB"
+  },
+  "to": {
+   "name": "Pennine Developments Ltd",
+   "address": "Unit 1, Harbour Trading Estate, Enterprise Drive",
+   "town": "DARTFORD",
+   "area": "Dartford",
+   "postcode": "DA1 4NF"
+  },
+  "distance_miles": 105.5,
+  "weight_kg": null,
+  "packaging": "Packs",
+  "dims": null,
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Brightline Transport",
+  "booked_by_gb": "GB 140226",
+  "phone": "+44 113 2987744",
+  "booked_by_contact": "Mark",
+  "agreed_rate_gbp": 105,
+  "rate_per_mile": 1.0,
+  "ref": "77283236",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "10 BUNDLES RSJ",
+   "Offload by forklift on site",
+   "Tail lift required"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-29T16:15"
+  },
+  "posted_at": "2026-10-28T16:54",
+  "status_time": "2026-10-28T16:54",
+  "booked_at": null,
+  "seq": 61,
+  "journey_minutes_est": 128
+ },
+ {
+  "load_id": 90852021,
+  "status": "Available",
+  "category": "Food & drink",
+  "from_": {
+   "name": "Kingfisher Bakery",
+   "address": "Unit 33, Pioneer Trading Estate, Bridge Street",
+   "town": "DONCASTER",
+   "area": "Doncaster",
+   "postcode": "DN4 7BY"
+  },
+  "to": {
+   "name": "Fairview Wholesale Foods",
+   "address": "Unit 40, Castle Trading Estate, Victoria Road",
+   "town": "PETERBOROUGH",
+   "area": "Peterborough",
+   "postcode": "PE2 6YG"
+  },
+  "distance_miles": 92.0,
+  "weight_kg": 1820,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Brightline Transport",
+  "booked_by_gb": "GB 140226",
+  "phone": "+44 113 2987744",
+  "booked_by_contact": "Nadia",
+  "agreed_rate_gbp": 115,
+  "rate_per_mile": 1.25,
+  "ref": "77438647",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": false,
+  "load_notes": [
+   "Ambient only",
+   "Clean vehicle required"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T12:00",
+   "end": "2026-10-29T14:00"
+  },
+  "posted_at": "2026-10-28T17:46",
+  "status_time": "2026-10-28T17:46",
+  "booked_at": null,
+  "seq": 62,
+  "journey_minutes_est": 112
+ },
+ {
+  "load_id": 90796046,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Falcon Builders Merchants",
+   "address": "Unit 17, Harbour Trading Estate, Canal Road",
+   "town": "DAVENTRY",
+   "area": "Daventry",
+   "postcode": "NN11 1WE"
+  },
+  "to": {
+   "name": "Marlow Construction Site",
+   "address": "Unit 22, Hartley Trading Estate, Brunel Way",
+   "town": "CROYDON",
+   "area": "Croydon",
+   "postcode": "CR0 3EN"
+  },
+  "distance_miles": 93.0,
+  "weight_kg": 14160,
+  "packaging": "Packs",
+  "dims": "80x80x90cm x 6",
+  "vehicle_requested": "Artic 44t Flatbed",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Priya",
+  "agreed_rate_gbp": 125,
+  "rate_per_mile": 1.34,
+  "ref": "77636184",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Hi vis & safety boots required"
+  ],
+  "ulez": true,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-30T11:30",
+   "end": "2026-10-30T13:30"
+  },
+  "posted_at": "2026-10-28T16:22",
+  "status_time": "2026-10-28T16:22",
+  "booked_at": null,
+  "seq": 63,
+  "journey_minutes_est": 113
+ },
+ {
+  "load_id": 90801534,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Ashford Timber & Plasterboard",
+   "address": "Unit 34, Harbour Trading Estate, Victoria Road",
+   "town": "DOVER",
+   "area": "Dover",
+   "postcode": "CT16 5DJ"
+  },
+  "to": {
+   "name": "Ironbridge Construction Site",
+   "address": "Unit 23, Beacon Trading Estate, Foundry Lane",
+   "town": "DARTFORD",
+   "area": "Dartford",
+   "postcode": "DA1 8RS"
+  },
+  "distance_miles": 63.5,
+  "weight_kg": null,
+  "packaging": "Packs",
+  "dims": null,
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Pennine Load Services",
+  "booked_by_gb": "GB 88472",
+  "phone": "+44 1422 337810",
+  "booked_by_contact": "Chloe",
+  "agreed_rate_gbp": 125,
+  "rate_per_mile": 1.97,
+  "ref": "77528999",
+  "payment_terms": "60 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Offload by forklift on site",
+   "Tail lift required"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T11:15"
+  },
+  "posted_at": "2026-10-28T15:31",
+  "status_time": "2026-10-28T15:31",
+  "booked_at": null,
+  "seq": 64,
+  "journey_minutes_est": 77
+ },
+ {
+  "load_id": 90829246,
+  "status": "Available",
+  "category": "Machinery",
+  "from_": {
+   "name": "Kestrel Engineering",
+   "address": "Unit 19, Beacon Trading Estate, Victoria Road",
+   "town": "READING",
+   "area": "Reading",
+   "postcode": "RG2 3EN"
+  },
+  "to": {
+   "name": "Kingfisher Plant Hire",
+   "address": "Unit 18, Northgate Trading Estate, Station Approach",
+   "town": "LEEDS",
+   "area": "Leeds",
+   "postcode": "LS10 3SD"
+  },
+  "distance_miles": 198.5,
+  "weight_kg": null,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Tom",
+  "agreed_rate_gbp": 330,
+  "rate_per_mile": 1.66,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Strap and sheet load"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-29T16:13"
+  },
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-29T09:30"
+  },
+  "posted_at": "2026-10-28T13:42",
+  "status_time": "2026-10-28T13:42",
+  "booked_at": null,
+  "seq": 65,
+  "journey_minutes_est": 242
+ },
+ {
+  "load_id": 90809250,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Larkfield Equipment Centre, Goods Outwards",
+   "address": "Unit 8, Hartley Trading Estate, Station Approach",
+   "town": "DOVER",
+   "area": "Dover",
+   "postcode": "CT16 6HZ"
+  },
+  "to": {
+   "name": "Denholm Store",
+   "address": "Unit 14, Gateway Trading Estate, Wharf Street",
+   "town": "BASILDON",
+   "area": "Basildon",
+   "postcode": "SS13 6GF"
+  },
+  "distance_miles": 58.0,
+  "weight_kg": 4600,
+  "packaging": "Roll cages",
+  "dims": null,
+  "vehicle_requested": "Luton, Curtain Side, Tail Lift",
+  "booked_by_company": "Kestrel Freight",
+  "booked_by_gb": "GB 102945",
+  "phone": "+44 1442 880361",
+  "booked_by_contact": "Tom",
+  "agreed_rate_gbp": 65,
+  "rate_per_mile": 1.12,
+  "ref": "77963955",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Booked delivery slot, late arrivals refused",
+   "Driver must upload photo of goods once delivered"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T06:00",
+   "end": "2026-10-29T08:00"
+  },
+  "posted_at": "2026-10-28T14:59",
+  "status_time": "2026-10-28T14:59",
+  "booked_at": null,
+  "seq": 66,
+  "journey_minutes_est": 71
+ },
+ {
+  "load_id": 90852279,
+  "status": "Available",
+  "category": "Food & drink",
+  "from_": {
+   "name": "Fairview Foods",
+   "address": "Unit 29, Meadow Trading Estate, Station Approach",
+   "town": "EXETER",
+   "area": "Exeter",
+   "postcode": "EX2 6UN"
+  },
+  "to": {
+   "name": "Kestrel Cash & Carry",
+   "address": "Unit 37, Kingsway Trading Estate, Dock Road",
+   "town": "NORTHAMPTON",
+   "area": "Northampton",
+   "postcode": "NN4 1BA"
+  },
+  "distance_miles": 188.5,
+  "weight_kg": 860,
+  "packaging": "Cages",
+  "dims": "120x100x180cm x 12",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Pennine Load Services",
+  "booked_by_gb": "GB 88472",
+  "phone": "+44 1422 337810",
+  "booked_by_contact": "Priya",
+  "agreed_rate_gbp": 320,
+  "rate_per_mile": 1.7,
+  "ref": "77097958",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Ambient only",
+   "Temperature check at pickup"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "Same day",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-30T15:45",
+   "end": "2026-10-30T17:45"
+  },
+  "posted_at": "2026-10-28T15:47",
+  "status_time": "2026-10-28T15:47",
+  "booked_at": null,
+  "seq": 67,
+  "journey_minutes_est": 229
+ },
+ {
+  "load_id": 90827010,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Marlow Timber & Plasterboard",
+   "address": "Unit 11, Gateway Trading Estate, Tannery Lane",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 8AS"
+  },
+  "to": {
+   "name": "Pennine Developments Ltd",
+   "address": "Unit 9, Pioneer Trading Estate, Dock Road",
+   "town": "BASILDON",
+   "area": "Basildon",
+   "postcode": "SS13 2SD"
+  },
+  "distance_miles": 98.0,
+  "weight_kg": 11260,
+  "packaging": null,
+  "dims": "100x100x180cm x 2",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "EcoSpeed",
+  "booked_by_gb": "GB 57901",
+  "phone": "+44 1204 398639",
+  "booked_by_contact": "Mark",
+  "agreed_rate_gbp": 115,
+  "rate_per_mile": 1.17,
+  "ref": "77527161",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Hi vis & safety boots required"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T12:00"
+  },
+  "posted_at": "2026-10-28T17:54",
+  "status_time": "2026-10-28T17:54",
+  "booked_at": null,
+  "seq": 68,
+  "journey_minutes_est": 119
+ },
+ {
+  "load_id": 90803068,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Oakhurst Timber & Plasterboard",
+   "address": "Unit 38, Riverside Trading Estate, Mill Way",
+   "town": "EDINBURGH",
+   "area": "Edinburgh",
+   "postcode": "EH12 4LF"
+  },
+  "to": {
+   "name": "Kingfisher Groundworks",
+   "address": "Unit 9, Meadow Trading Estate, Enterprise Drive",
+   "town": "PRESTON",
+   "area": "Preston",
+   "postcode": "PR2 1AJ"
+  },
+  "distance_miles": 186.0,
+  "weight_kg": 12550,
+  "packaging": "Packs",
+  "dims": null,
+  "vehicle_requested": "Artic 44t Curtain Side",
+  "booked_by_company": "Harbourside Logistics",
+  "booked_by_gb": "GB 131590",
+  "phone": "+44 23 80771905",
+  "booked_by_contact": "Raj",
+  "agreed_rate_gbp": 255,
+  "rate_per_mile": 1.37,
+  "ref": "77981883",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "14 PACKS PLASTERBOARD",
+   "Offload by forklift on site"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T10:00"
+  },
+  "posted_at": "2026-10-28T16:06",
+  "status_time": "2026-10-28T16:06",
+  "booked_at": null,
+  "seq": 69,
+  "journey_minutes_est": 226
+ },
+ {
+  "load_id": 90820719,
+  "status": "Available",
+  "category": "Furniture",
+  "from_": {
+   "name": "Hartley Home Retail DC",
+   "address": "Unit 12, Pioneer Trading Estate, Canal Road",
+   "town": "CHELMSFORD",
+   "area": "Chelmsford",
+   "postcode": "CM2 9NP"
+  },
+  "to": {
+   "name": "Ironbridge Showroom",
+   "address": "Unit 33, Riverside Trading Estate, Alabaster Avenue",
+   "town": "BRISTOL",
+   "area": "Avonmouth, Bristol",
+   "postcode": "BS11 4GZ"
+  },
+  "distance_miles": 167.0,
+  "weight_kg": 660,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Mark",
+  "agreed_rate_gbp": 290,
+  "rate_per_mile": 1.74,
+  "ref": "77579254",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Two-man delivery required",
+   "Blanket wrap, no tipping"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "Same day",
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-31T09:00"
+  },
+  "posted_at": "2026-10-28T17:56",
+  "status_time": "2026-10-28T17:56",
+  "booked_at": null,
+  "seq": 70,
+  "journey_minutes_est": 203
+ },
+ {
+  "load_id": 90803495,
+  "status": "Available",
+  "category": "Automotive",
+  "from_": {
+   "name": "Bexley Auto Parts",
+   "address": "Unit 14, Kingsway Trading Estate, Victoria Road",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 7GS"
+  },
+  "to": {
+   "name": "Larkfield Garage Group",
+   "address": "Unit 31, Kingsway Trading Estate, Alabaster Avenue",
+   "town": "HULL",
+   "area": "Hull",
+   "postcode": "HU7 7GX"
+  },
+  "distance_miles": 107.0,
+  "weight_kg": null,
+  "packaging": "Pallets",
+  "dims": "100x80x90cm x 6",
+  "vehicle_requested": "Medium Van up to 3m",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Tom",
+  "agreed_rate_gbp": 220,
+  "rate_per_mile": 2.06,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Collect from goods out, bay 3"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T06:00"
+  },
+  "posted_at": "2026-10-28T14:13",
+  "status_time": "2026-10-28T14:13",
+  "booked_at": null,
+  "seq": 71,
+  "journey_minutes_est": 130
+ },
+ {
+  "load_id": 90854810,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Hartley National DC",
+   "address": "Unit 19, Gateway Trading Estate, Cannon Street",
+   "town": "CARDIFF",
+   "area": "Cardiff",
+   "postcode": "CF10 9SE"
+  },
+  "to": {
+   "name": "Fairview Supermarket, Goods Inwards",
+   "address": "Unit 27, Beacon Trading Estate, Foundry Lane",
+   "town": "LUTON",
+   "area": "Luton",
+   "postcode": "LU5 9YY"
+  },
+  "distance_miles": 148.0,
+  "weight_kg": 840,
+  "packaging": "Cages",
+  "dims": "80x100x150cm x 5",
+  "vehicle_requested": "Luton, Curtain Side, Tail Lift",
+  "booked_by_company": "Tamar Freight Solutions",
+  "booked_by_gb": "GB 99814",
+  "phone": "+44 1752 604433",
+  "booked_by_contact": "Sarah",
+  "agreed_rate_gbp": 115,
+  "rate_per_mile": 0.78,
+  "ref": null,
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": false,
+  "load_notes": [
+   "Hi vis & safety boots required"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T11:45",
+   "end": "2026-10-29T13:45"
+  },
+  "posted_at": "2026-10-28T16:24",
+  "status_time": "2026-10-28T16:24",
+  "booked_at": null,
+  "seq": 72,
+  "journey_minutes_est": 180
+ },
+ {
+  "load_id": 90801035,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Falcon Brick & Block",
+   "address": "Unit 23, Hartley Trading Estate, Wharf Street",
+   "town": "NORTHAMPTON",
+   "area": "Northampton",
+   "postcode": "NN4 6RX"
+  },
+  "to": {
+   "name": "Redwood Developments Ltd",
+   "address": "Unit 32, Beacon Trading Estate, Mill Way",
+   "town": "YORK",
+   "area": "York",
+   "postcode": "YO30 1JY"
+  },
+  "distance_miles": 145.5,
+  "weight_kg": 3080,
+  "packaging": "Pallets",
+  "dims": "120x120x60cm x 9",
+  "vehicle_requested": "Artic 44t Flatbed",
+  "booked_by_company": "Harbourside Logistics",
+  "booked_by_gb": "GB 131590",
+  "phone": "+44 23 80771905",
+  "booked_by_contact": "Priya",
+  "agreed_rate_gbp": 200,
+  "rate_per_mile": 1.37,
+  "ref": "77894490",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Hi vis & safety boots required"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "Next day AM",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-30T13:45",
+   "end": "2026-10-30T15:45"
+  },
+  "posted_at": "2026-10-28T14:04",
+  "status_time": "2026-10-28T14:04",
+  "booked_at": null,
+  "seq": 73,
+  "journey_minutes_est": 177
+ },
+ {
+  "load_id": 90827848,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Ironbridge Timber & Plasterboard",
+   "address": "Unit 12, Gateway Trading Estate, Tannery Lane",
+   "town": "NOTTINGHAM",
+   "area": "Nottingham",
+   "postcode": "NG7 8DR"
+  },
+  "to": {
+   "name": "Stanmore Construction Site",
+   "address": "Unit 14, Gateway Trading Estate, Meridian Park",
+   "town": "HULL",
+   "area": "Hull",
+   "postcode": "HU7 2UH"
+  },
+  "distance_miles": 78.5,
+  "weight_kg": 19960,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "Artic 44t Flatbed",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604 231113",
+  "booked_by_contact": "Dave",
+  "agreed_rate_gbp": 100,
+  "rate_per_mile": 1.27,
+  "ref": "77113436",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "6 PACKS PLASTERBOARD",
+   "Hi vis & safety boots required"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-30T06:00"
+  },
+  "posted_at": "2026-10-28T14:03",
+  "status_time": "2026-10-28T14:03",
+  "booked_at": null,
+  "seq": 74,
+  "journey_minutes_est": 96
+ },
+ {
+  "load_id": 90825469,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Cromwell Regional Distribution Centre",
+   "address": "Unit 31, Beacon Trading Estate, Enterprise Drive",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 8DL"
+  },
+  "to": {
+   "name": "Hartley Supermarket, Goods Inwards",
+   "address": "Unit 21, Hartley Trading Estate, Meridian Park",
+   "town": "MANCHESTER",
+   "area": "Trafford Park, Manchester",
+   "postcode": "M17 8BJ"
+  },
+  "distance_miles": 116.5,
+  "weight_kg": 810,
+  "packaging": "Pallets",
+  "dims": "150x100x60cm x 9",
+  "vehicle_requested": "Luton, Curtain Side, Tail Lift",
+  "booked_by_company": "Kestrel Freight",
+  "booked_by_gb": "GB 102945",
+  "phone": "+44 1442 880361",
+  "booked_by_contact": "Emma",
+  "agreed_rate_gbp": 160,
+  "rate_per_mile": 1.37,
+  "ref": null,
+  "payment_terms": "7 Days",
+  "hard_copy_pod": true,
+  "smartpay": true,
+  "load_notes": [
+   "Call contact on arrival"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-31T09:00"
+  },
+  "posted_at": "2026-10-28T13:50",
+  "status_time": "2026-10-28T13:50",
+  "booked_at": null,
+  "seq": 75,
+  "journey_minutes_est": 142
+ },
+ {
+  "load_id": 90832135,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Pennine Regional Distribution Centre",
+   "address": "Unit 16, Riverside Trading Estate, Wharf Street",
+   "town": "LUTON",
+   "area": "Luton",
+   "postcode": "LU5 1JG"
+  },
+  "to": {
+   "name": "Cromwell Supermarket, Goods Inwards",
+   "address": "Unit 20, Harbour Trading Estate, Canal Road",
+   "town": "DOVER",
+   "area": "Dover",
+   "postcode": "CT16 4EB"
+  },
+  "distance_miles": 110.5,
+  "weight_kg": null,
+  "packaging": "Cages",
+  "dims": "120x120x120cm x 6",
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Pennine Load Services",
+  "booked_by_gb": "GB 88472",
+  "phone": "+44 1422 337810",
+  "booked_by_contact": "Jo",
+  "agreed_rate_gbp": 100,
+  "rate_per_mile": 0.9,
+  "ref": "77831559",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Call contact on arrival",
+   "Goods inwards closes 20:00"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T12:30"
+  },
+  "posted_at": "2026-10-28T12:47",
+  "status_time": "2026-10-28T12:47",
+  "booked_at": null,
+  "seq": 76,
+  "journey_minutes_est": 134
+ },
+ {
+  "load_id": 90798811,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Pennine National DC",
+   "address": "Unit 20, Hartley Trading Estate, Foundry Lane",
+   "town": "TILBURY",
+   "area": "Tilbury",
+   "postcode": "RM18 4QW"
+  },
+  "to": {
+   "name": "Cromwell Store",
+   "address": "Unit 40, Beacon Trading Estate, Alabaster Avenue",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 7GQ"
+  },
+  "distance_miles": 102.5,
+  "weight_kg": 1880,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "Luton, Curtain Side, Tail Lift",
+  "booked_by_company": "Harbourside Logistics",
+  "booked_by_gb": "GB 131590",
+  "phone": "+44 23 80771905",
+  "booked_by_contact": "Priya",
+  "agreed_rate_gbp": 225,
+  "rate_per_mile": 2.2,
+  "ref": "77913265",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Call contact on arrival"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-29T13:56"
+  },
+  "pickup": {
+   "type": "before",
+   "time": "2026-10-29T09:45"
+  },
+  "posted_at": "2026-10-28T15:01",
+  "status_time": "2026-10-28T15:01",
+  "booked_at": null,
+  "seq": 77,
+  "journey_minutes_est": 125
+ },
+ {
+  "load_id": 90824758,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Northwood Regional Distribution Centre",
+   "address": "Unit 9, Northgate Trading Estate, Enterprise Drive",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 7WB"
+  },
+  "to": {
+   "name": "Marlow Retail Park Unit",
+   "address": "Unit 5, Meadow Trading Estate, Tannery Lane",
+   "town": "CAMBRIDGE",
+   "area": "Cambridge",
+   "postcode": "CB4 6YJ"
+  },
+  "distance_miles": 48.0,
+  "weight_kg": 4190,
+  "packaging": "Roll cages",
+  "dims": "120x120x60cm x 12",
+  "vehicle_requested": "Luton, Curtain Side, Tail Lift",
+  "booked_by_company": "Brightline Transport",
+  "booked_by_gb": "GB 140226",
+  "phone": "+44 113 2987744",
+  "booked_by_contact": "Lee",
+  "agreed_rate_gbp": 50,
+  "rate_per_mile": 1.04,
+  "ref": "77002862",
+  "payment_terms": "7 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "Booked delivery slot, late arrivals refused",
+   "Goods inwards closes 20:00"
+  ],
+  "ulez": false,
+  "flag": "below_floor",
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-30T10:45"
+  },
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-30T08:00",
+   "end": "2026-10-30T10:00"
+  },
+  "posted_at": "2026-10-28T13:28",
+  "status_time": "2026-10-28T13:28",
+  "booked_at": null,
+  "seq": 78,
+  "journey_minutes_est": 58
+ },
+ {
+  "load_id": 90838886,
+  "status": "Available",
+  "category": "Machinery",
+  "from_": {
+   "name": "Ashford Precision Parts",
+   "address": "Unit 16, Kingsway Trading Estate, Alabaster Avenue",
+   "town": "MILTON KEYNES",
+   "area": "Milton Keynes",
+   "postcode": "MK12 7JX"
+  },
+  "to": {
+   "name": "Redwood Plant Hire",
+   "address": "Unit 17, Gateway Trading Estate, Station Approach",
+   "town": "CORBY",
+   "area": "Corby",
+   "postcode": "NN17 2RX"
+  },
+  "distance_miles": 38.0,
+  "weight_kg": 4530,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Tamar Freight Solutions",
+  "booked_by_gb": "GB 99814",
+  "phone": "+44 1752 604433",
+  "booked_by_contact": "Raj",
+  "agreed_rate_gbp": 75,
+  "rate_per_mile": 1.97,
+  "ref": null,
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": false,
+  "load_notes": [
+   "Driver must be able to load and secure",
+   "Forklift on site, do not tip"
+  ],
+  "ulez": false,
+  "flag": null,
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T11:00"
+  },
+  "posted_at": "2026-10-28T15:25",
+  "status_time": "2026-10-28T15:25",
+  "booked_at": null,
+  "seq": 79,
+  "journey_minutes_est": 46
+ },
+ {
+  "load_id": 90800573,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Redwood Timber & Plasterboard",
+   "address": "Unit 35, Kingsway Trading Estate, Tannery Lane",
+   "town": "MILTON KEYNES",
+   "area": "Milton Keynes",
+   "postcode": "MK12 4FF"
+  },
+  "to": {
+   "name": "Cromwell Groundworks",
+   "address": "Unit 36, Meadow Trading Estate, Mill Way",
+   "town": "BRISTOL",
+   "area": "Avonmouth, Bristol",
+   "postcode": "BS11 9QD"
+  },
+  "distance_miles": 111.0,
+  "weight_kg": 7080,
+  "packaging": "Bundles",
+  "dims": null,
+  "vehicle_requested": "Artic 44t Flatbed",
+  "booked_by_company": "Gofers",
+  "booked_by_gb": "GB 104567",
+  "phone": "+44 1604 231113",
+  "booked_by_contact": "Gareth",
+  "agreed_rate_gbp": 215,
+  "rate_per_mile": 1.94,
+  "ref": null,
+  "payment_terms": "7 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "6 PALLETS BRICKS",
+   "Driver must retain signed customer paperwork if provided"
+  ],
+  "ulez": false,
+  "flag": "premium",
+  "deliver": "ASAP",
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T09:15",
+   "end": "2026-10-29T11:15"
+  },
+  "posted_at": "2026-10-28T12:45",
+  "status_time": "2026-10-28T12:45",
+  "booked_at": null,
+  "seq": 80,
+  "journey_minutes_est": 135
+ },
+ {
+  "load_id": 90821234,
+  "status": "Available",
+  "category": "Events",
+  "from_": {
+   "name": "Fairview Trade Counter",
+   "address": "Unit 10, Cannon Street",
+   "town": "LONDON",
+   "area": "Canary Wharf, London",
+   "postcode": "E14 3TD"
+  },
+  "to": {
+   "name": "Larkfield Site Office",
+   "address": "Unit 15, Foundry Lane",
+   "town": "LONDON",
+   "area": "Holborn, London",
+   "postcode": "WC1 3PD"
+  },
+  "distance_miles": 5.5,
+  "weight_kg": 440,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Clearway Logistics",
+  "booked_by_gb": "GB 127788",
+  "phone": "+44 1908 664120",
+  "booked_by_contact": "Sarah",
+  "ref": "77237240",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Hi vis & safety boots required",
+   "Loading bay slot booked, arrive 15 min early"
+  ],
+  "ulez": true,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T09:00"
+  },
+  "deliver": "ASAP",
+  "posted_at": "2026-10-28T16:42",
+  "booked_at": null,
+  "flag": "passes_without_london_surcharge",
+  "london_to_london": true,
+  "status_time": "2026-10-28T16:42",
+  "journey_minutes_est": 24,
+  "agreed_rate_gbp": 80,
+  "rate_per_mile": 14.55,
+  "seq": 81
+ },
+ {
+  "load_id": 90854960,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Redwood Trade Counter",
+   "address": "Unit 5, Victoria Road",
+   "town": "LONDON",
+   "area": "Greenwich, London",
+   "postcode": "SE10 9LW"
+  },
+  "to": {
+   "name": "Calder Site Office",
+   "address": "Unit 2, Canal Road",
+   "town": "LONDON",
+   "area": "Paddington, London",
+   "postcode": "W2 8WT"
+  },
+  "distance_miles": 9.5,
+  "weight_kg": 220,
+  "packaging": "Boxes",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Tom",
+  "ref": "77210012",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Tail lift required",
+   "Parking on street, 20 min limit"
+  ],
+  "ulez": true,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-29T06:00"
+  },
+  "deliver": "ASAP",
+  "posted_at": "2026-10-28T17:13",
+  "booked_at": null,
+  "flag": null,
+  "london_to_london": true,
+  "status_time": "2026-10-28T17:13",
+  "journey_minutes_est": 41,
+  "agreed_rate_gbp": 125,
+  "rate_per_mile": 13.16,
+  "seq": 82
+ },
+ {
+  "load_id": 90846907,
+  "status": "Available",
+  "category": "Pallets",
+  "from_": {
+   "name": "Hartley Trade Counter",
+   "address": "Unit 9, Foundry Lane",
+   "town": "LONDON",
+   "area": "Camden, London",
+   "postcode": "NW1 2YU"
+  },
+  "to": {
+   "name": "Kestrel Site Office",
+   "address": "Unit 22, Foundry Lane",
+   "town": "LONDON",
+   "area": "Brixton, London",
+   "postcode": "SW9 1PA"
+  },
+  "distance_miles": 7.0,
+  "weight_kg": 810,
+  "packaging": "Boxes",
+  "dims": null,
+  "vehicle_requested": "Medium Van up to 3m",
+  "booked_by_company": "QuickDrop Couriers",
+  "booked_by_gb": "GB 116037",
+  "phone": "+44 20 74815522",
+  "booked_by_contact": "Priya",
+  "ref": "77459953",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Loading bay slot booked, arrive 15 min early",
+   "Tail lift required"
+  ],
+  "ulez": true,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-30T14:00"
+  },
+  "deliver": "ASAP",
+  "posted_at": "2026-10-28T16:01",
+  "booked_at": null,
+  "flag": null,
+  "london_to_london": true,
+  "status_time": "2026-10-28T16:01",
+  "journey_minutes_est": 30,
+  "agreed_rate_gbp": 115,
+  "rate_per_mile": 16.43,
+  "seq": 83
+ },
+ {
+  "load_id": 90834717,
+  "status": "Available",
+  "category": "Furniture",
+  "from_": {
+   "name": "Marlow Trade Counter",
+   "address": "Unit 3, Victoria Road",
+   "town": "LONDON",
+   "area": "Islington, London",
+   "postcode": "N1 5YN"
+  },
+  "to": {
+   "name": "Larkfield Site Office",
+   "address": "Unit 15, Cannon Street",
+   "town": "LONDON",
+   "area": "Stratford, London",
+   "postcode": "E15 1LY"
+  },
+  "distance_miles": 5.0,
+  "weight_kg": null,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Clearway Logistics",
+  "booked_by_gb": "GB 127788",
+  "phone": "+44 1908 664120",
+  "booked_by_contact": "Kevin",
+  "ref": "77187718",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Hi vis & safety boots required",
+   "Call contact on arrival"
+  ],
+  "ulez": true,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-30T19:30"
+  },
+  "deliver": "ASAP",
+  "posted_at": "2026-10-28T15:40",
+  "booked_at": null,
+  "flag": "below_floor",
+  "london_to_london": true,
+  "status_time": "2026-10-28T15:40",
+  "journey_minutes_est": 21,
+  "agreed_rate_gbp": 70,
+  "rate_per_mile": 14.0,
+  "seq": 84
+ },
+ {
+  "load_id": 90801914,
+  "status": "Available",
+  "category": "Shopfitting",
+  "from_": {
+   "name": "Marlow Trade Counter",
+   "address": "Unit 17, Wharf Street",
+   "town": "LONDON",
+   "area": "City of London, London",
+   "postcode": "EC2 1DW"
+  },
+  "to": {
+   "name": "Denholm Site Office",
+   "address": "Unit 29, Foundry Lane",
+   "town": "LONDON",
+   "area": "Peckham, London",
+   "postcode": "SE15 8EX"
+  },
+  "distance_miles": 4.5,
+  "weight_kg": null,
+  "packaging": "Boxes",
+  "dims": null,
+  "vehicle_requested": "Luton, Tail Lift",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Tom",
+  "ref": "77233964",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Driver must upload photo of goods once delivered",
+   "Tail lift required"
+  ],
+  "ulez": true,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-31T13:00"
+  },
+  "deliver": "ASAP",
+  "posted_at": "2026-10-28T16:24",
+  "booked_at": null,
+  "flag": "passes_without_london_surcharge",
+  "london_to_london": true,
+  "status_time": "2026-10-28T16:24",
+  "journey_minutes_est": 19,
+  "agreed_rate_gbp": 80,
+  "rate_per_mile": 17.78,
+  "seq": 85
+ },
+ {
+  "load_id": 90829430,
+  "status": "Available",
+  "category": "Retail DC",
+  "from_": {
+   "name": "Calder Trade Counter",
+   "address": "Unit 27, Cannon Street",
+   "town": "LONDON",
+   "area": "Chiswick, London",
+   "postcode": "W4 4TH"
+  },
+  "to": {
+   "name": "Fairview Site Office",
+   "address": "Unit 5, Victoria Road",
+   "town": "LONDON",
+   "area": "Kilburn, London",
+   "postcode": "NW6 6HQ"
+  },
+  "distance_miles": 5.5,
+  "weight_kg": null,
+  "packaging": "Pallets",
+  "dims": null,
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Priya",
+  "ref": "77196989",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Driver must upload photo of goods once delivered",
+   "Parking on street, 20 min limit"
+  ],
+  "ulez": true,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-31T09:00"
+  },
+  "deliver": "ASAP",
+  "posted_at": "2026-10-28T14:57",
+  "booked_at": null,
+  "flag": null,
+  "london_to_london": true,
+  "status_time": "2026-10-28T14:57",
+  "journey_minutes_est": 24,
+  "agreed_rate_gbp": 90,
+  "rate_per_mile": 16.36,
+  "seq": 86
+ },
+ {
+  "load_id": 90831171,
+  "status": "Available",
+  "category": "Pallets",
+  "from_": {
+   "name": "Calder Trade Counter",
+   "address": "Unit 1, Foundry Lane",
+   "town": "LONDON",
+   "area": "Battersea, London",
+   "postcode": "SW11 2TE"
+  },
+  "to": {
+   "name": "Fairview Site Office",
+   "address": "Unit 29, Cannon Street",
+   "town": "LONDON",
+   "area": "Hackney, London",
+   "postcode": "E8 6SQ"
+  },
+  "distance_miles": 8.0,
+  "weight_kg": 190,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "LWB up to 4m",
+  "booked_by_company": "Northway Freight",
+  "booked_by_gb": "GB 118204",
+  "phone": "+44 161 4025512",
+  "booked_by_contact": "Sarah",
+  "ref": "77360235",
+  "payment_terms": "14 Days",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Tail lift required",
+   "Driver must upload photo of goods once delivered"
+  ],
+  "ulez": true,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-11-01T10:00"
+  },
+  "deliver": "ASAP",
+  "posted_at": "2026-10-28T17:06",
+  "booked_at": null,
+  "flag": null,
+  "london_to_london": true,
+  "status_time": "2026-10-28T17:06",
+  "journey_minutes_est": 34,
+  "agreed_rate_gbp": 120,
+  "rate_per_mile": 15.0,
+  "seq": 87
+ },
+ {
+  "load_id": 90804695,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Fairview Trade Counter",
+   "address": "Unit 16, Foundry Lane",
+   "town": "LONDON",
+   "area": "Holborn, London",
+   "postcode": "WC1 6ST"
+  },
+  "to": {
+   "name": "Calder Site Office",
+   "address": "Unit 3, Victoria Road",
+   "town": "LONDON",
+   "area": "Greenwich, London",
+   "postcode": "SE10 5DG"
+  },
+  "distance_miles": 7.0,
+  "weight_kg": 1360,
+  "packaging": null,
+  "dims": null,
+  "vehicle_requested": "7.5t Box, Tail Lift",
+  "booked_by_company": "Clearway Logistics",
+  "booked_by_gb": "GB 127788",
+  "phone": "+44 1908 664120",
+  "booked_by_contact": "Priya",
+  "ref": "77616297",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": false,
+  "smartpay": true,
+  "load_notes": [
+   "London ULEZ Alert",
+   "Tail lift required",
+   "Hi vis & safety boots required"
+  ],
+  "ulez": true,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-30T08:00"
+  },
+  "deliver": "ASAP",
+  "posted_at": "2026-10-28T17:38",
+  "booked_at": null,
+  "flag": "below_floor",
+  "london_to_london": true,
+  "status_time": "2026-10-28T17:38",
+  "journey_minutes_est": 30,
+  "agreed_rate_gbp": 90,
+  "rate_per_mile": 12.86,
+  "seq": 88
+ },
+ {
+  "load_id": 90851906,
+  "status": "Available",
+  "category": "Building materials",
+  "from_": {
+   "name": "Calder Steel Stockholders",
+   "address": "Unit 9, Gateway Trading Estate, Dock Road",
+   "town": "GLASGOW",
+   "area": "Glasgow",
+   "postcode": "G32 8QD"
+  },
+  "to": {
+   "name": "Hartley Developments",
+   "address": "Unit 4, Harbour Trading Estate, Wharf Street",
+   "town": "PLYMOUTH",
+   "area": "Plymouth",
+   "postcode": "PL6 7AB"
+  },
+  "distance_miles": 462.0,
+  "weight_kg": 18400,
+  "packaging": "Bundles",
+  "dims": null,
+  "vehicle_requested": "Artic 44t Flatbed",
+  "booked_by_company": "Ironbridge Haulage Exchange",
+  "booked_by_gb": "GB 93311",
+  "phone": "+44 121 5550142",
+  "booked_by_contact": "Gareth",
+  "agreed_rate_gbp": 1050,
+  "rate_per_mile": 2.27,
+  "ref": "77311204",
+  "payment_terms": "30 Days (End Of Month)",
+  "hard_copy_pod": true,
+  "smartpay": false,
+  "load_notes": [
+   "Strap and sheet load",
+   "Hi vis & safety boots required",
+   "Offload by forklift on site"
+  ],
+  "ulez": false,
+  "pickup": {
+   "type": "exact",
+   "time": "2026-10-30T07:00"
+  },
+  "deliver": {
+   "type": "by",
+   "time": "2026-10-31T12:00"
+  },
+  "posted_at": "2026-10-28T16:35",
+  "status_time": "2026-10-28T16:35",
+  "booked_at": null,
+  "flag": "needs_human_450plus",
+  "seq": 89,
+  "journey_minutes_est": 562
+ }
+]
