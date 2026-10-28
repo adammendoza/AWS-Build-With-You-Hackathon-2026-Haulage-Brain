@@ -12,8 +12,6 @@ from threading import Lock
 from typing import Any
 from urllib.parse import urlparse
 
-from dotenv import find_dotenv, load_dotenv
-
 from .analysis_runs import AnalysisRunManager
 from .ledger import BookingLedger, LedgerError
 from .pricing import quote
@@ -233,6 +231,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> int:
+    from dotenv import find_dotenv, load_dotenv
+
     load_dotenv(find_dotenv(usecwd=True))
     args = build_parser().parse_args()
     if not args.loads.exists():
