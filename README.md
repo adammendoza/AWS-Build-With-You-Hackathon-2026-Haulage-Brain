@@ -245,7 +245,7 @@ Then open <http://127.0.0.1:8000>.
 | One | `ONE_DISCORD_CONNECTION_KEY`, `ONE_DISCORD_CHANNEL_ID`, authenticated One CLI | Adding `--discord` to publish the recommendation to Discord. |
 | CrewAI | No service key in the current local Flow | Ingest/routing and scoped memory run in-process; a key is only needed if CrewAI is later configured to call a hosted model directly. |
 
-Put local credentials in an uncommitted `.env` or export them in the shell. GitHub
+Put local credentials in an uncommitted `.env`; the CLI loads it automatically. GitHub
 Pages must never receive these keys: any secret shipped to browser JavaScript is
 public. A future hosted backend should receive them through its secret manager.
 

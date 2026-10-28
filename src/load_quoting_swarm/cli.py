@@ -5,6 +5,8 @@ import asyncio
 import json
 from pathlib import Path
 
+from dotenv import find_dotenv, load_dotenv
+
 from .config import load_fleet_config
 from .flow import LoadIngestFlow, ingest_and_route, run_quote_flow
 from .grounding import DemoGrounding, YouSearchGrounding
@@ -58,6 +60,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> int:
+    load_dotenv(find_dotenv(usecwd=True))
     args = build_parser().parse_args()
     if args.command == "ingest":
         if args.crewai:
