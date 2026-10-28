@@ -1,0 +1,16 @@
+.env
+.venv*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Local fleet economics and runtime output are never committed.
+config/fleet.local.json
+data/loads.json
+data/loads.csv
+var/

@@ -1,6 +1,6 @@
-# Closed-Loop Trucking Bid Agent
+# Load-Quoting Swarm
 
-An agent-assisted pricing workflow that helps small fleets evaluate incoming loads, produce evidence-backed quotes, and keep the fleet manager in control of every decision.
+An Open Haunt agent swarm that evaluates UK freight loads, produces evidence-backed quotes, and keeps the fleet manager in control of every booking decision.
 
 ## The problem
 
@@ -16,10 +16,10 @@ This project proves one complete workflow:
 Load posting
     |
     v
-Specialist agents research the load in parallel
-    |-- Route and fuel cost
-    |-- Driver-hours and restriction compliance
-    `-- Fleet-rate and margin analysis
+Specialist stages research the load in parallel
+    |-- Pricing and margin
+    |-- Compliance and restrictions
+    `-- Fleet availability and vehicle fit
     |
     v
 Quote + recommendation + cited evidence
@@ -36,32 +36,32 @@ The agents compress the research and pricing work. The fleet manager remains the
 ## Product principles
 
 - **Human approval is mandatory.** The system never books a load or sends a binding quote without an explicit approval.
-- **Fail closed.** Missing route, driver-hours, equipment, or rate data produces a review warning instead of an invented answer.
+- **Fail closed.** Missing route, timing, equipment, weight, or rate data stops that load's evaluation instead of producing an invented quote.
 - **Show the math.** Every recommendation includes estimated operating cost, proposed quote, expected margin, assumptions, risks, and source links.
 - **Use real operations safely.** The prototype may evaluate sanitized loads from a real fleet, but customer, broker, driver, and commercially sensitive details must not enter the public repository.
 - **Agents advise; deterministic rules protect.** Models research and reason, while code enforces approval, minimum-margin, required-field, and compliance gates.
 
 ## Specialist agents
 
-### Route and fuel analyst
+### Pricing specialist
 
-- Estimates loaded and deadhead mileage.
-- Calculates fuel consumption and cost from fleet-specific MPG and current fuel prices.
-- Identifies tolls, weather, terrain, and route restrictions that could materially change cost or timing.
-- Returns assumptions and cited sources, not just a total.
+- Calculates fuel consumption from route miles and the fleet vehicle's MPG.
+- Consumes the current UK diesel price and relevant restriction charge grounded by You.com.
+- Adds fixed vehicle and driver-time costs, then calculates break-even, minimum viable, and target prices.
+- Compares the load's offered rate with the fleet's minimum margin.
 
 ### Compliance analyst
 
-- Evaluates pickup and delivery windows against available driver hours.
-- Checks equipment, weight, route, and jurisdiction restrictions represented in the prototype.
+- Evaluates pickup and delivery windows against estimated travel, loading, and waiting time.
+- Checks payload, requested vehicle type, and ULEZ cost coverage represented in the prototype.
 - Flags unknown or conflicting facts for human review.
 - Produces a feasibility verdict; it does not make legal or dispatch decisions.
 
-### Margin analyst
+### Fleet-fit specialist
 
-- Compares the load with the fleet's rate card, operating-cost floor, and sanitized historical rates.
-- Calculates break-even price, target quote, estimated profit, and margin percentage.
-- Explains which inputs have the greatest effect on the recommendation.
+- Finds fleet vehicles of the requested type that cover the full pickup-to-delivery window.
+- Selects a candidate vehicle and flags likely deadhead for manager review.
+- Passes only role-scoped vehicle availability into its inference context.
 
 ### Bid supervisor
 
@@ -73,85 +73,91 @@ The agents compress the research and pricing work. The fleet manager remains the
 
 | Technology | Load-bearing responsibility |
 |---|---|
-| **CrewAI** | Orchestrates specialist agents with distinct roles, tools, and partial context. |
-| **You.com** | Grounds live route conditions, fuel prices, restrictions, weather, and other current web facts with citations. |
+| **CrewAI** | Owns ingest, vehicle/category routing, the quote Flow, and scoped specialist Memory. |
+| **You.com** | Grounds the live UK diesel price plus route/restriction information with citations. |
 | **Parasail** | Runs agent inference and produces structured specialist and supervisor outputs. |
-| **One** | Posts the recommendation to Discord and returns the fleet manager's approve/pass decision to the workflow. |
+| **One** | Posts the recommendation to Discord; the manager's explicit approve/pass decision is then written to the booking ledger. |
 
 Removing any partner breaks a visible part of the end-to-end loop rather than merely swapping out an API passthrough.
 
-## Proposed input
+## Input
 
-The prototype accepts a normalized load record such as:
+The normalizer accepts the supplied fixture's likely snake_case or camelCase fields. Its internal load shape is:
 
 ```json
 {
-  "load_id": "demo-1042",
-  "origin": "Minneapolis, MN",
-  "destination": "Chicago, IL",
-  "pickup_window": "2026-10-29T08:00:00-05:00",
-  "delivery_window": "2026-10-30T10:00:00-05:00",
-  "equipment_type": "dry_van_53",
-  "weight_lbs": 38000,
-  "broker_offer_usd": 1850,
-  "deadhead_miles": 42
+  "load_id": "UK-1042",
+  "status": "Available",
+  "origin": "London, UK",
+  "destination": "Birmingham, UK",
+  "pickup_at": "2026-10-29T09:00:00+00:00",
+  "delivery_at": "2026-10-29T15:00:00+00:00",
+  "vehicle_type": "Luton Van",
+  "category": "General Freight",
+  "distance_miles": 126,
+  "weight_kg": 850,
+  "offered_rate_gbp": 180,
+  "loading_minutes": 45,
+  "expected_waiting_minutes": 60,
+  "notes": ["Pickup is inside the London ULEZ"]
 }
 ```
 
 Public demos and tests use synthetic or sanitized data only.
 
-## Proposed output
+## Output
 
 Every evaluation produces a structured decision packet:
 
 ```json
 {
-  "load_id": "demo-1042",
-  "recommendation": "APPROVE",
-  "proposed_quote_usd": 2100,
-  "estimated_cost_usd": 1580,
-  "estimated_profit_usd": 520,
-  "estimated_margin_pct": 24.8,
-  "compliance_status": "REVIEWED",
-  "confidence": 0.86,
-  "assumptions": [],
-  "risks": [],
-  "citations": [],
+  "quote_id": "Q-UK-1042",
+  "load_id": "UK-1042",
+  "recommendation": "PASS",
+  "proposed_quote_gbp": 228.85,
+  "pricing": {
+    "estimated_total_cost_gbp": 183.08,
+    "offered_margin_pct": -1.71,
+    "restriction_cost_gbp": 12.50
+  },
+  "market_inputs": {
+    "diesel_price_ppl": 145.0,
+    "citations": []
+  },
   "approval_status": "PENDING"
 }
 ```
 
-The exact schema will be versioned once implementation begins. Approval state is stored separately from the agents' recommendation so model output can never impersonate a human decision.
+Approval state is stored separately from the agents' recommendation so model output can never impersonate a human decision.
 
 ## MVP scope
 
 The hackathon prototype is intentionally narrow:
 
-1. Accept one load posting through a form or JSON fixture.
-2. Run route/fuel, compliance, and margin analysis in parallel.
-3. Assemble an evidence-backed bid packet.
-4. Post the recommendation to a private Discord channel through One.
-5. Accept an explicit `APPROVE` or `PASS` response from the fleet manager.
-6. Record the complete decision and agent evidence in an audit log.
+1. Read the supplied `loads.json`, select `Available` loads, and route them by vehicle/category.
+2. Run pricing, compliance, and fleet-fit analysis with scoped Memory.
+3. Use live You.com facts inside the price calculation and Parasail for structured inference.
+4. Process the 32 Available fixtures with bounded parallelism and report time, throughput, tokens, and estimated cost.
+5. Post each quote to Discord through One and require an explicit manager `APPROVE` or `PASS`.
+6. Append the human decision to the booking ledger.
 
 ### Not in the MVP
 
-- Automatic booking or tender acceptance.
+- Broker/TMS booking or tender acceptance; `BOOKED` means booked in the prototype ledger.
 - Automatic broker outreach or binding quote submission.
 - Full transportation-management-system replacement.
-- Nationwide legal or regulatory coverage.
+- Comprehensive UK legal, route, or driver-hours compliance advice.
 - Autonomous changes to fleet rates or safety rules.
 
 ## Demo flow
 
 The target demo takes less than two minutes:
 
-1. Submit a sanitized load from the fleet.
-2. Watch the three specialist analyses complete.
-3. Open the cost, compliance, and margin evidence behind the recommendation.
-4. Show the recommendation arriving in Discord.
-5. Select `APPROVE` or `PASS` as the fleet manager.
-6. Return to the application and show the recorded human decision.
+1. Show an underpriced load being passed with its negative margin.
+2. Show a ULEZ-marked load gaining a grounded restriction charge and a higher quote.
+3. Show the 32-load Parasail run's elapsed time, throughput, token usage, and estimated cost.
+4. Show a recommendation arriving in Discord through One.
+5. Record the manager's explicit `APPROVE`, then show `BOOKED` in the ledger.
 
 The key proof is not that agents can discuss a load. It is that a load can travel from intake to researched recommendation to an auditable human decision without any autonomous booking.
 
@@ -160,12 +166,127 @@ The key proof is not that agents can discuss a load. It is that a load can trave
 - A new user can run the demo from documented setup steps.
 - The same input produces a valid, schema-conforming decision packet.
 - Current facts include source URLs and retrieval timestamps.
-- Missing critical data produces `REVIEW`, not a fabricated value.
+- Missing critical data raises a clear input or grounding error and never produces a quote.
 - A quote cannot transition from `PENDING` without a human action.
 - Discord failures do not silently approve or lose a decision.
 - The repository contains no credentials or private fleet data.
 
-## Status
+## Quick start
 
-The product loop and safety boundary are defined. Application scaffolding, environment variables, and executable setup instructions will be added with the first implementation milestone.
+Use Python 3.12. The project pins CrewAI 1.9.3 because later releases require LanceDB wheels that are not published for this Intel macOS environment.
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -e '.[dev]'
+```
+
+Verify the first milestone—ingest Available loads and route the first three by vehicle/category:
+
+```bash
+load-swarm ingest --loads data/loads.demo.json --limit 3 --crewai
+```
+
+Run the complete offline safety test. Its market data, inference, fleet, and loads are explicitly synthetic and do not count as live partner usage:
+
+```bash
+load-swarm run \
+  --loads data/loads.demo.json \
+  --fleet config/fleet.demo.json \
+  --limit 3 \
+  --parallel 3 \
+  --record-ledger
+```
+
+Approve one pending quote as the human fleet manager, then inspect the ledger:
+
+```bash
+load-swarm decide Q-UK-DEMO-002 APPROVE --manager "fleet-manager"
+load-swarm ledger
+```
+
+## Run with the scored partners
+
+1. Export the supplied artifact's `loads.json` into `data/loads.json`. That path is gitignored because the event fixture is supplied separately.
+2. Copy `config/fleet.example.json` to `config/fleet.local.json`, replace every placeholder with real fleet economics, and set `placeholder_values` to `false`.
+3. Export the values documented in `.env.example`. Never commit the resulting `.env`.
+4. Initialize One and connect the Discord account that has access to the event channel:
+
+   ```bash
+   npm i -g @withone/cli
+   one init
+   one add discord
+   ```
+
+5. Confirm the Open Haunt Discord channel ID with the organizers. Do not assume Track 1's `#loft-incident` channel is the Open Haunt submission channel.
+6. Run all 32 Available loads with bounded concurrency:
+
+   ```bash
+   load-swarm run \
+     --live \
+     --loads data/loads.json \
+     --fleet config/fleet.local.json \
+     --limit 32 \
+     --parallel 8 \
+     --record-ledger \
+     --discord \
+     --output var/run-32.json
+   ```
+
+`--live` fails closed if You.com or Parasail credentials are absent. The One publisher resolves the Discord send action and its documentation at runtime; no action ID or platform credential is committed.
+
+## Why You.com changes the answer
+
+The pricing calculation does not merely cite You.com. It consumes the grounded UK diesel price directly:
+
+```text
+fuel litres = route miles / vehicle MPG * 4.54609
+fuel cost   = fuel litres * live diesel pence-per-litre / 100
+total cost  = fuel + fixed vehicle cost + driver time + grounded restriction charges
+quote       = total cost / (1 - target margin)
+```
+
+For a non-compliant vehicle on a ULEZ-marked load, the grounded current charge is also added to cost. Tests prove that changing the diesel input changes fuel cost, margin, and proposed quote.
+
+## Repository map
+
+```text
+config/                       Fleet economics and vehicle availability
+data/                         Synthetic fixture; real event export is gitignored
+src/load_quoting_swarm/
+  flow.py                     CrewAI ingest/router and swarm Flow
+  grounding.py                You.com search and fail-closed fact extraction
+  specialists.py              Pricing, compliance, and fleet-fit calculations
+  inference.py                Parallel Parasail structured inference
+  memory.py                   Enforced specialist Memory scopes
+  pipeline.py                 Concurrent specialist and supervisor loop
+  one_discord.py              One discover-then-execute Discord publisher
+  ledger.py                   Append-only human approval and booking ledger
+tests/                        Pricing, routing, ULEZ, parallelism, and approval gates
+```
+
+## Current build status
+
+| Step | Status | Evidence |
+|---|---|---|
+| Ingest and vehicle/category router | Working | Three Available fixtures route through the Flow. |
+| Three scoped specialists | Working | Pricing, compliance, and fleet-fit assessments run concurrently. |
+| You.com in margin math | Implemented; credentials required for live proof | Diesel and ULEZ values directly alter calculated cost. |
+| Parasail parallel inference | Implemented; credentials required for live proof | Bounded concurrent specialist calls and token usage reporting. |
+| One to Discord | Implemented; channel and connection required | Action is discovered at runtime before execution. |
+| Human approval ledger | Working | Only `APPROVE` transitions `PENDING` to `BOOKED`; duplicate decisions fail. |
+| One-tap Discord callback | Open | Requires confirmation of the event channel and supported inbound interaction path. |
+| Loadboard/ledger UI | Out of scope until the live loop is proven | CLI ledger view is available. |
+
+## Tests
+
+```bash
+pytest
+```
+
+The suite covers status filtering, vehicle/category routing, refusal of placeholder fleet economics, live-price sensitivity, ULEZ repricing, three-load parallel execution, and the human approval invariant.
+
+## Status and honesty boundary
+
+The offline end-to-end loop is working against synthetic data. It must not be presented as a live You.com, Parasail, One, or fleet run. A scored demo requires the event's 32 Available fixtures, real fleet economics, live API logs, the confirmed Discord channel, and an actual manager approval. No load is booked with a broker; `BOOKED` currently means an approved entry in this prototype's append-only booking ledger.
 

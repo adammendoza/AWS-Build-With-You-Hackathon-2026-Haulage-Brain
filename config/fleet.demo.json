@@ -1,0 +1,57 @@
+{
+  "fixture_notice": "Synthetic economics for local tests only. Do not present as real fleet data.",
+  "placeholder_values": false,
+  "fleet_name": "Synthetic Demo Fleet",
+  "target_margin_pct": 20,
+  "minimum_margin_pct": 8,
+  "driver_cost_per_hour_gbp": 18.5,
+  "vehicle_profiles": [
+    {
+      "vehicle_type": "Luton Van",
+      "mpg": 23,
+      "fixed_cost_per_mile_gbp": 0.38,
+      "max_payload_kg": 1100,
+      "typical_speed_mph": 43,
+      "ulez_compliant": false
+    },
+    {
+      "vehicle_type": "7.5t Rigid",
+      "mpg": 14,
+      "fixed_cost_per_mile_gbp": 0.62,
+      "max_payload_kg": 3500,
+      "typical_speed_mph": 42,
+      "ulez_compliant": true
+    },
+    {
+      "vehicle_type": "Artic",
+      "mpg": 9,
+      "fixed_cost_per_mile_gbp": 0.88,
+      "max_payload_kg": 26000,
+      "typical_speed_mph": 40,
+      "ulez_compliant": true
+    }
+  ],
+  "vehicles": [
+    {
+      "vehicle_id": "DEMO-LUTON-01",
+      "vehicle_type": "Luton Van",
+      "available_from": "2026-10-29T06:00:00+00:00",
+      "available_until": "2026-10-30T20:00:00+00:00",
+      "location": "London, UK"
+    },
+    {
+      "vehicle_id": "DEMO-RIGID-01",
+      "vehicle_type": "7.5t Rigid",
+      "available_from": "2026-10-29T07:00:00+00:00",
+      "available_until": "2026-10-30T22:00:00+00:00",
+      "location": "Manchester, UK"
+    },
+    {
+      "vehicle_id": "DEMO-ARTIC-01",
+      "vehicle_type": "Artic",
+      "available_from": "2026-10-30T05:00:00+00:00",
+      "available_until": "2026-10-31T20:00:00+00:00",
+      "location": "Bristol, UK"
+    }
+  ]
+}

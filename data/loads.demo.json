@@ -1,0 +1,70 @@
+{
+  "fixture_notice": "Synthetic hackathon data. Not a live loadboard.",
+  "loads": [
+    {
+      "load_id": "UK-DEMO-001",
+      "status": "Available",
+      "origin": "London, UK",
+      "destination": "Birmingham, UK",
+      "pickup_at": "2026-10-29T09:00:00+00:00",
+      "delivery_at": "2026-10-29T15:00:00+00:00",
+      "vehicle_type": "Luton Van",
+      "category": "General Freight",
+      "distance_miles": 126,
+      "weight_kg": 850,
+      "offered_rate_gbp": 180,
+      "payment_terms": "30 days",
+      "loading_minutes": 45,
+      "expected_waiting_minutes": 60,
+      "notes": ["Pickup is inside the London ULEZ", "Tail lift required"]
+    },
+    {
+      "load_id": "UK-DEMO-002",
+      "status": "Available",
+      "origin": "Manchester, UK",
+      "destination": "Glasgow, UK",
+      "pickup_at": "2026-10-29T12:00:00+00:00",
+      "delivery_at": "2026-10-29T19:00:00+00:00",
+      "vehicle_type": "7.5t Rigid",
+      "category": "Premium Urgent",
+      "distance_miles": 218,
+      "weight_kg": 3200,
+      "offered_rate_gbp": 890,
+      "payment_terms": "14 days",
+      "loading_minutes": 30,
+      "expected_waiting_minutes": 15,
+      "notes": ["Urgent same-day delivery", "Forklift at both sites"]
+    },
+    {
+      "load_id": "UK-DEMO-003",
+      "status": "Available",
+      "origin": "Bristol, UK",
+      "destination": "Leeds, UK",
+      "pickup_at": "2026-10-30T06:30:00+00:00",
+      "delivery_at": "2026-10-30T15:00:00+00:00",
+      "vehicle_type": "Artic",
+      "category": "General Freight",
+      "distance_miles": 208,
+      "weight_kg": 19000,
+      "offered_rate_gbp": 760,
+      "payment_terms": "45 days",
+      "loading_minutes": 90,
+      "expected_waiting_minutes": 90,
+      "notes": ["Curtainsider required", "Delivery slot is fixed"]
+    },
+    {
+      "load_id": "UK-DEMO-HISTORY-001",
+      "status": "Delivered",
+      "origin": "Cardiff, UK",
+      "destination": "Reading, UK",
+      "pickup_at": "2026-10-25T08:00:00+00:00",
+      "delivery_at": "2026-10-25T13:00:00+00:00",
+      "vehicle_type": "Luton Van",
+      "category": "General Freight",
+      "distance_miles": 116,
+      "weight_kg": 720,
+      "offered_rate_gbp": 310,
+      "notes": ["Delivered fixture verifies status filtering"]
+    }
+  ]
+}

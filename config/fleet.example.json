@@ -1,0 +1,26 @@
+{
+  "placeholder_values": true,
+  "fleet_name": "REPLACE WITH REAL FLEET NAME",
+  "target_margin_pct": 20,
+  "minimum_margin_pct": 8,
+  "driver_cost_per_hour_gbp": 0,
+  "vehicle_profiles": [
+    {
+      "vehicle_type": "Luton Van",
+      "mpg": 0,
+      "fixed_cost_per_mile_gbp": 0,
+      "max_payload_kg": 0,
+      "typical_speed_mph": 0,
+      "ulez_compliant": true
+    }
+  ],
+  "vehicles": [
+    {
+      "vehicle_id": "REPLACE-ME",
+      "vehicle_type": "Luton Van",
+      "available_from": "2026-10-29T00:00:00+00:00",
+      "available_until": "2026-10-31T23:59:59+00:00",
+      "location": "REPLACE WITH CURRENT DEPOT OR VEHICLE LOCATION"
+    }
+  ]
+}
