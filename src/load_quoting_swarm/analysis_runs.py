@@ -243,7 +243,11 @@ class AnalysisRunManager:
                         "delivery": "venue_webhook_fallback",
                     },
                 )
-                delivery = DiscordWebhookPublisher().publish(decision)
+                delivery = DiscordWebhookPublisher().publish(
+                    decision,
+                    events=run.snapshot()["events"],
+                    run_summary=result,
+                )
                 run.emit(
                     "discord.delivery.completed",
                     {
