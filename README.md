@@ -238,9 +238,10 @@ Then open <http://127.0.0.1:8000>.
 
 ## Lambda deployment
 
-Pushes to `main` also run the full Python and browser test suite, build the
-container for `linux/amd64`, push an immutable commit-tagged image to ECR, and
-update the `haulage-brain` Lambda. GitHub Actions authenticates with AWS OIDC;
+Pushes to `main` run the full Python and browser test suite. After those checks
+pass, the dedicated **Deploy Lambda** workflow builds the container for
+`linux/amd64`, pushes an immutable commit-tagged image to ECR, and updates the
+`haulage-brain` Lambda. GitHub Actions authenticates with AWS OIDC;
 the repository variable `AWS_LAMBDA_DEPLOY_ROLE_ARN` identifies the scoped
 deployment role, so no long-lived AWS access keys are stored in GitHub.
 

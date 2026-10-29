@@ -1,0 +1,67 @@
+name: Deploy Lambda
+
+on:
+  workflow_run:
+    workflows: ["Chain and fleet checks"]
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: haulage-brain-lambda-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main')
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: us-east-1
+      ECR_REPOSITORY: haulage-brain
+      LAMBDA_FUNCTION: haulage-brain
+      DEPLOY_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.DEPLOY_SHA }}
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_LAMBDA_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Sign in to Amazon ECR Public
+        run: |
+          aws ecr-public get-login-password --region us-east-1 \
+            | docker login --username AWS --password-stdin public.ecr.aws
+      - name: Sign in to Amazon ECR
+        id: ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: Build and push immutable image
+        id: image
+        env:
+          REGISTRY: ${{ steps.ecr.outputs.registry }}
+        run: |
+          image_uri="$REGISTRY/$ECR_REPOSITORY:$DEPLOY_SHA"
+          docker build --platform linux/amd64 --provenance=false --tag "$image_uri" .
+          docker push "$image_uri"
+          echo "uri=$image_uri" >> "$GITHUB_OUTPUT"
+      - name: Update Lambda and wait for rollout
+        env:
+          IMAGE_URI: ${{ steps.image.outputs.uri }}
+        run: |
+          aws lambda update-function-code \
+            --function-name "$LAMBDA_FUNCTION" \
+            --image-uri "$IMAGE_URI" \
+            --publish
+          aws lambda wait function-updated-v2 \
+            --function-name "$LAMBDA_FUNCTION"
+          deployed_digest="$(aws lambda get-function \
+            --function-name "$LAMBDA_FUNCTION" \
+            --query 'Code.ResolvedImageUri' \
+            --output text)"
+          echo "Deployed $deployed_digest"
