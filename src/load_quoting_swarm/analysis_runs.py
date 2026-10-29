@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import copy
+import os
 import threading
 import time
 from datetime import datetime, timezone
@@ -10,6 +11,7 @@ from typing import Any, Callable
 from uuid import uuid4
 
 from .config import load_fleet_config
+from .discord_webhook import DiscordWebhookPublisher
 from .flow import run_quote_flow
 from .grounding import YouSearchGrounding
 from .inference import ParasailInference
@@ -233,13 +235,37 @@ class AnalysisRunManager:
             if not result.get("decisions"):
                 raise RuntimeError("CrewAI Flow completed without a decision")
             decision = result["decisions"][0]
-            run.emit(
-                "one.approval.pending",
-                {
-                    "quote_id": decision["quote_id"],
-                    "message": "Ready to publish through One; human approval remains required.",
-                },
-            )
+            if os.getenv("DISCORD_WEBHOOK_URL"):
+                run.emit(
+                    "discord.delivery.started",
+                    {
+                        "quote_id": decision["quote_id"],
+                        "delivery": "venue_webhook_fallback",
+                    },
+                )
+                delivery = DiscordWebhookPublisher().publish(
+                    decision,
+                    events=run.snapshot()["events"],
+                    run_summary=result,
+                )
+                run.emit(
+                    "discord.delivery.completed",
+                    {
+                        "quote_id": decision["quote_id"],
+                        **delivery,
+                        "message": (
+                            "Quote posted to Discord; human approval remains required."
+                        ),
+                    },
+                )
+            else:
+                run.emit(
+                    "discord.delivery.skipped",
+                    {
+                        "quote_id": decision["quote_id"],
+                        "message": "Venue webhook is not configured.",
+                    },
+                )
             run.emit(
                 "run.completed",
                 {

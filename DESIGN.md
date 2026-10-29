@@ -138,7 +138,9 @@ Asset: `src/load_quoting_swarm/web_assets/haunted-road.jpg`, 1800 × 1800, appro
 - Display treatment: CSS monochrome and contrast, responsive crop, plus original procedural fog, light, and silhouette overlays. The photograph itself is preserved as downloaded.
 - The legacy forest scene imagery is photographic. The silhouette, fog, light shaft, and short clearing trail are original procedural overlays.
 
-Atmosphere lifecycle checks: `node --test tests/atmosphere.test.cjs`. These verify a single owned animation loop, pause/resume boundaries, an explicit reveal, static touch/reduced-motion behavior, persistence, and unavailable browser capabilities without calling providers.
+Atmosphere lifecycle checks: `node --test tests/atmosphere.test.cjs tests/easter-eggs.test.cjs`. These verify a single owned animation loop, pause/resume boundaries, an explicit reveal, static touch/reduced-motion behavior, persistence, and unavailable browser capabilities without calling providers. The page-wide checks also cover footer/moon/BOO triggers with the header offscreen, input-field exclusions, pointer/scroll/brand activity, and automatic sleep.
+
+The desktop queue fills the inspector's height, including expanded details; its contents scroll inside that space. A card may continue below the scroll boundary, but the queue must never end above an unrelated blank region. On screens up to 740px, the queue remains a bounded 325px list above the inspector.
 
 ### Page-wide Easter eggs
 

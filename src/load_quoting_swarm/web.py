@@ -509,7 +509,7 @@ def main() -> int:
     load_dotenv(env_file)
     if not args.env_file:
         load_dotenv(find_dotenv(usecwd=True))
-    for secret_name in ("YDC_API_KEY", "PARASAIL_API_KEY", "DEMO_PASSWORD"):
+    for secret_name in ("YDC_API_KEY", "PARASAIL_API_KEY", "DEMO_PASSWORD", "DISCORD_WEBHOOK_URL"):
         _resolve_parameter(secret_name)
     if not args.loads.exists():
         raise SystemExit(f"load fixture not found: {args.loads}")

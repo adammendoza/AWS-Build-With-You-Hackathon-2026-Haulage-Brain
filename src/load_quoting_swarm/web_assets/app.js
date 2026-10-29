@@ -340,7 +340,7 @@ function resetAnalysis(loadId, recorded = false) {
     `${recorded ? "Recorded API run" : "Live API analysis"} · Load ${loadId}`;
   $("#analysis-notice").textContent = recorded
     ? "Verified live run replay. Timestamps and API outputs were captured from the local backend; nothing will be booked."
-    : "Running real provider calls with synthetic demo fleet economics. Nothing will be booked or sent to Discord.";
+    : "Running real provider calls with synthetic demo fleet economics. A completed quote will be posted to Discord; nothing books without approval.";
   $("#run-mode").textContent = recorded ? "RECORDED LIVE" : "LIVE";
   $("#run-mode").className = recorded ? "run-mode recorded" : "run-mode";
 }
@@ -367,7 +367,9 @@ function updateStage(event) {
       type === "parasail.supervisor.completed" ? "done" : "active",
     );
   if (type === "safety.gate.completed") setStage("decision", "done");
-  if (type === "one.approval.pending") setStage("one", "active");
+  if (type === "discord.delivery.started") setStage("one", "active");
+  if (type === "discord.delivery.completed") setStage("one", "done");
+  if (type === "discord.delivery.skipped") setStage("one", "failed");
   if (type === "run.failed") {
     const active = document.querySelector(".pipeline-stage.active");
     if (active) {
@@ -453,8 +455,12 @@ function eventPresentation(event) {
         `Model: ${escapeHtml(d.model_recommendation)} · deterministic eligible: ${d.deterministic_eligible ? "yes" : "no"} · final: <strong>${escapeHtml(d.final_recommendation)}</strong>`,
         "done",
       ];
-    case "one.approval.pending":
-      return ["One / Discord handoff", escapeHtml(d.message), ""];
+    case "discord.delivery.started":
+      return ["Discord handoff started", "Posting through the venue fallback…", ""];
+    case "discord.delivery.completed":
+      return ["Discord delivery confirmed", escapeHtml(d.message), "done"];
+    case "discord.delivery.skipped":
+      return ["Discord delivery skipped", escapeHtml(d.message), "failed"];
     case "run.completed":
       return [
         "Analysis complete",
