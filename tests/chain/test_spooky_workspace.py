@@ -86,3 +86,19 @@ def test_local_env_precedence_and_explicit_file(tmp_path, monkeypatch):
     assert os.environ['PARASAIL_MODEL'] == 'process-wins'
     with pytest.raises(SystemExit, match='does not exist'):
         load_environment(tmp_path / 'missing.env')
+
+
+def test_environment_resolves_lambda_secrets_after_loading_file(tmp_path, monkeypatch):
+    monkeypatch.delenv('DISCORD_WEBHOOK_URL_SSM_PARAMETER', raising=False)
+    env_file = tmp_path / 'lambda.env'
+    env_file.write_text('DISCORD_WEBHOOK_URL_SSM_PARAMETER=/haulage/discord-webhook\n')
+    resolved = {}
+
+    def resolve(name):
+        resolved[name] = os.getenv(f'{name}_SSM_PARAMETER')
+
+    monkeypatch.setattr('load_quoting_swarm.chain.web._resolve_parameter', resolve)
+    load_environment(env_file)
+
+    assert set(resolved) == {'YDC_API_KEY', 'PARASAIL_API_KEY', 'DEMO_PASSWORD', 'DISCORD_WEBHOOK_URL'}
+    assert resolved['DISCORD_WEBHOOK_URL'] == '/haulage/discord-webhook'
