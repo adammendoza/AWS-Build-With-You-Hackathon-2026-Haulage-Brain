@@ -1,0 +1,770 @@
+{
+ "fixture_notice": "Synthetic economics for tests only. Do not present as real fleet data.",
+ "placeholder_values": false,
+ "fleet_name": "Synthetic 100-Truck Fleet",
+ "target_margin_pct": 20,
+ "minimum_margin_pct": 8,
+ "driver_cost_per_hour_gbp": 18.5,
+ "diesel_price_ppl_demo": 199.22,
+ "board_vehicle_map": {
+  "Medium Van up to 3m": "Medium Van",
+  "LWB up to 4m": "LWB Van",
+  "Luton, Tail Lift": "Luton Van",
+  "7.5t Box, Tail Lift": "7.5t Rigid",
+  "18t Curtain Side, Tail Lift": "18t Rigid",
+  "Artic 44t Curtain Side": "Artic",
+  "Artic 44t Flatbed": "Artic"
+ },
+ "vehicle_profiles": [
+  {
+   "vehicle_type": "Medium Van",
+   "mpg": 28,
+   "fixed_cost_per_mile_gbp": 0.3,
+   "max_payload_kg": 1000,
+   "typical_speed_mph": 45,
+   "ulez_compliant": false
+  },
+  {
+   "vehicle_type": "LWB Van",
+   "mpg": 25,
+   "fixed_cost_per_mile_gbp": 0.33,
+   "max_payload_kg": 1200,
+   "typical_speed_mph": 45,
+   "ulez_compliant": false
+  },
+  {
+   "vehicle_type": "Luton Van",
+   "mpg": 23,
+   "fixed_cost_per_mile_gbp": 0.38,
+   "max_payload_kg": 1100,
+   "typical_speed_mph": 43,
+   "ulez_compliant": false
+  },
+  {
+   "vehicle_type": "7.5t Rigid",
+   "mpg": 14,
+   "fixed_cost_per_mile_gbp": 0.55,
+   "max_payload_kg": 3500,
+   "typical_speed_mph": 42,
+   "ulez_compliant": true
+  },
+  {
+   "vehicle_type": "18t Rigid",
+   "mpg": 11,
+   "fixed_cost_per_mile_gbp": 0.65,
+   "max_payload_kg": 9000,
+   "typical_speed_mph": 40,
+   "ulez_compliant": true
+  },
+  {
+   "vehicle_type": "Artic",
+   "mpg": 9,
+   "fixed_cost_per_mile_gbp": 0.8,
+   "max_payload_kg": 26000,
+   "typical_speed_mph": 40,
+   "ulez_compliant": true
+  }
+ ],
+ "vehicles": [
+  {
+   "vehicle_id": "T-001",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-002",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Streatham, London SW16"
+  },
+  {
+   "vehicle_id": "T-003",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Tottenham, London N17"
+  },
+  {
+   "vehicle_id": "T-004",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Tottenham, London N17"
+  },
+  {
+   "vehicle_id": "T-005",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Walthamstow, London E17"
+  },
+  {
+   "vehicle_id": "T-006",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Battersea, London SW11"
+  },
+  {
+   "vehicle_id": "T-007",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Tottenham, London N17"
+  },
+  {
+   "vehicle_id": "T-008",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-009",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Willesden, London NW10"
+  },
+  {
+   "vehicle_id": "T-010",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Walthamstow, London E17"
+  },
+  {
+   "vehicle_id": "T-011",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-012",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Hackney, London E8"
+  },
+  {
+   "vehicle_id": "T-013",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Willesden, London NW10"
+  },
+  {
+   "vehicle_id": "T-014",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Battersea, London SW11"
+  },
+  {
+   "vehicle_id": "T-015",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Tottenham, London N17"
+  },
+  {
+   "vehicle_id": "T-016",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Streatham, London SW16"
+  },
+  {
+   "vehicle_id": "T-017",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-018",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-019",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Shepherd's Bush, London W12"
+  },
+  {
+   "vehicle_id": "T-020",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Shepherd's Bush, London W12"
+  },
+  {
+   "vehicle_id": "T-021",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Tottenham, London N17"
+  },
+  {
+   "vehicle_id": "T-022",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Shepherd's Bush, London W12"
+  },
+  {
+   "vehicle_id": "T-023",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Shepherd's Bush, London W12"
+  },
+  {
+   "vehicle_id": "T-024",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-025",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Hackney, London E8"
+  },
+  {
+   "vehicle_id": "T-026",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Tottenham, London N17"
+  },
+  {
+   "vehicle_id": "T-027",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Walthamstow, London E17"
+  },
+  {
+   "vehicle_id": "T-028",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Walthamstow, London E17"
+  },
+  {
+   "vehicle_id": "T-029",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-030",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Acton, London W3"
+  },
+  {
+   "vehicle_id": "T-031",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Shepherd's Bush, London W12"
+  },
+  {
+   "vehicle_id": "T-032",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-033",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Walthamstow, London E17"
+  },
+  {
+   "vehicle_id": "T-034",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-035",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Streatham, London SW16"
+  },
+  {
+   "vehicle_id": "T-036",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Acton, London W3"
+  },
+  {
+   "vehicle_id": "T-037",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Walthamstow, London E17"
+  },
+  {
+   "vehicle_id": "T-038",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Willesden, London NW10"
+  },
+  {
+   "vehicle_id": "T-039",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Tottenham, London N17"
+  },
+  {
+   "vehicle_id": "T-040",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-041",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Walthamstow, London E17"
+  },
+  {
+   "vehicle_id": "T-042",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Willesden, London NW10"
+  },
+  {
+   "vehicle_id": "T-043",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-044",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-045",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Hackney, London E8"
+  },
+  {
+   "vehicle_id": "T-046",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-047",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Acton, London W3"
+  },
+  {
+   "vehicle_id": "T-048",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-049",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-050",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Shepherd's Bush, London W12"
+  },
+  {
+   "vehicle_id": "T-051",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-052",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-053",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-054",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Acton, London W3"
+  },
+  {
+   "vehicle_id": "T-055",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Battersea, London SW11"
+  },
+  {
+   "vehicle_id": "T-056",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Battersea, London SW11"
+  },
+  {
+   "vehicle_id": "T-057",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-058",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Hackney, London E8"
+  },
+  {
+   "vehicle_id": "T-059",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Hackney, London E8"
+  },
+  {
+   "vehicle_id": "T-060",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Hackney, London E8"
+  },
+  {
+   "vehicle_id": "T-061",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-062",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Battersea, London SW11"
+  },
+  {
+   "vehicle_id": "T-063",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-064",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-065",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-066",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-067",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Shepherd's Bush, London W12"
+  },
+  {
+   "vehicle_id": "T-068",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-069",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-070",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-071",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Willesden, London NW10"
+  },
+  {
+   "vehicle_id": "T-072",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Streatham, London SW16"
+  },
+  {
+   "vehicle_id": "T-073",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-074",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-075",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-076",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-077",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-078",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Tottenham, London N17"
+  },
+  {
+   "vehicle_id": "T-079",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Walthamstow, London E17"
+  },
+  {
+   "vehicle_id": "T-080",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-081",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Shepherd's Bush, London W12"
+  },
+  {
+   "vehicle_id": "T-082",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-083",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Shepherd's Bush, London W12"
+  },
+  {
+   "vehicle_id": "T-084",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Battersea, London SW11"
+  },
+  {
+   "vehicle_id": "T-085",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Streatham, London SW16"
+  },
+  {
+   "vehicle_id": "T-086",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Hackney, London E8"
+  },
+  {
+   "vehicle_id": "T-087",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-088",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Walthamstow, London E17"
+  },
+  {
+   "vehicle_id": "T-089",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Streatham, London SW16"
+  },
+  {
+   "vehicle_id": "T-090",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Streatham, London SW16"
+  },
+  {
+   "vehicle_id": "T-091",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Stratford, London E15"
+  },
+  {
+   "vehicle_id": "T-092",
+   "vehicle_type": "Luton Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Battersea, London SW11"
+  },
+  {
+   "vehicle_id": "T-093",
+   "vehicle_type": "7.5t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Poplar, London E14"
+  },
+  {
+   "vehicle_id": "T-094",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-095",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Peckham, London SE15"
+  },
+  {
+   "vehicle_id": "T-096",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Woolwich, London SE18"
+  },
+  {
+   "vehicle_id": "T-097",
+   "vehicle_type": "LWB Van",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Willesden, London NW10"
+  },
+  {
+   "vehicle_id": "T-098",
+   "vehicle_type": "18t Rigid",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Acton, London W3"
+  },
+  {
+   "vehicle_id": "T-099",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Hackney, London E8"
+  },
+  {
+   "vehicle_id": "T-100",
+   "vehicle_type": "Artic",
+   "available_from": "2026-10-29T05:00:00+00:00",
+   "available_until": "2026-10-29T21:00:00+00:00",
+   "location": "Hackney, London E8"
+  }
+ ]
+}

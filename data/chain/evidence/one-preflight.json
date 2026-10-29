@@ -1,0 +1,17 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "operation": "one --agent list",
+      "exit_code": 1,
+      "authenticated": false
+    },
+    {
+      "attempt": 2,
+      "operation": "one --agent list",
+      "exit_code": 1,
+      "authenticated": false
+    }
+  ],
+  "execute_one_action_succeeded": false
+}

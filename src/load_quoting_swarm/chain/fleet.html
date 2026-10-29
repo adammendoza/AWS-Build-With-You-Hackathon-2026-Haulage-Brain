@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Haulage Brain · Fleet policy simulation</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#302630;background:#faf7f1}body{max-width:1200px;margin:40px auto;padding:0 24px}a{color:#a64e2c}h1{font-size:36px;margin:12px 0}p{color:#756d68;line-height:1.6}.eyebrow{color:#a64e2c;text-transform:uppercase;letter-spacing:.1em}#kpis{display:flex;gap:16px;flex-wrap:wrap}.card,article{border:1px solid #e7dfd6;background:#fff;padding:20px;border-radius:12px}.card strong{display:block;font-size:32px;color:#a64e2c}.card span{color:#756d68;font-size:14px}article{margin:12px 0}button,select,input{font:inherit;padding:10px;margin:4px;border:1px solid #c9b5a8;border-radius:6px;background:#f7e6d9;color:#302630}button{cursor:pointer}button:disabled{opacity:.45}label{display:block;margin:16px 0}#status{color:#8c5a19}#truck-list{line-height:1.8}h2{margin-top:32px}
+</style>
+<a href="/">← Loadboard</a><p class="eyebrow">Haulage Brain · synthetic fleet and economics</p>
+<h1>Policy auto-booking (simulation)</h1>
+<p>100 trucks share one board. After 15:00, chained loads must move toward home. Deterministic policy enforces the simulated HGV hours and breaks. Humans review exceptions. Bookings are entries in the prototype ledger.</p>
+<div id="kpis"></div><p id="market"></p><p id="status" role="status">Loading fleet simulation…</p>
+<button id="commit">Record policy bookings in simulation ledger</button>
+<h2>Exceptions for review</h2><label>Manager identity <input id="manager" autocomplete="name" placeholder="Your name"></label><div id="exceptions"></div>
+<details><summary><h2>Truck plans</h2></summary><label>Dispatcher ID (grouping only) <select id="dispatcher"><option value="all">All dispatcher IDs</option></select></label><div id="truck-list"></div>
+</details><script src="/fleet.js" defer></script></html>

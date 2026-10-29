@@ -1,0 +1,635 @@
+{
+ "driver": "DRV-001",
+ "vehicle": "18t Curtain Side, Tail Lift",
+ "hours_rules_apply": true,
+ "decisions": [
+  {
+   "pool": "after_job_1",
+   "free_at": "10:57",
+   "mode": "STANDARD",
+   "ranked_by": "net_load_gbp",
+   "options": [
+    {
+     "load_id": 91000128,
+     "to": "NOTTINGHAM",
+     "rate": 250,
+     "feasible": true,
+     "reasons": [],
+     "margin": 0.3681,
+     "quote": {
+      "billed_minutes": 90,
+      "base": 60.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 90.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 92.02,
+     "net_to_home_gbp": -157.89,
+     "free_at": "15:06",
+     "home_at": "18:19",
+     "total_drive_h": 8.1
+    },
+    {
+     "load_id": 91000142,
+     "to": "COVENTRY",
+     "rate": 90,
+     "feasible": true,
+     "reasons": [],
+     "margin": 0.1547,
+     "quote": {
+      "billed_minutes": 30,
+      "base": 20.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 65.0,
+      "minimum_applied": true,
+      "status": "ok"
+     },
+     "net_load_gbp": 13.92,
+     "net_to_home_gbp": -201.63,
+     "free_at": "13:28",
+     "home_at": "16:49",
+     "total_drive_h": 6.59
+    },
+    {
+     "load_id": 91000149,
+     "to": "DERBY",
+     "rate": 300,
+     "feasible": false,
+     "reasons": [
+      "WINDOW_MISSED (arrive 11:00, window closes 10:45)"
+     ],
+     "margin": 0.5782,
+     "quote": {
+      "billed_minutes": 90,
+      "base": 60.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 90.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 173.47,
+     "net_to_home_gbp": -88.39,
+     "free_at": "14:19",
+     "home_at": "17:42",
+     "total_drive_h": 7.96
+    },
+    {
+     "load_id": 91000114,
+     "to": "LEEDS",
+     "rate": 430,
+     "feasible": false,
+     "reasons": [
+      "OUT_OF_HOURS (needs 11.3h driving to get home, cap 9.0h)",
+      "HOME_DEADLINE (home at 22:17, limit 21:00)"
+     ],
+     "margin": 0.3755,
+     "quote": {
+      "billed_minutes": 180,
+      "base": 120.0,
+      "fuel": 50.0,
+      "city": 0.0,
+      "total": 170.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 161.45,
+     "net_to_home_gbp": -240.66,
+     "free_at": "16:31",
+     "home_at": "22:17",
+     "total_drive_h": 11.31
+    },
+    {
+     "load_id": 91000156,
+     "to": "LEICESTER",
+     "rate": 280,
+     "feasible": false,
+     "reasons": [
+      "VEHICLE_MISMATCH"
+     ],
+     "margin": 0.5328,
+     "quote": {
+      "billed_minutes": 90,
+      "base": 60.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 90.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 149.19,
+     "net_to_home_gbp": -56.03,
+     "free_at": "14:45",
+     "home_at": "17:24",
+     "total_drive_h": 7.17
+    },
+    {
+     "load_id": 91000121,
+     "to": "MANCHESTER",
+     "rate": 330,
+     "feasible": false,
+     "reasons": [
+      "OUT_OF_HOURS (needs 10.6h driving to get home, cap 9.0h)",
+      "HOME_DEADLINE (home at 21:35, limit 21:00)"
+     ],
+     "margin": 0.3336,
+     "quote": {
+      "billed_minutes": 150,
+      "base": 100.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 130.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 110.08,
+     "net_to_home_gbp": -285.82,
+     "free_at": "15:54",
+     "home_at": "21:35",
+     "total_drive_h": 10.6
+    },
+    {
+     "load_id": 91000163,
+     "to": "BIRMINGHAM",
+     "rate": 300,
+     "feasible": false,
+     "reasons": [
+      "DEADHEAD_TOO_FAR (47 mi, max 30)"
+     ],
+     "margin": 0.258,
+     "quote": {
+      "billed_minutes": 90,
+      "base": 60.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 90.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 77.39,
+     "net_to_home_gbp": -159.05,
+     "free_at": "15:32",
+     "home_at": "18:35",
+     "total_drive_h": 8.84
+    },
+    {
+     "load_id": 91000135,
+     "to": "READING",
+     "rate": 170,
+     "feasible": false,
+     "reasons": [
+      "BELOW_MARGIN_FLOOR (-43% < 8%)"
+     ],
+     "margin": -0.4295,
+     "quote": {
+      "billed_minutes": 180,
+      "base": 120.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 150.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": -73.01,
+     "net_to_home_gbp": -172.44,
+     "free_at": "16:12",
+     "home_at": "17:29",
+     "total_drive_h": 7.25
+    }
+   ],
+   "empty_return": {
+    "miles": 122.1,
+    "home_at": "14:45",
+    "total_drive_h": 6.5,
+    "net_gbp": -250.31,
+    "feasible": true
+   },
+   "chosen": 91000128,
+   "action": "AUTO_BOOK",
+   "uplift_vs_empty_gbp": 92.42
+  },
+  {
+   "pool": "after_job_2",
+   "free_at": "15:06",
+   "mode": "HOMEWARD",
+   "ranked_by": "net_to_home_gbp",
+   "options": [
+    {
+     "load_id": 91000205,
+     "to": "DARTFORD",
+     "rate": 400,
+     "feasible": true,
+     "reasons": [],
+     "margin": 0.2195,
+     "quote": {
+      "billed_minutes": 240,
+      "base": 160.0,
+      "fuel": 50.0,
+      "city": 0.0,
+      "total": 210.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 87.81,
+     "net_to_home_gbp": 55.33,
+     "free_at": "20:22",
+     "home_at": "20:47",
+     "total_drive_h": 8.97
+    },
+    {
+     "load_id": 91000170,
+     "to": "LUTON",
+     "rate": 280,
+     "feasible": true,
+     "reasons": [],
+     "margin": 0.2106,
+     "quote": {
+      "billed_minutes": 180,
+      "base": 120.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 150.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 58.98,
+     "net_to_home_gbp": -4.2,
+     "free_at": "19:11",
+     "home_at": "20:00",
+     "total_drive_h": 8.19
+    },
+    {
+     "load_id": 91000177,
+     "to": "MILTON KEYNES",
+     "rate": 230,
+     "feasible": true,
+     "reasons": [],
+     "margin": 0.193,
+     "quote": {
+      "billed_minutes": 150,
+      "base": 100.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 130.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 44.39,
+     "net_to_home_gbp": -61.25,
+     "free_at": "18:44",
+     "home_at": "20:06",
+     "total_drive_h": 8.28
+    },
+    {
+     "load_id": 91000191,
+     "to": "LEICESTER",
+     "rate": 120,
+     "feasible": true,
+     "reasons": [],
+     "margin": 0.3073,
+     "quote": {
+      "billed_minutes": 60,
+      "base": 40.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 70.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 36.87,
+     "net_to_home_gbp": -168.35,
+     "free_at": "17:24",
+     "home_at": "20:03",
+     "total_drive_h": 8.24
+    },
+    {
+     "load_id": 91000219,
+     "to": "LUTON",
+     "rate": 260,
+     "feasible": false,
+     "reasons": [
+      "VEHICLE_MISMATCH"
+     ],
+     "margin": 0.1499,
+     "quote": {
+      "billed_minutes": 180,
+      "base": 120.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 150.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 38.98,
+     "net_to_home_gbp": -24.2,
+     "free_at": "19:11",
+     "home_at": "20:00",
+     "total_drive_h": 8.19
+    },
+    {
+     "load_id": 91000212,
+     "to": "READING",
+     "rate": 300,
+     "feasible": false,
+     "reasons": [
+      "WAIT_TOO_LONG (185 min)",
+      "BELOW_MARGIN_FLOOR (-11% < 8%)",
+      "OUT_OF_HOURS (needs 9.4h driving to get home, cap 9.0h)",
+      "HOME_DEADLINE (home at 00:57, limit 21:00)"
+     ],
+     "margin": -0.1112,
+     "quote": {
+      "billed_minutes": 210,
+      "base": 140.0,
+      "fuel": 50.0,
+      "city": 0.0,
+      "total": 190.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": -33.36,
+     "net_to_home_gbp": -146.67,
+     "free_at": "22:55",
+     "home_at": "00:57",
+     "total_drive_h": 9.39
+    },
+    {
+     "load_id": 91000184,
+     "to": "NORTHAMPTON",
+     "rate": 140,
+     "feasible": false,
+     "reasons": [
+      "BELOW_MARGIN_FLOOR (-8% < 8%)"
+     ],
+     "margin": -0.0764,
+     "quote": {
+      "billed_minutes": 120,
+      "base": 80.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 110.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": -10.7,
+     "net_to_home_gbp": -149.83,
+     "free_at": "18:17",
+     "home_at": "20:04",
+     "total_drive_h": 8.26
+    },
+    {
+     "load_id": 91000198,
+     "to": "SHEFFIELD",
+     "rate": 260,
+     "feasible": false,
+     "reasons": [
+      "OUT_OF_HOURS (needs 10.1h driving to get home, cap 9.0h)",
+      "HOME_DEADLINE (home at 22:42, limit 21:00)",
+      "MOVES_AWAY_FROM_HOME"
+     ],
+     "margin": 0.583,
+     "quote": {
+      "billed_minutes": 90,
+      "base": 60.0,
+      "fuel": 30.0,
+      "city": 0.0,
+      "total": 90.0,
+      "minimum_applied": false,
+      "status": "ok"
+     },
+     "net_load_gbp": 151.58,
+     "net_to_home_gbp": -188.93,
+     "free_at": "17:44",
+     "home_at": "22:42",
+     "total_drive_h": 10.14
+    }
+   ],
+   "empty_return": {
+    "miles": 129.1,
+    "home_at": "18:19",
+    "total_drive_h": 8.1,
+    "net_gbp": -249.91,
+    "feasible": true
+   },
+   "chosen": 91000205,
+   "action": "AUTO_BOOK",
+   "uplift_vs_empty_gbp": 305.24
+  }
+ ],
+ "timeline": [
+  {
+   "type": "drive",
+   "label": "home to pickup",
+   "miles": 4.3,
+   "arrive": "06:18"
+  },
+  {
+   "type": "load",
+   "load_id": 91000099,
+   "until": "07:03"
+  },
+  {
+   "type": "drive",
+   "label": "loaded to BIRMINGHAM",
+   "miles": 125.6,
+   "arrive": "10:12"
+  },
+  {
+   "type": "unload",
+   "load_id": 91000099,
+   "until": "10:57"
+  },
+  {
+   "type": "drive",
+   "label": "deadhead to pickup",
+   "miles": 0.9,
+   "arrive": "11:00"
+  },
+  {
+   "type": "wait",
+   "minutes": 29
+  },
+  {
+   "type": "load",
+   "load_id": 91000128,
+   "until": "12:15"
+  },
+  {
+   "type": "break",
+   "at": "13:14",
+   "minutes": 45
+  },
+  {
+   "type": "drive",
+   "label": "loaded to NOTTINGHAM",
+   "miles": 54.2,
+   "arrive": "14:21"
+  },
+  {
+   "type": "unload",
+   "load_id": 91000128,
+   "until": "15:06"
+  },
+  {
+   "type": "drive",
+   "label": "deadhead to pickup",
+   "miles": 0.9,
+   "arrive": "15:10"
+  },
+  {
+   "type": "wait",
+   "minutes": 5
+  },
+  {
+   "type": "load",
+   "load_id": 91000205,
+   "until": "16:00"
+  },
+  {
+   "type": "drive",
+   "label": "loaded to DARTFORD",
+   "miles": 144.9,
+   "arrive": "19:37"
+  },
+  {
+   "type": "unload",
+   "load_id": 91000205,
+   "until": "20:22"
+  },
+  {
+   "type": "drive",
+   "label": "drive home",
+   "miles": 16.8,
+   "arrive": "20:47"
+  }
+ ],
+ "blocks": [
+  {
+   "type": "deadhead",
+   "start": "06:00",
+   "end": "06:18",
+   "miles": 4.3,
+   "label": "home to pickup"
+  },
+  {
+   "type": "load",
+   "start": "06:18",
+   "end": "07:03",
+   "load_id": 91000099
+  },
+  {
+   "type": "drive_loaded",
+   "start": "07:03",
+   "end": "10:12",
+   "miles": 125.6,
+   "label": "loaded to BIRMINGHAM"
+  },
+  {
+   "type": "unload",
+   "start": "10:12",
+   "end": "10:57",
+   "load_id": 91000099
+  },
+  {
+   "type": "deadhead",
+   "start": "10:57",
+   "end": "11:00",
+   "miles": 0.9,
+   "label": "deadhead to pickup"
+  },
+  {
+   "type": "wait",
+   "start": "11:00",
+   "end": "11:30"
+  },
+  {
+   "type": "load",
+   "start": "11:30",
+   "end": "12:15",
+   "load_id": 91000128
+  },
+  {
+   "type": "drive_loaded",
+   "start": "12:15",
+   "end": "13:14",
+   "miles": 39.5,
+   "label": "loaded to NOTTINGHAM"
+  },
+  {
+   "type": "break",
+   "start": "13:14",
+   "end": "13:59"
+  },
+  {
+   "type": "drive_loaded",
+   "start": "13:59",
+   "end": "14:21",
+   "miles": 14.7,
+   "label": "loaded to NOTTINGHAM"
+  },
+  {
+   "type": "unload",
+   "start": "14:21",
+   "end": "15:06",
+   "load_id": 91000128
+  },
+  {
+   "type": "deadhead",
+   "start": "15:06",
+   "end": "15:10",
+   "miles": 0.9,
+   "label": "deadhead to pickup"
+  },
+  {
+   "type": "wait",
+   "start": "15:10",
+   "end": "15:15"
+  },
+  {
+   "type": "load",
+   "start": "15:15",
+   "end": "16:00",
+   "load_id": 91000205
+  },
+  {
+   "type": "drive_loaded",
+   "start": "16:00",
+   "end": "19:37",
+   "miles": 144.9,
+   "label": "loaded to DARTFORD"
+  },
+  {
+   "type": "unload",
+   "start": "19:37",
+   "end": "20:22",
+   "load_id": 91000205
+  },
+  {
+   "type": "drive_home",
+   "start": "20:22",
+   "end": "20:47",
+   "miles": 16.8,
+   "label": "drive home"
+  }
+ ],
+ "summary": {
+  "loads": [
+   91000099,
+   91000128,
+   91000205
+  ],
+  "revenue_gbp": 1030,
+  "cost_gbp": 785.77,
+  "profit_gbp": 244.23,
+  "total_miles": 347.6,
+  "total_drive_h": 8.97,
+  "max_continuous_driving_h": 4.5,
+  "home_at": "20:47",
+  "breaks": 1
+ },
+ "policy_label": "Policy auto-booking (simulation)",
+ "diesel_price_ppl": 199.22
+}
