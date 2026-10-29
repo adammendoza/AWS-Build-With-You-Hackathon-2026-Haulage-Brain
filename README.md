@@ -350,7 +350,7 @@ tests/                        Pricing, routing, ULEZ, parallelism, and approval 
 
 ```bash
 pytest
-node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs
+node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs tests/creature-motion.test.cjs tests/brain-replies.test.cjs
 ```
 
 The JavaScript UI checks use Node.js 20+ and cover manager name saving, reloads, decision attribution, and unavailable browser storage.
@@ -361,3 +361,29 @@ The Python suite covers the 89-load fixture, status filtering, vehicle/category 
 
 The offline end-to-end loop and browser UI work against 89 synthetic records, all marked Available for evaluation. They must not be presented as a live You.com, Parasail, One, or fleet run. A scored demo still requires real fleet economics, live partner API logs, the confirmed Discord channel, and an actual manager approval. No load is booked with a broker; `BOOKED` means an approved entry in this prototype's append-only booking ledger.
 
+
+
+## Spooky Brain: closed-loop dispatch
+
+The workspace now starts with a vehicle loop planner and a chat-style dispatch composer. A loop starts at its vehicle’s base, connects compatible pickup/delivery jobs, and includes the final trip home. Empty repositioning and home legs remain visible. Unmatched vehicles stay at base; suggestions never book or reserve loads.
+
+Start with `haulage-brain-ui` (or `PYTHONPATH=src python -m load_quoting_swarm.web`). The **6-load loop demo** is a separate, clearly labelled synthetic fixture for 30 October 2026. Switch the source to **89-load board** to calculate with the existing feed and exclude loads already decided in the ledger. Fleet vehicles, availability, payload limits and costs come from `--fleet`.
+
+The composer uses **real Parasail inference** to understand natural language and conversational follow-ups. It extracts structured constraints, validates them, calculates routes with the bounded deterministic solver, and asks Parasail to explain that verified result. Example: “Use only the seven-and-a-half-tonne rigid on October 30, back at its own depot by three, no empty miles,” then “Make that an hour earlier.” Unsupported requests ask for clarification instead of silently dropping requirements. The AI cannot invent routes, book loads, send messages or relax solver limits.
+
+Keep `PARASAIL_API_KEY` and `PARASAIL_MODEL` in server-side `.env.local` (loaded before `.env`). For another checkout’s existing credential file, use `haulage-brain-ui --env-file /absolute/path/.env.local`. Credentials never enter the browser or Pages output. `/api/loads` exposes only the provider/model name and whether configuration is present. A missing key or failed model call produces a recoverable error; AI chat never falls back to the old keyword parser.
+
+`POST /api/brain` accepts a `prompt`, up to 12 user/assistant history messages and the current constraints. It returns a checked `plan`, an AI explanation, applied constraints and model/token usage, or a clarification. Supported constraints include source, dispatch date, base, return deadline, start time, selected vehicle IDs, excluded pickup/delivery towns, maximum empty miles **per vehicle**, and a stricter driving-hours cap (at most nine hours). It does not claim verified road routing or legal driver-hours compliance.
+
+`POST /api/plan` remains the direct calculation endpoint used by explicit controls and offline builds. It returns individual legs, estimated costs, empty mileage, review flags and assumptions. Neither planning endpoint writes to the booking ledger.
+
+The Pages build includes 144 precomputed scenarios: two load sources, three dates (29–31 October), four base settings, three objectives and two return deadlines (18:00/20:00). These are labelled **Static preview**. Real AI chat requires the Python backend; the static page says so explicitly. If a browser decision conflicts with a precomputed route, the preview requests backend recalculation.
+
+The light Halloween edition uses a realistic, textured zombie-brain cutout in the masthead, chat and interactive sidebar. Five transparent creature assets are optimized as WebP files (about 744 KiB combined), with provider names rendered separately as readable UI text. Each sponsor has a distinct creature and motion: AWS pumpkin power station, CrewAI web-weaving spider, You.com research ghost, Parasail thinking zombie and One skeleton approval hand. Hover previews are decorative; written service statuses follow actual request/trace state. Recorded runs stay labelled as replays; AWS stays infrastructure and One awaits a human. Pointer movement adds smoothed depth and light; keyboard focus and taps wake short decorative performances. Web strands, gauze wisps, neural orbits, candle glow and wax-stamp dust give the characters different rhythms. One shared pointer loop settles to sleep; motion pauses offscreen, behind dialogs and in background tabs, and respects reduced motion and the Atmosphere toggle. Artwork was made with the built-in image-generation tool; final asset paths and complete prompts are in [docs/creature-assets.md](docs/creature-assets.md).
+
+The sidebar shows live plan totals, links directly to each work area, and contains a small interactive brain. The loadboard displays six loads per page, allowing the document to scroll naturally into the lower sections. The haunted lay-by contains a three-stowaway Easter egg hunt; it is entirely local and independent of freight decisions.
+
+Validation: `python -m pytest`, `node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs tests/creature-motion.test.cjs tests/brain-replies.test.cjs`, and `python scripts/build_pages.py --output /tmp/haulage-brain-preview`.
+
+
+Spooky Brain responses use a short overview, calculated totals and compact per-vehicle cards. Route figures come directly from the verified solver result; load IDs, costs and longer AI reasoning remain expandable. Basic headings, paragraphs, lists and emphasis render through an escaped text formatter. The newest reply opens at its beginning, with a visible scrollbar for longer conversations. Responsive grid slots keep the zombie portrait within its reserved space and center the chat avatar beside the title.

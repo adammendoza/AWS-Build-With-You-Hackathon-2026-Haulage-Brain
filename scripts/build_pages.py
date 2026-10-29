@@ -7,6 +7,7 @@ import argparse
 import json
 import shutil
 import sys
+from itertools import product
 from pathlib import Path
 from typing import Any
 
@@ -75,6 +76,7 @@ def build(output: Path) -> None:
         "decision_store": "browser localStorage only",
         "recorded_run_load_id": str(demo_run["load_id"]),
     }
+    payload["brain"] = {"provider": "Parasail", "configured": False, "model": ""}
 
     (output / "api").mkdir(parents=True, exist_ok=True)
     for name in ASSET_NAMES:
@@ -84,6 +86,17 @@ def build(output: Path) -> None:
         encoding="utf-8",
     )
     shutil.copy2(demo_run_path, output / "api" / "demo-run")
+    scenarios = {}
+    for source, day, base, objective, cutoff in product(
+        ("demo", "loadboard"), ("2026-10-29", "2026-10-30", "2026-10-31"),
+        ("fleet", "LONDON", "MANCHESTER", "BRISTOL"),
+        ("balanced", "empty", "profit"), ("18:00", "20:00"),
+    ):
+        key = "|".join((source, day, base, objective, cutoff))
+        scenarios[key] = state.plan({"source": source, "date": day, "base": base,
+                                     "objective": objective, "return_by": cutoff})
+        scenarios[key]["mode"] = "precomputed-local-calculation"
+    (output / "api" / "plans").write_text(json.dumps(scenarios, separators=(",", ":")), encoding="utf-8")
     (output / ".nojekyll").touch()
     print(
         f"Built Haulage Brain Pages site with {len(payload['loads'])} validated loads "

@@ -255,8 +255,15 @@ function applyFilters() {
   $("#queue-total").textContent = state.filtered.length;
   $("#result-count").textContent =
     `${state.filtered.length} of ${state.loads.length} loads · UK times`;
+  const pageSize = 6;
+  const selectedIndex = Math.max(0, state.filtered.findIndex(load => String(load.load_id) === state.selectedId));
+  state.page = Math.floor(selectedIndex / pageSize);
+  const pageStart = state.page * pageSize;
+  $("#loads-page").textContent = state.filtered.length ? `${pageStart + 1}–${Math.min(pageStart + pageSize, state.filtered.length)} of ${state.filtered.length}` : "0 loads";
+  $("#loads-prev").disabled = state.page === 0;
+  $("#loads-next").disabled = pageStart + pageSize >= state.filtered.length;
   $("#loads").innerHTML = state.filtered.length
-    ? state.filtered.map(row).join("")
+    ? state.filtered.slice(pageStart, pageStart + pageSize).map(row).join("")
     : `<div class="empty"><strong>${state.view === "decisions" ? "No recorded decisions yet." : "No loads in this view."}</strong>${state.view === "decisions" ? "Your approved and passed loads will appear here." : "Try a different route, vehicle, or pricing signal."}<br><button class="button quiet" id="reset-filters">${state.view === "decisions" ? "Back to loadboard" : "Clear filters"}</button></div>`;
   document.querySelectorAll(".filter-tab").forEach((button) => {
     const active = button.dataset.signal === state.signal;
@@ -264,12 +271,16 @@ function applyFilters() {
     button.setAttribute("aria-pressed", active);
   });
   document.querySelectorAll(".nav-item").forEach((button) => {
-    const active = button.dataset.view === state.view;
+    const section = document.documentElement?.dataset?.workspaceSection;
+    const active = button.dataset.view === state.view && (!section || section === "loadboard");
     button.classList.toggle("active", active);
     button.setAttribute("aria-pressed", active);
   });
   $("#view-label").textContent =
     state.view === "decisions" ? "Decision ledger" : "Loadboard";
+  const section = document.documentElement?.dataset?.workspaceSection;
+  if (section && section !== "loadboard")
+    $("#view-label").textContent = {"brain-workspace": "Spooky Brain", "night-crew": "The night crew", "haunted-yard": "The haunted lay-by"}[section] || "Spooky Brain";
   $("#board-title").firstChild.textContent =
     state.view === "decisions"
       ? "Your decision ledger "
@@ -308,6 +319,7 @@ function safeUrl(value) {
 }
 
 function resetAnalysis(loadId, recorded = false) {
+  globalThis.SpookyServices?.reset(recorded);
   if (analysisUI.pollTimer) clearTimeout(analysisUI.pollTimer);
   analysisUI.replayTimers.forEach(clearTimeout);
   Object.assign(analysisUI, {
@@ -334,6 +346,7 @@ function resetAnalysis(loadId, recorded = false) {
 }
 
 function setStage(name, status) {
+  globalThis.SpookyServices?.stage(name, status);
   const stage = document.querySelector(`.pipeline-stage[data-stage="${name}"]`);
   if (!stage) return;
   stage.classList.remove("active", "done", "failed");
@@ -342,7 +355,7 @@ function setStage(name, status) {
 
 function updateStage(event) {
   const type = event.type;
-  if (type === "run.started" || type === "crewai.ingest.completed")
+  if (type === "crewai.ingest.completed")
     setStage("crewai", "active");
   if (type === "crewai.route.completed") setStage("crewai", "done");
   if (type === "you.grounding.started") setStage("you", "active");
@@ -358,8 +371,11 @@ function updateStage(event) {
   if (type === "run.failed") {
     const active = document.querySelector(".pipeline-stage.active");
     if (active) {
-      active.classList.remove("active");
-      active.classList.add("failed");
+      setStage(active.dataset.stage, "failed");
+    } else if (/parasail/i.test(event.data?.error || "")) {
+      setStage("parasail", "failed");
+    } else if (/YDC|YouSearch|You.com/i.test(event.data?.error || "")) {
+      setStage("you", "failed");
     }
   }
 }
@@ -494,6 +510,8 @@ function renderTraceEvent(event) {
     analysisUI.specialists += 1;
   if (event.type === "run.completed") renderMetrics(event.data || {});
   renderImpact();
+  if (event.type === "run.failed")
+    $("#analysis-impact").innerHTML = `<p class="negative"><strong>Analysis stopped.</strong></p><p>${escapeHtml(event.data?.error || "The provider run failed.")}</p><p>The local loop planner is still available. Configure the provider to retry live analysis.</p>`;
   const [label, detail, className] = eventPresentation(event);
   const elapsed = `${(Number(event.elapsed_ms || 0) / 1000).toFixed(1)}s`;
   $("#analysis-events").insertAdjacentHTML(
@@ -620,6 +638,8 @@ async function decide() {
     if (load) load.ledger = result;
     renderSummary();
     applyFilters();
+    if (typeof CustomEvent !== "undefined")
+      document.dispatchEvent(new CustomEvent("haulage-decision"));
     $("#decision-dialog").close();
     state.pending = null;
     toast(
@@ -643,6 +663,7 @@ async function loadData() {
   state.deploymentMode = data.deployment?.mode || "server";
   state.recordedRunLoadId = data.deployment?.recorded_run_load_id || null;
   state.loads = data.loads;
+  state.brain = data.brain || {};
   state.summary = data.summary;
   if (state.deploymentMode === "static-demo") {
     const decisions = storedObject(DECISIONS_KEY);
@@ -667,6 +688,8 @@ async function loadData() {
   }
   renderSummary();
   applyFilters();
+  if (typeof CustomEvent !== "undefined")
+    document.dispatchEvent(new CustomEvent("haulage-ready"));
 }
 document.addEventListener("DOMContentLoaded", async () => {
   restoreManager();
@@ -709,6 +732,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     if (event.target.closest("#reset-filters")) resetFilters();
   });
+  for (const [selector, delta] of [["#loads-prev", -1], ["#loads-next", 1]])
+    $(selector).addEventListener("click", () => {
+      const next = state.filtered[(state.page + delta) * 6];
+      if (next) {
+        state.selectedId = String(next.load_id);
+        applyFilters();
+      }
+    });
   $("#inspector").addEventListener("click", (event) => {
     const analysisButton = event.target.closest("button[data-analyze]");
     if (analysisButton) {

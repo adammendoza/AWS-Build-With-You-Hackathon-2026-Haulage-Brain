@@ -1,0 +1,146 @@
+[
+  {
+    "load_id": "LOOP-101",
+    "status": "Available",
+    "from_": {
+      "town": "LONDON"
+    },
+    "to": {
+      "town": "BIRMINGHAM"
+    },
+    "distance_miles": 126,
+    "journey_minutes_est": 180,
+    "vehicle_requested": "Luton, Tail Lift",
+    "weight_kg": 850,
+    "agreed_rate_gbp": 440,
+    "pickup": {
+      "type": "window",
+      "start": "2026-10-30T09:00",
+      "end": "2026-10-30T10:00"
+    },
+    "deliver": "Same day",
+    "load_notes": [
+      "Synthetic closed-loop demonstration; confirm equipment before dispatch."
+    ]
+  },
+  {
+    "load_id": "LOOP-102",
+    "status": "Available",
+    "from_": {
+      "town": "BIRMINGHAM"
+    },
+    "to": {
+      "town": "LONDON"
+    },
+    "distance_miles": 126,
+    "journey_minutes_est": 180,
+    "vehicle_requested": "Luton, Tail Lift",
+    "weight_kg": 750,
+    "agreed_rate_gbp": 420,
+    "pickup": {
+      "type": "window",
+      "start": "2026-10-30T14:00",
+      "end": "2026-10-30T15:00"
+    },
+    "deliver": "Same day",
+    "load_notes": [
+      "Synthetic closed-loop demonstration; confirm equipment before dispatch."
+    ]
+  },
+  {
+    "load_id": "LOOP-201",
+    "status": "Available",
+    "from_": {
+      "town": "MANCHESTER"
+    },
+    "to": {
+      "town": "LEEDS"
+    },
+    "distance_miles": 44,
+    "journey_minutes_est": 75,
+    "vehicle_requested": "7.5t Box, Tail Lift",
+    "weight_kg": 2500,
+    "agreed_rate_gbp": 310,
+    "pickup": {
+      "type": "window",
+      "start": "2026-10-30T08:00",
+      "end": "2026-10-30T09:00"
+    },
+    "deliver": "Same day",
+    "load_notes": [
+      "Synthetic closed-loop demonstration; confirm equipment before dispatch."
+    ]
+  },
+  {
+    "load_id": "LOOP-202",
+    "status": "Available",
+    "from_": {
+      "town": "LEEDS"
+    },
+    "to": {
+      "town": "MANCHESTER"
+    },
+    "distance_miles": 44,
+    "journey_minutes_est": 75,
+    "vehicle_requested": "7.5t Box, Tail Lift",
+    "weight_kg": 2200,
+    "agreed_rate_gbp": 290,
+    "pickup": {
+      "type": "window",
+      "start": "2026-10-30T12:00",
+      "end": "2026-10-30T13:00"
+    },
+    "deliver": "Same day",
+    "load_notes": [
+      "Synthetic closed-loop demonstration; confirm equipment before dispatch."
+    ]
+  },
+  {
+    "load_id": "LOOP-301",
+    "status": "Available",
+    "from_": {
+      "town": "BRISTOL"
+    },
+    "to": {
+      "town": "CARDIFF"
+    },
+    "distance_miles": 44,
+    "journey_minutes_est": 75,
+    "vehicle_requested": "Artic 44t Curtain Side",
+    "weight_kg": 18000,
+    "agreed_rate_gbp": 390,
+    "pickup": {
+      "type": "window",
+      "start": "2026-10-30T08:00",
+      "end": "2026-10-30T09:00"
+    },
+    "deliver": "Same day",
+    "load_notes": [
+      "Synthetic closed-loop demonstration; confirm equipment before dispatch."
+    ]
+  },
+  {
+    "load_id": "LOOP-302",
+    "status": "Available",
+    "from_": {
+      "town": "CARDIFF"
+    },
+    "to": {
+      "town": "BRISTOL"
+    },
+    "distance_miles": 44,
+    "journey_minutes_est": 75,
+    "vehicle_requested": "Artic 44t Curtain Side",
+    "weight_kg": 16000,
+    "agreed_rate_gbp": 370,
+    "pickup": {
+      "type": "window",
+      "start": "2026-10-30T12:00",
+      "end": "2026-10-30T13:00"
+    },
+    "deliver": "Same day",
+    "load_notes": [
+      "Synthetic closed-loop demonstration; confirm equipment before dispatch."
+    ]
+  }
+]

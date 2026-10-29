@@ -6,20 +6,25 @@
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#261f29" />
     <title>Haulage Brain · Dispatch workspace</title>
-    <link rel="stylesheet" href="app.css?v=7" />
+    <link rel="stylesheet" href="app.css?v=8" />
+    <link rel="stylesheet" href="spooky-brain.css?v=3" />
+    <link rel="stylesheet" href="creature-motion.css?v=1" />
+    <link rel="stylesheet" href="brain-replies.css?v=1" />
   </head>
   <body>
-    <a class="skip-link" href="#workspace">Skip to loadboard</a>
+    <a class="skip-link" href="#workspace">Skip to dispatch workspace</a>
     <aside class="sidebar" aria-label="Workspace navigation">
       <a class="brand" href="./" aria-label="Haulage Brain home"
         ><span class="brand-mark" aria-hidden="true">h<span>↗</span></span
         ><span
           >haulage<span class="brand-light">brain</span
-          ><small>THE AFTER-HOURS DISPATCH DESK</small></span
+          ><small>SPOOKY INTELLIGENCE FOR FREIGHT</small></span
         ></a
       >
       <div class="workspace-label">WORKSPACE <span>UK / GBP</span></div>
       <nav>
+        <a class="planner-jump" href="#brain-workspace"><span aria-hidden="true">✳</span> Spooky Brain <small>AI</small></a>
+        <a class="section-jump" href="#night-crew"><span aria-hidden="true">♧</span> The night crew <small>05</small></a>
         <button
           class="nav-item active"
           data-view="queue"
@@ -41,6 +46,8 @@
           ><b id="nav-decisions">0</b>
         </button>
       </nav>
+      <div class="sidebar-dispatch"><p class="eyebrow">TONIGHT’S DISPATCH</p><div><span>Loops found</span><b id="sidebar-loops">—</b></div><div><span>Loaded miles</span><b id="sidebar-loaded">—</b></div><div><span>Empty miles</span><b id="sidebar-empty">—</b></div><a href="#loadboard">Review the loadboard <span>↓</span></a></div>
+      <div class="sidebar-haunt"><p class="eyebrow">UNOFFICIAL NIGHT WATCH</p><button type="button" class="brain-buddy" aria-label="Poke the zombie brain"><img src="creature-brain.webp" alt="" width="130" height="130" /></button><p id="buddy-whisper">Brains for the road.<br />Not just the graveyard.</p><a href="#haunted-yard">Something is hiding down here ↓</a><div class="hunt-count"><span id="sidebar-hunt">0 / 3 stowaways found</span><i aria-hidden="true">···</i></div></div>
       <div class="sidebar-note">
         <button
           type="button"
@@ -130,16 +137,15 @@
               >SOMETHING IS OUT THERE.</span
             >
           </div>
-          <div class="hero-copy">
+          <button type="button" class="hero-brain brain-buddy" aria-label="Wake Spooky Brain"><img src="creature-brain.webp" alt="Spooky Brain, a zombie with an exposed pink brain" width="220" height="220" /><span>YOUR FRIENDLY NEIGHBOURHOOD DISPATCHER</span></button><div class="hero-copy">
             <p class="eyebrow edition-eyebrow">
-              <span class="edition-star" aria-hidden="true">✳</span> THE OPEN
-              HAUNT <span class="edition-divider">/</span> DISPATCH AFTER DARK
+              <span class="edition-star" aria-hidden="true">✳</span> SPOOKY INTELLIGENCE <span class="edition-divider">/</span> DISPATCH AFTER DARK
             </p>
-            <h1 id="hero-title"><span>The graveyard</span> <em>shift.</em></h1>
-            <p class="intro">Check the route. Check the quote. Get home.</p>
+            <h1 id="hero-title"><span>Spooky Brain.</span> <em>Frightfully good routes.</em></h1>
+            <p class="intro">Tell me what your fleet needs. I’ll connect the loads and find the way home.</p>
             <div class="hero-actions">
               <button class="button dark" id="review-next">
-                Review next load <span aria-hidden="true">↗</span></button
+                Explore the loads <span aria-hidden="true">↗</span></button
               ><span class="human-note"
                 ><svg
                   width="14"
@@ -159,7 +165,7 @@
                     stroke-width="1.2"
                   />
                 </svg>
-                Human approval. Every time.</span
+                AI understands. You stay in control.</span
               >
             </div>
           </div>
@@ -173,6 +179,35 @@
             ><span id="scene-action-label">Sweep the fog</span
             ><small id="scene-help">or move your light across the trees</small>
           </button>
+        </section>
+
+        <section class="brain-workspace" id="brain-workspace" aria-labelledby="brain-title">
+          <div class="brain-heading"><div><p class="eyebrow">THE WHOLE JOURNEY, CONNECTED</p><h2 id="brain-title">One conversation. A fleet of possibilities.</h2></div><span class="scenario-badge"><span></span> SYNTHETIC DISPATCH LAB</span></div>
+          <div class="brain-layout">
+            <div class="loop-desk">
+              <div class="loop-toolbar"><span class="desk-title"><span aria-hidden="true">↳</span> Loop planner</span><label>Load source<select id="plan-source"><option value="demo">6-load loop demo</option><option value="loadboard">89-load board</option></select></label><label>Dispatch date<input type="date" id="plan-date" value="2026-10-30" /></label></div>
+              <div class="loop-map" id="loop-map" aria-label="Schematic of suggested truck loops"><p class="planner-loading">Connecting the dots…</p></div>
+              <div class="loop-map-key"><span><i class="key-loaded"></i> Loaded leg</span><span><i class="key-empty"></i> Empty connection / home</span><span>SCHEMATIC · NOT A ROAD MAP</span></div>
+              <div class="loop-metrics" id="loop-metrics"></div>
+              <div class="fleet-loops-heading"><h3>Suggested vehicle loops</h3><span id="loop-count">—</span></div>
+              <div id="fleet-loops" class="fleet-loops"></div>
+              <details class="plan-assumptions"><summary>How Spooky Brain matches · assumptions & limits</summary><div id="plan-assumptions"></div></details>
+            </div>
+            <aside class="brain-chat" aria-label="Chat with Spooky Brain">
+              <div class="chat-heading"><span class="brain-sigil" aria-hidden="true"><img src="creature-brain.webp" alt="" width="70" height="70" /></span><div><h3>Spooky Brain</h3><span>SI / SPOOKY INTELLIGENCE</span></div><span class="brain-local" id="brain-ai-status">CONNECTING AI</span></div>
+              <div class="chat-messages" id="brain-messages" role="log" aria-label="Dispatch conversation"><div class="brain-message"><span class="message-author">SPOOKY BRAIN</span><p>Good routes take brains.</p><p>Tell me which trucks, where they start, and when they need to be home. Ask follow-up questions naturally — I’ll work out the constraints and calculate the loops.</p></div></div>
+              <div id="brain-activity" class="brain-activity" role="status" hidden><span></span><b>Parasail is understanding your request…</b></div><div id="brain-constraints" class="brain-constraints"></div><div class="chat-settings"><label>Home base<select id="plan-base"><option value="fleet">Each vehicle’s own base</option><option value="LONDON">London</option><option value="MANCHESTER">Manchester</option><option value="BRISTOL">Bristol</option></select></label><label>Home by<input id="plan-return" type="time" value="20:00" /></label></div>
+              <div class="chat-suggestions"><button type="button" data-brain-prompt="Reduce empty miles and get all trucks home by 18:00">Fewer empty miles ↗</button><button type="button" data-brain-prompt="Plan the most profitable loops">Prioritise surplus ↗</button></div>
+              <form id="brain-form"><label class="sr-only" for="brain-prompt">Ask Spooky Brain to calculate a route</label><textarea id="brain-prompt" rows="3" placeholder="Only use the rigid tomorrow. Back at its own depot by three. Find something for the way home…" maxlength="2000"></textarea><div class="composer-footer"><span>Ask naturally · follow up · refine</span><button type="submit" id="brain-send" aria-label="Calculate fleet loops">↑</button></div></form>
+              <p class="chat-footnote" id="brain-mode-note">AI interpretation + checked route calculations · human review</p>
+            </aside>
+          </div>
+        </section>
+        <section class="night-crew" id="night-crew" aria-labelledby="night-crew-title">
+          <div class="night-crew-heading"><div><p class="eyebrow">THE SERVICES BEHIND THE SPELL</p><h2 id="night-crew-title">Meet the night crew.</h2></div><button type="button" class="button quiet" id="crew-analyze">Watch a load analysis ↗</button></div>
+          <p class="crew-caption">Different creatures. One clever crew. Hover to meet them; service labels show when they’re working for you.</p>
+          <div class="provider-scenes" id="provider-scenes"></div>
+          <div id="provider-description" class="provider-description" role="status">Select a scene to inspect its role. Idle scenes are waiting; they do not indicate an API call.</div>
         </section>
         <section class="overview" aria-label="Loadboard summary" id="summary">
           <div class="metric">
@@ -195,11 +230,11 @@
             id="signal-strip"
           ></div>
         </section>
-        <section class="board" aria-label="Dispatch decisions">
+        <section class="board" id="loadboard" aria-label="Dispatch decisions">
           <div class="board-heading">
             <div>
               <h2 id="board-title">
-                Your decision queue <span id="queue-total">—</span>
+                Individual load review <span id="queue-total">—</span>
               </h2>
               <p id="board-caption">A clear view of the work ahead.</p>
             </div>
@@ -270,6 +305,7 @@
               <div id="loads" class="load-list">
                 <div class="loading-state">Preparing your loadboard…</div>
               </div>
+            <div class="queue-pages"><button type="button" id="loads-prev" aria-label="Previous loads">← Previous</button><span id="loads-page" role="status"></span><button type="button" id="loads-next" aria-label="Next loads">Next →</button></div>
             </section>
             <section
               id="inspector"
@@ -295,6 +331,7 @@
             >Manager decisions are saved to the local booking ledger.</span
           >
         </footer>
+        <section class="haunted-yard" id="haunted-yard" aria-labelledby="yard-title"><div class="yard-copy"><p class="eyebrow">THE HAUNTED LAY-BY</p><h2 id="yard-title">No ghoul left behind.</h2><p>Three stowaways are hiding at the depot.<br />Find them all. They need a lift home, too.</p><span id="yard-progress" role="status">0 / 3 found · tap a suspicious character</span></div><div class="yard-scene"><div class="yard-road" aria-hidden="true"></div><div class="yard-depot" aria-hidden="true"><span>HAULAGE BRAIN</span><i></i><i></i></div><button type="button" class="yard-egg yard-ghost" data-egg="ghost" aria-label="Investigate the ghost behind the depot" aria-pressed="false"></button><button type="button" class="yard-egg yard-spider" data-egg="spider" aria-label="Investigate the spider in the corner" aria-pressed="false"></button><button type="button" class="yard-egg yard-pumpkin" data-egg="pumpkin" aria-label="Investigate the pumpkin beside the road" aria-pressed="false"></button><span class="yard-sign" aria-hidden="true">HOME BASE ↗</span></div></section>
       </main>
     </div>
     <canvas id="spider-haunt" aria-hidden="true"></canvas>
@@ -397,6 +434,10 @@
     <div id="toast" role="status" aria-live="polite"></div>
     <script src="atmosphere.js?v=3" defer></script>
     <script src="easter-eggs.js?v=1" defer></script>
-    <script src="app.js?v=6" defer></script>
+    <script src="app.js?v=7" defer></script>
+    <script src="spooky-art.js?v=2" defer></script>
+    <script src="creature-motion.js?v=1" defer></script>
+    <script src="brain-replies.js?v=1" defer></script>
+    <script src="spooky-brain.js?v=4" defer></script>
   </body>
 </html>

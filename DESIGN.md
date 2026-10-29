@@ -110,9 +110,9 @@ Source: `src/load_quoting_swarm/web_assets/index.html`, `app.css`, and `app.js`.
 
 Before shipping a visual change: inspect the rendered screen, check responsive overflow, exercise filters and selection, verify dialog cancellation and submission states, run quote/ledger tests, and build the static artifact. Test decisions with an isolated ledger, rather than adding QA decisions to the manager’s working ledger.
 
-## Halloween interaction: the graveyard shift
+## Legacy photographic interaction: the graveyard shift
 
-The seasonal scene is a small ghost story embedded in the workspace background. The road photograph, imperfect light, and slow reveal should feel photographic and uncanny. Avoid toy-like 3D props, emoji decoration, visual polish that looks like a generated product render, and random particles.
+The earlier photographic treatment below is retained for the optional background effects. The newer light zombie-brain masthead and sponsor characters supersede its hero treatment. The legacy scene is a small ghost story embedded in the workspace background. The road photograph, imperfect light, and slow reveal should feel photographic and uncanny. Avoid toy-like 3D props, emoji decoration, visual polish that looks like a generated product render, and random particles.
 
 ### Inspiration and acclaim
 
@@ -125,7 +125,7 @@ The seasonal scene is a small ghost story embedded in the workspace background. 
 - **Sweep the fog** performs an approximately three-second torch sweep, ending at the apparition. **Look again** repeats the scan. This is a decorative scene, with no API calls and no connection to load recommendations or approval.
 - On touch screens, narrow viewports, and reduced-motion settings, the button reveals/resets a still scene immediately. It never forces a moving sequence.
 - The same photograph appears very faintly in the outer workspace background. Data panels remain opaque. All canvas decoration has `pointer-events: none`; interactions belong to the explicit scene button, moon, footer clue, and a keyboard Easter egg. The default pointer and all freight controls retain their normal behavior.
-- **Atmospheric effects** remains a persistent On / Off / Still control. Turning it off stops both renderers, disables the sweep and Easter-egg buttons, and removes the photographic wash around the workspace. Easter eggs never override this preference. The static hero photograph remains visible.
+- **Atmospheric effects** remains a persistent On / Off / Still control. Turning it off stops both renderers, disables the sweep and Easter-egg buttons, and removes the photographic wash around the workspace. Easter eggs never override this preference. The legacy hero photograph is hidden in the light zombie-brain edition.
 - The header renderer pauses when the hero leaves the viewport. The separate page-wide renderer works at every scroll position, wakes only for pointer movement, scrolling, or deliberate summons, and sleeps after its short activity window. Both pause for hidden tabs and dialogs. Each owns one loop capped at 24 frames per second; pixel ratio is capped at 1.5x for the header and 1.25x for page-wide effects. No sound, flashing, strobing, sudden full-screen changes, scroll hijacking, or click interception.
 - Missing canvas support or blocked storage must not affect the loadboard. A missing canvas disables the decorative scan. Browser-demo and synthetic-data labels stay visible at narrow breakpoints.
 
@@ -136,7 +136,7 @@ Asset: `src/load_quoting_swarm/web_assets/haunted-road.jpg`, 1800 × 1800, appro
 - [Original photo and photographer credit](https://unsplash.com/photos/a-road-through-a-foggy-forest-with-tall-trees-d7y2-B0_TRU)
 - [Unsplash License](https://unsplash.com/license): permits downloading and using the photo, including in commercial projects. It is included here as a local project asset, not fetched from a third-party service at runtime.
 - Display treatment: CSS monochrome and contrast, responsive crop, plus original procedural fog, light, and silhouette overlays. The photograph itself is preserved as downloaded.
-- All scene imagery is photographic. The silhouette, fog, light shaft, and short clearing trail are original procedural overlays.
+- The legacy forest scene imagery is photographic. The silhouette, fog, light shaft, and short clearing trail are original procedural overlays.
 
 Atmosphere lifecycle checks: `node --test tests/atmosphere.test.cjs`. These verify a single owned animation loop, pause/resume boundaries, an explicit reveal, static touch/reduced-motion behavior, persistence, and unavailable browser capabilities without calling providers.
 
@@ -150,3 +150,28 @@ Atmosphere lifecycle checks: `node --test tests/atmosphere.test.cjs`. These veri
 - The sidebar moon and **Still here?** footer clue deliberately wake the visitors. Typing **BOO** outside editable fields is an additional shortcut. Modified key chords, text fields, contenteditable regions, and open dialogs are excluded.
 - With reduced motion, touch, or narrow screens, explicit summons render a still composition. There is no automatic chase or moving drop on these devices.
 - The background canvas is below the main content; the spider’s foreground canvas draws only in measured navigation whitespace. Both ignore pointer events. Light mode, native scrolling, search, manager entry, and approval flow stay operational.
+
+
+## Closed-loop, AI-native workspace (28 October update)
+
+Spooky Brain is the main identity: a realistic, tactile zombie-brain cutout leads a compact light masthead and the large chat header. A sage/ivory conversation panel sits beside the loop schematic on desktop and above it on mobile. The left rail is light, filled with section links, current fleet totals, an interactive avatar and a link to the haunted lay-by. Lower work areas have direct anchors; six-row loadboard pagination lets the page scroll naturally instead of trapping the user in an 89-row list.
+
+Conversation now calls Parasail for structured intent and for an explanation of the solver’s result. The bounded route solver remains the authority for routes, timings, costs and limits. Applied extra constraints appear as removable chips. Clarifications and provider failures keep the last valid plan, with editable requests available for retry. Static Pages deployments explicitly require a backend for AI chat and retain only labelled precomputed route previews.
+
+Five dimensional creature cutouts on pastel cards replace the repeated dark forest: AWS pumpkin/cloud station, CrewAI web-weaving spider, You.com ghost with a searching magnifying glass, Parasail thinking zombie, and One skeleton hand above an approval letter. Actual service events set written working/completed/failed states. Hover/focus wakes the local illustration without changing its service state. The model-thinking avatar and activity text show AI requests in progress. The mathematical tools and safety gate have their own spellbook and lock illustrations in the trace dialog.
+
+The lower haunted lay-by provides a local three-character stowaway hunt, with shared progress shown in the sidebar. Brain pokes and the hunt never call a service or change any freight state. Preserve reduced-motion, offscreen and hidden-tab animation handling. Synthetic data, schematic routing, estimates, replay labels and human-review requirements remain explicit.
+
+
+### Realistic creature pass
+
+The zombie portrait and five provider presentations use alpha-preserving, locally served WebP cutouts with practical-effects material detail: wrinkled silicone, fine spider hairs and silk, frayed gauze, aged pumpkin skin, scratched brass and weathered bone. The zombie asset is shared by the avatar and Parasail. Keep provider names and status labels on a clear layer above and outside the art. Never darken the work surfaces to make the creatures visible.
+
+Pointer input moves only the creature layers through a bounded, shared smoothing loop. Web sway/weaving, ghost drift/wisps, brain breathing/neural rings, warm candle glow and a deliberate stamping gesture remain distinct. Keyboard focus and taps have a local decorative response. Working states still follow the real service trace; hovering or inspecting a character never starts a provider call. Reduce motion, effects-off, hidden tabs, offscreen scenes and dialog occlusion all stop the appropriate motion. Prompts and asset destinations are recorded in `docs/creature-assets.md`.
+
+
+### Reply readability and avatar alignment
+
+The assistant’s answer is structured as a short overview, a three-column totals strip and one compact card per vehicle. Each card shows its loop, UK home time, loaded/empty miles and estimated surplus, sourced from the checked solver payload. Longer reasoning and cost/load-ID details use native disclosures. AI text is escaped before the limited Markdown formatting is applied. The conversation opens at the start of a new answer instead of scrolling directly to its last line.
+
+The masthead uses two explicit grid columns, with the portrait sized to its column at every breakpoint. The chat header similarly reserves a fixed avatar slot and centers the image and two-line title block. This removes the former 175px image overflowing a 130px medium-width container.

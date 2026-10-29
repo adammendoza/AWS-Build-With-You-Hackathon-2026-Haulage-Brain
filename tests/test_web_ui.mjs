@@ -100,3 +100,36 @@ test('unreadable demo storage cannot prevent initialization', async () => {
   await ui.ready();
   assert.match(ui.element('#result-count').textContent, /0 of 0 loads/);
 });
+
+function populateQueue(ui, count = 13) {
+  ui.run(`state.loads = Array.from({length:${count}}, (_, i) => ({
+    load_id: String(i+1), status:'Available', from_:{town:'Route'+(i+1)}, to:{town:'London'},
+    distance_miles:10, agreed_rate_gbp:200, vehicle_requested:'Luton', pickup:{time:'2026-10-30T09:00'},
+    quote_analysis:{recommendation:'APPROVE',total:100,offered_rate_gbp:200,difference_gbp:100}
+  })); applyFilters();`);
+}
+
+test('loadboard pages six rows and preserves selection across next/previous', async () => {
+  const ui=app(); await ui.ready(); populateQueue(ui);
+  assert.equal(ui.element('#loads-page').textContent,'1–6 of 13');
+  assert.equal((ui.element('#loads').innerHTML.match(/data-select=/g)||[]).length,6);
+  ui.element('#loads-next').listeners.click();
+  assert.equal(ui.element('#loads-page').textContent,'7–12 of 13');
+  assert.equal(ui.run('state.selectedId'),'7');
+  ui.element('#loads-next').listeners.click();
+  assert.equal(ui.element('#loads-page').textContent,'13–13 of 13');
+  assert.equal(ui.element('#loads-next').disabled,true);
+  ui.element('#loads-prev').listeners.click();
+  assert.equal(ui.element('#loads-page').textContent,'7–12 of 13');
+});
+
+test('filtering a later queue page resets safely to the matching rows', async () => {
+  const ui=app(); await ui.ready(); populateQueue(ui);
+  ui.element('#loads-next').listeners.click();
+  ui.element('#search').value='Route13';
+  ui.run('applyFilters()');
+  assert.equal(ui.element('#loads-page').textContent,'1–1 of 1');
+  assert.equal(ui.run('state.selectedId'),'13');
+  assert.equal(ui.element('#loads-next').disabled,true);
+  assert.equal(ui.element('#loads-prev').disabled,true);
+});
