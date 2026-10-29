@@ -55,7 +55,7 @@ jobs:
           REGISTRY: ${{ steps.ecr.outputs.registry }}
         run: |
           image_uri="$REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA"
-          docker build --platform linux/amd64 --tag "$image_uri" .
+          docker build --platform linux/amd64 --provenance=false --tag "$image_uri" .
           docker push "$image_uri"
           echo "uri=$image_uri" >> "$GITHUB_OUTPUT"
       - name: Update Lambda and wait for rollout
