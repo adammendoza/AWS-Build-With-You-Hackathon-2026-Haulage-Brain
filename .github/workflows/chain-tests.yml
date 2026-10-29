@@ -42,6 +42,10 @@ jobs:
         with:
           role-to-assume: ${{ vars.AWS_LAMBDA_DEPLOY_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
+      - name: Sign in to Amazon ECR Public
+        run: |
+          aws ecr-public get-login-password --region us-east-1 \
+            | docker login --username AWS --password-stdin public.ecr.aws
       - name: Sign in to Amazon ECR
         id: ecr
         uses: aws-actions/amazon-ecr-login@v2
