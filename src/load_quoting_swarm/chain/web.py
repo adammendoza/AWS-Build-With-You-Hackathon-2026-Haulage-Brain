@@ -8,7 +8,7 @@ from http.server import ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
 
-from ..web import LoadboardState, make_handler as base_handler, _resolve_parameter
+from ..web import ASSET_DIR, LoadboardState, make_handler as base_handler, _resolve_parameter
 from ..analysis_runs import AnalysisRunManager
 from .chain_planner import plan_day
 from .discord import verify_interaction
@@ -35,7 +35,7 @@ def make_handler(state, service, runs=None, **auth):
         def _asset(self, name):
             if name == "index.html" and enabled():
                 # Add a fleet link at response time; existing assets stay byte-for-byte unchanged.
-                content = (ROOT / "src/load_quoting_swarm/web_assets/index.html").read_text().replace("</nav>", '<a class="nav-item" href="/fleet.html">Fleet policy simulation · exceptions</a></nav>', 1).encode()
+                content = (ASSET_DIR / "index.html").read_text().replace("</nav>", '<a class="section-jump" href="/fleet.html"><span aria-hidden="true">↻</span> Fleet simulation <small>100</small></a></nav>', 1).encode()
                 self.send_response(200)
                 self.send_header("Content-Type", "text/html; charset=utf-8")
                 self.send_header("Content-Length", str(len(content)))
@@ -117,8 +117,20 @@ def make_handler(state, service, runs=None, **auth):
     return Handler
 
 
+def load_environment(env_file=None):
+    """Share the workspace's .env.local convention without exposing credentials."""
+    from dotenv import find_dotenv, load_dotenv
+
+    if env_file and not env_file.is_file():
+        raise SystemExit("The configured environment file does not exist.")
+    load_dotenv(env_file or find_dotenv(".env.local", usecwd=True) or find_dotenv(usecwd=True))
+    if not env_file:
+        load_dotenv(find_dotenv(usecwd=True))
+    for name in ("YDC_API_KEY", "PARASAIL_API_KEY", "DEMO_PASSWORD"):
+        _resolve_parameter(name)
+
+
 def main():
-    from dotenv import load_dotenv
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--env-file", type=Path)
     parser.add_argument("--offline", action="store_true", help="Explicit synthetic diesel snapshot; no partner calls")
@@ -127,8 +139,7 @@ def main():
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
-    if args.env_file:
-        load_dotenv(args.env_file)
+    load_environment(args.env_file)
     username, password = os.getenv("DEMO_USERNAME"), os.getenv("DEMO_PASSWORD")
     if bool(username) != bool(password):
         raise SystemExit("DEMO_USERNAME and DEMO_PASSWORD must be configured together")

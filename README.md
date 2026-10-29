@@ -398,10 +398,13 @@ home. A truck without a legal way home stops at `NEEDS_HUMAN`; no illegal return
 leg is drawn or booked. These are simulation rules, not a comprehensive legal
 compliance engine (weekly hours, rest history and live road routing are absent).
 
-Existing modules, tests, `data/loads_v2.json` and `config/fleet.demo.json` are
-unchanged. The new server composes the existing loadboard handler and adds the
-fleet navigation link at response time. The incoming standalone `fleet.html` was
-not supplied; an interim page consumes the same `fleet_results.json` contract.
+The chain package from #5 composes the Spooky Brain/loadboard handler and adds a
+**Fleet simulation · 100** sidebar link when enabled. `/` keeps the AI chat,
+formatted truck-loop cards, light-mode characters and manual approval flow;
+`/fleet.html` consumes the separate 100-truck `fleet_results.json` contract.
+The chat uses the three-vehicle demo fleet or 89-load board. The fleet simulation
+uses its own 100-truck/903-load fixture; chat does not change or commit that fleet.
+`data/loads_v2.json` and `config/fleet.demo.json` stay unchanged.
 
 Use the existing Python environment, or install `pip install -e '.[dev]' cryptography`.
 For a local, explicitly offline test:
@@ -411,8 +414,12 @@ HB_ENABLE_CHAIN=1 PYTHONPATH=src python -m load_quoting_swarm.chain.web --offlin
 # Open http://127.0.0.1:8765/fleet.html
 ```
 
-Omit `--offline` to fetch live You.com market inputs; supply `--env-file` pointing
-to an uncommitted credential file. Never copy that file into the repository.
+Both server entry points load `.env.local` before `.env`; existing environment
+variables take precedence. `--env-file` selects an explicit credential file.
+`--offline` keeps fleet diesel synthetic; the Spooky Brain chat still needs its
+configured Parasail model. Omit `--offline` to fetch live You.com market inputs.
+Keep credential files uncommitted. Neither starting the server nor previewing the
+fleet sends Discord messages. Discord setup and production deployment remain deferred.
 `HB_CHAIN_ROOT` can point to the repository data/config root in an installed deployment.
 
 - `GET /api/chain` previews the golden single-driver scenario.
@@ -510,7 +517,7 @@ Checks before every push:
 
 ```bash
 pytest
-node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs tests/chain/test_fleet_ui.mjs
+node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs tests/easter-eggs.test.cjs tests/creature-motion.test.cjs tests/brain-replies.test.cjs tests/chain/test_fleet_ui.mjs
 PYTHONPATH=src python scripts/build_pages.py --output _site
 ```
 
