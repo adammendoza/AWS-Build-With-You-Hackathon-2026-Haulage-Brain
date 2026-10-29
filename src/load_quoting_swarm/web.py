@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import asyncio
 import base64
 import binascii
 import hashlib
@@ -15,7 +16,7 @@ from datetime import datetime
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from threading import Lock
+from threading import BoundedSemaphore, Lock
 from typing import Any
 from http.cookies import CookieError, SimpleCookie
 from urllib.parse import parse_qs, urlparse
@@ -23,6 +24,9 @@ from urllib.parse import parse_qs, urlparse
 from .analysis_runs import AnalysisRunManager
 from .ledger import BookingLedger, LedgerError
 from .pricing import quote
+from .spooky_brain import plan_loops
+from .brain_ai import respond
+from .inference import InferenceError
 
 
 ASSET_DIR = Path(__file__).with_name("web_assets")
@@ -33,6 +37,20 @@ ASSET_NAMES = (
     "atmosphere.js",
     "easter-eggs.js",
     "haunted-road.jpg",
+    "spooky-brain.js",
+    "spooky-brain.css",
+    "loop-demo.json",
+    "zombie-brain.svg",
+    "spooky-art.js",
+    "creature-motion.js",
+    "creature-motion.css",
+    "brain-replies.js",
+    "brain-replies.css",
+    "creature-brain.webp",
+    "creature-spider.webp",
+    "creature-ghost.webp",
+    "creature-pumpkin.webp",
+    "creature-skeleton.webp",
 )
 SESSION_COOKIE = "haulage_brain_session"
 
@@ -120,10 +138,33 @@ def quote_analysis(load: dict[str, Any]) -> dict[str, Any]:
 
 
 class LoadboardState:
-    def __init__(self, loads_path: Path, ledger_path: Path):
+    def __init__(self, loads_path: Path, ledger_path: Path, fleet_path: Path | None = None):
         self.loads_path = loads_path
+        self.fleet_path = fleet_path or loads_path.resolve().parent.parent / "config/fleet.demo.json"
         self.ledger = BookingLedger(ledger_path)
         self._decision_lock = Lock()
+        self._brain_slots = BoundedSemaphore(2)
+
+    def brain(self, body: dict[str, Any]) -> dict[str, Any]:
+        if not self._brain_slots.acquire(blocking=False):
+            raise RuntimeError("Spooky Brain is handling two requests. Please try again shortly.")
+        try:
+            fleet = json.loads(self.fleet_path.read_text(encoding="utf-8"))
+            return asyncio.run(respond(body, fleet, self.plan))
+        finally:
+            self._brain_slots.release()
+
+    def plan(self, body: dict[str, Any]) -> dict[str, Any]:
+        fleet = json.loads(self.fleet_path.read_text(encoding="utf-8"))
+        source = body.get("source", "demo")
+        if source not in {"demo", "loadboard"}:
+            raise ValueError("Choose demo or loadboard as the load source.")
+        loads = (json.loads((ASSET_DIR / "loop-demo.json").read_text())
+                 if source == "demo" else self.raw_loads())
+        result = plan_loops(loads, fleet, body, self.ledger.state() if source == "loadboard" else {})
+        result["source"] = source
+        result["input_loads"] = len(loads)
+        return result
 
     def raw_loads(self) -> list[dict[str, Any]]:
         payload = json.loads(self.loads_path.read_text(encoding="utf-8"))
@@ -149,6 +190,11 @@ class LoadboardState:
             if item.get("rate_per_mile") is not None
         ]
         return {
+            "brain": {
+                "provider": "Parasail",
+                "configured": bool(os.getenv("PARASAIL_API_KEY") and os.getenv("PARASAIL_MODEL")),
+                "model": os.getenv("PARASAIL_MODEL", ""),
+            },
             "deployment": {
                 "mode": "server",
                 "decision_store": "append-only booking ledger",
@@ -401,7 +447,7 @@ def make_handler(
                 return
             if not self._require_auth(path):
                 return
-            if path not in {"/api/decision", "/api/runs"}:
+            if path not in {"/api/decision", "/api/runs", "/api/plan", "/api/brain"}:
                 self.send_error(HTTPStatus.NOT_FOUND)
                 return
             try:
@@ -411,7 +457,11 @@ def make_handler(
                 body = json.loads(self.rfile.read(length) or b"{}")
                 if not isinstance(body, dict):
                     raise ValueError("request body must be a JSON object")
-                if path == "/api/runs":
+                if path == "/api/brain":
+                    self._json(state.brain(body))
+                elif path == "/api/plan":
+                    self._json(state.plan(body))
+                elif path == "/api/runs":
                     if runs is None:
                         raise ValueError("live analysis is not configured")
                     load_id = str(body.get("load_id") or "").strip()
@@ -420,9 +470,13 @@ def make_handler(
                     self._json(runs.start(load_id), HTTPStatus.ACCEPTED)
                 else:
                     self._json(state.decide(body), HTTPStatus.CREATED)
+            except OSError:
+                self._json({"error": "Planner fixture or fleet configuration is unavailable. Check the configured file paths."}, HTTPStatus.INTERNAL_SERVER_ERROR)
+            except InferenceError as exc:
+                self._json({"error": str(exc), "provider": "Parasail"}, HTTPStatus.SERVICE_UNAVAILABLE)
             except RuntimeError as exc:
                 self._json({"error": str(exc)}, HTTPStatus.TOO_MANY_REQUESTS)
-            except (LedgerError, ValueError, json.JSONDecodeError) as exc:
+            except (LedgerError, ValueError, TypeError, json.JSONDecodeError) as exc:
                 self._json({"error": str(exc)}, HTTPStatus.BAD_REQUEST)
 
         def log_message(self, format_string: str, *args: Any) -> None:
@@ -438,6 +492,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--ledger", type=Path, default=Path("var/booking-ledger.jsonl")
     )
     parser.add_argument("--fleet", type=Path, default=Path("config/fleet.demo.json"))
+    parser.add_argument("--env-file", type=Path, help="Server-only credentials file; defaults to .env.local, then .env")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--open", action="store_true", dest="open_browser")
@@ -447,18 +502,18 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     from dotenv import find_dotenv, load_dotenv
 
-    load_dotenv(find_dotenv(usecwd=True))
-    for secret_name in (
-        "YDC_API_KEY",
-        "PARASAIL_API_KEY",
-        "DEMO_PASSWORD",
-        "DISCORD_WEBHOOK_URL",
-    ):
-        _resolve_parameter(secret_name)
     args = build_parser().parse_args()
+    if args.env_file and not args.env_file.is_file():
+        raise SystemExit("The configured environment file does not exist.")
+    env_file = args.env_file or find_dotenv(".env.local", usecwd=True) or find_dotenv(usecwd=True)
+    load_dotenv(env_file)
+    if not args.env_file:
+        load_dotenv(find_dotenv(usecwd=True))
+    for secret_name in ("YDC_API_KEY", "PARASAIL_API_KEY", "DEMO_PASSWORD", "DISCORD_WEBHOOK_URL"):
+        _resolve_parameter(secret_name)
     if not args.loads.exists():
         raise SystemExit(f"load fixture not found: {args.loads}")
-    state = LoadboardState(args.loads, args.ledger)
+    state = LoadboardState(args.loads, args.ledger, args.fleet)
     runs = AnalysisRunManager(args.loads, args.fleet)
     auth_username = os.getenv("DEMO_USERNAME")
     auth_password = os.getenv("DEMO_PASSWORD")
