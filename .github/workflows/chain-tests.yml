@@ -1,0 +1,25 @@
+name: Chain and fleet checks
+on:
+  pull_request:
+  push:
+    branches: [main, feature/chain-fleet]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -e '.[dev]' cryptography
+      - name: Pytest
+        run: pytest
+      - name: Browser JavaScript tests
+        run: node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs tests/chain/test_fleet_ui.mjs
+      - name: Validate Pages build
+        run: python scripts/build_pages.py --output _site
