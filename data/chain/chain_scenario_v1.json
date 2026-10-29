@@ -1,0 +1,730 @@
+{
+ "scenario_id": "chain_v1",
+ "description": "One HGV driver, London home. Job 1 booked; agent chains jobs 2 and 3; after 15:00 it routes him home. Synthetic.",
+ "day": "2026-10-29",
+ "driver": {
+  "driver_id": "DRV-001",
+  "name": "Demo Driver",
+  "vehicle": "18t Curtain Side, Tail Lift",
+  "home": {
+   "label": "Walthamstow, London E17",
+   "coords": [
+    51.59,
+    -0.02
+   ]
+  },
+  "leaves_home_at": "06:00"
+ },
+ "config": {
+  "hgv_speed_mph": 38,
+  "urban_speed_mph": 14,
+  "urban_leg_miles": 8,
+  "regulated_vehicle_keywords": [
+   "7.5t",
+   "18t",
+   "Artic"
+  ],
+  "max_daily_driving_h": 9.0,
+  "break_after_h": 4.5,
+  "break_minutes": 45,
+  "load_minutes": 45,
+  "unload_minutes": 45,
+  "max_deadhead_miles": 30,
+  "max_wait_minutes": 60,
+  "min_margin": 0.08,
+  "cost_per_mile_gbp": 1.15,
+  "driver_cost_per_hour_gbp": 18.0,
+  "homeward_after": "15:00",
+  "home_by": "21:00",
+  "min_progress_miles": 5,
+  "approval_mode": "auto_book_within_policy",
+  "synthetic_economics": true
+ },
+ "first_job": {
+  "load_id": 91000099,
+  "status": "Accepted",
+  "category": "Building materials",
+  "from_": {
+   "name": "Stratford Depot",
+   "address": "Unit 3, Stratford Trading Estate",
+   "town": "STRATFORD",
+   "area": "Stratford",
+   "postcode": "E15 2PJ",
+   "lat": 51.54,
+   "lng": 0.0
+  },
+  "to": {
+   "name": "Birmingham Receiving Dock",
+   "address": "Unit 8, Birmingham Trading Estate",
+   "town": "BIRMINGHAM",
+   "area": "Birmingham",
+   "postcode": "B9 4AA",
+   "lat": 52.475,
+   "lng": -1.885
+  },
+  "distance_miles": 125.6,
+  "vehicle_requested": "18t Curtain Side, Tail Lift",
+  "agreed_rate_gbp": 380,
+  "rate_per_mile": 3.03,
+  "pickup": {
+   "type": "window",
+   "start": "2026-10-29T06:15",
+   "end": "2026-10-29T07:00"
+  },
+  "deliver": "ASAP",
+  "booked_by_company": "Northway Freight",
+  "weight_kg": null,
+  "packaging": "Pallets",
+  "load_notes": [
+   "Booked for driver DRV-001",
+   "Hi vis & safety boots required"
+  ],
+  "journey_minutes_est": 198
+ },
+ "candidate_pools": {
+  "after_job_1": [
+   {
+    "load_id": 91000114,
+    "status": "Available",
+    "category": "Pallets",
+    "from_": {
+     "name": "Birmingham Depot",
+     "address": "Unit 13, Birmingham Trading Estate",
+     "town": "BIRMINGHAM",
+     "area": "Birmingham",
+     "postcode": "B9 4AA",
+     "lat": 52.48,
+     "lng": -1.87
+    },
+    "to": {
+     "name": "Leeds Receiving Dock",
+     "address": "Unit 8, Leeds Trading Estate",
+     "town": "LEEDS",
+     "area": "Leeds",
+     "postcode": "LS10 1AB",
+     "lat": 53.785,
+     "lng": -1.535
+    },
+    "distance_miles": 111.3,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 430,
+    "rate_per_mile": 3.86,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T11:30",
+     "end": "2026-10-29T13:00"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 176
+   },
+   {
+    "load_id": 91000121,
+    "status": "Available",
+    "category": "Retail DC",
+    "from_": {
+     "name": "Birmingham Depot",
+     "address": "Unit 13, Birmingham Trading Estate",
+     "town": "BIRMINGHAM",
+     "area": "Birmingham",
+     "postcode": "B9 4AA",
+     "lat": 52.48,
+     "lng": -1.87
+    },
+    "to": {
+     "name": "Manchester Receiving Dock",
+     "address": "Unit 8, Manchester Trading Estate",
+     "town": "MANCHESTER",
+     "area": "Manchester",
+     "postcode": "M17 1AA",
+     "lat": 53.465,
+     "lng": -2.325
+    },
+    "distance_miles": 86.2,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 330,
+    "rate_per_mile": 3.83,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T11:30",
+     "end": "2026-10-29T13:00"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 136
+   },
+   {
+    "load_id": 91000128,
+    "status": "Available",
+    "category": "Pallets",
+    "from_": {
+     "name": "Birmingham Depot",
+     "address": "Unit 13, Birmingham Trading Estate",
+     "town": "BIRMINGHAM",
+     "area": "Birmingham",
+     "postcode": "B9 4AA",
+     "lat": 52.48,
+     "lng": -1.87
+    },
+    "to": {
+     "name": "Nottingham Receiving Dock",
+     "address": "Unit 8, Nottingham Trading Estate",
+     "town": "NOTTINGHAM",
+     "area": "Nottingham",
+     "postcode": "NG7 2AB",
+     "lat": 52.955,
+     "lng": -1.155
+    },
+    "distance_miles": 54.2,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 250,
+    "rate_per_mile": 4.61,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T11:30",
+     "end": "2026-10-29T13:00"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 86
+   },
+   {
+    "load_id": 91000135,
+    "status": "Available",
+    "category": "Building materials",
+    "from_": {
+     "name": "Birmingham Depot",
+     "address": "Unit 13, Birmingham Trading Estate",
+     "town": "BIRMINGHAM",
+     "area": "Birmingham",
+     "postcode": "B9 4AA",
+     "lat": 52.48,
+     "lng": -1.87
+    },
+    "to": {
+     "name": "Reading Receiving Dock",
+     "address": "Unit 8, Reading Trading Estate",
+     "town": "READING",
+     "area": "Reading",
+     "postcode": "RG2 0AA",
+     "lat": 51.455,
+     "lng": -0.975
+    },
+    "distance_miles": 98.1,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 170,
+    "rate_per_mile": 1.73,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T11:30",
+     "end": "2026-10-29T13:00"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 155
+   },
+   {
+    "load_id": 91000142,
+    "status": "Available",
+    "category": "Pallets",
+    "from_": {
+     "name": "Birmingham Depot",
+     "address": "Unit 13, Birmingham Trading Estate",
+     "town": "BIRMINGHAM",
+     "area": "Birmingham",
+     "postcode": "B9 4AA",
+     "lat": 52.48,
+     "lng": -1.87
+    },
+    "to": {
+     "name": "Coventry Receiving Dock",
+     "address": "Unit 8, Coventry Trading Estate",
+     "town": "COVENTRY",
+     "area": "Coventry",
+     "postcode": "CV6 4AB",
+     "lat": 52.415,
+     "lng": -1.515
+    },
+    "distance_miles": 19.0,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 90,
+    "rate_per_mile": 4.74,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T11:30",
+     "end": "2026-10-29T13:00"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 30
+   },
+   {
+    "load_id": 91000149,
+    "status": "Available",
+    "category": "Machinery",
+    "from_": {
+     "name": "Birmingham Depot",
+     "address": "Unit 13, Birmingham Trading Estate",
+     "town": "BIRMINGHAM",
+     "area": "Birmingham",
+     "postcode": "B9 4AA",
+     "lat": 52.48,
+     "lng": -1.87
+    },
+    "to": {
+     "name": "Derby Receiving Dock",
+     "address": "Unit 8, Derby Trading Estate",
+     "town": "DERBY",
+     "area": "Derby",
+     "postcode": "DE24 8AA",
+     "lat": 52.925,
+     "lng": -1.475
+    },
+    "distance_miles": 42.6,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 300,
+    "rate_per_mile": 7.04,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T09:30",
+     "end": "2026-10-29T10:45"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Collection closes 10:45"
+    ],
+    "journey_minutes_est": 67
+   },
+   {
+    "load_id": 91000156,
+    "status": "Available",
+    "category": "Furniture",
+    "from_": {
+     "name": "Birmingham Depot",
+     "address": "Unit 13, Birmingham Trading Estate",
+     "town": "BIRMINGHAM",
+     "area": "Birmingham",
+     "postcode": "B9 4AA",
+     "lat": 52.48,
+     "lng": -1.87
+    },
+    "to": {
+     "name": "Leicester Receiving Dock",
+     "address": "Unit 8, Leicester Trading Estate",
+     "town": "LEICESTER",
+     "area": "Leicester",
+     "postcode": "LE4 5AB",
+     "lat": 52.645,
+     "lng": -1.135
+    },
+    "distance_miles": 40.1,
+    "vehicle_requested": "LWB up to 4m",
+    "agreed_rate_gbp": 280,
+    "rate_per_mile": 6.98,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T11:30",
+     "end": "2026-10-29T13:00"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 63
+   },
+   {
+    "load_id": 91000163,
+    "status": "Available",
+    "category": "Pallets",
+    "from_": {
+     "name": "Stoke-on-Trent Depot",
+     "address": "Unit 3, Stoke-on-Trent Trading Estate",
+     "town": "STOKE-ON-TRENT",
+     "area": "Stoke-on-Trent",
+     "postcode": "ST4 2AA",
+     "lat": 53.0,
+     "lng": -2.18
+    },
+    "to": {
+     "name": "Birmingham Receiving Dock",
+     "address": "Unit 8, Birmingham Trading Estate",
+     "town": "BIRMINGHAM",
+     "area": "Birmingham",
+     "postcode": "B9 4AA",
+     "lat": 52.475,
+     "lng": -1.885
+    },
+    "distance_miles": 46.7,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 300,
+    "rate_per_mile": 6.42,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T11:30",
+     "end": "2026-10-29T13:00"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 74
+   }
+  ],
+  "after_job_2": [
+   {
+    "load_id": 91000170,
+    "status": "Available",
+    "category": "Retail DC",
+    "from_": {
+     "name": "Nottingham Depot",
+     "address": "Unit 13, Nottingham Trading Estate",
+     "town": "NOTTINGHAM",
+     "area": "Nottingham",
+     "postcode": "NG7 2AB",
+     "lat": 52.96,
+     "lng": -1.14
+    },
+    "to": {
+     "name": "Luton Receiving Dock",
+     "address": "Unit 8, Luton Trading Estate",
+     "town": "LUTON",
+     "area": "Luton",
+     "postcode": "LU5 5AY",
+     "lat": 51.885,
+     "lng": -0.425
+    },
+    "distance_miles": 97.8,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 280,
+    "rate_per_mile": 2.86,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T15:15",
+     "end": "2026-10-29T16:45"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 154
+   },
+   {
+    "load_id": 91000177,
+    "status": "Available",
+    "category": "Pallets",
+    "from_": {
+     "name": "Nottingham Depot",
+     "address": "Unit 13, Nottingham Trading Estate",
+     "town": "NOTTINGHAM",
+     "area": "Nottingham",
+     "postcode": "NG7 2AB",
+     "lat": 52.96,
+     "lng": -1.14
+    },
+    "to": {
+     "name": "Milton Keynes Receiving Dock",
+     "address": "Unit 8, Milton Keynes Trading Estate",
+     "town": "MILTON KEYNES",
+     "area": "Milton Keynes",
+     "postcode": "MK12 5AA",
+     "lat": 52.045,
+     "lng": -0.765
+    },
+    "distance_miles": 79.5,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 230,
+    "rate_per_mile": 2.89,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T15:15",
+     "end": "2026-10-29T16:45"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 126
+   },
+   {
+    "load_id": 91000184,
+    "status": "Available",
+    "category": "Pallets",
+    "from_": {
+     "name": "Nottingham Depot",
+     "address": "Unit 13, Nottingham Trading Estate",
+     "town": "NOTTINGHAM",
+     "area": "Nottingham",
+     "postcode": "NG7 2AB",
+     "lat": 52.96,
+     "lng": -1.14
+    },
+    "to": {
+     "name": "Northampton Receiving Dock",
+     "address": "Unit 8, Northampton Trading Estate",
+     "town": "NORTHAMPTON",
+     "area": "Northampton",
+     "postcode": "NN4 7AB",
+     "lat": 52.245,
+     "lng": -0.905
+    },
+    "distance_miles": 61.5,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 140,
+    "rate_per_mile": 2.28,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T15:15",
+     "end": "2026-10-29T16:45"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Low-paying but on the way home"
+    ],
+    "journey_minutes_est": 97
+   },
+   {
+    "load_id": 91000191,
+    "status": "Available",
+    "category": "Furniture",
+    "from_": {
+     "name": "Nottingham Depot",
+     "address": "Unit 13, Nottingham Trading Estate",
+     "town": "NOTTINGHAM",
+     "area": "Nottingham",
+     "postcode": "NG7 2AB",
+     "lat": 52.96,
+     "lng": -1.14
+    },
+    "to": {
+     "name": "Leicester Receiving Dock",
+     "address": "Unit 8, Leicester Trading Estate",
+     "town": "LEICESTER",
+     "area": "Leicester",
+     "postcode": "LE4 5AB",
+     "lat": 52.645,
+     "lng": -1.135
+    },
+    "distance_miles": 26.6,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 120,
+    "rate_per_mile": 4.51,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T15:15",
+     "end": "2026-10-29T16:45"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 42
+   },
+   {
+    "load_id": 91000198,
+    "status": "Available",
+    "category": "Machinery",
+    "from_": {
+     "name": "Nottingham Depot",
+     "address": "Unit 13, Nottingham Trading Estate",
+     "town": "NOTTINGHAM",
+     "area": "Nottingham",
+     "postcode": "NG7 2AB",
+     "lat": 52.96,
+     "lng": -1.14
+    },
+    "to": {
+     "name": "Sheffield Receiving Dock",
+     "address": "Unit 8, Sheffield Trading Estate",
+     "town": "SHEFFIELD",
+     "area": "Sheffield",
+     "postcode": "S9 1AA",
+     "lat": 53.385,
+     "lng": -1.475
+    },
+    "distance_miles": 39.6,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 260,
+    "rate_per_mile": 6.57,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T15:15",
+     "end": "2026-10-29T16:45"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 63
+   },
+   {
+    "load_id": 91000205,
+    "status": "Available",
+    "category": "Building materials",
+    "from_": {
+     "name": "Nottingham Depot",
+     "address": "Unit 13, Nottingham Trading Estate",
+     "town": "NOTTINGHAM",
+     "area": "Nottingham",
+     "postcode": "NG7 2AB",
+     "lat": 52.96,
+     "lng": -1.14
+    },
+    "to": {
+     "name": "Dartford Receiving Dock",
+     "address": "Unit 8, Dartford Trading Estate",
+     "town": "DARTFORD",
+     "area": "Dartford",
+     "postcode": "DA1 4AA",
+     "lat": 51.455,
+     "lng": 0.215
+    },
+    "distance_miles": 144.9,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 400,
+    "rate_per_mile": 2.76,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T15:15",
+     "end": "2026-10-29T16:45"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 229
+   },
+   {
+    "load_id": 91000212,
+    "status": "Available",
+    "category": "Pallets",
+    "from_": {
+     "name": "Nottingham Depot",
+     "address": "Unit 13, Nottingham Trading Estate",
+     "town": "NOTTINGHAM",
+     "area": "Nottingham",
+     "postcode": "NG7 2AB",
+     "lat": 52.96,
+     "lng": -1.14
+    },
+    "to": {
+     "name": "Reading Receiving Dock",
+     "address": "Unit 8, Reading Trading Estate",
+     "town": "READING",
+     "area": "Reading",
+     "postcode": "RG2 0AA",
+     "lat": 51.455,
+     "lng": -0.975
+    },
+    "distance_miles": 127.1,
+    "vehicle_requested": "18t Curtain Side, Tail Lift",
+    "agreed_rate_gbp": 300,
+    "rate_per_mile": 2.36,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T18:15",
+     "end": "2026-10-29T19:00"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 201
+   },
+   {
+    "load_id": 91000219,
+    "status": "Available",
+    "category": "Furniture",
+    "from_": {
+     "name": "Nottingham Depot",
+     "address": "Unit 13, Nottingham Trading Estate",
+     "town": "NOTTINGHAM",
+     "area": "Nottingham",
+     "postcode": "NG7 2AB",
+     "lat": 52.96,
+     "lng": -1.14
+    },
+    "to": {
+     "name": "Luton Receiving Dock",
+     "address": "Unit 8, Luton Trading Estate",
+     "town": "LUTON",
+     "area": "Luton",
+     "postcode": "LU5 5AY",
+     "lat": 51.885,
+     "lng": -0.425
+    },
+    "distance_miles": 97.8,
+    "vehicle_requested": "Luton, Tail Lift",
+    "agreed_rate_gbp": 260,
+    "rate_per_mile": 2.66,
+    "pickup": {
+     "type": "window",
+     "start": "2026-10-29T15:15",
+     "end": "2026-10-29T16:45"
+    },
+    "deliver": "ASAP",
+    "booked_by_company": "Northway Freight",
+    "weight_kg": null,
+    "packaging": "Pallets",
+    "load_notes": [
+     "Call contact on arrival"
+    ],
+    "journey_minutes_est": 154
+   }
+  ]
+ }
+}

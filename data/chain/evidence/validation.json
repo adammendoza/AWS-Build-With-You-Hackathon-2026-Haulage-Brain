@@ -1,0 +1,23 @@
+{
+  "pytest": {
+    "passed": 90
+  },
+  "browser_javascript": {
+    "passed": 13,
+    "failed": 0
+  },
+  "pages": {
+    "validated_loads": 89
+  },
+  "original_pack": {
+    "passed": 32
+  },
+  "real_chrome": "navigation, rendering, grouping, approve, acknowledge and escalate verified",
+  "backup_video": {
+    "duration_seconds": 80,
+    "path": "var/chain-evidence/backup-demo.mp4",
+    "production_deployed": false
+  },
+  "wheel": "fleet.html and fleet.js included",
+  "credentials": "not committed"
+}

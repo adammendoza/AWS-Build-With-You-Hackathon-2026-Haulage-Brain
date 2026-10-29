@@ -1,0 +1,263 @@
+{
+  "started_at": "2026-10-29T00:11:13.904570+00:00",
+  "synthetic_trucks": true,
+  "trucks": 3,
+  "events": [
+    {
+      "provider": "You.com",
+      "status": "succeeded"
+    },
+    {
+      "provider": "Parasail",
+      "status": "succeeded"
+    }
+  ],
+  "market": {
+    "diesel_price_ppl": 198.8,
+    "restriction_summary": "https://publicnoticeportal.uk/notice/traffic-and-roads/698328bab1ae485a337a304f Traffic & Roads Notice near SE15 5EW to read, save and share\n\nTraffic & Roads\n\nTry our AI Explainer\n\nThis notice is long. Get a simplified view of the most important information, including key dates and locations is seconds. # TfL - A202 GLA road, Peckham High Street - London Borough of Southwark - temporary prohibition of traffic and stopping order\nSE15 5EW\u2022Published 05/02/26\u2022Expired\n\nSouthwark News\u00a0\u2022\u00a0Publish a notice ## What is happening?\n**ROAD TRAFFIC REGULATION ACT 1984** **THE A202 GLA ROAD (PECKHAM HIGH STREET, LONDON BOROUGH OF** **SOUTHWARK) (TEMPORARY PROHIBITION OF TRAFFIC AND STOPPING)** **ORDER 2026** 1. Transport for London hereby gives notice that it has made the above named Traffic Order under section 14(1) of the Road Traffic Regulation Act 1984 for the purpose specified in paragraph 2. \u00a0 The effect of the Order is summarised in paragraph 3. 2. The purpose of the Order is to enable resurfacing works to take place at A202 Peckham High Street.\n\n3. The effect of the Order will be to prohibit any vehicle from: (1) entering, exiting or proceeding in a southerly direction on Peckham Hill\u00a0Stre",
+    "ulez_charge_gbp": 0.0,
+    "retrieved_at": "2026-10-29T00:11:14.773846+00:00",
+    "citations": [
+      {
+        "title": "UK petrol and diesel prices today: unleaded 173.1p, diesel 198.8p",
+        "url": "https://www.fuel-prices.eu/United-Kingdom/",
+        "snippet": "# How much do petrol and diesel cost today in the UK?\n## Official Monday average (DESNZ)\n199.22p/L\u20ac2.377/L\n\n\u22120.11p\u2212\u20ac0.001 (\u22120.1%) on the previous week (19\u00a0October)"
+      },
+      {
+        "title": "UK Fuel Price Index \u2014 Weekly Average Petrol & Diesel Prices",
+        "url": "https://www.petrolprices.co.uk/fuel-price-index.php",
+        "snippet": "UK Fuel Price Index: current weekly average petrol and diesel prices, historical trends, and downloadable data. Updated weekly from UK Government statistics.\n\nCurrent UK average: Unleaded 174.6p/litre, Diesel 199.3p/litre. Updated 19/10/2026."
+      },
+      {
+        "title": "UK Fuel Price Charts & Trends",
+        "url": "https://www.petrolprices.co.uk/fuel-prices.php",
+        "snippet": "# UK Fuel Price Trends\n## UK Average Fuel Prices (Latest Weekly Update)\n\nBased on UK Government weekly fuel price statistics.\n\nDiesel\n\n199.2p per litre\n\n-0.11p vs last week\n\nUpdated: 26/10/2026 \u00b7 Source: UK Government\n\nWeekly UK average prices \u00b7 Not live forecourt prices"
+      },
+      {
+        "title": "UK petrol and diesel prices: every week since 2003",
+        "url": "https://carbonrecycling.co.uk/tools/uk-petrol-diesel-prices",
+        "snippet": "# UK petrol and diesel prices: every week since 2003\nIn short\n\nIn the week of 19 October 2026, UK drivers paid on average 199.33p a litre for diesel and 174.57p for unleaded petrol, against 142.81p and 134.69p a year earlier. The chart below has every weekly government price since 9 June 2003, and the calculator turns any week's price into the cost and carbon of your driving."
+      },
+      {
+        "title": "UK Fuel Prices CSV & JSON: Petrol and Diesel",
+        "url": "https://utilhub.co.uk/resources/uk-fuel-prices/",
+        "snippet": "# UK weekly fuel prices.\nDiesel average**197.58p/L**Up 2.05p versus the prior week\n\nPence per litre. National averages, not local forecourt quotes. Source: DESNZ weekly road fuel prices."
+      },
+      {
+        "title": "UK Fuel Prices \u2014 Petrol 174.57p, Diesel 199.33p",
+        "url": "https://www.freeplatecheck.co.uk/stats/fuel-prices",
+        "snippet": "## Understanding UK Fuel Price Trends\n### Worried about rising fuel costs?\nWith petrol at 174.57p and diesel at 199.33p per litre, running costs matter more than ever."
+      },
+      {
+        "title": "UK Fuel Prices Fall Slightly: Petrol 174.07p, Diesel 199.22p - News and Statistics - IndexBox",
+        "url": "https://www.indexbox.io/blog/uk-pump-prices-edge-lower-in-latest-week/",
+        "snippet": "UK petrol fell 0.50p to 174.07p per litre and diesel eased 0.11p to 199.22p in the week commencing 26 October 2026, though prices remain far above year-earlier levels."
+      },
+      {
+        "title": "Diesel Prices UK: Weekly Tracker, Chart and Duty Breakdown",
+        "url": "https://www.contracttransportservices.co.uk/tools/diesel-prices-uk/",
+        "snippet": "# Diesel Prices UK\nOfficial average UK diesel and petrol pump prices from DESNZ weekly data, refreshed automatically. See the two year trend, week on week and year on year changes, the duty and VAT inside every litre, and what this week's price means in pence per mile."
+      },
+      {
+        "title": "TfL - A202 GLA road, Peckham High Street",
+        "url": "https://publicnoticeportal.uk/notice/traffic-and-roads/698328bab1ae485a337a304f",
+        "snippet": "Traffic & Roads Notice near SE15 5EW to read, save and share"
+      },
+      {
+        "title": "Notice near NG17 4JH, NG17 4HG and 70 more",
+        "url": "https://publicnoticeportal.uk/notice/traffic-and-roads/6a2fc994f0f250c6dd48f119",
+        "snippet": "Traffic & Roads Notice near NG17 4JH, NG17 4HG and 70 more to read, save and share"
+      }
+    ],
+    "source": "you.com"
+  },
+  "explanations": [
+    {
+      "truck_id": "T-001",
+      "specialists": {
+        "pricing": {
+          "summary": "T-001 (Artic 44t Curtain Side, HGV) ran a two-leg chained day from Peckham SE15: load 91100009 Peckham\u2192Nottingham (\u00a3740) then load 91105108 Nottingham\u2192Reading (\u00a3440), returning empty from Reading to Peckham. Revenue \u00a31,180, cost \u00a3802.05, profit \u00a3377.95 over 315.3 miles (51.6 empty miles, 16.4% empty ratio), 8.05 drive hours, one 45-minute break, max continuous 4.5h, home at 19:21. Baseline (empty return from Nottingham) was \u00a365.26 profit with 139.2 empty miles and home at 16:13, so the chained plan added \u00a3312.69 profit, cut empty miles by 87.6, and cost 3h08m later home time. At the 12:01 decision point in STANDARD mode the engine auto-booked 91105108 (Reading, \u00a3440, net_load \u00a394.62, margin 21.5%) over the empty-return alternative (net \u2212\u00a3313.20, home 16:13), an uplift of \u00a3298.74. A higher-paying Southampton load (91105195, \u00a3600, net \u00a3137.22) was correctly rejected as infeasible on OUT_OF_HOURS (10.3h driving needed vs 9.0h cap) and HOME_DEADLINE (21:48 vs 21:00 limit) \u2014 the 'tempting_illegal' extra \u00a342.60 was not taken. At 18:09 in HOMEWARD mode the engine drove home empty (net \u2212\u00a3109.08, home 19:21) because all four evaluated loads (Leeds \u00a3610, Manchester \u00a3480, Leeds \u00a3470, Manchester \u00a3450) failed on VEHICLE_MISMATCH, DEADHEAD_TOO_FAR, WINDOW_MISSED, BELOW_MARGIN_FLOOR, OUT_OF_HOURS, HOME_DEADLINE and MOVES_AWAY_FROM_HOME. Diesel at 198.8p/l is the main cost driver and is at the upper end of cited UK averages (197.6\u2013199.3p/l), so fuel cost assumptions are conservative. The only restriction evidence is an expired (published 05/02/26) TfL traffic order for Peckham High Street resurfacing, which does not affect the current plan.",
+          "risk_flags": [
+            "HOMEWARD_LEG_NEGATIVE: the final 48.1-mile empty return from Reading to Peckham is priced at net \u2212\u00a3109.08; the day's profit depends entirely on the two booked loads covering it.",
+            "LATE_HOME_TIME: home at 19:21 versus baseline 16:13 \u2014 the chained plan consumes 3h08m of additional driver time for \u00a3312.69 extra profit, and leaves only ~1h39m before the 21:00 home deadline, so any Reading-side delay would push the return into the HOME_DEADLINE gate.",
+            "TIGHT_HAULIAGE_CAP_HEADROOM: the Southampton option needed 10.3h driving against a 9.0h cap and would have landed at 21:48 vs a 21:00 limit \u2014 only ~\u00a342.60 of extra rate was available for a clear compliance breach, so the margin between legal and illegal was narrow.",
+            "MARGIN_FLOOR_BINDING: every rejected load at 18:09 was also below the 8% margin floor (\u22121% to \u221249%), meaning the rejections were not purely compliance-driven; the empty return was the only feasible option regardless of hours.",
+            "DEADHEAD_LIMIT_CONSTRAINT: the 30-mile max deadhead rule excluded all four 18:09 loads (47\u201352 mi) and the Norwich/Cardiff options (54\u201357 mi) at 12:01, so the search space was heavily constrained by deadhead distance rather than by rate.",
+            "EMPTY_MILE_RATIO_STILL_NONZERO: 51.6 of 315.3 miles (16.4%) were empty (1.0 + 2.5 deadhead plus 48.1 empty home leg), so the plan is not fully back-to-back.",
+            "FUEL_PRICE_SENSITIVITY: diesel at 198.8p/l sits at the top of the cited 197.6\u2013199.3p/l range and ~40% above the year-earlier 142.8p/l; a further rise would erode the \u00a3377.95 profit, and the 21.5% margin on the Reading leg is the thinnest buffer on the chosen loads.",
+            "RESTRICTION_EVIDENCE_STALE: the only traffic notice (Peckham High Street, SE15 5EW) is marked Expired and dated 05/02/26, so no current local restriction is confirmed for the home area; the restriction_summary field is effectively non-actionable.",
+            "WAIT_TIME_UNPRODUCTIVE: 16 minutes of wait at 06:49 and 33 minutes at 12:12 (49 min total) plus 45 min load and 45 min unload each \u2014 non-driving time is a material share of the 12h36m shift.",
+            "SINGLE_VEHICLE_SINGLE_DRIVER: one truck and one driver (DRV-001) with no redundancy; any breakdown, detention or load-window slip on the Nottingham\u2192Reading leg has no fallback in the plan."
+          ],
+          "confidence": 0.86
+        },
+        "compliance": {
+          "summary": "T-001 (Artic 44t Curtain Side, HGV) ran a two-leg chained day from Peckham SE15: load 91100009 Peckham\u2192Nottingham (\u00a3740) then load 91105108 Nottingham\u2192Reading (\u00a3440), returning home empty to Peckham at 19:21. Total revenue \u00a31,180, cost \u00a3802.05, profit \u00a3377.95 over 315.3 miles (51.6 empty miles, 16.4% empty ratio), 8.05 driving hours with one 45-minute break and a maximum continuous driving stint of 4.5h. The 12:01 STANDARD decision auto-booked 91105108 (Reading) over the empty-return baseline, adding \u00a3298.74 uplift; the higher-paying 91105195 to Southampton (\u00a3600, +\u00a342.6) was correctly rejected as infeasible on OUT_OF_HOURS (10.3h driving needed vs 9.0h cap) and HOME_DEADLINE (21:48 vs 21:00 limit). The 18:09 HOMEWARD decision drove home empty rather than taking any of four offered loads, all of which were correctly flagged infeasible (vehicle mismatch, deadhead distance, missed windows, negative margin, out-of-hours, home deadline, moving away from home). Baseline comparison shows profit up from \u00a365.26 to \u00a3377.95 and empty miles down from 139.2 to 51.6, with home arrival 19:21 versus 16:13 baseline. All compliance gates appear to have been applied as designed and no booking, hour, or gate was altered.",
+          "risk_flags": [
+            "DRIVING_HOURS_HEADROOM: 8.05h total driving against a 9.0h cap leaves only ~0.95h of remaining daily driving capacity; the Southampton option was rejected on this basis, so the day is close to the daily limit and any delay or extra leg would breach it.",
+            "HOME_DEADLINE_MARGIN: home at 19:21 versus a 21:00 limit gives ~1h39m of slack; the rejected Southampton load would have arrived 21:48, i.e. 48 minutes past the deadline.",
+            "MAX_CONTINUOUS_DRIVING: 4.5h maximum continuous stint is at the stated limit, so the single 45-minute break at 14:18-15:03 is the only separator between the two Reading driving segments; any extension of the 15:03-17:24 segment would breach the continuous limit.",
+            "BREAK_COUNT_MARGIN: only 1 break recorded across 8.05h driving; the EU/UK 4.5h rule requires a break after each 4.5h block, so there is no spare break in the schedule if the first block is extended.",
+            "EMPTY_MILES_STILL_PRESENT: 51.6 empty miles (16.4% of 315.3) remain, including 1.0 mi home-to-pickup, 2.5 mi Nottingham deadhead and 48.1 mi empty return from Reading to Peckham; the Reading leg is a net-to-home loss (-\u00a314.46) and was only justified by the \u00a3298.74 uplift versus the empty-return baseline.",
+            "LATE_HOME_VS_BASELINE: home at 19:21 is 3h08m later than the 16:13 baseline, reducing driver rest before the next shift; the 06:45 departure the following day leaves only ~11h24m rest, which is below the 11h daily rest minimum if the same pattern repeats.",
+            "MARGIN_FLOOR_NEAR_ZERO: the chosen Reading load has a 21.5% load margin but a net-to-home of -\u00a314.46, so the leg is only viable because of the chained-load uplift; a small rate or fuel movement would push it below the 8% margin floor.",
+            "RESTRICTION_NOTICE_EXPIRED: the only traffic restriction cited (TfL A202 Peckham High Street, SE15 5EW) is marked 'Published 05/02/26 - Expired', so it imposes no current constraint on the Peckham pickup or return; it should not be treated as an active gate.",
+            "FUEL_PRICE_SOURCE_VARIANCE: diesel is quoted at 198.8p/l in the market data while cited sources range 197.58p-199.33p; the cost model is sensitive to this input and the citation set is not fully consistent with the headline figure.",
+            "DECISION_TRACE_INCOMPLETE: only 2 of 273 evaluated options at 12:01 and 2 of 93 at 18:09 are shown in the trace, so the full option set and the basis for the AUTO_BOOK ranking cannot be independently verified from the evidence provided.",
+            "NO_REPORTED_BREAK_AFTER_FIRST_LEG: the 07:50-11:16 Nottingham drive is 3h26m and the 13:30-14:18 segment is 48m, but no break is recorded between the 11:16 unload and the 13:30 load; the 33-minute wait at 12:12-12:45 may or may not qualify as a rest period under the rules applied.",
+            "NO_ULRZ_CHARGE_APPLIED: ulez_charge_gbp is 0.0, which is consistent with a 44t articulated HGV operating outside the London ULEZ chargeable class, but the evidence does not explicitly confirm the vehicle's ULEZ status for the SE15 movements."
+          ],
+          "confidence": 0.82
+        },
+        "fleet-fit": {
+          "summary": "T-001 (Artic 44t Curtain Side, driver DRV-001) ran a two-leg chained day from Peckham SE15: load 91100009 Peckham\u2192Nottingham (\u00a3740) then load 91105108 Nottingham\u2192Reading (\u00a3440), returning empty from Reading. The plan departs home at 06:45 and is back at 19:21, with 315.3 miles total (51.6 empty), 8.05 driving hours, one 45-minute break at 14:18\u201315:03, and max continuous driving of 4.5h. Revenue \u00a31,180 against costs \u00a3802.05 gives profit \u00a3377.95, versus a baseline of \u00a365.26 profit with 139.2 empty miles and a 16:13 home time \u2014 so the plan adds \u00a3312.69 profit, cuts empty miles by 87.6, and brings the driver home 3h08m earlier. At the 12:01 decision point in Nottingham the dispatcher ran STANDARD mode and auto-booked 91105108 to Reading (\u00a3440, net load \u00a394.62, 21.5% margin), which beat the empty-return alternative (net \u00a3-313.20, home 16:13) by \u00a3298.74. At 18:09 in Reading, HOMEWARD mode correctly chose DRIVE_HOME_EMPTY (net \u00a3-109.08, home 19:21) because every available load was infeasible on multiple gates. The plan is deterministic and no bookings, hours, or compliance gates were altered.",
+          "risk_flags": [
+            "Tempting-illegal load 91105195 (Nottingham\u2192Southampton, \u00a3600) was correctly rejected: OUT_OF_HOURS (10.3h driving needed vs 9.0h cap) and HOME_DEADLINE (21:48 vs 21:00 limit). It would have added only \u00a342.60, so the compliance gates cost little here.",
+            "Longest continuous driving block is 4.5h (07:50\u201311:16, 137.6 miles loaded to Nottingham), which sits at the stated max_continuous_h limit with no margin for traffic or rest delays.",
+            "Only one break is recorded (14:18\u201315:03, 45 min) across 8.05 driving hours; the 15:03\u201317:24 leg is 2h21m continuous, so the break placement is load-bearing for the 4.5h cap.",
+            "Two wait periods totalling 69 minutes (06:49\u201307:05 and 12:12\u201312:45) are non-productive and are the main source of schedule slack; the 33-minute Nottingham wait is the largest single gap.",
+            "The second leg to Reading is split into two drive_loaded segments (32.4 mi then 93.7 mi) around the break, so the 126.1-mile Nottingham\u2192Reading haul is not a single continuous block \u2014 worth confirming this reflects a genuine rest stop rather than a split in the leg record.",
+            "All four loads considered at the 18:09 Reading decision failed on multiple gates simultaneously (DEADHEAD_TOO_FAR, BELOW_MARGIN_FLOOR, OUT_OF_HOURS, HOME_DEADLINE, MOVES_AWAY_FROM_HOME, plus VEHICLE_MISMATCH on the two Leeds loads and WINDOW_MISSED on two), leaving no viable backhaul and a 48.1-mile empty return leg.",
+            "Empty return from Reading costs \u00a3109.08 in net terms, so the final leg is loss-making; the day's profitability depends entirely on the two booked loads.",
+            "The market restriction summary cites a Peckham High Street traffic order (SE15 5EW) that is marked 'Expired' (published 05/02/26), so it does not currently constrain the 06:45 departure from Peckham, but the notice text is truncated and its expiry date is not confirmed in the evidence.",
+            "Diesel at 198.8p/l is near the top of the cited range (197.58\u2013199.33p across sources) and roughly 40% above the year-earlier 142.81p, so fuel cost assumptions are conservative but the cost base is exposed to further increases.",
+            "ULEZ charge is recorded as \u00a30.00, which is consistent with a 44t artic routed outside central London, but the plan's route to/from Peckham is not detailed enough to confirm no low-emission or weight-restricted streets are affected."
+          ],
+          "confidence": 0.86
+        }
+      }
+    },
+    {
+      "truck_id": "T-002",
+      "specialists": {
+        "pricing": {
+          "summary": "T-002 (18t Curtain Side with Tail Lift, driver DRV-002, dispatcher 2) completed a single loaded run from Streatham to Leeds (load 91100018, rate \u00a31,045) and was released at 14:06. The plan is deterministic and fully specified: 1.0 mi deadhead (06:15-06:19), 16 min wait at pickup (06:19-06:35), 45 min load (06:35-07:20), 177.2 mi loaded drive (07:20-11:45), a 45 min break (11:45-12:30), 33.6 mi loaded drive (12:30-13:21) and 45 min unload (13:21-14:06). Totals: 211.7 miles, 5.34 drive hours, 1 break, max continuous 4.5 h, revenue \u00a31,045, cost \u00a3456.79, profit \u00a3588.21. Baseline for the same day was \u00a3165.64 profit with 212.3 empty miles and a 20:08 home time, so the plan is a large improvement on baseline (+\u00a3422.57 profit, empty miles cut from 212.3 to 1.0). At 14:06 the truck is free in Leeds with no onward load selected: the STANDARD mode decision is NEEDS_HUMAN with chosen = null, and the empty-return option is infeasible (net -\u00a3408.76, home 20:08). All four candidate loads were rejected on feasibility grounds (vehicle mismatch, deadhead distance, wait time, margin floor, and out-of-hours / home-deadline breaches against a 9.0 h driving cap and 21:00 home limit), leaving the run to end with a human decision required. Market inputs are diesel at 198.8p/l, ULEZ charge \u00a30.00, and a TfL A202 Peckham High Street (SE15 5EW) temporary traffic order that is published 05/02/26 and expired, so it does not restrict the 06:15 Streatham deadhead.",
+          "risk_flags": [
+            "ESCALATED status with no chosen load after 14:06: the STANDARD decision returns NEEDS_HUMAN and chosen = null, so the day is left open for manual intervention.",
+            "Empty return from Leeds is infeasible: net -\u00a3408.76 and home at 20:08, so the truck has no compliant way home under the current plan.",
+            "All four evaluated candidate loads are infeasible, each citing OUT_OF_HOURS (11.7h to 14.8h driving needed vs 9.0h cap) and HOME_DEADLINE (home 22:40 to 03:36 vs 21:00 limit); no compliant onward load exists in the evaluated set.",
+            "Load 91104875 (Cardiff, \u00a3595) rejected for VEHICLE_MISMATCH against the 18t Curtain Side with Tail Lift, plus a 63 min wait and out-of-hours breach.",
+            "Load 91101677 (Ipswich, \u00a3550) rejected with DEADHEAD_TOO_FAR (49 mi vs 30 mi max) and BELOW_MARGIN_FLOOR (0% vs 8%); net_load_gbp of only \u00a32.65 leaves no economic cushion.",
+            "Load 91104146 (Southampton, \u00a3550) rejected for BELOW_MARGIN_FLOOR (6.4% vs 8% floor) with net_load_gbp \u00a335.09, so accepting it would be marginal even if hours allowed.",
+            "Load 91103609 (Watford, \u00a3535) is the closest to viable: net_to_home_gbp +\u00a34.25 and margin 9.9%, but fails on VEHICLE_MISMATCH, DEADHEAD_TOO_FAR (49 mi) and a 22:40 home time.",
+            "Max continuous driving of 4.5 h is at the stated limit, with only 1 break recorded; the 45 min break at 11:45-12:30 is the sole rest period in the 5.34 drive hours.",
+            "Diesel at 198.8p/l is materially above the ~174-175p/l petrol level and well above the ~142.8p/l paid a year earlier, so fuel cost is the dominant cost driver in the \u00a3456.79 cost base and any additional mileage erodes margin quickly.",
+            "70 loads were evaluated but only 4 are surfaced in the decision record, so the rejection reasons for the remaining 66 are not visible in this evidence.",
+            "The only cited road restriction (TfL A202 Peckham High Street, SE15 5EW) is marked expired, so it provides no current constraint on the Streatham deadhead; no other restrictions are evidenced for the Leeds or return legs."
+          ],
+          "confidence": 0.86
+        },
+        "compliance": {
+          "summary": "T-002 (18t Curtain Side with tail lift, HGV) completed a single booked load 91100018 from Streatham to Leeds, earning \u00a31,045 gross against \u00a3456.79 cost for \u00a3588.21 profit over 211.7 miles (1.0 empty mile deadhead from home to pickup). The vehicle left home at 06:15, waited 16 minutes at pickup (06:19-06:35), loaded 06:35-07:20, drove 177.2 miles loaded to 11:45, took a 45-minute break, drove a further 33.6 miles to 13:21, and unloaded by 14:06. At 14:06 the dispatcher evaluated 70 candidate loads and selected none: all four shortlisted options were rejected on feasibility grounds (vehicle mismatch, deadhead distance, wait time, below-margin floor, out-of-hours driving cap, and home deadline), and the empty-return leg to Streatham was itself infeasible (net -\u00a3408.76, home at 20:08). The plan therefore escalates to NEEDS_HUMAN with no second load booked and no return leg scheduled, leaving the truck's return to base unresolved in the plan. Baseline comparison shows the plan materially outperforms the baseline on profit (\u00a3588.21 vs \u00a3165.64) and empty miles (1.0 vs 212.3), with an earlier projected home time (20:08 vs 20:08 baseline, same).",
+          "risk_flags": [
+            "ESCALATED status with action NEEDS_HUMAN and chosen=null: no onward load and no return-to-home leg are booked, so the vehicle's return to Streatham is unconfirmed in the plan.",
+            "Empty return leg is marked feasible=false with net_gbp -408.76 and home_at 20:08; the return journey is cost-negative and its feasibility is unresolved.",
+            "All four shortlisted second-load options are infeasible, three of them primarily on OUT_OF_HOURS (needs 11.7h-14.8h driving vs 9.0h cap) and HOME_DEADLINE (home 22:40 to 03:36 vs 21:00 limit), indicating the 14:06 release from Leeds leaves insufficient legal/plan driving time to return home.",
+            "Option 91104875 (Cardiff) and 91103609 (Watford) carry VEHICLE_MISMATCH, so the 18t curtain-side/tail-lift specification does not match those loads' equipment requirements.",
+            "Option 91101677 (Ipswich) has DEADHEAD_TOO_FAR (49 mi vs 30 mi max) and BELOW_MARGIN_FLOOR (0% vs 8% floor); 91104146 (Southampton) is BELOW_MARGIN_FLOOR (6.4% vs 8%).",
+            "Option 91104875 also has WAIT_TOO_LONG (63 min) at pickup, adding further uncompensated idle time.",
+            "max_continuous_h of 4.5h is at/near the 4.5h EU-style driving limit; the 45-minute break at 11:45-12:30 is the only recorded break, and no further breaks are scheduled for the remaining 33.6 miles of loaded driving.",
+            "Only 1 break is recorded across 5.34 drive hours, which is consistent with the 4.5h continuous limit but leaves no margin for additional delay before the home deadline.",
+            "The 16-minute wait at pickup (06:19-06:35) is uncompensated and is not reflected as a separate cost line.",
+            "Market restriction data is a single expired TfL notice for Peckham High Street (SE15 5EW, published 05/02/26, marked Expired) near the Streatham home base; it is not a live restriction and provides no current diversion or closure guidance for the route.",
+            "Diesel price inputs vary across cited sources (197.58p to 199.33p/L) versus the 198.8p/L used; the cost figure is sensitive to which weekly average is applied.",
+            "ULEZ charge is recorded as 0.0 for the London home area, which is consistent with the 18t vehicle's exemption status but is not independently verified in the evidence.",
+            "Baseline empty_miles of 212.3 versus 1.0 in this plan is a very large divergence; the baseline figure is not explained by the recorded events and should be confirmed before being relied on for comparison."
+          ],
+          "confidence": 0.86
+        },
+        "fleet-fit": {
+          "summary": "T-002 (18t Curtain Side with tail lift, HGV) ran a single load, 91100018 Streatham to Leeds, for a gross rate of \u00a31045. The plan is fully deterministic and internally consistent: depart home 06:15, 1.0 mi deadhead to pickup (06:15-06:19), 16 min wait, 45 min load, then 210.8 loaded miles split across two driving legs (177.2 mi, 07:20-11:45; 33.6 mi, 12:30-13:21) with a 45 min break at 11:45, and a 45 min unload finishing at 14:06. Totals are 211.7 miles, 5.34 h drive, 1 break, max continuous 4.5 h, giving \u00a3456.79 cost and \u00a3588.21 profit against a \u00a3165.64 baseline profit, with empty miles of 1.0 versus 212.3 in the baseline. At 14:06 the truck is free in Leeds and the STANDARD mode decision returns NEEDS_HUMAN with no chosen option: the empty return to Streatham is infeasible (net -\u00a3408.76, home at 20:08) and all four candidate loads (Cardiff, Southampton, Ipswich, Watford) are rejected on feasibility grounds - vehicle mismatch, deadhead distance over the 30 mi cap, wait time over 60 min, margin below the 8% floor, and out-of-hours/home-deadline breaches against a 9.0 h driving cap and 21:00 home limit. 70 loads were evaluated in total. The truck status is ESCALATED and home_at is null, so the plan ends with the vehicle stranded in Leeds pending human direction. Market inputs are diesel at 198.8p/l, ULEZ charge \u00a30.00, and a TfL temporary traffic order on Peckham High Street (A202, Southwark) that is published 05/02/26 and expired, so it does not restrict the 06:15 Streatham deadhead.",
+          "risk_flags": [
+            "ESCALATED status with no chosen load after 14:06 - the plan terminates with the truck in Leeds and no compliant return or onward load, requiring human decision-making.",
+            "home_at is null while the baseline home_at was 20:08; the empty return is marked feasible=false with net -\u00a3408.76, so the vehicle has no compliant path home within the 9.0 h driving cap and 21:00 home deadline.",
+            "All four candidate loads fail on hard compliance gates: Cardiff (vehicle mismatch, 63 min wait, 14.8 h driving, home 03:36), Southampton (6.4% margin below 8% floor, 13.5 h driving, home 01:20), Ipswich (49 mi deadhead vs 30 mi max, 0.5% margin, 14.0 h driving, home 01:45), Watford (vehicle mismatch, 49 mi deadhead, 11.7 h driving, home 22:40).",
+            "Vehicle mismatch on two options suggests the 18t Curtain Side with tail lift is being offered loads requiring a different body type (likely a tail-lift-incompatible or non-curtainside requirement); the specific requirement is not stated in the evidence.",
+            "max_continuous_h of 4.5 h is exactly at the stated 4.5 h limit on the first loaded leg (07:20-11:45), leaving zero tolerance for any delay before the 11:45 break.",
+            "Only 1 break is recorded across 5.34 h of driving; the plan relies on the single 45 min break at 11:45 to satisfy the remaining 1.84 h of driving.",
+            "Home deadline pressure: the closest option to compliance is Watford at home 22:40 versus a 21:00 limit, a 100 min overshoot, and it also fails vehicle and deadhead gates.",
+            "The restriction_summary notice (Peckham High Street A202, Southwark) is published 05/02/26 and expired, so it is not a live constraint on the 06:15 deadhead; it is included as context only.",
+            "Diesel at 198.8p/l is materially above the prior-year level (~142.8p/l per the citation), which raises per-mile cost and is a contributing factor to the negative net figures on the return and on the low-margin options.",
+            "The 16 min wait at pickup (06:19-06:35) is short, but the Cardiff option's 63 min wait would breach the wait cap, indicating wait tolerance is a binding constraint on onward work."
+          ],
+          "confidence": 0.88
+        }
+      }
+    },
+    {
+      "truck_id": "T-003",
+      "specialists": {
+        "pricing": {
+          "summary": "T-003 (7.5t Box with Tail Lift, HGV) ran a single-load day from Tottenham N17 to Norwich and back. It left home at 07:00, deadheaded 1.0 mi to pickup, waited 16 minutes (07:04-07:20), loaded load 91100023 (Tottenham to Norwich, rate GBP 435) from 07:20 to 08:05, drove 111.5 loaded miles to Norwich (08:05-10:44), unloaded 10:44-11:29, then drove 74.5 empty miles home (11:29-13:15), took a 45-minute break (13:15-14:00), and completed the remaining 38.0 empty miles arriving home at 14:55. Totals: 225.0 miles (113.5 empty, 50.4% of mileage), 5.4 drive hours, 1 break, revenue GBP 435.00, cost GBP 415.46, profit GBP 19.54 (4.5% margin on revenue). At the 11:29 decision point the dispatcher was in STANDARD mode and the chosen action was DRIVE_HOME_EMPTY; the empty-return option was feasible with net GBP -184.05 and home at 14:55, and no alternative load was selected. All four candidate loads evaluated at that point (91101306 Southampton GBP 625, 91104336 Birmingham GBP 590, 91102778 Birmingham GBP 585, 91105990 Bristol GBP 535) were marked infeasible, each carrying VEHICLE_MISMATCH plus additional blocking reasons (OUT_OF_HOURS, HOME_DEADLINE, WAIT_TOO_LONG, PAYLOAD_EXCEEDED, DEADHEAD_TOO_FAR, BELOW_MARGIN_FLOOR). 42 loads were evaluated in total. Market context: diesel 198.8p/l, ULEZ charge GBP 0.00, and a TfL A202 Peckham High Street (SE15 5EW) temporary traffic order that is published 05/02/26 and expired, so it does not apply to this run. The plan is deterministic and no bookings, hours or compliance gates were altered.",
+          "risk_flags": [
+            "THIN_MARGIN: profit GBP 19.54 on GBP 435 revenue (~4.5%); cost GBP 415.46 leaves almost no buffer for fuel or rate variance",
+            "HIGH_EMPTY_MILEAGE: 113.5 of 225.0 miles empty (50.4%); empty return leg alone is quoted at net GBP -184.05",
+            "NO_FEASIBLE_BACKHAUL: all four candidate loads at the 11:29 decision point were infeasible, so the truck returned empty with no revenue-adding option available",
+            "VEHICLE_MISMATCH_ON_ALL_OPTIONS: every candidate load was flagged VEHICLE_MISMATCH for the 7.5t Box with Tail Lift, indicating a vehicle-type constraint that blocked higher-paying work (GBP 535-625)",
+            "OUT_OF_HOURS_AND_HOME_DEADLINE: three options required 9.5-12.1h driving against a 9.0h cap and implied home times of 22:30 to 03:43 against a 21:00 limit",
+            "LONG_WAITS: 357, 355 and 232 minute waits on three options; the executed day also carried a 16-minute pre-pickup wait",
+            "MARGIN_FLOOR_BREACH: 91105990 Bristol priced at 0.9% margin, below the 8% floor, with net_to_home of GBP -235.15",
+            "DEADHEAD_LIMIT: 91105990 required a 48 mi deadhead against a 30 mi maximum",
+            "PAYLOAD_EXCEEDED: 91102778 Birmingham exceeded payload for the 7.5t vehicle",
+            "DRIVE_TIME_HEADROOM: 5.4h total driving against a 4.5h max continuous limit, with only 1 break recorded (45 min at 13:15)",
+            "FUEL_PRICE_SENSITIVITY: diesel at 198.8p/l (national average, DESNZ weekly) is materially above the ~174p/l year-earlier level cited in the market citations, compressing an already thin margin",
+            "STALE_RESTRICTION_DATA: the only restriction notice supplied is a TfL A202 Peckham High Street order published 05/02/26 and marked expired; it is not on the Tottenham-Norwich route and provides no live restriction coverage for this run"
+          ],
+          "confidence": 0.86
+        },
+        "compliance": {
+          "summary": "T-003 (7.5t Box with Tail Lift, HGV) completed a single load (91100023, Tottenham to Norwich) for \u00a3435 revenue, then returned empty to its Tottenham home base at 14:55. Total cost \u00a3415.46, profit \u00a319.54, 225 miles (113.5 empty), 5.4 driving hours with one break and a maximum continuous driving stint of 4.5 hours. At the 11:29 decision point in Norwich the dispatcher evaluated 42 candidate loads and selected STANDARD mode with DRIVE_HOME_EMPTY; the empty return was feasible with a net of -\u00a3184.05 and home arrival 14:55. All four shortlisted alternatives (Southampton \u00a3625, Birmingham \u00a3590, Birmingham \u00a3585, Bristol \u00a3535) were rejected as infeasible, each carrying VEHICLE_MISMATCH plus combinations of OUT_OF_HOURS, HOME_DEADLINE, WAIT_TOO_LONG, PAYLOAD_EXCEEDED, DEADHEAD_TOO_FAR and BELOW_MARGIN_FLOOR. The plan is internally consistent with the baseline (identical profit, empty miles and home time), and no booking, hour or compliance gate has been altered. Market context: diesel at 198.8p/litre (consistent with DESNZ weekly averages of ~199p), ULEZ charge \u00a30, and a TfL temporary traffic prohibition on Peckham High Street (SE15 5EW) that is published as expired and is not on the Tottenham-Norwich route.",
+          "risk_flags": [
+            "THIN_MARGIN: profit of only \u00a319.54 on \u00a3435 revenue (4.5% net margin) leaves the job barely above break-even; the empty return leg is recorded as a net cost of -\u00a3184.05.",
+            "HIGH_EMPTY_MILE_RATIO: 113.5 of 225 miles (50.4%) are empty, with a 74.5-mile empty leg from Norwich back toward London plus a further 38.0-mile final leg.",
+            "NO_SECOND_LOAD: 42 loads were evaluated at the 11:29 decision point and none were taken; the truck idled in Norwich and drove home empty, so the return capacity was left unused.",
+            "DRIVING_HOURS_HEADROOM: 5.4 total driving hours against a 9.0h cap, with a 4.5h maximum continuous stint; the single 45-minute break at 13:15-14:00 is the only recorded rest, so the 4.5h continuous figure sits at the stated limit.",
+            "REJECTED_LOADS_CARRY_MULTIPLE_GATES: every shortlisted alternative failed on VEHICLE_MISMATCH plus at least one hours/deadline gate, indicating the 7.5t box vehicle is being offered loads outside its class; the Southampton option was otherwise the strongest (net_load \u00a3231.74, margin 37.1%) and was blocked mainly by hours and home deadline.",
+            "OUT_OF_HOURS_AND_DEADLINE_BREACHES_IN_OPTIONS: three options would have returned home at 22:30, 03:12 and 03:16 against a 21:00 limit, i.e. potential EU/UK drivers' hours and night-driving exposure had the gates not been applied.",
+            "PAYLOAD_EXCEEDED: load 91102778 (Birmingham, \u00a3585) exceeded payload for the 7.5t box vehicle, a physical capacity constraint that must not be overridden.",
+            "BELOW_MARGIN_FLOOR: load 91105990 (Bristol, \u00a3535) computed at 0.9% margin against an 8% floor, with net_to_home of -\u00a3235.15.",
+            "FUEL_PRICE_SENSITIVITY: diesel at 198.8p/litre is well above the ~142.8p/litre paid a year earlier, so the thin margin is exposed to further pump price movement.",
+            "RESTRICTION_NOTICE_UNVERIFIED: the only traffic restriction in the evidence is a TfL notice for Peckham High Street (SE15 5EW) that is marked expired and is off-route; no restriction check is evidenced for the A12/A140 Tottenham-Norwich corridor actually travelled.",
+            "SINGLE_LOAD_DEPENDENCE: revenue depends entirely on one load (91100023); no backhaul or contingency load was secured, and the plan's economics are therefore fragile to any delay in the Norwich unload (45 minutes) or the 16-minute pickup wait."
+          ],
+          "confidence": 0.86
+        },
+        "fleet-fit": {
+          "summary": "T-003 (7.5t Box with Tail Lift, HGV) ran a single-load day: deadhead 1.0 mi from Tottenham N17 to pickup, 16 min wait, loaded Tottenham\u2192Norwich (load 91100023, 111.5 mi, 08:05\u201310:44), 45 min unload, then 112.5 mi empty return split across a 45 min break (13:15\u201314:00), arriving home 14:55. Totals: 225.0 miles, 113.5 empty miles (50.4% of mileage), 5.4 drive hours, 1 break, max continuous 4.5 h. Revenue \u00a3435, cost \u00a3415.46, profit \u00a319.54 (4.5% margin on revenue). At the 11:29 decision point the dispatcher evaluated 42 candidate loads and selected STANDARD mode \u2192 DRIVE_HOME_EMPTY; the empty return was feasible (home 14:55) with net \u00a3-184.05 for the return leg. All four shortlisted alternatives (Southampton \u00a3625, Birmingham \u00a3590, Birmingham \u00a3585, Bristol \u00a3535) were rejected as infeasible, each carrying VEHICLE_MISMATCH plus combinations of OUT_OF_HOURS (9.5\u201312.1 h needed vs 9.0 h cap), HOME_DEADLINE (22:30\u201303:43 vs 21:00 limit), WAIT_TOO_LONG (232\u2013357 min), DEADHEAD_TOO_FAR (48 mi vs 30 mi max), PAYLOAD_EXCEEDED and BELOW_MARGIN_FLOOR. The plan is therefore a compliant, single-load day with a very thin profit, and the binding constraint on adding work was vehicle type plus the 9 h driving cap and 21:00 home deadline rather than rate quality \u2014 the Southampton load at \u00a3625 with 37.1% margin was rejected on vehicle mismatch and hours, not on economics.",
+          "risk_flags": [
+            "THIN_MARGIN: profit \u00a319.54 on \u00a3435 revenue (4.5%); cost \u00a3415.46 leaves almost no buffer for fuel, toll or delay variance.",
+            "HIGH_EMPTY_RATIO: 113.5 of 225.0 miles empty (50.4%); the return leg alone nets \u00a3-184.05, so the day depends entirely on the single \u00a3435 Norwich load.",
+            "SINGLE_LOAD_CONCENTRATION: only one load booked; no revenue diversification and no recovery option if the Norwich load is cancelled or delayed.",
+            "VEHICLE_MISMATCH_BLOCKS_UPGRADES: all four evaluated alternatives were rejected for VEHICLE_MISMATCH, including the highest-value Southampton load (\u00a3625, 37.1% margin, net_to_home \u00a368.65) \u2014 the 7.5t box/tail-lift configuration is the primary limiter on earning potential.",
+            "OUT_OF_HOURS_CAP_BINDING: alternatives needed 9.5\u201312.1 h driving against a 9.0 h cap, with home times of 22:30\u201303:43 versus a 21:00 limit; the 9 h cap and 21:00 deadline, not rate, are what stop a second load.",
+            "WAIT_TOO_LONG: candidate loads offered 232\u2013357 min waits at pickup, which would have pushed the day past the home deadline and eroded margin.",
+            "DEADHEAD_TOO_FAR: Bristol option required a 48 mi deadhead against a 30 mi max, adding unrecovered empty miles.",
+            "PAYLOAD_EXCEEDED on load 91102778 (\u00a3585 Birmingham), indicating the 7.5t body cannot take some offered loads.",
+            "BELOW_MARGIN_FLOOR on load 91105990 (Bristol, 0.9% vs 8% floor) \u2014 a sub-floor rate that would have been rejected on economics even if hours and vehicle had allowed it.",
+            "CONTINUOUS_DRIVING_AT_CAP: max continuous 4.5 h reached, equal to the stated cap, with only 1 break recorded across 5.4 drive hours; the 13:15\u201314:00 break is the sole rest period.",
+            "FUEL_PRICE_SENSITIVITY: diesel at 198.8p/l (weekly averages 197.6\u2013199.3p across cited sources) is materially above the ~174p a year earlier; with 225 miles and 50% empty running, a further pump-price rise or any detour directly erodes the \u00a319.54 profit.",
+            "RESTRICTION_NOTE_UNVERIFIED: the only traffic restriction supplied is a TfL A202 Peckham High Street order (SE15 5EW) that is marked Expired and is not on the Tottenham\u2013Norwich route; no route-specific restrictions for the A10/A11 or Norwich approaches were provided, so route compliance is unconfirmed.",
+            "MARKET_DATA_STALENESS: fuel citations are weekly national averages (19\u201326 Oct 2026) retrieved 2026-10-29, not live forecourt prices for the Tottenham/Norwich corridor."
+          ],
+          "confidence": 0.86
+        }
+      }
+    }
+  ],
+  "inference_usage": {
+    "prompt_tokens": 29097,
+    "completion_tokens": 9673,
+    "requests": 9,
+    "estimated_cost_usd": 0.009201,
+    "pricing_usd_per_million": {
+      "input": 0.15,
+      "output": 0.5
+    }
+  },
+  "status": "COMPLETED",
+  "discord": {
+    "status": "NOT_CONFIGURED",
+    "execute_one_action_succeeded": false,
+    "note": "User deferred Discord configuration. No Discord delivery or real manager approval is claimed."
+  }
+}

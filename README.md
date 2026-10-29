@@ -361,3 +361,133 @@ The Python suite covers the 89-load fixture, status filtering, vehicle/category 
 
 The offline end-to-end loop and browser UI work against 89 synthetic records, all marked Available for evaluation. They must not be presented as a live You.com, Parasail, One, or fleet run. A scored demo still requires real fleet economics, live partner API logs, the confirmed Discord channel, and an actual manager approval. No load is booked with a broker; `BOOKED` means an approved entry in this prototype's append-only booking ledger.
 
+
+## Opt-in chain and fleet simulation
+
+The additive planner lives in `src/load_quoting_swarm/chain/`. It plans the next
+load for each synthetic truck against one shared board. HGVs have a 9-hour driving
+cap and a 45-minute break after 4.5 hours; vans are exempt in this simplified
+simulation. When free at or after 15:00, trucks only take loads that move toward
+home. A truck without a legal way home stops at `NEEDS_HUMAN`; no illegal return
+leg is drawn or booked. These are simulation rules, not a comprehensive legal
+compliance engine (weekly hours, rest history and live road routing are absent).
+
+Existing modules, tests, `data/loads_v2.json` and `config/fleet.demo.json` are
+unchanged. The new server composes the existing loadboard handler and adds the
+fleet navigation link at response time. The incoming standalone `fleet.html` was
+not supplied; an interim page consumes the same `fleet_results.json` contract.
+
+Use the existing Python environment, or install `pip install -e '.[dev]' cryptography`.
+For a local, explicitly offline test:
+
+```bash
+HB_ENABLE_CHAIN=1 PYTHONPATH=src python -m load_quoting_swarm.chain.web --offline
+# Open http://127.0.0.1:8765/fleet.html
+```
+
+Omit `--offline` to fetch live You.com market inputs; supply `--env-file` pointing
+to an uncommitted credential file. Never copy that file into the repository.
+`HB_CHAIN_ROOT` can point to the repository data/config root in an installed deployment.
+
+- `GET /api/chain` previews the golden single-driver scenario.
+- `GET /api/fleet` and `GET /fleet_results.json` expose the shared-board plan and exception resolutions.
+- `POST /api/fleet` with `{"commit":true}` records eligible simulation bookings.
+- `POST /api/chain/decision` takes `exception_id`, `action` (`APPROVE` or `ESCALATE`), and an explicit `manager` identity.
+- `POST /api/chain/discord/interactions` receives signed Discord button interactions.
+
+All new routes return 404 unless `HB_ENABLE_CHAIN=1`. Reads do not book anything.
+The UI labels this **Policy auto-booking (simulation)**. Policy bookings call the
+existing `record_quote_summary(...)` and `decide(..., manager="policy:auto-book-v1")`
+APIs. Exception legs and their dependent legs wait for human review. Approving
+`OVER_HOURS_OPPORTUNITY` acknowledges the selected **legal** load, never the
+rejected 10-hour alternative. Approving `NEEDS_HUMAN` only acknowledges the need
+for manual dispatch. No broker or TMS is contacted.
+
+`--storage var/chain` holds a pinned day/scenario snapshot, SQLite decisions and
+claims, and an append-only booking ledger. Repeated requests and restarts use the
+same snapshot; input repricing does not silently rewrite approved plans. Use a
+fresh storage directory for a separate test scenario. SQLite serializes all
+workers sharing that directory. For production, configure authentication with
+`DEMO_USERNAME`/`DEMO_PASSWORD`, HTTPS and durable storage. This has only been
+prepared and tested locally: it is **not** deployed. The existing Lambda `/tmp`
+storage is not durable or shared; do not enable this implementation across
+independent Lambda instances without a shared transactional persistence adapter.
+
+### Discord approval setup and test status
+
+The approval callback is `/api/chain/discord/interactions` in
+`chain/web.py`. Configure an application Interactions Endpoint URL at that HTTPS
+path, set `DISCORD_PUBLIC_KEY`, `ONE_DISCORD_CHANNEL_ID`, and a comma-separated
+`HB_DISCORD_MANAGER_IDS` allowlist. Ed25519 signatures and timestamps are verified;
+only allowlisted managers in the configured channel can resolve exceptions.
+Repeated callbacks cannot duplicate bookings. See the
+[Discord interaction protocol](https://docs.discord.com/developers/interactions/receiving-and-responding).
+
+The exception publisher tries One twice (one retry) before considering
+`DISCORD_WEBHOOK_URL`. Webhook failures are logged by type only. A webhook message
+links to the authenticated fleet review page because incoming webhooks alone do
+not provide the application interaction callback. Never put the webhook URL in
+client code, evidence or Git. Configure `HB_PUBLIC_URL` for that review link.
+
+**Live Discord is pending:** the supplied credential file has empty One secret,
+connection and channel fields; no webhook is configured. One CLI preflight failed
+twice. `execute_one_action` has **not** succeeded. The user deferred channel/bot
+setup and requested test preparation only. The signed callback-to-ledger path is
+covered by HTTP tests, including approve, escalation, unauthorized managers,
+invalid signatures and replay/duplicate rejection. No real Discord approval is claimed.
+
+### Live provider evidence and re-baseline
+
+Run a few synthetic trucks with actual provider calls:
+
+```bash
+PYTHONPATH=src python -m load_quoting_swarm.chain.live \
+  --env-file /path/to/uncommitted/.env.local --limit 3 \
+  --output var/chain-evidence/live
+# Add --discord only after the channel and app are configured.
+```
+
+The verified three-truck run fetched **198.8p/L** from You.com and completed **nine
+Parasail specialist explanations**. The first JSON-object-mode attempt returned
+empty objects; the chain-specific client now requests a strict JSON schema and
+rejects empty explanations. Model narratives are advisory and cannot change the
+plan. Sanitized logs are in `data/chain/evidence/`; full local run artifacts and
+the backup video are in `var/chain-evidence/`. This is real provider usage on
+synthetic trucks and economics, not a live transport operation.
+
+Golden fixtures were re-baselined once against the checked-in **199.22p/L offline
+snapshot**. Costs now read the supplied FleetConfig profiles, including the 18t
+profile's 40mph speed, and include driver time during loading, unloading, waiting
+and breaks. The quote formula comes from the existing `pricing.py`. Overweight
+loads and quotes requiring manual review are blocked from policy selection.
+
+| Golden result | Handover | Integrated |
+|---|---:|---:|
+| Single driver profit | £391.48 | £244.23 |
+| Single driver home | 20:10 | 20:47 |
+| Single driver driving | 8.60h | 8.97h |
+| Final chained load | 91000170 (Luton) | 91000205 (Dartford) |
+| Fleet projected profit | £20,116.07 | £9,971.96 |
+| Fleet planned loads, including first jobs | 187 | 124 |
+
+The final single-driver option is now legal at the FleetConfig speed. The low-rate
+Northampton option no longer meets the margin floor after paid service time is
+counted. The integrated fleet has 92 projected home on time and 8 escalated.
+The empty-return baseline itself is non-compliant for those 8 trucks; comparisons
+are synthetic and are not proof of compliant operating savings.
+
+`dispatcher_id` (1–30) is only a UI grouping key. There is no staffing, capacity or
+headcount planner. `illustrative_dispatchers_needed` stays display-only and is
+labelled illustrative. Decision counts cover next-load choices only.
+
+Checks before every push:
+
+```bash
+pytest
+node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs tests/chain/test_fleet_ui.mjs
+PYTHONPATH=src python scripts/build_pages.py --output _site
+```
+
+The additive `.github/workflows/chain-tests.yml` runs these checks on pull requests
+and pushes to `main` or `feature/chain-fleet`. Existing Pages output stays unchanged;
+the fleet page is served by the flagged Python entry point.
