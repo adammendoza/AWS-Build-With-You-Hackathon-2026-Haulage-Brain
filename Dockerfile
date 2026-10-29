@@ -24,6 +24,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     HOME=/tmp \
     XDG_DATA_HOME=/tmp/.local/share \
     CREWAI_STORAGE_DIR=/tmp/crewai \
+    HB_CHAIN_ROOT=/app \
     AWS_LWA_PORT=8080 \
     AWS_LWA_READINESS_CHECK_PATH=/health
 
@@ -31,4 +32,4 @@ USER 10001
 
 EXPOSE 8080
 
-CMD ["haulage-brain-ui", "--host", "0.0.0.0", "--port", "8080", "--ledger", "/tmp/booking-ledger.jsonl"]
+CMD ["python", "-m", "load_quoting_swarm.chain.web", "--offline", "--host", "0.0.0.0", "--port", "8080", "--storage", "/tmp/chain"]

@@ -3,10 +3,10 @@ on:
   pull_request:
   push:
     branches: [main, feature/chain-fleet]
-permissions:
-  contents: read
 jobs:
   test:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,3 +23,49 @@ jobs:
         run: node --test tests/test_web_ui.mjs tests/atmosphere.test.cjs tests/chain/test_fleet_ui.mjs
       - name: Validate Pages build
         run: python scripts/build_pages.py --output _site
+
+  deploy-lambda:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: test
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: us-east-1
+      ECR_REPOSITORY: haulage-brain
+      LAMBDA_FUNCTION: haulage-brain
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_LAMBDA_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Sign in to Amazon ECR
+        id: ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      - name: Build and push immutable image
+        id: image
+        env:
+          REGISTRY: ${{ steps.ecr.outputs.registry }}
+        run: |
+          image_uri="$REGISTRY/$ECR_REPOSITORY:$GITHUB_SHA"
+          docker build --platform linux/amd64 --tag "$image_uri" .
+          docker push "$image_uri"
+          echo "uri=$image_uri" >> "$GITHUB_OUTPUT"
+      - name: Update Lambda and wait for rollout
+        env:
+          IMAGE_URI: ${{ steps.image.outputs.uri }}
+        run: |
+          aws lambda update-function-code \
+            --function-name "$LAMBDA_FUNCTION" \
+            --image-uri "$IMAGE_URI" \
+            --publish
+          aws lambda wait function-updated-v2 \
+            --function-name "$LAMBDA_FUNCTION"
+          deployed_digest="$(aws lambda get-function \
+            --function-name "$LAMBDA_FUNCTION" \
+            --query 'Code.ResolvedImageUri' \
+            --output text)"
+          echo "Deployed $deployed_digest"

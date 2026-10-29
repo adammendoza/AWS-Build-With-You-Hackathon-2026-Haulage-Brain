@@ -129,6 +129,13 @@ def main():
     args = parser.parse_args()
     if args.env_file:
         load_dotenv(args.env_file)
+    for secret_name in (
+        "YDC_API_KEY",
+        "PARASAIL_API_KEY",
+        "DEMO_PASSWORD",
+        "DISCORD_WEBHOOK_URL",
+    ):
+        _resolve_parameter(secret_name)
     username, password = os.getenv("DEMO_USERNAME"), os.getenv("DEMO_PASSWORD")
     if bool(username) != bool(password):
         raise SystemExit("DEMO_USERNAME and DEMO_PASSWORD must be configured together")
@@ -138,7 +145,6 @@ def main():
         if not args.offline:
             from ..grounding import YouSearchGrounding
             from ..models import FreightLoad
-            _resolve_parameter("YDC_API_KEY")
             fleet = json.loads((ROOT / "data/fleet/fleet_100_v1.json").read_text())
             result = asyncio.run(YouSearchGrounding().market_inputs(FreightLoad.from_raw(fleet["trucks"][0]["first_job"])))
             diesel, market = result.diesel_price_ppl, result.to_dict()

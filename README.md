@@ -236,6 +236,19 @@ python -m http.server 8000 --directory _site
 
 Then open <http://127.0.0.1:8000>.
 
+## Lambda deployment
+
+Pushes to `main` also run the full Python and browser test suite, build the
+container for `linux/amd64`, push an immutable commit-tagged image to ECR, and
+update the `haulage-brain` Lambda. GitHub Actions authenticates with AWS OIDC;
+the repository variable `AWS_LAMBDA_DEPLOY_ROLE_ARN` identifies the scoped
+deployment role, so no long-lived AWS access keys are stored in GitHub.
+
+The Lambda container starts the chain-capable server in deterministic offline
+fleet-planning mode. Set `HB_ENABLE_CHAIN=1` on the function to expose
+`/fleet.html`; the existing per-load analysis remains available from the main
+loadboard.
+
 ### Visual API trace
 
 Each Available load has a **Watch live APIs** action when the Python backend is
